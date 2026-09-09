@@ -23,6 +23,9 @@ import numpy as np
 from numpy.typing import ArrayLike, NDArray
 
 from plasma_ai.physics.argon_rates import ionization_rate_m3_s
+from plasma_ai.physics.constants import (
+    ARGON_ION_NEUTRAL_CROSS_SECTION_M2,
+)
 from plasma_ai.physics.energy_losses import (
     collisional_power_loss_density_w_m3,
     electron_temperature_eV_from_energy_density,
@@ -48,12 +51,18 @@ class GlobalModelParameters:
     flow_sccm: float
     pumping_speed_m3_s: float
     gas_temperature_K: float = 300.0
+    ion_neutral_cross_section_m2: float = (
+        ARGON_ION_NEUTRAL_CROSS_SECTION_M2
+    )
 
     def __post_init__(self) -> None:
         positive_fields = {
             "radius_m": self.radius_m,
             "length_m": self.length_m,
             "gas_temperature_K": self.gas_temperature_K,
+            "ion_neutral_cross_section_m2": (
+                self.ion_neutral_cross_section_m2
+            ),
         }
 
         nonnegative_fields = {
@@ -146,6 +155,7 @@ def global_model_terms(
         n0,
         params.radius_m,
         params.length_m,
+        params.ion_neutral_cross_section_m2,
     )
 
     neutral_feed_density_rate = (
@@ -223,7 +233,7 @@ def global_model_rhs(
     params: GlobalModelParameters,
 ) -> NDArray[np.float64]:
     """Return [dn0/dt, dni/dt, dPe/dt] for the global model."""
-    del time_s  # Autonomous system; kept for solve_ivp compatibility.
+    del time_s
 
     terms = global_model_terms(
         state,
