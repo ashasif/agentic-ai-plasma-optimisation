@@ -1,0 +1,23 @@
+{
+  "manifest_version": "1.0.0",
+  "dataset_name": "phase3_base_steady_state",
+  "features": [
+    "nominal_absorbed_power_W",
+    "target_pressure_mTorr"
+  ],
+  "primary_targets": [
+    "true_electron_density_m3",
+    "true_electron_temperature_eV"
+  ],
+  "secondary_targets": [
+    "true_neutral_density_m3",
+    "true_ion_density_m3",
+    "true_electron_energy_density_J_m3",
+    "ionization_rate_coefficient_m3_s",
+    "ionization_density_rate_m3_s",
+    "ionization_fraction",
+    "collisional_power_loss_W",
+    "wall_power_loss_W"
+  ],
+  "feature_policy": "Only the explicit features list may be supplied to the default Phase-4 surrogate models. Numeric-column auto-selection is forbidden."
+}
