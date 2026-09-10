@@ -1,0 +1,64 @@
+{
+  "dataset_name": "phase3_base_steady_state",
+  "dataset_version": "1.0.0",
+  "fixed_parameters": {
+    "flow_sccm": 20.0,
+    "gas_temperature_K": 300.0,
+    "ion_neutral_cross_section_m2": 1e-18,
+    "length_m": 0.25,
+    "radius_m": 0.17
+  },
+  "provenance": {
+    "config_file_sha256": "9e96ae76c5c82007ac98bbb2868b5edaa1742f22c37b0fa0a66f3be8e82482a3",
+    "config_sha256": "9bf3d46d8ee90b8bb789cc9c6780518d88ba278c9ef1983fc825f587f2120af9",
+    "dataset_sha256": "dc8d3a24f84b3eca9ce930a88e969e51892d69430ce5840cc546523e9f9dd423",
+    "feature_manifest_sha256": "e5b191a758c99f5d41fbafe8028b0d0d84a507fae68b535ae7a367508169b17e",
+    "git_head": "751ef1ccc0f8d1ec685bd1925412aa4fcda53941",
+    "physics_source_sha256": "5ae16e30f8ab065f03a3d332a5819d2aeaf9dc9f33cbeb70ea062ce2c5b5b8c0"
+  },
+  "row_count": 8192,
+  "sampling_dimensions": [
+    "nominal_absorbed_power_W",
+    "target_pressure_mTorr"
+  ],
+  "sampling_envelope": {
+    "absorbed_power_W": [
+      15.0,
+      90.0
+    ],
+    "target_pressure_mTorr": [
+      10.0,
+      60.0
+    ]
+  },
+  "sampling_method": "scrambled_sobol",
+  "scientific_scope": {
+    "data_type": "synthetic reduced-order argon plasma simulation",
+    "experimental_data": false,
+    "generator_power_equivalent": false,
+    "industrial_validation": false,
+    "oipt_operating_range": false,
+    "reactive_etch_prediction": false
+  },
+  "software": {
+    "numpy": "2.5.3",
+    "python": "3.12.5",
+    "scipy": "1.18.1"
+  },
+  "solver_and_validation": {
+    "balance_residual_limit": 1e-06,
+    "convergence_threshold_s": 1e-06,
+    "solver_end_time_s": 20.0,
+    "total_particle_identity_limit": 1e-12
+  },
+  "split_counts": {
+    "test": 2048,
+    "train": 4096,
+    "validation": 2048
+  },
+  "split_seeds": {
+    "test": 20260912,
+    "train": 20260910,
+    "validation": 20260911
+  }
+}

@@ -1,0 +1,4 @@
+# Canonical generated Phase-3 artifacts are byte-hashed.
+# Preserve LF endings across platforms for reproducible SHA-256 values.
+data/synthetic/phase3/*.csv text eol=lf
+artifacts/phase3/*.json text eol=lf
