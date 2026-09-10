@@ -1,0 +1,140 @@
+{
+  "actual_split_episode_counts": {
+    "test": 16,
+    "train": 32,
+    "validation": 16
+  },
+  "actual_split_row_counts": {
+    "test": 1024,
+    "train": 2048,
+    "validation": 1024
+  },
+  "dataset_name": "phase3_monitoring_episodes",
+  "dataset_version": "1.0.0",
+  "episode_count": 64,
+  "expected_design": {
+    "episodes": 64,
+    "rows": 4096,
+    "split_episode_counts": {
+      "test": 16,
+      "train": 32,
+      "validation": 16
+    },
+    "split_row_counts": {
+      "test": 1024,
+      "train": 2048,
+      "validation": 1024
+    }
+  },
+  "fault_design": {
+    "families": [
+      "flow_delivery",
+      "power_coupling",
+      "pressure_sensor_bias",
+      "pumping_effectiveness"
+    ],
+    "onset_step_range": [
+      16,
+      31
+    ],
+    "profiles": [
+      "step",
+      "drift"
+    ],
+    "single_fault_only": true
+  },
+  "feature_contract": {
+    "binary_target": "fault_effect_active",
+    "features": [
+      "nominal_absorbed_power_W",
+      "target_pressure_mTorr",
+      "nominal_flow_sccm",
+      "measured_absorbed_power_W",
+      "measured_flow_sccm",
+      "measured_pressure_mTorr"
+    ],
+    "group_columns": [
+      "episode_id",
+      "split"
+    ],
+    "multiclass_target": "active_fault_family",
+    "ordering_column": "step_index"
+  },
+  "interpretation": "ordered quasi-steady synthetic monitoring steps; step index is not calibrated physical time",
+  "measurement_noise": {
+    "absorbed_power_relative_sigma": 0.01,
+    "flow_relative_sigma": 0.005,
+    "pressure_relative_sigma": 0.005,
+    "truncation_sigma": 3.0
+  },
+  "nominal_recipe_envelope": {
+    "absorbed_power_W": [
+      25.0,
+      80.0
+    ],
+    "flow_sccm": 20.0,
+    "target_pressure_mTorr": [
+      20.0,
+      45.0
+    ]
+  },
+  "process_variability": {
+    "absorbed_power_relative_sigma": 0.01,
+    "flow_relative_sigma": 0.005,
+    "pumping_relative_sigma": 0.01,
+    "truncation_sigma": 3.0
+  },
+  "provenance": {
+    "base_config_file_sha256": "9e96ae76c5c82007ac98bbb2868b5edaa1742f22c37b0fa0a66f3be8e82482a3",
+    "dataset_sha256": "ee20fe9e6ffac4875911cba23247abeeeba236954349c1696cc1cb1ee59c7a3a",
+    "experiments_source_sha256": "b50d8f5e4999902dc96b9e0336d2192148d85a6bb35d06af3573599674c2572e",
+    "feature_manifest_sha256": "ece31a97b317bda2da3a366dec1fb69d8756e05f3da64b10268d033dabbe948b",
+    "git_head": "c1e828a95d0a0f3a5361e8d5a995144bbd72165f",
+    "monitoring_config_file_sha256": "8b3de2f691bc2779dfa63563e1c9db8590c06e826ed72460778c04295b11f224",
+    "monitoring_config_sha256": "97050370c435aa25d33ed6f95c4ea6e940ea7a0be9751b32ea5983e72b354540",
+    "physics_source_sha256": "5ae16e30f8ab065f03a3d332a5819d2aeaf9dc9f33cbeb70ea062ce2c5b5b8c0"
+  },
+  "qualified_base_envelope": {
+    "absorbed_power_W": [
+      15.0,
+      90.0
+    ],
+    "target_pressure_mTorr": [
+      10.0,
+      60.0
+    ]
+  },
+  "row_count": 4096,
+  "scientific_scope": {
+    "compound_faults": false,
+    "data_type": "synthetic quasi-steady reduced-order argon plasma monitoring simulation",
+    "experimental_data": false,
+    "fabricated_measured_electron_density": false,
+    "fabricated_measured_electron_temperature": false,
+    "generator_power_equivalent": false,
+    "industrial_validation": false,
+    "oipt_operating_range": false,
+    "ordered_steps_are_calibrated_physical_time": false,
+    "reactive_etch_prediction": false,
+    "synthetic_scenario_assumptions": true
+  },
+  "seeds": {
+    "episode_fault_plan": 20260921,
+    "measurement_noise": 20260923,
+    "process_variability": 20260922,
+    "recipe_design": 20260920
+  },
+  "software": {
+    "numpy": "2.5.3",
+    "python": "3.12.5",
+    "scipy": "1.18.1"
+  },
+  "solver_and_validation": {
+    "balance_residual_limit": 1e-06,
+    "cold_start_policy": "independent physics-informed Q/S neutral initialization",
+    "convergence_threshold_s": 1e-06,
+    "solver_end_time_s": 20.0,
+    "total_particle_identity_limit": 1e-12
+  },
+  "steps_per_episode": 64
+}

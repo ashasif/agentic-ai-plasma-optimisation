@@ -1,0 +1,156 @@
+{
+  "active_fault_domain_row_counts": {
+    "none": 2182,
+    "process": 1431,
+    "sensor": 483
+  },
+  "active_fault_family_row_counts": {
+    "flow_delivery": 471,
+    "none": 2182,
+    "power_coupling": 468,
+    "pressure_sensor_bias": 483,
+    "pumping_effectiveness": 492
+  },
+  "domain_status_counts": {
+    "supported": 4096
+  },
+  "episode_fault_family_counts": {
+    "flow_delivery": 12,
+    "none": 16,
+    "power_coupling": 12,
+    "pressure_sensor_bias": 12,
+    "pumping_effectiveness": 12
+  },
+  "episodes_total": 64,
+  "fault_direction_episode_counts": {
+    "negative": 30,
+    "positive": 18
+  },
+  "fault_profile_episode_counts": {
+    "drift": 24,
+    "step": 24
+  },
+  "fault_severity_episode_counts": {
+    "mild": 16,
+    "moderate": 16,
+    "severe": 16
+  },
+  "model_validity_status_counts": {
+    "valid": 4096
+  },
+  "rows_fault_effect_active": 1914,
+  "rows_fault_episode": 3072,
+  "rows_fault_started": 1938,
+  "rows_invalid": 0,
+  "rows_ml_eligible": 4096,
+  "rows_qualification_valid": 4096,
+  "rows_total": 4096,
+  "split_episode_counts": {
+    "test": 16,
+    "train": 32,
+    "validation": 16
+  },
+  "split_row_counts": {
+    "test": 1024,
+    "train": 2048,
+    "validation": 1024
+  },
+  "statistics": {
+    "fault_progress": {
+      "max": 1.0,
+      "mean": 0.3572998046875,
+      "min": 0.0,
+      "std": 0.44788543412221843
+    },
+    "max_balance_residual": {
+      "max": 1.8998910415011542e-07,
+      "mean": 2.4362219719362447e-08,
+      "min": 2.9700073020526994e-13,
+      "std": 2.758103798894256e-08
+    },
+    "max_relative_rate_s": {
+      "max": 1.5293356007223725e-07,
+      "mean": 2.9119893785276173e-08,
+      "min": 9.051071260439339e-11,
+      "std": 2.878061335425671e-08
+    },
+    "measured_absorbed_power_W": {
+      "max": 81.79621747039745,
+      "mean": 51.94164926857226,
+      "min": 19.683176173492814,
+      "std": 15.957667773197509
+    },
+    "measured_flow_sccm": {
+      "max": 23.367481116820876,
+      "mean": 20.02987280353976,
+      "min": 16.814680372938316,
+      "std": 0.5980038101216871
+    },
+    "measured_pressure_mTorr": {
+      "max": 55.626154475423185,
+      "mean": 32.58097089639827,
+      "min": 17.490848923350462,
+      "std": 7.511520504009071
+    },
+    "nominal_absorbed_power_W": {
+      "max": 79.46139333304018,
+      "mean": 52.49999997438863,
+      "min": 25.142828314565122,
+      "std": 15.865590275767767
+    },
+    "signed_fault_fraction": {
+      "max": 0.2,
+      "mean": -0.00813232421875,
+      "min": -0.2,
+      "std": 0.06412221931589726
+    },
+    "target_pressure_mTorr": {
+      "max": 44.628070928156376,
+      "mean": 32.49999998835847,
+      "min": 20.19055448938161,
+      "std": 7.215557439170321
+    },
+    "total_particle_identity": {
+      "max": 1.331130899027673e-16,
+      "mean": 4.201800770388638e-17,
+      "min": 0.0,
+      "std": 3.867778846218449e-17
+    },
+    "true_absorbed_power_W": {
+      "max": 80.87478663412695,
+      "mean": 51.95430951728462,
+      "min": 19.94281071542835,
+      "std": 15.959253041004752
+    },
+    "true_electron_density_m3": {
+      "max": 1.7548189509382144e+17,
+      "mean": 1.0015898447195622e+17,
+      "min": 3.677251943606537e+16,
+      "std": 3.2732263257569424e+16
+    },
+    "true_electron_temperature_eV": {
+      "max": 1.8781381636841032,
+      "mean": 1.7053751959524828,
+      "min": 1.5648680822204382,
+      "std": 0.0652150054831867
+    },
+    "true_flow_sccm": {
+      "max": 23.20552521421769,
+      "mean": 20.031144221137268,
+      "min": 16.84254115413309,
+      "std": 0.5894305998920111
+    },
+    "true_pressure_mTorr": {
+      "max": 55.48550745724149,
+      "mean": 32.60015639697624,
+      "min": 17.452083954262182,
+      "std": 7.599375849778361
+    },
+    "true_pumping_speed_m3_s": {
+      "max": 0.015070022396438442,
+      "mean": 0.009044173888274734,
+      "min": 0.0050461060213865885,
+      "std": 0.0022090012417392267
+    }
+  }
+}
