@@ -495,7 +495,7 @@ def simulate_base_design_point(
         and wall_power_loss_W >= 0.0
     )
 
-    balance_valid = (
+    balance_valid = bool(
         residuals["neutral_particle_balance"]
         < config.balance_residual_limit
         and residuals["ion_particle_balance"]
@@ -517,7 +517,7 @@ def simulate_base_design_point(
     else:
         model_validity_status = "valid"
 
-    qualification_valid = (
+    qualification_valid = bool(
         bool(solution.success)
         and bool(solution.converged)
         and physical_state_valid

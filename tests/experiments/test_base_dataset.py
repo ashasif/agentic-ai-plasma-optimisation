@@ -333,3 +333,15 @@ def test_base_schema_contains_no_monitoring_or_fault_columns():
     )
 
     assert "fault_present" not in field_names
+
+
+def test_tiny_dataset_validity_flags_are_native_python_booleans():
+    first, _ = _tiny_regeneration_pair()
+
+    for row in first:
+        assert type(row.integration_success) is bool
+        assert type(row.converged) is bool
+        assert type(row.physical_state_valid) is bool
+        assert type(row.balance_valid) is bool
+        assert type(row.qualification_valid) is bool
+        assert type(row.is_ml_eligible) is bool
