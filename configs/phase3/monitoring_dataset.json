@@ -1,0 +1,129 @@
+{
+  "dataset_name": "phase3_monitoring_episodes",
+  "dataset_version": "1.0.0",
+  "interpretation": "ordered quasi-steady synthetic monitoring steps; step index is not calibrated physical time",
+  "steps_per_episode": 64,
+
+  "nominal_recipe": {
+    "absorbed_power_min_W": 25.0,
+    "absorbed_power_max_W": 80.0,
+    "target_pressure_min_mTorr": 20.0,
+    "target_pressure_max_mTorr": 45.0,
+    "flow_sccm": 20.0
+  },
+
+  "fixed_model_parameters": {
+    "gas_temperature_K": 300.0,
+    "ion_neutral_cross_section_m2": 1e-18,
+    "radius_m": 0.17,
+    "length_m": 0.25,
+    "initial_electron_density_m3": 1e15,
+    "initial_electron_temperature_eV": 3.0,
+    "solver_end_time_s": 20.0,
+    "convergence_threshold_s": 1e-6,
+    "balance_residual_limit": 1e-6,
+    "total_particle_identity_limit": 1e-12,
+    "minimum_reasonable_electron_temperature_eV": 0.5,
+    "maximum_reasonable_electron_temperature_eV": 10.0
+  },
+
+  "splits": {
+    "train": {
+      "episodes": 32,
+      "normal": 8,
+      "power_coupling": 6,
+      "flow_delivery": 6,
+      "pumping_effectiveness": 6,
+      "pressure_sensor_bias": 6
+    },
+    "validation": {
+      "episodes": 16,
+      "normal": 4,
+      "power_coupling": 3,
+      "flow_delivery": 3,
+      "pumping_effectiveness": 3,
+      "pressure_sensor_bias": 3
+    },
+    "test": {
+      "episodes": 16,
+      "normal": 4,
+      "power_coupling": 3,
+      "flow_delivery": 3,
+      "pumping_effectiveness": 3,
+      "pressure_sensor_bias": 3
+    }
+  },
+
+  "process_variability": {
+    "absorbed_power_relative_sigma": 0.01,
+    "flow_relative_sigma": 0.005,
+    "pumping_relative_sigma": 0.01,
+    "truncation_sigma": 3.0
+  },
+
+  "measurement_noise": {
+    "absorbed_power_relative_sigma": 0.01,
+    "flow_relative_sigma": 0.005,
+    "pressure_relative_sigma": 0.005,
+    "truncation_sigma": 3.0
+  },
+
+  "fault_onset": {
+    "minimum_step": 16,
+    "maximum_step": 31
+  },
+
+  "fault_profiles": [
+    "step",
+    "drift"
+  ],
+
+  "faults": {
+    "power_coupling": {
+      "domain": "process",
+      "directions": [
+        "negative"
+      ],
+      "mild_fraction": 0.05,
+      "moderate_fraction": 0.10,
+      "severe_fraction": 0.20
+    },
+    "flow_delivery": {
+      "domain": "process",
+      "directions": [
+        "negative",
+        "positive"
+      ],
+      "mild_fraction": 0.03,
+      "moderate_fraction": 0.07,
+      "severe_fraction": 0.15
+    },
+    "pumping_effectiveness": {
+      "domain": "process",
+      "directions": [
+        "negative",
+        "positive"
+      ],
+      "mild_fraction": 0.05,
+      "moderate_fraction": 0.10,
+      "severe_fraction": 0.20
+    },
+    "pressure_sensor_bias": {
+      "domain": "sensor",
+      "directions": [
+        "negative",
+        "positive"
+      ],
+      "mild_fraction": 0.02,
+      "moderate_fraction": 0.05,
+      "severe_fraction": 0.10
+    }
+  },
+
+  "seeds": {
+    "recipe_design": 20260920,
+    "episode_fault_plan": 20260921,
+    "process_variability": 20260922,
+    "measurement_noise": 20260923
+  }
+}
