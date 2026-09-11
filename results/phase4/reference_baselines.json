@@ -1,0 +1,98 @@
+{
+  "data_usage": {
+    "evaluation_split": "validation",
+    "fit_split": "train",
+    "test_rows": 2048,
+    "test_targets_accessed": false,
+    "train_rows": 4096,
+    "validation_rows": 2048
+  },
+  "experiment": "reference_baselines",
+  "phase": "4B",
+  "results": [
+    {
+      "metrics": {
+        "mae": 3.98502501568116e+16,
+        "max_absolute_relative_error": 4.5896125178168345,
+        "mean_absolute_relative_error": 0.5628104202884389,
+        "median_absolute_relative_error": 0.34577741428691183,
+        "p95_absolute_relative_error": 1.9626755270759628,
+        "r2": -1.2321255127289987e-12,
+        "rmse": 4.751407627777382e+16
+      },
+      "model": "dummy_mean",
+      "target": "true_electron_density_m3",
+      "transform": "identity"
+    },
+    {
+      "metrics": {
+        "mae": 4.008722790616494e+16,
+        "max_absolute_relative_error": 3.933616131593782,
+        "mean_absolute_relative_error": 0.49949691628236625,
+        "median_absolute_relative_error": 0.3655748548826212,
+        "p95_absolute_relative_error": 1.61497621283577,
+        "r2": -0.06349806688992521,
+        "rmse": 4.89993865583007e+16
+      },
+      "model": "dummy_mean",
+      "target": "true_electron_density_m3",
+      "transform": "log10"
+    },
+    {
+      "metrics": {
+        "mae": 6883343596647822.0,
+        "max_absolute_relative_error": 1.1553614589592422,
+        "mean_absolute_relative_error": 0.10013601123470928,
+        "median_absolute_relative_error": 0.04745679047455119,
+        "p95_absolute_relative_error": 0.36734777656807194,
+        "r2": 0.9641848456023185,
+        "rmse": 8991987705285927.0
+      },
+      "model": "linear_regression",
+      "target": "true_electron_density_m3",
+      "transform": "identity"
+    },
+    {
+      "metrics": {
+        "mae": 9072873172475856.0,
+        "max_absolute_relative_error": 0.5773262200826024,
+        "mean_absolute_relative_error": 0.09782132977856597,
+        "median_absolute_relative_error": 0.08595606575704998,
+        "p95_absolute_relative_error": 0.25052224923434724,
+        "r2": 0.9366402802049272,
+        "rmse": 1.195993762099644e+16
+      },
+      "model": "linear_regression",
+      "target": "true_electron_density_m3",
+      "transform": "log10"
+    },
+    {
+      "metrics": {
+        "mae_eV": 0.11239939072260918,
+        "max_absolute_error_eV": 0.36072029064811617,
+        "mean_absolute_relative_error": 0.064544762734291,
+        "median_absolute_relative_error": 0.0631679810602904,
+        "p95_absolute_error_eV": 0.2776950512275806,
+        "r2": -9.126033262418787e-14,
+        "rmse_eV": 0.13578759100565996
+      },
+      "model": "dummy_mean",
+      "target": "true_electron_temperature_eV",
+      "transform": "identity"
+    },
+    {
+      "metrics": {
+        "mae_eV": 0.03177059029496896,
+        "max_absolute_error_eV": 0.13541159640446176,
+        "mean_absolute_relative_error": 0.01823247188431443,
+        "median_absolute_relative_error": 0.018284241755390358,
+        "p95_absolute_error_eV": 0.07493977461713952,
+        "r2": 0.9181342431732777,
+        "rmse_eV": 0.03885180713396074
+      },
+      "model": "linear_regression",
+      "target": "true_electron_temperature_eV",
+      "transform": "identity"
+    }
+  ]
+}
