@@ -1,0 +1,283 @@
+{
+  "protocol_version": "1.0.0",
+  "phase": "4A",
+  "status": "frozen",
+  "project": "Agentic AI for Reduced-Order ICP Plasma Process Monitoring, Fault Diagnosis and Constrained Operating-Point Optimisation",
+  "source_phase3_git_head": "247374c",
+  "datasets": {
+    "base": {
+      "path": "data/synthetic/phase3/base_steady_state.csv",
+      "sha256": "dc8d3a24f84b3eca9ce930a88e969e51892d69430ce5840cc546523e9f9dd423",
+      "rows": 8192,
+      "split_column": "split",
+      "splits": {
+        "train": 4096,
+        "validation": 2048,
+        "test": 2048
+      },
+      "allow_resplit": false
+    },
+    "monitoring": {
+      "path": "data/synthetic/phase3/monitoring_episodes.csv",
+      "sha256": "ee20fe9e6ffac4875911cba23247abeeeba236954349c1696cc1cb1ee59c7a3a",
+      "rows": 4096,
+      "allowed_for_surrogate_training": false,
+      "allowed_for_model_selection": false
+    }
+  },
+  "feature_contract": {
+    "features": [
+      "nominal_absorbed_power_W",
+      "target_pressure_mTorr"
+    ],
+    "units": {
+      "nominal_absorbed_power_W": "W",
+      "target_pressure_mTorr": "mTorr"
+    },
+    "automatic_numeric_feature_selection": false
+  },
+  "target_contract": {
+    "primary_targets": [
+      "true_electron_density_m3",
+      "true_electron_temperature_eV"
+    ],
+    "units": {
+      "true_electron_density_m3": "m^-3",
+      "true_electron_temperature_eV": "eV"
+    },
+    "primary_architecture": "separate_target_models",
+    "multi_output_initial_benchmark": false
+  },
+  "qualified_domain": {
+    "nominal_absorbed_power_W": {
+      "min": 15.0,
+      "max": 90.0
+    },
+    "target_pressure_mTorr": {
+      "min": 10.0,
+      "max": 60.0
+    },
+    "flow_sccm": 20.0,
+    "gas_temperature_K": 300.0,
+    "ion_neutral_cross_section_m2": 1e-18
+  },
+  "target_transform_policy": {
+    "true_electron_density_m3": {
+      "candidates": [
+        "identity",
+        "log10"
+      ],
+      "selection_split": "validation",
+      "report_metrics_on_physical_scale": true
+    },
+    "true_electron_temperature_eV": {
+      "candidates": [
+        "identity"
+      ],
+      "selection_split": "validation"
+    }
+  },
+  "candidate_models": {
+    "dummy_mean": {
+      "enabled": true
+    },
+    "linear_regression": {
+      "enabled": true
+    },
+    "polynomial_regression": {
+      "enabled": true,
+      "degree": [
+        2,
+        3
+      ],
+      "interaction_terms": true
+    },
+    "extra_trees": {
+      "enabled": true,
+      "random_state": 20260913,
+      "search_space": {
+        "n_estimators": [
+          200,
+          500
+        ],
+        "max_depth": [
+          null,
+          8,
+          16
+        ],
+        "min_samples_leaf": [
+          1,
+          2,
+          4
+        ],
+        "max_features": [
+          1.0
+        ]
+      }
+    },
+    "hist_gradient_boosting": {
+      "enabled": true,
+      "random_state": 20260913,
+      "search_space": {
+        "learning_rate": [
+          0.05,
+          0.1
+        ],
+        "max_iter": [
+          200,
+          400
+        ],
+        "max_leaf_nodes": [
+          15,
+          31
+        ],
+        "l2_regularization": [
+          0.0,
+          0.1
+        ]
+      }
+    },
+    "mlp": {
+      "enabled": false,
+      "policy": "May only be introduced through a documented pre-test protocol amendment if classical models show a meaningful validation limitation."
+    }
+  },
+  "metrics": {
+    "true_electron_density_m3": {
+      "reported": [
+        "mae",
+        "rmse",
+        "r2",
+        "mean_absolute_relative_error",
+        "median_absolute_relative_error",
+        "p95_absolute_relative_error",
+        "max_absolute_relative_error"
+      ],
+      "primary_validation_metric": "p95_absolute_relative_error",
+      "secondary_validation_metrics": [
+        "median_absolute_relative_error",
+        "rmse"
+      ]
+    },
+    "true_electron_temperature_eV": {
+      "reported": [
+        "mae_eV",
+        "rmse_eV",
+        "r2",
+        "mean_absolute_relative_error",
+        "median_absolute_relative_error",
+        "p95_absolute_error_eV",
+        "max_absolute_error_eV"
+      ],
+      "primary_validation_metric": "rmse_eV",
+      "secondary_validation_metrics": [
+        "p95_absolute_error_eV",
+        "mae_eV"
+      ]
+    }
+  },
+  "model_selection": {
+    "practical_equivalence_relative_fraction": 0.02,
+    "prefer_simpler_model_within_equivalence_band": true,
+    "physics_acceptance_can_override_statistical_ranking": true
+  },
+  "error_space": {
+    "normalisation": {
+      "nominal_absorbed_power_W": {
+        "min": 15.0,
+        "max": 90.0
+      },
+      "target_pressure_mTorr": {
+        "min": 10.0,
+        "max": 60.0
+      }
+    },
+    "near_boundary": {
+      "lower_max": 0.1,
+      "upper_min": 0.9
+    },
+    "central_domain": {
+      "lower": 0.2,
+      "upper": 0.8
+    },
+    "range_thirds": {
+      "low": [
+        0.0,
+        0.3333333333333333
+      ],
+      "middle": [
+        0.3333333333333333,
+        0.6666666666666666
+      ],
+      "high": [
+        0.6666666666666666,
+        1.0
+      ]
+    }
+  },
+  "physics_validation": {
+    "probe_grid": {
+      "type": "cartesian_regular",
+      "absorbed_power_points": 41,
+      "pressure_points": 41,
+      "total_points": 1681,
+      "include_domain_endpoints": true
+    },
+    "source_simulator_evaluated_first": true,
+    "probe_points_may_enter_training": false,
+    "checks": [
+      "positive_electron_density",
+      "positive_electron_temperature",
+      "density_vs_power_at_fixed_pressure",
+      "density_vs_pressure_at_fixed_power",
+      "temperature_vs_pressure_at_fixed_power",
+      "local_spurious_oscillation_check"
+    ],
+    "trend_reference": "source_simulator_on_same_probe_grid"
+  },
+  "data_use_policy": {
+    "development_fit_split": "train",
+    "selection_split": "validation",
+    "test_locked_during_development": true,
+    "test_may_affect_model_selection": false,
+    "final_refit_splits": [
+      "train",
+      "validation"
+    ],
+    "final_refit_rows": 6144,
+    "final_test_rows": 2048,
+    "retuning_after_test": false
+  },
+  "speed_benchmark": {
+    "freeze_timing_protocol_before_execution": true,
+    "record_hardware": true,
+    "record_python_version": true,
+    "record_package_versions": true,
+    "record_batch_size": true,
+    "record_warmup_policy": true,
+    "record_repetitions": true,
+    "hardware_dependent_claim": true
+  },
+  "scientific_claim_boundaries": [
+    "synthetic data",
+    "reduced-order argon plasma model",
+    "numerically qualified model envelope",
+    "surrogate of the reduced-order simulator",
+    "no experimental validation",
+    "no industrial validation",
+    "no OIPT operating-range claim",
+    "absorbed power is not generator RF power",
+    "no reactive etch/deposition prediction",
+    "no wafer-scale spatial modelling"
+  ],
+  "phase_structure": [
+    "4A_protocol",
+    "4B_data_and_baselines",
+    "4C_classical_benchmark",
+    "4D_validation_selection",
+    "4E_pretest_acceptance_and_refit",
+    "4F_locked_test",
+    "4G_speed_and_persistence",
+    "4H_closure"
+  ]
+}
