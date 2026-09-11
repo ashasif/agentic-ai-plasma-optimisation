@@ -127,9 +127,9 @@ Monitoring artifact commit:
 - [x] Dataset/fault-design documentation written.
 - [x] Scientific limitations documentation written.
 - [x] Final documentation QA.
-- [ ] Final Phase 3 documentation Git checkpoint.
-- [ ] Confirm clean working tree after final commit.
-- [ ] Formally declare Phase 3 closed.
+- [x] Final Phase 3 documentation Git checkpoint.
+- [x] Confirm clean working tree after final commit.
+- [x] Formally declare Phase 3 closed.
 
 ## Required claims discipline for later phases
 
