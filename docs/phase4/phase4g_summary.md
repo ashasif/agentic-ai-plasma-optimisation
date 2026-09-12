@@ -3,11 +3,11 @@
 ## Status
 
 **Phase:** 4G
-**Technical status:** COMPLETE
-**Formal closure:** PENDING
+**Technical status:** FORMALLY CLOSED
+**Formal closure:** COMPLETE
 **Model redevelopment:** PROHIBITED
 **TEST status:** CONSUMED - NOT ACCESSED IN PHASE 4G
-**Phase 4H status:** LOCKED PENDING FORMAL 4G CLOSURE
+**Phase 4H status:** UNLOCKED
 
 ---
 
@@ -677,32 +677,43 @@ Neither is experimental or out-of-distribution validation.
 
 ## 27. Phase boundary
 
-Phase 4G is technically complete.
+Phase 4G is formally closed.
 
-The following technical deliverables are complete:
+All required Phase 4G evidence is complete:
 
 - frozen Phase 4G protocol;
 - persistence implementation;
 - production persisted surrogate;
 - manifest and provenance;
 - Git LFS handling;
-- deterministic loader;
-- reproducible inference;
-- exact persistence equivalence;
+- deterministic production loader;
+- reproducible physical-scale inference;
+- exact 1,681-point persistence equivalence;
 - frozen timing implementation;
-- real speed benchmark;
-- frozen benchmark result;
+- real 64-point speed benchmark;
+- frozen benchmark artifact;
 - final technical audit;
-- complete repository regression.
-
-Formal closure still requires:
-
-- Phase 4G closure-documentation factual QA;
+- closure-documentation factual QA;
 - staged whitespace validation;
 - closure-documentation commit;
-- clean working-tree confirmation;
-- formal Phase 4G closure declaration.
+- clean working-tree gate.
 
-Phase 4H remains locked until those closure gates pass.
+Closure evidence:
+
+- Phase 4G protocol freeze commit: `771b16c`;
+- persistence implementation commit: `669da54`;
+- persisted-artifact freeze commit: `803488d`;
+- benchmark implementation commit: `e3fd699`;
+- benchmark-artifact freeze commit: `547ecd9`;
+- closure-documentation commit: `fb740be`;
+- closure-documentation factual QA: `105 / 105 checks passed`;
+- final repository regression: `393 passed`;
+- final technical audit: `PASS`;
+- TEST targets accessed in Phase 4G: `False`.
+
+The Phase 4 TEST split remains consumed and must not be reopened.
 
 No surrogate redevelopment is permitted.
+
+Phase 4H is formally unlocked for the final Phase 4 audit,
+consolidation, and closure.

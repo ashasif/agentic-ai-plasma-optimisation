@@ -7,8 +7,8 @@
 **Technical work:** COMPLETE
 **TEST status:** CONSUMED - NOT ACCESSED IN PHASE 4G
 **Model redevelopment:** PROHIBITED
-**Formal closure:** PENDING
-**Phase 4H:** LOCKED
+**Formal closure:** COMPLETE
+**Phase 4H:** UNLOCKED
 
 ---
 
@@ -377,23 +377,44 @@ Final technical audit:
 - Closure-documentation factual QA: `105 / 105 checks passed`.
 - TEST targets accessed during closure QA: `False`.
 - [x] Run staged whitespace check.
-- [ ] Commit Phase 4G closure documentation.
-- [ ] Confirm clean working tree.
-- [ ] Formally declare Phase 4G closed.
-- [ ] Formally unlock Phase 4H.
+- [x] Commit Phase 4G closure documentation.
+- [x] Confirm clean working tree.
+- [x] Formally declare Phase 4G closed.
+- [x] Formally unlock Phase 4H.
 
 ---
 
 ## Phase boundary
 
-Phase 4G is technically complete but not yet formally closed.
+Phase 4G is formally closed.
 
-Phase 4H remains locked.
+Phase 4H is formally unlocked.
 
-No additional timing run is required for Phase 4G.
+No additional Phase 4G timing run is required.
 
-No additional TEST evaluation is permitted.
+No additional Phase 4 TEST evaluation is permitted.
 
-Formal closure requires documentation factual QA, a clean staged validation
-gate, a closure-documentation commit, and final clean-working-tree
-confirmation.
+The frozen persisted surrogate, provenance records, persistence-equivalence
+evidence, and speed-benchmark artifact are the final Phase 4G evidence.
+
+## Formal closure record
+
+Phase 4G closure evidence:
+
+- protocol freeze commit: `771b16c`;
+- persistence implementation commit: `669da54`;
+- persisted-artifact freeze commit: `803488d`;
+- benchmark implementation commit: `e3fd699`;
+- benchmark-artifact freeze commit: `547ecd9`;
+- closure-documentation commit: `fb740be`;
+- persistence equivalence: exact equality on 1,681 points;
+- scalar speed-up: `2.944588193887268x`;
+- batch speed-up: `149.3016926004153x`;
+- closure-documentation factual QA: `105 / 105 checks passed`;
+- final repository regression: `393 passed`;
+- final technical audit: `PASS`;
+- TEST targets accessed during Phase 4G: `False`;
+- clean working tree confirmed before the formal closure update.
+
+Phase 4H is unlocked for the final Phase 4 audit,
+consolidation, and formal Phase 4 closure.
