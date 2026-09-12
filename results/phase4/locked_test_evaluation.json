@@ -1,0 +1,694 @@
+{
+  "data_usage": {
+    "final_fit_rows": 6144,
+    "final_fit_splits": [
+      "train",
+      "validation"
+    ],
+    "retuning_after_test_permitted": false,
+    "test_evaluation_performed": true,
+    "test_may_affect_model_selection": false,
+    "test_rows": 2048,
+    "test_targets_accessed": true
+  },
+  "density": {
+    "candidate_id": "phase4er_hist_gradient_boosting_lr0.05_iter400_leaves31_l20.1",
+    "error_space": {
+      "central_domain": {
+        "metrics": {
+          "mae": 1296246050127561.0,
+          "max_absolute_relative_error": 0.0848424039046155,
+          "mean_absolute_relative_error": 0.013856624382306016,
+          "median_absolute_relative_error": 0.00996547553911853,
+          "p95_absolute_relative_error": 0.04040859424015038,
+          "r2": 0.9964040741858782,
+          "rmse": 1700123355376392.8
+        },
+        "rows": 737
+      },
+      "corner_high_power_high_pressure": {
+        "metrics": {
+          "mae": 1147931307502048.2,
+          "max_absolute_relative_error": 0.022908636853543895,
+          "mean_absolute_relative_error": 0.006067044309552539,
+          "median_absolute_relative_error": 0.004897328778134598,
+          "p95_absolute_relative_error": 0.016843966160066916,
+          "r2": 0.9927307270087371,
+          "rmse": 1559845582216031.8
+        },
+        "rows": 227
+      },
+      "corner_high_power_low_pressure": {
+        "metrics": {
+          "mae": 2767214601985970.5,
+          "max_absolute_relative_error": 0.061016883340023434,
+          "mean_absolute_relative_error": 0.024203411312928236,
+          "median_absolute_relative_error": 0.024081419431795863,
+          "p95_absolute_relative_error": 0.04388969240659944,
+          "r2": 0.9700648142568707,
+          "rmse": 3177876240000288.0
+        },
+        "rows": 228
+      },
+      "corner_low_power_high_pressure": {
+        "metrics": {
+          "mae": 915267208284068.5,
+          "max_absolute_relative_error": 0.04068814110827514,
+          "mean_absolute_relative_error": 0.014213819985882437,
+          "median_absolute_relative_error": 0.013723248759979965,
+          "p95_absolute_relative_error": 0.030976286976436684,
+          "r2": 0.9958036859083905,
+          "rmse": 1116834992039982.8
+        },
+        "rows": 228
+      },
+      "corner_low_power_low_pressure": {
+        "metrics": {
+          "mae": 950694297920767.0,
+          "max_absolute_relative_error": 0.0848424039046155,
+          "mean_absolute_relative_error": 0.022555718330214587,
+          "median_absolute_relative_error": 0.01958606240268583,
+          "p95_absolute_relative_error": 0.055775519665910746,
+          "r2": 0.9871337701455393,
+          "rmse": 1346183464093241.0
+        },
+        "rows": 227
+      },
+      "interior": {
+        "metrics": {
+          "mae": 1222660605770526.2,
+          "max_absolute_relative_error": 0.0848424039046155,
+          "mean_absolute_relative_error": 0.013155881350817999,
+          "median_absolute_relative_error": 0.009801011929300416,
+          "p95_absolute_relative_error": 0.036875184056467745,
+          "r2": 0.9981540506330354,
+          "rmse": 1632120148286670.0
+        },
+        "rows": 1309
+      },
+      "near_boundary": {
+        "metrics": {
+          "mae": 1255156623202003.0,
+          "max_absolute_relative_error": 0.07388427902140976,
+          "mean_absolute_relative_error": 0.014750791821710667,
+          "median_absolute_relative_error": 0.011314695753584316,
+          "p95_absolute_relative_error": 0.04065479581222571,
+          "r2": 0.9991525174084752,
+          "rmse": 1768574965337600.0
+        },
+        "rows": 739
+      },
+      "power_high": {
+        "metrics": {
+          "mae": 1771868675742468.0,
+          "max_absolute_relative_error": 0.061016883340023434,
+          "mean_absolute_relative_error": 0.013217498918140325,
+          "median_absolute_relative_error": 0.009358051649322003,
+          "p95_absolute_relative_error": 0.03918301236596816,
+          "r2": 0.9952820729038596,
+          "rmse": 2294786873922574.5
+        },
+        "rows": 683
+      },
+      "power_low": {
+        "metrics": {
+          "mae": 899354990525193.0,
+          "max_absolute_relative_error": 0.0848424039046155,
+          "mean_absolute_relative_error": 0.016935733422988986,
+          "median_absolute_relative_error": 0.01411549237632219,
+          "p95_absolute_relative_error": 0.044313229380045865,
+          "r2": 0.995291845590716,
+          "rmse": 1228647170146126.8
+        },
+        "rows": 683
+      },
+      "power_middle": {
+        "metrics": {
+          "mae": 1031638876010390.8,
+          "max_absolute_relative_error": 0.07388427902140976,
+          "mean_absolute_relative_error": 0.011036988497761913,
+          "median_absolute_relative_error": 0.008505633992335379,
+          "p95_absolute_relative_error": 0.030422724638808157,
+          "r2": 0.9972385819556568,
+          "rmse": 1310163903480087.5
+        },
+        "rows": 682
+      },
+      "pressure_high": {
+        "metrics": {
+          "mae": 969929107225472.8,
+          "max_absolute_relative_error": 0.04068814110827514,
+          "mean_absolute_relative_error": 0.009005864404041494,
+          "median_absolute_relative_error": 0.006946200464266573,
+          "p95_absolute_relative_error": 0.02459346922361243,
+          "r2": 0.9993860020430609,
+          "rmse": 1268106168113246.0
+        },
+        "rows": 682
+      },
+      "pressure_low": {
+        "metrics": {
+          "mae": 1634490709982008.5,
+          "max_absolute_relative_error": 0.0848424039046155,
+          "mean_absolute_relative_error": 0.02094599330840657,
+          "median_absolute_relative_error": 0.018749212497158396,
+          "p95_absolute_relative_error": 0.048610324681480924,
+          "r2": 0.9958127076524222,
+          "rmse": 2179457159991179.5
+        },
+        "rows": 683
+      },
+      "pressure_middle": {
+        "metrics": {
+          "mae": 1098352374018177.1,
+          "max_absolute_relative_error": 0.07459919814366156,
+          "mean_absolute_relative_error": 0.011235389299073143,
+          "median_absolute_relative_error": 0.009165049931247822,
+          "p95_absolute_relative_error": 0.027896336498483967,
+          "r2": 0.998895329197081,
+          "rmse": 1460775338306783.5
+        },
+        "rows": 683
+      }
+    },
+    "fit_rows": 6144,
+    "metrics": {
+      "mae": 1234386463622997.5,
+      "max_absolute_relative_error": 0.0848424039046155,
+      "mean_absolute_relative_error": 0.01373138859593015,
+      "median_absolute_relative_error": 0.010308964790501812,
+      "p95_absolute_relative_error": 0.03860904857730792,
+      "r2": 0.9987458341401417,
+      "rmse": 1682635059428192.2
+    },
+    "model": "hist_gradient_boosting",
+    "prediction_integrity": {
+      "all_predictions_finite": true,
+      "all_predictions_strictly_positive": true,
+      "prediction_count": 2048,
+      "prediction_maximum": 2.2700130940788067e+17,
+      "prediction_minimum": 1.6197742107743246e+16
+    },
+    "target": "true_electron_density_m3",
+    "transform": "log10",
+    "worst_case_observations": [
+      {
+        "absolute_error": 5629562445863264.0,
+        "absolute_relative_error": 0.0848424039046155,
+        "nominal_absorbed_power_W": 38.378176032565534,
+        "predicted_value": 6.072360751137094e+16,
+        "target_pressure_mTorr": 25.117375226691365,
+        "test_split_index": 1900,
+        "true_value": 6.635316995723421e+16
+      },
+      {
+        "absolute_error": 5147073240716608.0,
+        "absolute_relative_error": 0.08296355716048234,
+        "nominal_absorbed_power_W": 34.99841099604964,
+        "predicted_value": 5.689309737010058e+16,
+        "target_pressure_mTorr": 26.52199518866837,
+        "test_split_index": 1036,
+        "true_value": 6.204017061081718e+16
+      },
+      {
+        "absolute_error": 4708705134793336.0,
+        "absolute_relative_error": 0.07893536097502979,
+        "nominal_absorbed_power_W": 33.79841547925025,
+        "predicted_value": 5.494396607149754e+16,
+        "target_pressure_mTorr": 26.270676720887423,
+        "test_split_index": 76,
+        "true_value": 5.965267120629087e+16
+      },
+      {
+        "absolute_error": 4866492250198800.0,
+        "absolute_relative_error": 0.0754167768464237,
+        "nominal_absorbed_power_W": 36.96229719556868,
+        "predicted_value": 5.9661487513624424e+16,
+        "target_pressure_mTorr": 25.652254316955805,
+        "test_split_index": 1580,
+        "true_value": 6.4527979763823224e+16
+      },
+      {
+        "absolute_error": 5086204477154872.0,
+        "absolute_relative_error": 0.07459919814366156,
+        "nominal_absorbed_power_W": 38.032791330479085,
+        "predicted_value": 6.309421305709217e+16,
+        "target_pressure_mTorr": 27.183117615059018,
+        "test_split_index": 620,
+        "true_value": 6.818041753424704e+16
+      },
+      {
+        "absolute_error": 4611017844230912.0,
+        "absolute_relative_error": 0.07388427902140976,
+        "nominal_absorbed_power_W": 54.896285673603415,
+        "predicted_value": 6.701966424781506e+16,
+        "target_pressure_mTorr": 10.626864889636636,
+        "test_split_index": 806,
+        "true_value": 6.240864640358414e+16
+      },
+      {
+        "absolute_error": 4466182470336848.0,
+        "absolute_relative_error": 0.07314772199383476,
+        "nominal_absorbed_power_W": 35.23382289335132,
+        "predicted_value": 5.65908449886082e+16,
+        "target_pressure_mTorr": 25.243009524419904,
+        "test_split_index": 268,
+        "true_value": 6.105702745894505e+16
+      },
+      {
+        "absolute_error": 4386534535577528.0,
+        "absolute_relative_error": 0.06893479656463111,
+        "nominal_absorbed_power_W": 37.16094718314707,
+        "predicted_value": 5.9246561581052776e+16,
+        "target_pressure_mTorr": 24.599126297980547,
+        "test_split_index": 812,
+        "true_value": 6.36330961166303e+16
+      },
+      {
+        "absolute_error": 4686416320004960.0,
+        "absolute_relative_error": 0.06643540455292936,
+        "nominal_absorbed_power_W": 40.22210937459022,
+        "predicted_value": 6.585453020604912e+16,
+        "target_pressure_mTorr": 25.909216040745378,
+        "test_split_index": 892,
+        "true_value": 7.054094652605408e+16
+      },
+      {
+        "absolute_error": 1467247310089692.0,
+        "absolute_relative_error": 0.06547037217457033,
+        "nominal_absorbed_power_W": 17.641159133054316,
+        "predicted_value": 2.0943612157417548e+16,
+        "target_pressure_mTorr": 13.244580747559667,
+        "test_split_index": 936,
+        "true_value": 2.241085946750724e+16
+      }
+    ]
+  },
+  "evaluation_status": "completed",
+  "feature_contract": {
+    "feature_order_frozen": true,
+    "features": [
+      "nominal_absorbed_power_W",
+      "target_pressure_mTorr"
+    ]
+  },
+  "input_artifacts": {
+    "phase4er_final_refit": {
+      "path": "results\\phase4\\phase4er_final_refit.json",
+      "sha256": "4132ff5221c14cf6753e1a19bed5ecaa17577462fcecce1699b57c719a81aa12"
+    }
+  },
+  "interpretation": {
+    "model_changes_permitted_from_test": false,
+    "performance_threshold_introduced": false,
+    "test_is_development_feedback": false,
+    "test_is_final_generalisation_evidence": true
+  },
+  "irreversible_test_evaluation": true,
+  "phase": "4F",
+  "preflight": {
+    "final_configuration_frozen_before_test": true,
+    "phase4er_final_refit_phase": "4E-R",
+    "phase4er_final_refit_stage": "final_train_validation_refit",
+    "pre_test_physics_acceptance_passed": true
+  },
+  "scientific_scope": {
+    "absorbed_power_is_generator_rf_power": false,
+    "experimental_validation": false,
+    "industrial_validation": false,
+    "numerically_qualified_model_envelope": true,
+    "oipt_operating_range_claim": false,
+    "reactive_etch_or_deposition_prediction": false,
+    "reduced_order_argon_plasma_model": true,
+    "surrogate_of_reduced_order_simulator": true,
+    "synthetic_data": true,
+    "wafer_scale_spatial_modelling": false
+  },
+  "stage": "one_time_locked_test_evaluation",
+  "structural_diagnostics": {
+    "density": {
+      "oscillation": {
+        "vs_power_at_fixed_pressure": {
+          "axis": 0,
+          "passed": true,
+          "source_turning_point_count": 0,
+          "spurious_turning_point_count": 0,
+          "spurious_turning_point_locations": [],
+          "surrogate_turning_point_count": 0
+        },
+        "vs_pressure_at_fixed_power": {
+          "axis": 1,
+          "passed": true,
+          "source_turning_point_count": 0,
+          "spurious_turning_point_count": 0,
+          "spurious_turning_point_locations": [],
+          "surrogate_turning_point_count": 0
+        }
+      },
+      "passed": true,
+      "positivity": {
+        "nonfinite_count": 0,
+        "nonpositive_count": 0,
+        "passed": true,
+        "total_points": 1681
+      },
+      "prediction_maximum": 2.2900906167162906e+17,
+      "prediction_minimum": 1.6197742107743246e+16,
+      "target": "true_electron_density_m3",
+      "trends": {
+        "vs_power_at_fixed_pressure": {
+          "axis": 0,
+          "passed": true,
+          "total_intervals": 1640,
+          "unsupported_reversal_count": 0,
+          "unsupported_reversal_locations": []
+        },
+        "vs_pressure_at_fixed_power": {
+          "axis": 1,
+          "passed": true,
+          "total_intervals": 1640,
+          "unsupported_reversal_count": 0,
+          "unsupported_reversal_locations": []
+        }
+      }
+    },
+    "interpretation": {
+      "post_refit_reporting_diagnostic": true,
+      "retuning_permitted_from_result": false,
+      "selection_gate": false,
+      "test_targets_used": false
+    },
+    "overall_passed": true,
+    "probe_grid": {
+      "absorbed_power_points": 41,
+      "pressure_points": 41,
+      "source_reference_array_sha256": "4c6af7001e869f35572d451e293c92a1950f1a32c10a29134401a3845380d77a",
+      "source_reference_path": "results\\phase4\\source_reference_grid.json",
+      "total_points": 1681
+    },
+    "temperature": {
+      "oscillation": {
+        "vs_pressure_at_fixed_power": {
+          "axis": 1,
+          "passed": true,
+          "source_turning_point_count": 0,
+          "spurious_turning_point_count": 0,
+          "spurious_turning_point_locations": [],
+          "surrogate_turning_point_count": 0
+        }
+      },
+      "passed": true,
+      "positivity": {
+        "nonfinite_count": 0,
+        "nonpositive_count": 0,
+        "passed": true,
+        "total_points": 1681
+      },
+      "prediction_maximum": 2.0744792075315606,
+      "prediction_minimum": 1.5473200462621457,
+      "target": "true_electron_temperature_eV",
+      "trends": {
+        "vs_pressure_at_fixed_power": {
+          "axis": 1,
+          "passed": true,
+          "total_intervals": 1640,
+          "unsupported_reversal_count": 0,
+          "unsupported_reversal_locations": []
+        }
+      }
+    }
+  },
+  "temperature": {
+    "candidate_id": "extra_trees_n500_depthnone_leaf1_features1",
+    "error_space": {
+      "central_domain": {
+        "metrics": {
+          "mae_eV": 4.640213326877544e-06,
+          "max_absolute_error_eV": 4.8636860503492585e-05,
+          "mean_absolute_relative_error": 2.714507434552557e-06,
+          "median_absolute_relative_error": 1.8807348409441387e-06,
+          "p95_absolute_error_eV": 1.3756322312863384e-05,
+          "r2": 0.9999999900737304,
+          "rmse_eV": 6.875966197809047e-06
+        },
+        "rows": 737
+      },
+      "corner_high_power_high_pressure": {
+        "metrics": {
+          "mae_eV": 3.233494559291649e-06,
+          "max_absolute_error_eV": 1.8984662525589613e-05,
+          "mean_absolute_relative_error": 2.0425480691545574e-06,
+          "median_absolute_relative_error": 1.5254021533736708e-06,
+          "p95_absolute_error_eV": 8.711342885980848e-06,
+          "r2": 0.9999999597309199,
+          "rmse_eV": 4.372471943189738e-06
+        },
+        "rows": 227
+      },
+      "corner_high_power_low_pressure": {
+        "metrics": {
+          "mae_eV": 1.3075347321537822e-05,
+          "max_absolute_error_eV": 0.00010603452518287426,
+          "mean_absolute_relative_error": 6.84070561950307e-06,
+          "median_absolute_relative_error": 4.972943784769333e-06,
+          "p95_absolute_error_eV": 4.335829266084444e-05,
+          "r2": 0.9999999537897624,
+          "rmse_eV": 1.94013750548917e-05
+        },
+        "rows": 228
+      },
+      "corner_low_power_high_pressure": {
+        "metrics": {
+          "mae_eV": 2.730324315590473e-06,
+          "max_absolute_error_eV": 1.6251697618319128e-05,
+          "mean_absolute_relative_error": 1.7222654220165815e-06,
+          "median_absolute_relative_error": 1.2677216996885431e-06,
+          "p95_absolute_error_eV": 7.646301625918726e-06,
+          "r2": 0.999999970293864,
+          "rmse_eV": 3.7598500205609397e-06
+        },
+        "rows": 228
+      },
+      "corner_low_power_low_pressure": {
+        "metrics": {
+          "mae_eV": 1.1842224830719915e-05,
+          "max_absolute_error_eV": 6.784408252835661e-05,
+          "mean_absolute_relative_error": 6.195583923404137e-06,
+          "median_absolute_relative_error": 4.062084433733958e-06,
+          "p95_absolute_error_eV": 3.770786599410767e-05,
+          "r2": 0.999999965245207,
+          "rmse_eV": 1.6918929646185644e-05
+        },
+        "rows": 227
+      },
+      "interior": {
+        "metrics": {
+          "mae_eV": 5.23168290112932e-06,
+          "max_absolute_error_eV": 4.8636860503492585e-05,
+          "mean_absolute_relative_error": 3.0110832187459707e-06,
+          "median_absolute_relative_error": 2.006468751907344e-06,
+          "p95_absolute_error_eV": 1.657219061272918e-05,
+          "r2": 0.9999999934920883,
+          "rmse_eV": 7.88937541558988e-06
+        },
+        "rows": 1309
+      },
+      "near_boundary": {
+        "metrics": {
+          "mae_eV": 8.43491957005853e-06,
+          "max_absolute_error_eV": 0.00010603452518287426,
+          "mean_absolute_relative_error": 4.539420279344933e-06,
+          "median_absolute_relative_error": 2.5203451690357796e-06,
+          "p95_absolute_error_eV": 3.300472612304262e-05,
+          "r2": 0.9999999939277773,
+          "rmse_eV": 1.41385314773087e-05
+        },
+        "rows": 739
+      },
+      "power_high": {
+        "metrics": {
+          "mae_eV": 7.2516709624759655e-06,
+          "max_absolute_error_eV": 0.00010603452518287426,
+          "mean_absolute_relative_error": 4.036322527489835e-06,
+          "median_absolute_relative_error": 2.333784896795459e-06,
+          "p95_absolute_error_eV": 2.5268010521517494e-05,
+          "r2": 0.9999999919056564,
+          "rmse_eV": 1.2236170785974162e-05
+        },
+        "rows": 683
+      },
+      "power_low": {
+        "metrics": {
+          "mae_eV": 6.562541880834998e-06,
+          "max_absolute_error_eV": 6.784408252835661e-05,
+          "mean_absolute_relative_error": 3.6540022725643313e-06,
+          "median_absolute_relative_error": 2.110399686625459e-06,
+          "p95_absolute_error_eV": 2.3145937732493828e-05,
+          "r2": 0.9999999937313049,
+          "rmse_eV": 1.076272530756028e-05
+        },
+        "rows": 683
+      },
+      "power_middle": {
+        "metrics": {
+          "mae_eV": 5.346878457287602e-06,
+          "max_absolute_error_eV": 4.475823944982693e-05,
+          "mean_absolute_relative_error": 2.9965508524008565e-06,
+          "median_absolute_relative_error": 2.0054303991518706e-06,
+          "p95_absolute_error_eV": 1.8013099872682385e-05,
+          "r2": 0.999999996176404,
+          "rmse_eV": 8.37380039902668e-06
+        },
+        "rows": 682
+      },
+      "pressure_high": {
+        "metrics": {
+          "mae_eV": 2.8513912465369928e-06,
+          "max_absolute_error_eV": 1.8984662525589613e-05,
+          "mean_absolute_relative_error": 1.799416105325824e-06,
+          "median_absolute_relative_error": 1.3410777144221367e-06,
+          "p95_absolute_error_eV": 7.774472728161451e-06,
+          "r2": 0.9999999685499535,
+          "rmse_eV": 3.86217824465656e-06
+        },
+        "rows": 682
+      },
+      "pressure_low": {
+        "metrics": {
+          "mae_eV": 1.1420518872956627e-05,
+          "max_absolute_error_eV": 0.00010603452518287426,
+          "mean_absolute_relative_error": 5.984777054478077e-06,
+          "median_absolute_relative_error": 4.146108576029878e-06,
+          "p95_absolute_error_eV": 3.645349633116801e-05,
+          "r2": 0.9999999660091566,
+          "rmse_eV": 1.6653115535062692e-05
+        },
+        "rows": 683
+      },
+      "pressure_middle": {
+        "metrics": {
+          "mae_eV": 4.885527466301504e-06,
+          "max_absolute_error_eV": 2.5310292380176236e-05,
+          "mean_absolute_relative_error": 2.900929733138569e-06,
+          "median_absolute_relative_error": 2.070523824703162e-06,
+          "p95_absolute_error_eV": 1.413502119946841e-05,
+          "r2": 0.9999999673695071,
+          "rmse_eV": 6.584615472560906e-06
+        },
+        "rows": 683
+      }
+    },
+    "fit_rows": 6144,
+    "metrics": {
+      "mae_eV": 6.387538320240006e-06,
+      "max_absolute_error_eV": 0.00010603452518287426,
+      "mean_absolute_relative_error": 3.5625681248898348e-06,
+      "median_absolute_relative_error": 2.124978678250491e-06,
+      "p95_absolute_error_eV": 2.2230912613851984e-05,
+      "r2": 0.9999999939303662,
+      "rmse_eV": 1.0578939071288781e-05
+    },
+    "model": "extra_trees",
+    "prediction_integrity": {
+      "all_predictions_finite": true,
+      "all_predictions_strictly_positive": true,
+      "prediction_count": 2048,
+      "prediction_maximum": 2.0740648030208093,
+      "prediction_minimum": 1.5473396132126394
+    },
+    "target": "true_electron_temperature_eV",
+    "transform": "identity",
+    "worst_case_observations": [
+      {
+        "absolute_error": 0.00010603452518287426,
+        "absolute_relative_error": 5.112140391884334e-05,
+        "nominal_absorbed_power_W": 85.58603726327419,
+        "predicted_value": 2.0740648030208093,
+        "target_pressure_mTorr": 10.009129336103797,
+        "test_split_index": 322,
+        "true_value": 2.074170837545992
+      },
+      {
+        "absolute_error": 6.784408252835661e-05,
+        "absolute_relative_error": 3.281685765016132e-05,
+        "nominal_absorbed_power_W": 25.045601218007505,
+        "predicted_value": 2.0674224717436296,
+        "target_pressure_mTorr": 10.187992351129651,
+        "test_split_index": 192,
+        "true_value": 2.0673546276611012
+      },
+      {
+        "absolute_error": 5.9254704765976385e-05,
+        "absolute_relative_error": 3.0100494419232863e-05,
+        "nominal_absorbed_power_W": 31.22434020973742,
+        "predicted_value": 1.9686217620407016,
+        "target_pressure_mTorr": 13.334969189018011,
+        "test_split_index": 272,
+        "true_value": 1.9685625073359356
+      },
+      {
+        "absolute_error": 5.773689439925178e-05,
+        "absolute_relative_error": 2.865326629156896e-05,
+        "nominal_absorbed_power_W": 74.99715202488005,
+        "predicted_value": 2.0150773793929053,
+        "target_pressure_mTorr": 11.714333705604076,
+        "test_split_index": 1130,
+        "true_value": 2.015019642498506
+      },
+      {
+        "absolute_error": 5.632660510168641e-05,
+        "absolute_relative_error": 2.9355663687283973e-05,
+        "nominal_absorbed_power_W": 84.53992049675435,
+        "predicted_value": 1.9188208179044577,
+        "target_pressure_mTorr": 15.420058034360409,
+        "test_split_index": 274,
+        "true_value": 1.918764491299356
+      },
+      {
+        "absolute_error": 5.5551236524342684e-05,
+        "absolute_relative_error": 2.8663881055367684e-05,
+        "nominal_absorbed_power_W": 89.21122777741402,
+        "predicted_value": 1.9380777059140046,
+        "target_pressure_mTorr": 14.565727338194847,
+        "test_split_index": 482,
+        "true_value": 1.9380221546774803
+      },
+      {
+        "absolute_error": 5.511675080605016e-05,
+        "absolute_relative_error": 2.671290138952794e-05,
+        "nominal_absorbed_power_W": 75.51399463322014,
+        "predicted_value": 2.0633559167027413,
+        "target_pressure_mTorr": 10.2963962033391,
+        "test_split_index": 1002,
+        "true_value": 2.0633007999519353
+      },
+      {
+        "absolute_error": 5.448989342093924e-05,
+        "absolute_relative_error": 2.6988027050645327e-05,
+        "nominal_absorbed_power_W": 84.81037887744606,
+        "predicted_value": 2.0190940187439117,
+        "target_pressure_mTorr": 11.586692593991756,
+        "test_split_index": 914,
+        "true_value": 2.0190395288504908
+      },
+      {
+        "absolute_error": 5.2422028534504506e-05,
+        "absolute_relative_error": 2.5784121240447904e-05,
+        "nominal_absorbed_power_W": 81.42444042954594,
+        "predicted_value": 2.0331652842295296,
+        "target_pressure_mTorr": 11.154154492542148,
+        "test_split_index": 1586,
+        "true_value": 2.033112862200995
+      },
+      {
+        "absolute_error": 5.1276331996419344e-05,
+        "absolute_relative_error": 2.6660932601652264e-05,
+        "nominal_absorbed_power_W": 15.46805168967694,
+        "predicted_value": 1.9233272833101462,
+        "target_pressure_mTorr": 15.214084358885884,
+        "test_split_index": 584,
+        "true_value": 1.9232760069781498
+      }
+    ]
+  }
+}
