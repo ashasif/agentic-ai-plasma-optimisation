@@ -1,0 +1,99 @@
+{
+  "acceptance_rule": {
+    "acceptance_threshold_changes_after_results": false,
+    "all_selected_targets_must_pass_before_final_refit": true,
+    "candidate_failure_action": "stop_phase4e_without_candidate_fallback_or_retuning",
+    "target_pass_requires_all_applicable_checks_to_pass": true
+  },
+  "amendment_type": "pre_test_protocol_clarification",
+  "approval_date": "2026-09-12",
+  "final_refit_gate": {
+    "configuration_changes_permitted": false,
+    "permitted_only_after_phase4e_acceptance": true,
+    "retuning_permitted": false,
+    "rows": 6144,
+    "splits": [
+      "train",
+      "validation"
+    ],
+    "test_targets_permitted": false
+  },
+  "local_spurious_oscillation_rule": {
+    "allowed_spurious_turning_points": 0,
+    "checks": {
+      "density_along_power_at_fixed_pressure": {
+        "axis": "nominal_absorbed_power_W",
+        "fixed": "target_pressure_mTorr",
+        "target": "true_electron_density_m3"
+      },
+      "density_along_pressure_at_fixed_power": {
+        "axis": "target_pressure_mTorr",
+        "fixed": "nominal_absorbed_power_W",
+        "target": "true_electron_density_m3"
+      },
+      "temperature_along_pressure_at_fixed_power": {
+        "axis": "target_pressure_mTorr",
+        "fixed": "nominal_absorbed_power_W",
+        "target": "true_electron_temperature_eV"
+      }
+    },
+    "spurious_definition": "surrogate has a strict turning point at an interior grid location where the source simulator does not have a strict turning point at the same location",
+    "strict_turning_point_definition": "adjacent_delta_left * adjacent_delta_right < 0",
+    "zero_delta_does_not_form_strict_turning_point": true
+  },
+  "phase": "4E",
+  "phase4a_protocol_modified": false,
+  "positivity_rules": {
+    "true_electron_density_m3": {
+      "all_predictions_must_be_finite": true,
+      "strictly_positive_required": true
+    },
+    "true_electron_temperature_eV": {
+      "all_predictions_must_be_finite": true,
+      "strictly_positive_required": true
+    }
+  },
+  "purpose": "Define deterministic PASS/FAIL semantics for the frozen Phase 4E source-referenced trend and local-spurious-oscillation checks before any Phase 4E probe-grid results are observed.",
+  "source_reference_gate": {
+    "all_source_rows_must_be_qualification_valid": true,
+    "all_source_target_values_must_be_finite": true,
+    "expected_probe_points": 1681,
+    "failure_action": "stop_phase4e_as_source_reference_grid_failure",
+    "source_simulator_evaluated_first": true,
+    "unique_probe_points_required": true
+  },
+  "status": "approved_before_probe_evaluation",
+  "test_lock": {
+    "include_test_targets_true_permitted": false,
+    "test_metrics_permitted": false,
+    "test_targets_accessed": false
+  },
+  "trend_rule": {
+    "allowed_unsupported_reversals": 0,
+    "checks": {
+      "density_vs_power_at_fixed_pressure": {
+        "axis": "nominal_absorbed_power_W",
+        "fixed": "target_pressure_mTorr",
+        "target": "true_electron_density_m3"
+      },
+      "density_vs_pressure_at_fixed_power": {
+        "axis": "target_pressure_mTorr",
+        "fixed": "nominal_absorbed_power_W",
+        "target": "true_electron_density_m3"
+      },
+      "temperature_vs_pressure_at_fixed_power": {
+        "axis": "target_pressure_mTorr",
+        "fixed": "nominal_absorbed_power_W",
+        "target": "true_electron_temperature_eV"
+      }
+    },
+    "source_delta": "source[i+1] - source[i]",
+    "source_zero_delta_has_no_directional_requirement": true,
+    "surrogate_delta": "surrogate[i+1] - surrogate[i]",
+    "surrogate_zero_delta_is_not_a_reversal": true,
+    "unsupported_reversal_definition": [
+      "source_delta > 0 and surrogate_delta < 0",
+      "source_delta < 0 and surrogate_delta > 0"
+    ]
+  }
+}
