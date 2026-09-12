@@ -1,0 +1,142 @@
+{
+  "acceptance": {
+    "allowed_spurious_turning_points": 0,
+    "allowed_unsupported_reversals": 0,
+    "density_passed": false,
+    "final_train_validation_refit_allowed": false,
+    "overall_passed": false,
+    "temperature_passed": true
+  },
+  "data_usage": {
+    "fit_rows": 4096,
+    "fit_split": "train",
+    "test_targets_accessed": false,
+    "validation_used_for_acceptance": false,
+    "validation_used_for_fitting": false
+  },
+  "density": {
+    "candidate_id": "extra_trees_n500_depth16_leaf1_features1",
+    "model": "extra_trees",
+    "oscillation": {
+      "vs_power_at_fixed_pressure": {
+        "axis": 0,
+        "passed": true,
+        "source_turning_point_count": 0,
+        "spurious_turning_point_count": 0,
+        "spurious_turning_point_locations": [],
+        "surrogate_turning_point_count": 0
+      },
+      "vs_pressure_at_fixed_power": {
+        "axis": 1,
+        "passed": false,
+        "source_turning_point_count": 0,
+        "spurious_turning_point_count": 1,
+        "spurious_turning_point_locations": [
+          [
+            2,
+            39
+          ]
+        ],
+        "surrogate_turning_point_count": 1
+      }
+    },
+    "parameters": {
+      "max_depth": 16,
+      "max_features": 1.0,
+      "min_samples_leaf": 1,
+      "n_estimators": 500
+    },
+    "passed": false,
+    "positivity": {
+      "nonfinite_count": 0,
+      "nonpositive_count": 0,
+      "passed": true,
+      "total_points": 1681
+    },
+    "prediction_maximum": 2.22445964191683e+17,
+    "prediction_minimum": 1.800881667839492e+16,
+    "target": "true_electron_density_m3",
+    "transform": "log10",
+    "trends": {
+      "vs_power_at_fixed_pressure": {
+        "axis": 0,
+        "passed": true,
+        "total_intervals": 1640,
+        "unsupported_reversal_count": 0,
+        "unsupported_reversal_locations": []
+      },
+      "vs_pressure_at_fixed_power": {
+        "axis": 1,
+        "passed": false,
+        "total_intervals": 1640,
+        "unsupported_reversal_count": 1,
+        "unsupported_reversal_locations": [
+          [
+            2,
+            39
+          ]
+        ]
+      }
+    }
+  },
+  "phase": "4E",
+  "scientific_scope": {
+    "absorbed_power_is_generator_rf_power": false,
+    "experimental_validation": false,
+    "industrial_validation": false,
+    "numerically_qualified_model_envelope": true,
+    "oipt_operating_range_claim": false,
+    "reactive_etch_or_deposition_prediction": false,
+    "reduced_order_argon_plasma_model": true,
+    "surrogate_of_reduced_order_simulator": true,
+    "synthetic_data": true,
+    "wafer_scale_spatial_modelling": false
+  },
+  "source_reference": {
+    "array_sha256": "4c6af7001e869f35572d451e293c92a1950f1a32c10a29134401a3845380d77a",
+    "evaluated_before_surrogate": true,
+    "path": "results\\phase4\\source_reference_grid.json",
+    "total_points": 1681
+  },
+  "stage": "physics_aware_pre_test_acceptance",
+  "temperature": {
+    "candidate_id": "extra_trees_n500_depthnone_leaf1_features1",
+    "model": "extra_trees",
+    "oscillation": {
+      "vs_pressure_at_fixed_power": {
+        "axis": 1,
+        "passed": true,
+        "source_turning_point_count": 0,
+        "spurious_turning_point_count": 0,
+        "spurious_turning_point_locations": [],
+        "surrogate_turning_point_count": 0
+      }
+    },
+    "parameters": {
+      "max_depth": null,
+      "max_features": 1.0,
+      "min_samples_leaf": 1,
+      "n_estimators": 500
+    },
+    "passed": true,
+    "positivity": {
+      "nonfinite_count": 0,
+      "nonpositive_count": 0,
+      "passed": true,
+      "total_points": 1681
+    },
+    "prediction_maximum": 2.074477760192988,
+    "prediction_minimum": 1.5473202323272093,
+    "target": "true_electron_temperature_eV",
+    "transform": "identity",
+    "trends": {
+      "vs_pressure_at_fixed_power": {
+        "axis": 1,
+        "passed": true,
+        "total_intervals": 1640,
+        "unsupported_reversal_count": 0,
+        "unsupported_reversal_locations": []
+      }
+    }
+  }
+}
