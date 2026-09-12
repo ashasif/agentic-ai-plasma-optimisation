@@ -1,0 +1,316 @@
+{
+  "schema_version": "1.0.0",
+  "phase": "5",
+  "title": "Process Monitoring, Anomaly Detection and Fault Diagnosis",
+  "protocol_state": "FROZEN",
+  "implementation_started": false,
+  "random_state": 20260924,
+  "upstream": {
+    "phase3_monitoring_dataset": {
+      "path": "data/synthetic/phase3/monitoring_episodes.csv",
+      "sha256": "ee20fe9e6ffac4875911cba23247abeeeba236954349c1696cc1cb1ee59c7a3a",
+      "rows": 4096,
+      "episodes": 64,
+      "steps_per_episode": 64
+    },
+    "phase3_monitoring_config": {
+      "path": "configs/phase3/monitoring_dataset.json",
+      "sha256": "8b3de2f691bc2779dfa63563e1c9db8590c06e826ed72460778c04295b11f224"
+    },
+    "phase3_feature_manifest": {
+      "path": "configs/phase3/monitoring_feature_manifest.json",
+      "sha256": "ece31a97b317bda2da3a366dec1fb69d8756e05f3da64b10268d033dabbe948b"
+    },
+    "phase3_monitoring_manifest": {
+      "path": "artifacts/phase3/monitoring_manifest.json",
+      "sha256": "0bcbf8ca243fb87c97ab13083ca575b46881b4d15e249e6430db20cc765909c6"
+    },
+    "phase3_monitoring_summary": {
+      "path": "artifacts/phase3/monitoring_summary.json",
+      "sha256": "c5b24ee160c9d13e8296b91d9f5245098835b6fc6bfb67c7ad861f34540349f9"
+    },
+    "phase4_context": {
+      "surrogate_manifest": "artifacts/phase4/surrogate_manifest.json",
+      "density_model_sha256": "2706589929cdbebabda82cc9091ce110d673adc1c380bb49de9590f89da0b6a8",
+      "temperature_model_sha256": "891c5f99082ae27f8dd08d610d528460ecae72e4d019c0bc47ba0f993420c7e5",
+      "used_as_phase5_predictive_features": false
+    }
+  },
+  "splits": {
+    "train": {
+      "episodes": 32,
+      "rows": 2048
+    },
+    "validation": {
+      "episodes": 16,
+      "rows": 1024
+    },
+    "test": {
+      "episodes": 16,
+      "rows": 1024
+    },
+    "assignment_unit": "episode",
+    "episode_overlap_permitted": false
+  },
+  "raw_features": [
+    "nominal_absorbed_power_W",
+    "target_pressure_mTorr",
+    "nominal_flow_sccm",
+    "measured_absorbed_power_W",
+    "measured_flow_sccm",
+    "measured_pressure_mTorr"
+  ],
+  "derived_features": {
+    "absorbed_power_relative_residual": "measured_absorbed_power_W / nominal_absorbed_power_W - 1",
+    "flow_relative_residual": "measured_flow_sccm / nominal_flow_sccm - 1",
+    "pressure_relative_residual": "measured_pressure_mTorr / target_pressure_mTorr - 1"
+  },
+  "model_feature_order": [
+    "nominal_absorbed_power_W",
+    "target_pressure_mTorr",
+    "nominal_flow_sccm",
+    "measured_absorbed_power_W",
+    "measured_flow_sccm",
+    "measured_pressure_mTorr",
+    "absorbed_power_relative_residual",
+    "flow_relative_residual",
+    "pressure_relative_residual"
+  ],
+  "forbidden_as_predictive_inputs": [
+    "episode_id",
+    "split",
+    "step_index",
+    "protected_ground_truth",
+    "future_sequence_rows",
+    "test_derived_statistics"
+  ],
+  "targets": {
+    "binary": "fault_effect_active",
+    "active_multiclass": "active_fault_family",
+    "active_classes": [
+      "flow_delivery",
+      "power_coupling",
+      "pressure_sensor_bias",
+      "pumping_effectiveness"
+    ],
+    "secondary_end_to_end_classes": [
+      "none",
+      "flow_delivery",
+      "power_coupling",
+      "pressure_sensor_bias",
+      "pumping_effectiveness"
+    ]
+  },
+  "fault_scope": {
+    "single_fault_only": true,
+    "compound_faults": false,
+    "profiles": [
+      "step",
+      "drift"
+    ],
+    "severities": [
+      "mild",
+      "moderate",
+      "severe"
+    ],
+    "onset_step_min": 16,
+    "onset_step_max": 31
+  },
+  "anomaly_baselines": {
+    "robust_residual": {
+      "training_rows": "train rows with fault_effect_active == false",
+      "residual_features": [
+        "absorbed_power_relative_residual",
+        "flow_relative_residual",
+        "pressure_relative_residual"
+      ],
+      "robust_scale": "1.4826 * MAD; fallback to train-healthy standard deviation if MAD is zero",
+      "row_score": "max absolute robust z-score",
+      "threshold_quantile": 0.99
+    },
+    "isolation_forest": {
+      "training_rows": "train rows with fault_effect_active == false",
+      "n_estimators": 500,
+      "contamination": 0.01,
+      "random_state": 20260924,
+      "n_jobs": 1
+    }
+  },
+  "detector_candidates": {
+    "D1_logistic_regression": {
+      "scaler": "StandardScaler",
+      "classifier": "LogisticRegression",
+      "parameters": {
+        "C": 1.0,
+        "solver": "lbfgs",
+        "max_iter": 2000,
+        "class_weight": "balanced"
+      },
+      "threshold": 0.5
+    },
+    "D2_hist_gradient_boosting": {
+      "classifier": "HistGradientBoostingClassifier",
+      "parameters": {
+        "learning_rate": 0.05,
+        "max_iter": 300,
+        "max_leaf_nodes": 15,
+        "l2_regularization": 0.1,
+        "early_stopping": false,
+        "random_state": 20260924
+      },
+      "threshold": 0.5
+    },
+    "D3_extra_trees": {
+      "classifier": "ExtraTreesClassifier",
+      "parameters": {
+        "n_estimators": 500,
+        "max_depth": null,
+        "min_samples_leaf": 1,
+        "max_features": 1.0,
+        "class_weight": "balanced",
+        "n_jobs": 1,
+        "random_state": 20260924
+      },
+      "threshold": 0.5
+    }
+  },
+  "diagnoser_candidates": {
+    "G1_logistic_regression": {
+      "scaler": "StandardScaler",
+      "classifier": "LogisticRegression",
+      "parameters": {
+        "C": 1.0,
+        "solver": "lbfgs",
+        "max_iter": 2000,
+        "class_weight": "balanced"
+      }
+    },
+    "G2_hist_gradient_boosting": {
+      "classifier": "HistGradientBoostingClassifier",
+      "parameters": {
+        "learning_rate": 0.05,
+        "max_iter": 300,
+        "max_leaf_nodes": 15,
+        "l2_regularization": 0.1,
+        "early_stopping": false,
+        "random_state": 20260924
+      }
+    },
+    "G3_extra_trees": {
+      "classifier": "ExtraTreesClassifier",
+      "parameters": {
+        "n_estimators": 500,
+        "max_depth": null,
+        "min_samples_leaf": 1,
+        "max_features": 1.0,
+        "class_weight": "balanced",
+        "n_jobs": 1,
+        "random_state": 20260924
+      }
+    }
+  },
+  "validation_acceptance": {
+    "binary_detector": {
+      "balanced_accuracy_min": 0.75,
+      "macro_f1_min": 0.75,
+      "fault_active_recall_min": 0.75,
+      "specificity_min": 0.75,
+      "per_active_fault_family_recall_min": 0.6
+    },
+    "active_fault_diagnoser": {
+      "macro_f1_min": 0.5,
+      "balanced_accuracy_min": 0.5,
+      "per_class_recall_min": 0.25,
+      "majority_baseline_macro_f1_improvement_min": 0.1
+    },
+    "failure_action": "controlled_stop_before_test"
+  },
+  "selection_rules": {
+    "binary_detector": [
+      "highest_balanced_accuracy",
+      "highest_macro_f1",
+      "lowest_false_positive_rate",
+      "candidate_priority_D1_D2_D3"
+    ],
+    "active_fault_diagnoser": [
+      "highest_macro_f1",
+      "highest_balanced_accuracy",
+      "highest_minimum_per_class_recall",
+      "candidate_priority_G1_G2_G3"
+    ]
+  },
+  "final_refit": {
+    "splits": [
+      "train",
+      "validation"
+    ],
+    "episodes": 48,
+    "detector_rows": 3072,
+    "diagnoser_rows": "active train+validation rows only",
+    "test_rows_for_fit": 0
+  },
+  "test_discipline": {
+    "phase5f_single_locked_evaluation": true,
+    "rerun_for_performance_improvement_permitted": false,
+    "development_access_after_protocol_freeze": false,
+    "pre_freeze_gate2b_disclosure": "aggregate test metadata and target counts were inspected; no model predictions or performance metrics were computed",
+    "run_only_after_validation_acceptance": true
+  },
+  "planned_results": [
+    "results/phase5/anomaly_baselines.json",
+    "results/phase5/supervised_benchmark.json",
+    "results/phase5/validation_selection.json",
+    "results/phase5/locked_test_evaluation.json"
+  ],
+  "planned_artifacts": [
+    "artifacts/phase5/fault_detector.pkl",
+    "artifacts/phase5/fault_diagnoser.pkl",
+    "artifacts/phase5/diagnostics_manifest.json"
+  ],
+  "subphases": {
+    "5A": "protocol and governance freeze",
+    "5B": "leakage-safe monitoring pipeline",
+    "5C": "healthy-reference anomaly monitoring",
+    "5D": "supervised detection and diagnosis benchmark",
+    "5E": "validation selection and final refit",
+    "5F": "single locked test evaluation",
+    "5G": "persistence and reproducible inference",
+    "5H": "final audit, closure and phase 6 unlock"
+  },
+  "future_phase_boundary": {
+    "phase6": {
+      "title": "Constrained Operating-Point Optimisation",
+      "primary_dependency": "frozen Phase 4 surrogate",
+      "agentic_orchestration": false
+    },
+    "phase7": {
+      "title": "Agentic Workflow Integration, Decision Orchestration and Final Demonstration",
+      "integrates": [
+        "frozen Phase 5 diagnostics",
+        "frozen Phase 6 optimisation",
+        "frozen upstream physics/surrogate components"
+      ],
+      "may_silently_retrain_upstream_components": false
+    }
+  },
+  "scientific_limitations": [
+    "synthetic data",
+    "reduced-order argon plasma model",
+    "no experimental validation",
+    "no industrial validation",
+    "no OIPT operating-range claim",
+    "absorbed power is not generator RF power",
+    "no reactive etch/deposition prediction",
+    "no wafer-scale spatial modelling",
+    "ordered steps are not calibrated physical time",
+    "synthetic variability, noise and fault magnitudes are scenario assumptions"
+  ],
+  "freeze_governance": {
+    "frozen_before_phase5_implementation": true,
+    "frozen_before_phase5_model_training": true,
+    "frozen_before_phase5_validation_result_inspection": true,
+    "frozen_before_phase5_model_selection": true,
+    "frozen_before_phase5_predictive_test_evaluation": true,
+    "acceptance_threshold_interpretation": "project governance criteria for the frozen synthetic research-engineering workflow; not experimentally established industrial acceptance requirements"
+  }
+}
