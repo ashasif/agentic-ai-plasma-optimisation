@@ -42,6 +42,10 @@ DEFAULT_SOURCE_REFERENCE_PATH = Path(
     "results/phase4/source_reference_grid.json"
 )
 
+DEFAULT_OUTPUT_PATH = Path(
+    "results/phase4/physics_acceptance.json"
+)
+
 EXPECTED_SOURCE_REFERENCE_ARRAY_SHA256 = (
     "4c6af7001e869f35572d451e293c92a1950f1a32c10a29134401a3845380d77a"
 )
@@ -603,3 +607,37 @@ def run_phase4e_physics_acceptance(
             "wafer_scale_spatial_modelling": False,
         },
     }
+
+
+
+def write_phase4e_physics_acceptance(
+    output_path: str | Path = DEFAULT_OUTPUT_PATH,
+    *,
+    source_reference_path: str | Path = DEFAULT_SOURCE_REFERENCE_PATH,
+) -> Path:
+    """Run Phase 4E acceptance and write its structured result artifact."""
+
+    destination = Path(
+        output_path
+    )
+
+    payload = run_phase4e_physics_acceptance(
+        source_reference_path=source_reference_path,
+    )
+
+    destination.parent.mkdir(
+        parents=True,
+        exist_ok=True,
+    )
+
+    destination.write_text(
+        json.dumps(
+            payload,
+            indent=2,
+            sort_keys=True,
+        )
+        + "\n",
+        encoding="utf-8",
+    )
+
+    return destination

@@ -11,6 +11,7 @@ import pytest
 from plasma_ai.surrogate.physics_acceptance_experiment import (
     EXPECTED_SOURCE_REFERENCE_ARRAY_SHA256,
     _load_frozen_source_reference,
+    write_phase4e_physics_acceptance,
 )
 
 
@@ -351,3 +352,107 @@ def test_source_reference_rejects_numerical_drift_even_with_updated_local_hash(
         _load_frozen_source_reference(
             path
         )
+
+
+
+def test_write_phase4e_acceptance_serializes_payload(
+    tmp_path,
+    monkeypatch,
+):
+    payload = {
+        "phase": "4E",
+        "stage": "physics_aware_pre_test_acceptance",
+        "acceptance": {
+            "density_passed": False,
+            "temperature_passed": True,
+            "overall_passed": False,
+            "final_train_validation_refit_allowed": False,
+        },
+        "data_usage": {
+            "test_targets_accessed": False,
+        },
+    }
+
+    monkeypatch.setattr(
+        "plasma_ai.surrogate.physics_acceptance_experiment."
+        "run_phase4e_physics_acceptance",
+        lambda **kwargs: payload,
+    )
+
+    destination = (
+        tmp_path
+        / "physics_acceptance.json"
+    )
+
+    result = write_phase4e_physics_acceptance(
+        destination
+    )
+
+    assert result == destination
+
+    observed = json.loads(
+        destination.read_text(
+            encoding="utf-8"
+        )
+    )
+
+    assert observed == payload
+
+
+def test_written_stop_result_preserves_phase4e_gate(
+    tmp_path,
+    monkeypatch,
+):
+    payload = {
+        "phase": "4E",
+        "acceptance": {
+            "density_passed": False,
+            "temperature_passed": True,
+            "overall_passed": False,
+            "final_train_validation_refit_allowed": False,
+        },
+        "data_usage": {
+            "test_targets_accessed": False,
+            "validation_used_for_fitting": False,
+            "validation_used_for_acceptance": False,
+        },
+    }
+
+    monkeypatch.setattr(
+        "plasma_ai.surrogate.physics_acceptance_experiment."
+        "run_phase4e_physics_acceptance",
+        lambda **kwargs: payload,
+    )
+
+    destination = (
+        tmp_path
+        / "physics_acceptance.json"
+    )
+
+    write_phase4e_physics_acceptance(
+        destination
+    )
+
+    observed = json.loads(
+        destination.read_text(
+            encoding="utf-8"
+        )
+    )
+
+    acceptance = observed[
+        "acceptance"
+    ]
+
+    assert acceptance[
+        "overall_passed"
+    ] is False
+
+    assert acceptance[
+        "final_train_validation_refit_allowed"
+    ] is False
+
+    assert observed[
+        "data_usage"
+    ][
+        "test_targets_accessed"
+    ] is False
