@@ -1,0 +1,3141 @@
+{
+  "data_usage": {
+    "evaluation_split": "validation",
+    "fit_split": "train",
+    "test_rows": 2048,
+    "test_targets_accessed": false,
+    "train_rows": 4096,
+    "validation_rows": 2048
+  },
+  "experiment": "controlled_validation_selection",
+  "phase": "4D",
+  "results": [
+    {
+      "candidate_id": "polynomial_degree_2",
+      "metrics": {
+        "mae": 1103746529204036.8,
+        "max_absolute_relative_error": 0.21450179395547644,
+        "mean_absolute_relative_error": 0.01567582423329777,
+        "median_absolute_relative_error": 0.008952925590921488,
+        "p95_absolute_relative_error": 0.05687008897230291,
+        "r2": 0.9990653655598437,
+        "rmse": 1452590436881492.2
+      },
+      "model": "polynomial_regression",
+      "parameters": {
+        "degree": 2
+      },
+      "prediction_sanity": {
+        "all_finite": true,
+        "maximum": 2.2664567842926058e+17,
+        "minimum": 1.4336667270279148e+16,
+        "negative_count": 0,
+        "non_positive_count": 0
+      },
+      "target": "true_electron_density_m3",
+      "transform": "identity"
+    },
+    {
+      "candidate_id": "polynomial_degree_3",
+      "metrics": {
+        "mae": 233295585578530.38,
+        "max_absolute_relative_error": 0.04666979229474828,
+        "mean_absolute_relative_error": 0.0032605199374040016,
+        "median_absolute_relative_error": 0.0018208980958954548,
+        "p95_absolute_relative_error": 0.011518253702067546,
+        "r2": 0.999957917688194,
+        "rmse": 308227998030791.25
+      },
+      "model": "polynomial_regression",
+      "parameters": {
+        "degree": 3
+      },
+      "prediction_sanity": {
+        "all_finite": true,
+        "maximum": 2.2345621384332858e+17,
+        "minimum": 1.739988440635802e+16,
+        "negative_count": 0,
+        "non_positive_count": 0
+      },
+      "target": "true_electron_density_m3",
+      "transform": "identity"
+    },
+    {
+      "candidate_id": "extra_trees_n200_depthnone_leaf1_features1",
+      "metrics": {
+        "mae": 130616915724746.89,
+        "max_absolute_relative_error": 0.0369087874891674,
+        "mean_absolute_relative_error": 0.0015582812370028099,
+        "median_absolute_relative_error": 0.0010398189291729982,
+        "p95_absolute_relative_error": 0.004550469780691717,
+        "r2": 0.9999846986714195,
+        "rmse": 185860397309109.47
+      },
+      "model": "extra_trees",
+      "parameters": {
+        "max_depth": null,
+        "max_features": 1.0,
+        "min_samples_leaf": 1,
+        "n_estimators": 200
+      },
+      "prediction_sanity": {
+        "all_finite": true,
+        "maximum": 2.2257297991112205e+17,
+        "minimum": 1.8662179676889492e+16,
+        "negative_count": 0,
+        "non_positive_count": 0
+      },
+      "target": "true_electron_density_m3",
+      "transform": "identity"
+    },
+    {
+      "candidate_id": "extra_trees_n200_depthnone_leaf2_features1",
+      "metrics": {
+        "mae": 159855251131807.6,
+        "max_absolute_relative_error": 0.05533293877922006,
+        "mean_absolute_relative_error": 0.0019349629385061408,
+        "median_absolute_relative_error": 0.001173928630632675,
+        "p95_absolute_relative_error": 0.006106302124669733,
+        "r2": 0.9999709774834553,
+        "rmse": 255970445481361.25
+      },
+      "model": "extra_trees",
+      "parameters": {
+        "max_depth": null,
+        "max_features": 1.0,
+        "min_samples_leaf": 2,
+        "n_estimators": 200
+      },
+      "prediction_sanity": {
+        "all_finite": true,
+        "maximum": 2.2169090303363763e+17,
+        "minimum": 1.901168622065615e+16,
+        "negative_count": 0,
+        "non_positive_count": 0
+      },
+      "target": "true_electron_density_m3",
+      "transform": "identity"
+    },
+    {
+      "candidate_id": "extra_trees_n200_depthnone_leaf4_features1",
+      "metrics": {
+        "mae": 271723008299340.25,
+        "max_absolute_relative_error": 0.08456850612588297,
+        "mean_absolute_relative_error": 0.0033210266054261263,
+        "median_absolute_relative_error": 0.0017007311160285132,
+        "p95_absolute_relative_error": 0.011270603548624424,
+        "r2": 0.9999001003850934,
+        "rmse": 474902217647225.56
+      },
+      "model": "extra_trees",
+      "parameters": {
+        "max_depth": null,
+        "max_features": 1.0,
+        "min_samples_leaf": 4,
+        "n_estimators": 200
+      },
+      "prediction_sanity": {
+        "all_finite": true,
+        "maximum": 2.1893297472538038e+17,
+        "minimum": 1.9782687150388264e+16,
+        "negative_count": 0,
+        "non_positive_count": 0
+      },
+      "target": "true_electron_density_m3",
+      "transform": "identity"
+    },
+    {
+      "candidate_id": "extra_trees_n200_depth8_leaf1_features1",
+      "metrics": {
+        "mae": 1200507540513764.5,
+        "max_absolute_relative_error": 0.1493983479044243,
+        "mean_absolute_relative_error": 0.015058606742214976,
+        "median_absolute_relative_error": 0.010395274459325737,
+        "p95_absolute_relative_error": 0.041130593068938896,
+        "r2": 0.998887320411157,
+        "rmse": 1584920019923352.0
+      },
+      "model": "extra_trees",
+      "parameters": {
+        "max_depth": 8,
+        "max_features": 1.0,
+        "min_samples_leaf": 1,
+        "n_estimators": 200
+      },
+      "prediction_sanity": {
+        "all_finite": true,
+        "maximum": 2.1897937856237805e+17,
+        "minimum": 2.041040004687443e+16,
+        "negative_count": 0,
+        "non_positive_count": 0
+      },
+      "target": "true_electron_density_m3",
+      "transform": "identity"
+    },
+    {
+      "candidate_id": "extra_trees_n200_depth8_leaf2_features1",
+      "metrics": {
+        "mae": 1197250751911875.0,
+        "max_absolute_relative_error": 0.1516668591267212,
+        "mean_absolute_relative_error": 0.015135396973031397,
+        "median_absolute_relative_error": 0.01038092718064934,
+        "p95_absolute_relative_error": 0.0433250038857881,
+        "r2": 0.9989114294485035,
+        "rmse": 1567655322301634.5
+      },
+      "model": "extra_trees",
+      "parameters": {
+        "max_depth": 8,
+        "max_features": 1.0,
+        "min_samples_leaf": 2,
+        "n_estimators": 200
+      },
+      "prediction_sanity": {
+        "all_finite": true,
+        "maximum": 2.1830412821629002e+17,
+        "minimum": 2.045390769343416e+16,
+        "negative_count": 0,
+        "non_positive_count": 0
+      },
+      "target": "true_electron_density_m3",
+      "transform": "identity"
+    },
+    {
+      "candidate_id": "extra_trees_n200_depth8_leaf4_features1",
+      "metrics": {
+        "mae": 1189796185373020.0,
+        "max_absolute_relative_error": 0.1560641000176299,
+        "mean_absolute_relative_error": 0.015097001047017757,
+        "median_absolute_relative_error": 0.009830440310932253,
+        "p95_absolute_relative_error": 0.04426181279643967,
+        "r2": 0.9988626432496862,
+        "rmse": 1602398926440246.0
+      },
+      "model": "extra_trees",
+      "parameters": {
+        "max_depth": 8,
+        "max_features": 1.0,
+        "min_samples_leaf": 4,
+        "n_estimators": 200
+      },
+      "prediction_sanity": {
+        "all_finite": true,
+        "maximum": 2.1681487962432995e+17,
+        "minimum": 2.0895351128224452e+16,
+        "negative_count": 0,
+        "non_positive_count": 0
+      },
+      "target": "true_electron_density_m3",
+      "transform": "identity"
+    },
+    {
+      "candidate_id": "extra_trees_n200_depth16_leaf1_features1",
+      "metrics": {
+        "mae": 134310092945770.78,
+        "max_absolute_relative_error": 0.033055139583191534,
+        "mean_absolute_relative_error": 0.00160680659597963,
+        "median_absolute_relative_error": 0.0010844756495078166,
+        "p95_absolute_relative_error": 0.004503272007266969,
+        "r2": 0.9999842812094021,
+        "rmse": 188378725701875.94
+      },
+      "model": "extra_trees",
+      "parameters": {
+        "max_depth": 16,
+        "max_features": 1.0,
+        "min_samples_leaf": 1,
+        "n_estimators": 200
+      },
+      "prediction_sanity": {
+        "all_finite": true,
+        "maximum": 2.2251680551756512e+17,
+        "minimum": 1.86668633304794e+16,
+        "negative_count": 0,
+        "non_positive_count": 0
+      },
+      "target": "true_electron_density_m3",
+      "transform": "identity"
+    },
+    {
+      "candidate_id": "extra_trees_n200_depth16_leaf2_features1",
+      "metrics": {
+        "mae": 160817066168625.7,
+        "max_absolute_relative_error": 0.0543921368484797,
+        "mean_absolute_relative_error": 0.001957178671496904,
+        "median_absolute_relative_error": 0.0011886913772265941,
+        "p95_absolute_relative_error": 0.0057108432636890204,
+        "r2": 0.9999701050859783,
+        "rmse": 259789111685957.47
+      },
+      "model": "extra_trees",
+      "parameters": {
+        "max_depth": 16,
+        "max_features": 1.0,
+        "min_samples_leaf": 2,
+        "n_estimators": 200
+      },
+      "prediction_sanity": {
+        "all_finite": true,
+        "maximum": 2.215221628610459e+17,
+        "minimum": 1.901168622065615e+16,
+        "negative_count": 0,
+        "non_positive_count": 0
+      },
+      "target": "true_electron_density_m3",
+      "transform": "identity"
+    },
+    {
+      "candidate_id": "extra_trees_n200_depth16_leaf4_features1",
+      "metrics": {
+        "mae": 265009445446958.06,
+        "max_absolute_relative_error": 0.08456850612588297,
+        "mean_absolute_relative_error": 0.003249697623966848,
+        "median_absolute_relative_error": 0.0016486465070167495,
+        "p95_absolute_relative_error": 0.011180873946606527,
+        "r2": 0.999903446667688,
+        "rmse": 466880702915481.8
+      },
+      "model": "extra_trees",
+      "parameters": {
+        "max_depth": 16,
+        "max_features": 1.0,
+        "min_samples_leaf": 4,
+        "n_estimators": 200
+      },
+      "prediction_sanity": {
+        "all_finite": true,
+        "maximum": 2.190590723154298e+17,
+        "minimum": 1.9782687150388264e+16,
+        "negative_count": 0,
+        "non_positive_count": 0
+      },
+      "target": "true_electron_density_m3",
+      "transform": "identity"
+    },
+    {
+      "candidate_id": "extra_trees_n500_depthnone_leaf1_features1",
+      "metrics": {
+        "mae": 118298511992760.34,
+        "max_absolute_relative_error": 0.03827082941225726,
+        "mean_absolute_relative_error": 0.0014077631501056033,
+        "median_absolute_relative_error": 0.0009236794559673168,
+        "p95_absolute_relative_error": 0.003988059064892466,
+        "r2": 0.999986918308276,
+        "rmse": 171851863502716.7
+      },
+      "model": "extra_trees",
+      "parameters": {
+        "max_depth": null,
+        "max_features": 1.0,
+        "min_samples_leaf": 1,
+        "n_estimators": 500
+      },
+      "prediction_sanity": {
+        "all_finite": true,
+        "maximum": 2.225549285510101e+17,
+        "minimum": 1.8640230335557188e+16,
+        "negative_count": 0,
+        "non_positive_count": 0
+      },
+      "target": "true_electron_density_m3",
+      "transform": "identity"
+    },
+    {
+      "candidate_id": "extra_trees_n500_depthnone_leaf2_features1",
+      "metrics": {
+        "mae": 133289258224274.08,
+        "max_absolute_relative_error": 0.05346468624821546,
+        "mean_absolute_relative_error": 0.0016257105943894012,
+        "median_absolute_relative_error": 0.0008947472045570659,
+        "p95_absolute_relative_error": 0.00514701216069883,
+        "r2": 0.9999750586095958,
+        "rmse": 237291739901553.03
+      },
+      "model": "extra_trees",
+      "parameters": {
+        "max_depth": null,
+        "max_features": 1.0,
+        "min_samples_leaf": 2,
+        "n_estimators": 500
+      },
+      "prediction_sanity": {
+        "all_finite": true,
+        "maximum": 2.2163265868866403e+17,
+        "minimum": 1.9006880558099604e+16,
+        "negative_count": 0,
+        "non_positive_count": 0
+      },
+      "target": "true_electron_density_m3",
+      "transform": "identity"
+    },
+    {
+      "candidate_id": "extra_trees_n500_depthnone_leaf4_features1",
+      "metrics": {
+        "mae": 234242532014525.2,
+        "max_absolute_relative_error": 0.08203158113065404,
+        "mean_absolute_relative_error": 0.0029354121855173663,
+        "median_absolute_relative_error": 0.0012682945509337427,
+        "p95_absolute_relative_error": 0.01137800170935082,
+        "r2": 0.999910438397973,
+        "rmse": 449658924350409.5
+      },
+      "model": "extra_trees",
+      "parameters": {
+        "max_depth": null,
+        "max_features": 1.0,
+        "min_samples_leaf": 4,
+        "n_estimators": 500
+      },
+      "prediction_sanity": {
+        "all_finite": true,
+        "maximum": 2.190172166088376e+17,
+        "minimum": 1.971673166720403e+16,
+        "negative_count": 0,
+        "non_positive_count": 0
+      },
+      "target": "true_electron_density_m3",
+      "transform": "identity"
+    },
+    {
+      "candidate_id": "extra_trees_n500_depth8_leaf1_features1",
+      "metrics": {
+        "mae": 1115467810864466.0,
+        "max_absolute_relative_error": 0.13290388702131128,
+        "mean_absolute_relative_error": 0.01416843929311485,
+        "median_absolute_relative_error": 0.009595708419231228,
+        "p95_absolute_relative_error": 0.042628618484760315,
+        "r2": 0.9989879383862994,
+        "rmse": 1511561309434195.0
+      },
+      "model": "extra_trees",
+      "parameters": {
+        "max_depth": 8,
+        "max_features": 1.0,
+        "min_samples_leaf": 1,
+        "n_estimators": 500
+      },
+      "prediction_sanity": {
+        "all_finite": true,
+        "maximum": 2.1898497308096992e+17,
+        "minimum": 2.0185977480440884e+16,
+        "negative_count": 0,
+        "non_positive_count": 0
+      },
+      "target": "true_electron_density_m3",
+      "transform": "identity"
+    },
+    {
+      "candidate_id": "extra_trees_n500_depth8_leaf2_features1",
+      "metrics": {
+        "mae": 1158780429774320.2,
+        "max_absolute_relative_error": 0.136763277290982,
+        "mean_absolute_relative_error": 0.01459964725020585,
+        "median_absolute_relative_error": 0.01005944515733208,
+        "p95_absolute_relative_error": 0.04097840330132232,
+        "r2": 0.9989539764951871,
+        "rmse": 1536713874195864.5
+      },
+      "model": "extra_trees",
+      "parameters": {
+        "max_depth": 8,
+        "max_features": 1.0,
+        "min_samples_leaf": 2,
+        "n_estimators": 500
+      },
+      "prediction_sanity": {
+        "all_finite": true,
+        "maximum": 2.18330854116237e+17,
+        "minimum": 2.0297178352225476e+16,
+        "negative_count": 0,
+        "non_positive_count": 0
+      },
+      "target": "true_electron_density_m3",
+      "transform": "identity"
+    },
+    {
+      "candidate_id": "extra_trees_n500_depth8_leaf4_features1",
+      "metrics": {
+        "mae": 1149993414351091.5,
+        "max_absolute_relative_error": 0.14719366514238819,
+        "mean_absolute_relative_error": 0.014603930211395432,
+        "median_absolute_relative_error": 0.009990882917948807,
+        "p95_absolute_relative_error": 0.04328485662652876,
+        "r2": 0.9989166494158248,
+        "rmse": 1563892156401878.5
+      },
+      "model": "extra_trees",
+      "parameters": {
+        "max_depth": 8,
+        "max_features": 1.0,
+        "min_samples_leaf": 4,
+        "n_estimators": 500
+      },
+      "prediction_sanity": {
+        "all_finite": true,
+        "maximum": 2.167459277565375e+17,
+        "minimum": 2.070433698467426e+16,
+        "negative_count": 0,
+        "non_positive_count": 0
+      },
+      "target": "true_electron_density_m3",
+      "transform": "identity"
+    },
+    {
+      "candidate_id": "extra_trees_n500_depth16_leaf1_features1",
+      "metrics": {
+        "mae": 118171383247014.84,
+        "max_absolute_relative_error": 0.037283749545078605,
+        "mean_absolute_relative_error": 0.0014146994366022953,
+        "median_absolute_relative_error": 0.000944328765247548,
+        "p95_absolute_relative_error": 0.00412282161179364,
+        "r2": 0.9999868196444746,
+        "rmse": 172498710570815.12
+      },
+      "model": "extra_trees",
+      "parameters": {
+        "max_depth": 16,
+        "max_features": 1.0,
+        "min_samples_leaf": 1,
+        "n_estimators": 500
+      },
+      "prediction_sanity": {
+        "all_finite": true,
+        "maximum": 2.2253707010470205e+17,
+        "minimum": 1.863775877374194e+16,
+        "negative_count": 0,
+        "non_positive_count": 0
+      },
+      "target": "true_electron_density_m3",
+      "transform": "identity"
+    },
+    {
+      "candidate_id": "extra_trees_n500_depth16_leaf2_features1",
+      "metrics": {
+        "mae": 136980808205543.73,
+        "max_absolute_relative_error": 0.053375728359923824,
+        "mean_absolute_relative_error": 0.0016817661553746896,
+        "median_absolute_relative_error": 0.0009200363110253005,
+        "p95_absolute_relative_error": 0.0054747999963403555,
+        "r2": 0.9999734272091029,
+        "rmse": 244929375730017.56
+      },
+      "model": "extra_trees",
+      "parameters": {
+        "max_depth": 16,
+        "max_features": 1.0,
+        "min_samples_leaf": 2,
+        "n_estimators": 500
+      },
+      "prediction_sanity": {
+        "all_finite": true,
+        "maximum": 2.2154303924324416e+17,
+        "minimum": 1.9006880558099604e+16,
+        "negative_count": 0,
+        "non_positive_count": 0
+      },
+      "target": "true_electron_density_m3",
+      "transform": "identity"
+    },
+    {
+      "candidate_id": "extra_trees_n500_depth16_leaf4_features1",
+      "metrics": {
+        "mae": 234398381696172.88,
+        "max_absolute_relative_error": 0.08202556049671537,
+        "mean_absolute_relative_error": 0.0029394895444463344,
+        "median_absolute_relative_error": 0.0012576016521553455,
+        "p95_absolute_relative_error": 0.011413339930459626,
+        "r2": 0.9999097493123179,
+        "rmse": 451385444349921.7
+      },
+      "model": "extra_trees",
+      "parameters": {
+        "max_depth": 16,
+        "max_features": 1.0,
+        "min_samples_leaf": 4,
+        "n_estimators": 500
+      },
+      "prediction_sanity": {
+        "all_finite": true,
+        "maximum": 2.188549064317025e+17,
+        "minimum": 1.971673166720403e+16,
+        "negative_count": 0,
+        "non_positive_count": 0
+      },
+      "target": "true_electron_density_m3",
+      "transform": "identity"
+    },
+    {
+      "candidate_id": "hist_gradient_boosting_lr0.05_iter200_leaves15_l20",
+      "metrics": {
+        "mae": 531133273192704.0,
+        "max_absolute_relative_error": 0.06575190081955247,
+        "mean_absolute_relative_error": 0.00630774954832501,
+        "median_absolute_relative_error": 0.00466678202752394,
+        "p95_absolute_relative_error": 0.017285971881671795,
+        "r2": 0.9997922463340451,
+        "rmse": 684851858298089.5
+      },
+      "model": "hist_gradient_boosting",
+      "parameters": {
+        "l2_regularization": 0.0,
+        "learning_rate": 0.05,
+        "max_iter": 200,
+        "max_leaf_nodes": 15
+      },
+      "prediction_sanity": {
+        "all_finite": true,
+        "maximum": 2.2035484904961267e+17,
+        "minimum": 1.9399976716201844e+16,
+        "negative_count": 0,
+        "non_positive_count": 0
+      },
+      "target": "true_electron_density_m3",
+      "transform": "identity"
+    },
+    {
+      "candidate_id": "hist_gradient_boosting_lr0.05_iter200_leaves15_l20.1",
+      "metrics": {
+        "mae": 533102758868162.4,
+        "max_absolute_relative_error": 0.07664836813739957,
+        "mean_absolute_relative_error": 0.006309104101153056,
+        "median_absolute_relative_error": 0.0046639556141903704,
+        "p95_absolute_relative_error": 0.018048067690878793,
+        "r2": 0.9997946118571507,
+        "rmse": 680941768840330.9
+      },
+      "model": "hist_gradient_boosting",
+      "parameters": {
+        "l2_regularization": 0.1,
+        "learning_rate": 0.05,
+        "max_iter": 200,
+        "max_leaf_nodes": 15
+      },
+      "prediction_sanity": {
+        "all_finite": true,
+        "maximum": 2.202480191013663e+17,
+        "minimum": 1.951061646150789e+16,
+        "negative_count": 0,
+        "non_positive_count": 0
+      },
+      "target": "true_electron_density_m3",
+      "transform": "identity"
+    },
+    {
+      "candidate_id": "hist_gradient_boosting_lr0.05_iter200_leaves31_l20",
+      "metrics": {
+        "mae": 416067934702237.75,
+        "max_absolute_relative_error": 0.07067214310307995,
+        "mean_absolute_relative_error": 0.004996195206857745,
+        "median_absolute_relative_error": 0.0036809059488858084,
+        "p95_absolute_relative_error": 0.014476933882696458,
+        "r2": 0.9998741185624508,
+        "rmse": 533093193457030.1
+      },
+      "model": "hist_gradient_boosting",
+      "parameters": {
+        "l2_regularization": 0.0,
+        "learning_rate": 0.05,
+        "max_iter": 200,
+        "max_leaf_nodes": 31
+      },
+      "prediction_sanity": {
+        "all_finite": true,
+        "maximum": 2.2040007605511686e+17,
+        "minimum": 1.9496838114742068e+16,
+        "negative_count": 0,
+        "non_positive_count": 0
+      },
+      "target": "true_electron_density_m3",
+      "transform": "identity"
+    },
+    {
+      "candidate_id": "hist_gradient_boosting_lr0.05_iter200_leaves31_l20.1",
+      "metrics": {
+        "mae": 422294224477198.3,
+        "max_absolute_relative_error": 0.07038142255230044,
+        "mean_absolute_relative_error": 0.00506637237538162,
+        "median_absolute_relative_error": 0.003620110448688139,
+        "p95_absolute_relative_error": 0.014272024535854229,
+        "r2": 0.9998719044255859,
+        "rmse": 537761062644705.44
+      },
+      "model": "hist_gradient_boosting",
+      "parameters": {
+        "l2_regularization": 0.1,
+        "learning_rate": 0.05,
+        "max_iter": 200,
+        "max_leaf_nodes": 31
+      },
+      "prediction_sanity": {
+        "all_finite": true,
+        "maximum": 2.203264088174257e+17,
+        "minimum": 1.9449966465053104e+16,
+        "negative_count": 0,
+        "non_positive_count": 0
+      },
+      "target": "true_electron_density_m3",
+      "transform": "identity"
+    },
+    {
+      "candidate_id": "hist_gradient_boosting_lr0.05_iter400_leaves15_l20",
+      "metrics": {
+        "mae": 470355886197684.6,
+        "max_absolute_relative_error": 0.05453051957579732,
+        "mean_absolute_relative_error": 0.005530453641937655,
+        "median_absolute_relative_error": 0.0041477141019262646,
+        "p95_absolute_relative_error": 0.014704674374318183,
+        "r2": 0.9998391498595162,
+        "rmse": 602605391285897.6
+      },
+      "model": "hist_gradient_boosting",
+      "parameters": {
+        "l2_regularization": 0.0,
+        "learning_rate": 0.05,
+        "max_iter": 400,
+        "max_leaf_nodes": 15
+      },
+      "prediction_sanity": {
+        "all_finite": true,
+        "maximum": 2.2087883138441322e+17,
+        "minimum": 1.9187914342260692e+16,
+        "negative_count": 0,
+        "non_positive_count": 0
+      },
+      "target": "true_electron_density_m3",
+      "transform": "identity"
+    },
+    {
+      "candidate_id": "hist_gradient_boosting_lr0.05_iter400_leaves15_l20.1",
+      "metrics": {
+        "mae": 466968300413263.1,
+        "max_absolute_relative_error": 0.0637890833401182,
+        "mean_absolute_relative_error": 0.005507140883366237,
+        "median_absolute_relative_error": 0.004234632685994297,
+        "p95_absolute_relative_error": 0.015149096182255914,
+        "r2": 0.9998446412968073,
+        "rmse": 592229565055591.1
+      },
+      "model": "hist_gradient_boosting",
+      "parameters": {
+        "l2_regularization": 0.1,
+        "learning_rate": 0.05,
+        "max_iter": 400,
+        "max_leaf_nodes": 15
+      },
+      "prediction_sanity": {
+        "all_finite": true,
+        "maximum": 2.2107854667630854e+17,
+        "minimum": 1.9310435125271144e+16,
+        "negative_count": 0,
+        "non_positive_count": 0
+      },
+      "target": "true_electron_density_m3",
+      "transform": "identity"
+    },
+    {
+      "candidate_id": "hist_gradient_boosting_lr0.05_iter400_leaves31_l20",
+      "metrics": {
+        "mae": 385697866839736.75,
+        "max_absolute_relative_error": 0.05735453885379535,
+        "mean_absolute_relative_error": 0.004623368181949649,
+        "median_absolute_relative_error": 0.0033748337759077233,
+        "p95_absolute_relative_error": 0.013232234835928447,
+        "r2": 0.9998912626883207,
+        "rmse": 495463408940378.2
+      },
+      "model": "hist_gradient_boosting",
+      "parameters": {
+        "l2_regularization": 0.0,
+        "learning_rate": 0.05,
+        "max_iter": 400,
+        "max_leaf_nodes": 31
+      },
+      "prediction_sanity": {
+        "all_finite": true,
+        "maximum": 2.2156785859312714e+17,
+        "minimum": 1.927480540331974e+16,
+        "negative_count": 0,
+        "non_positive_count": 0
+      },
+      "target": "true_electron_density_m3",
+      "transform": "identity"
+    },
+    {
+      "candidate_id": "hist_gradient_boosting_lr0.05_iter400_leaves31_l20.1",
+      "metrics": {
+        "mae": 393687640706209.9,
+        "max_absolute_relative_error": 0.057269461739056005,
+        "mean_absolute_relative_error": 0.004706167746931051,
+        "median_absolute_relative_error": 0.0034651753212719084,
+        "p95_absolute_relative_error": 0.013016968903537101,
+        "r2": 0.999889395511394,
+        "rmse": 499699214313277.6
+      },
+      "model": "hist_gradient_boosting",
+      "parameters": {
+        "l2_regularization": 0.1,
+        "learning_rate": 0.05,
+        "max_iter": 400,
+        "max_leaf_nodes": 31
+      },
+      "prediction_sanity": {
+        "all_finite": true,
+        "maximum": 2.2150339174062874e+17,
+        "minimum": 1.9216710703623584e+16,
+        "negative_count": 0,
+        "non_positive_count": 0
+      },
+      "target": "true_electron_density_m3",
+      "transform": "identity"
+    },
+    {
+      "candidate_id": "hist_gradient_boosting_lr0.1_iter200_leaves15_l20",
+      "metrics": {
+        "mae": 606848192735106.6,
+        "max_absolute_relative_error": 0.06092175136213136,
+        "mean_absolute_relative_error": 0.007005683191156022,
+        "median_absolute_relative_error": 0.005323694180086838,
+        "p95_absolute_relative_error": 0.01876449535843549,
+        "r2": 0.9997268835394367,
+        "rmse": 785228815226158.1
+      },
+      "model": "hist_gradient_boosting",
+      "parameters": {
+        "l2_regularization": 0.0,
+        "learning_rate": 0.1,
+        "max_iter": 200,
+        "max_leaf_nodes": 15
+      },
+      "prediction_sanity": {
+        "all_finite": true,
+        "maximum": 2.206924926601025e+17,
+        "minimum": 1.936361156783923e+16,
+        "negative_count": 0,
+        "non_positive_count": 0
+      },
+      "target": "true_electron_density_m3",
+      "transform": "identity"
+    },
+    {
+      "candidate_id": "hist_gradient_boosting_lr0.1_iter200_leaves15_l20.1",
+      "metrics": {
+        "mae": 606403120704353.0,
+        "max_absolute_relative_error": 0.0639692967142506,
+        "mean_absolute_relative_error": 0.007083754498980244,
+        "median_absolute_relative_error": 0.00533565969369946,
+        "p95_absolute_relative_error": 0.01928139405615054,
+        "r2": 0.9997266341604631,
+        "rmse": 785587224374963.4
+      },
+      "model": "hist_gradient_boosting",
+      "parameters": {
+        "l2_regularization": 0.1,
+        "learning_rate": 0.1,
+        "max_iter": 200,
+        "max_leaf_nodes": 15
+      },
+      "prediction_sanity": {
+        "all_finite": true,
+        "maximum": 2.2074810460564506e+17,
+        "minimum": 1.928496422348137e+16,
+        "negative_count": 0,
+        "non_positive_count": 0
+      },
+      "target": "true_electron_density_m3",
+      "transform": "identity"
+    },
+    {
+      "candidate_id": "hist_gradient_boosting_lr0.1_iter200_leaves31_l20",
+      "metrics": {
+        "mae": 482424198052400.9,
+        "max_absolute_relative_error": 0.06262220252383352,
+        "mean_absolute_relative_error": 0.005654358254047,
+        "median_absolute_relative_error": 0.004248739194648065,
+        "p95_absolute_relative_error": 0.015709511906170075,
+        "r2": 0.9998319900218151,
+        "rmse": 615871104457446.4
+      },
+      "model": "hist_gradient_boosting",
+      "parameters": {
+        "l2_regularization": 0.0,
+        "learning_rate": 0.1,
+        "max_iter": 200,
+        "max_leaf_nodes": 31
+      },
+      "prediction_sanity": {
+        "all_finite": true,
+        "maximum": 2.2158731996177302e+17,
+        "minimum": 1.938583097377541e+16,
+        "negative_count": 0,
+        "non_positive_count": 0
+      },
+      "target": "true_electron_density_m3",
+      "transform": "identity"
+    },
+    {
+      "candidate_id": "hist_gradient_boosting_lr0.1_iter200_leaves31_l20.1",
+      "metrics": {
+        "mae": 469850113675651.5,
+        "max_absolute_relative_error": 0.07888134049554206,
+        "mean_absolute_relative_error": 0.005616839453138863,
+        "median_absolute_relative_error": 0.004169861643859482,
+        "p95_absolute_relative_error": 0.015515239525809622,
+        "r2": 0.9998401762651327,
+        "rmse": 600679662693805.0
+      },
+      "model": "hist_gradient_boosting",
+      "parameters": {
+        "l2_regularization": 0.1,
+        "learning_rate": 0.1,
+        "max_iter": 200,
+        "max_leaf_nodes": 31
+      },
+      "prediction_sanity": {
+        "all_finite": true,
+        "maximum": 2.2148918219738048e+17,
+        "minimum": 1.936579932539628e+16,
+        "negative_count": 0,
+        "non_positive_count": 0
+      },
+      "target": "true_electron_density_m3",
+      "transform": "identity"
+    },
+    {
+      "candidate_id": "hist_gradient_boosting_lr0.1_iter400_leaves15_l20",
+      "metrics": {
+        "mae": 535688612737673.0,
+        "max_absolute_relative_error": 0.048329088808906705,
+        "mean_absolute_relative_error": 0.00622436336130093,
+        "median_absolute_relative_error": 0.004771846672444813,
+        "p95_absolute_relative_error": 0.016507906149131946,
+        "r2": 0.9997907374112105,
+        "rmse": 687334411375124.4
+      },
+      "model": "hist_gradient_boosting",
+      "parameters": {
+        "l2_regularization": 0.0,
+        "learning_rate": 0.1,
+        "max_iter": 400,
+        "max_leaf_nodes": 15
+      },
+      "prediction_sanity": {
+        "all_finite": true,
+        "maximum": 2.2155333733567466e+17,
+        "minimum": 1.9133586481369616e+16,
+        "negative_count": 0,
+        "non_positive_count": 0
+      },
+      "target": "true_electron_density_m3",
+      "transform": "identity"
+    },
+    {
+      "candidate_id": "hist_gradient_boosting_lr0.1_iter400_leaves15_l20.1",
+      "metrics": {
+        "mae": 535953401871505.0,
+        "max_absolute_relative_error": 0.055038277629329446,
+        "mean_absolute_relative_error": 0.006226004958476655,
+        "median_absolute_relative_error": 0.004829908343030704,
+        "p95_absolute_relative_error": 0.017273501693258277,
+        "r2": 0.9997890515157106,
+        "rmse": 690097565257042.2
+      },
+      "model": "hist_gradient_boosting",
+      "parameters": {
+        "l2_regularization": 0.1,
+        "learning_rate": 0.1,
+        "max_iter": 400,
+        "max_leaf_nodes": 15
+      },
+      "prediction_sanity": {
+        "all_finite": true,
+        "maximum": 2.2160711200472806e+17,
+        "minimum": 1.902629015458641e+16,
+        "negative_count": 0,
+        "non_positive_count": 0
+      },
+      "target": "true_electron_density_m3",
+      "transform": "identity"
+    },
+    {
+      "candidate_id": "hist_gradient_boosting_lr0.1_iter400_leaves31_l20",
+      "metrics": {
+        "mae": 439530936305495.6,
+        "max_absolute_relative_error": 0.05289742041453574,
+        "mean_absolute_relative_error": 0.005125288965911506,
+        "median_absolute_relative_error": 0.003915357341860401,
+        "p95_absolute_relative_error": 0.014192171829410587,
+        "r2": 0.9998605542649119,
+        "rmse": 561080155350150.1
+      },
+      "model": "hist_gradient_boosting",
+      "parameters": {
+        "l2_regularization": 0.0,
+        "learning_rate": 0.1,
+        "max_iter": 400,
+        "max_leaf_nodes": 31
+      },
+      "prediction_sanity": {
+        "all_finite": true,
+        "maximum": 2.2214178827431882e+17,
+        "minimum": 1.91307820098748e+16,
+        "negative_count": 0,
+        "non_positive_count": 0
+      },
+      "target": "true_electron_density_m3",
+      "transform": "identity"
+    },
+    {
+      "candidate_id": "hist_gradient_boosting_lr0.1_iter400_leaves31_l20.1",
+      "metrics": {
+        "mae": 432275697769568.9,
+        "max_absolute_relative_error": 0.06411919941105532,
+        "mean_absolute_relative_error": 0.0051352569217867515,
+        "median_absolute_relative_error": 0.0038337426487697925,
+        "p95_absolute_relative_error": 0.014321040170833226,
+        "r2": 0.9998648626743432,
+        "rmse": 552344394096440.8
+      },
+      "model": "hist_gradient_boosting",
+      "parameters": {
+        "l2_regularization": 0.1,
+        "learning_rate": 0.1,
+        "max_iter": 400,
+        "max_leaf_nodes": 31
+      },
+      "prediction_sanity": {
+        "all_finite": true,
+        "maximum": 2.22208109463305e+17,
+        "minimum": 1.9076152575388256e+16,
+        "negative_count": 0,
+        "non_positive_count": 0
+      },
+      "target": "true_electron_density_m3",
+      "transform": "identity"
+    },
+    {
+      "candidate_id": "polynomial_degree_2",
+      "metrics": {
+        "mae": 2497578519873810.0,
+        "max_absolute_relative_error": 0.15242037075961878,
+        "mean_absolute_relative_error": 0.026994375965899337,
+        "median_absolute_relative_error": 0.02347071525165497,
+        "p95_absolute_relative_error": 0.06192453827568761,
+        "r2": 0.9953830596882485,
+        "rmse": 3228489814130175.5
+      },
+      "model": "polynomial_regression",
+      "parameters": {
+        "degree": 2
+      },
+      "prediction_sanity": {
+        "all_finite": true,
+        "maximum": 2.0661681302969613e+17,
+        "minimum": 2.103361571539464e+16,
+        "negative_count": 0,
+        "non_positive_count": 0
+      },
+      "target": "true_electron_density_m3",
+      "transform": "log10"
+    },
+    {
+      "candidate_id": "polynomial_degree_3",
+      "metrics": {
+        "mae": 789283669936878.6,
+        "max_absolute_relative_error": 0.047550262300903236,
+        "mean_absolute_relative_error": 0.008555738283603917,
+        "median_absolute_relative_error": 0.007396106994091885,
+        "p95_absolute_relative_error": 0.019349591295407236,
+        "r2": 0.9995388137000598,
+        "rmse": 1020376597307536.1
+      },
+      "model": "polynomial_regression",
+      "parameters": {
+        "degree": 3
+      },
+      "prediction_sanity": {
+        "all_finite": true,
+        "maximum": 2.3027124346670387e+17,
+        "minimum": 1.9088409736211764e+16,
+        "negative_count": 0,
+        "non_positive_count": 0
+      },
+      "target": "true_electron_density_m3",
+      "transform": "log10"
+    },
+    {
+      "candidate_id": "extra_trees_n200_depthnone_leaf1_features1",
+      "metrics": {
+        "mae": 131461518680961.5,
+        "max_absolute_relative_error": 0.03483730363348676,
+        "mean_absolute_relative_error": 0.0015612017690042888,
+        "median_absolute_relative_error": 0.0010682186255088254,
+        "p95_absolute_relative_error": 0.00436856138864358,
+        "r2": 0.9999848260045457,
+        "rmse": 185085444108302.0
+      },
+      "model": "extra_trees",
+      "parameters": {
+        "max_depth": null,
+        "max_features": 1.0,
+        "min_samples_leaf": 1,
+        "n_estimators": 200
+      },
+      "prediction_sanity": {
+        "all_finite": true,
+        "maximum": 2.2249333230985034e+17,
+        "minimum": 1.863558870143792e+16,
+        "negative_count": 0,
+        "non_positive_count": 0
+      },
+      "target": "true_electron_density_m3",
+      "transform": "log10"
+    },
+    {
+      "candidate_id": "extra_trees_n200_depthnone_leaf2_features1",
+      "metrics": {
+        "mae": 153215821248123.94,
+        "max_absolute_relative_error": 0.0530620345105333,
+        "mean_absolute_relative_error": 0.001828224293982768,
+        "median_absolute_relative_error": 0.0010548136550639496,
+        "p95_absolute_relative_error": 0.005672979208621972,
+        "r2": 0.9999713839608333,
+        "rmse": 254171616697797.7
+      },
+      "model": "extra_trees",
+      "parameters": {
+        "max_depth": null,
+        "max_features": 1.0,
+        "min_samples_leaf": 2,
+        "n_estimators": 200
+      },
+      "prediction_sanity": {
+        "all_finite": true,
+        "maximum": 2.2158733850427693e+17,
+        "minimum": 1.9021078383627452e+16,
+        "negative_count": 0,
+        "non_positive_count": 0
+      },
+      "target": "true_electron_density_m3",
+      "transform": "log10"
+    },
+    {
+      "candidate_id": "extra_trees_n200_depthnone_leaf4_features1",
+      "metrics": {
+        "mae": 259955532843978.75,
+        "max_absolute_relative_error": 0.08176919212690663,
+        "mean_absolute_relative_error": 0.003152285248655843,
+        "median_absolute_relative_error": 0.0015717260637393485,
+        "p95_absolute_relative_error": 0.01173555240750352,
+        "r2": 0.9999021572245741,
+        "rmse": 469987894885858.4
+      },
+      "model": "extra_trees",
+      "parameters": {
+        "max_depth": null,
+        "max_features": 1.0,
+        "min_samples_leaf": 4,
+        "n_estimators": 200
+      },
+      "prediction_sanity": {
+        "all_finite": true,
+        "maximum": 2.1890179008716752e+17,
+        "minimum": 1.9705951377902104e+16,
+        "negative_count": 0,
+        "non_positive_count": 0
+      },
+      "target": "true_electron_density_m3",
+      "transform": "log10"
+    },
+    {
+      "candidate_id": "extra_trees_n200_depth8_leaf1_features1",
+      "metrics": {
+        "mae": 1189996516047484.8,
+        "max_absolute_relative_error": 0.13264850521812716,
+        "mean_absolute_relative_error": 0.013310676569846741,
+        "median_absolute_relative_error": 0.00941428560538381,
+        "p95_absolute_relative_error": 0.03772971735482434,
+        "r2": 0.9987831243875195,
+        "rmse": 1657468884862575.8
+      },
+      "model": "extra_trees",
+      "parameters": {
+        "max_depth": 8,
+        "max_features": 1.0,
+        "min_samples_leaf": 1,
+        "n_estimators": 200
+      },
+      "prediction_sanity": {
+        "all_finite": true,
+        "maximum": 2.1820363860764643e+17,
+        "minimum": 1.991903216549648e+16,
+        "negative_count": 0,
+        "non_positive_count": 0
+      },
+      "target": "true_electron_density_m3",
+      "transform": "log10"
+    },
+    {
+      "candidate_id": "extra_trees_n200_depth8_leaf2_features1",
+      "metrics": {
+        "mae": 1168112128476707.0,
+        "max_absolute_relative_error": 0.13653215196951024,
+        "mean_absolute_relative_error": 0.013064714606940708,
+        "median_absolute_relative_error": 0.009037988016390492,
+        "p95_absolute_relative_error": 0.03833032647592525,
+        "r2": 0.9988479451005622,
+        "rmse": 1612719652133320.0
+      },
+      "model": "extra_trees",
+      "parameters": {
+        "max_depth": 8,
+        "max_features": 1.0,
+        "min_samples_leaf": 2,
+        "n_estimators": 200
+      },
+      "prediction_sanity": {
+        "all_finite": true,
+        "maximum": 2.1780599241425382e+17,
+        "minimum": 2.002122033164834e+16,
+        "negative_count": 0,
+        "non_positive_count": 0
+      },
+      "target": "true_electron_density_m3",
+      "transform": "log10"
+    },
+    {
+      "candidate_id": "extra_trees_n200_depth8_leaf4_features1",
+      "metrics": {
+        "mae": 1165755821896423.5,
+        "max_absolute_relative_error": 0.14175665357739564,
+        "mean_absolute_relative_error": 0.013110371179492021,
+        "median_absolute_relative_error": 0.008611827992205369,
+        "p95_absolute_relative_error": 0.03898577200899187,
+        "r2": 0.9988176408469251,
+        "rmse": 1633792881274620.8
+      },
+      "model": "extra_trees",
+      "parameters": {
+        "max_depth": 8,
+        "max_features": 1.0,
+        "min_samples_leaf": 4,
+        "n_estimators": 200
+      },
+      "prediction_sanity": {
+        "all_finite": true,
+        "maximum": 2.167073281201088e+17,
+        "minimum": 2.0466937965223464e+16,
+        "negative_count": 0,
+        "non_positive_count": 0
+      },
+      "target": "true_electron_density_m3",
+      "transform": "log10"
+    },
+    {
+      "candidate_id": "extra_trees_n200_depth16_leaf1_features1",
+      "metrics": {
+        "mae": 134160291594282.19,
+        "max_absolute_relative_error": 0.03046658004213272,
+        "mean_absolute_relative_error": 0.001586725942203838,
+        "median_absolute_relative_error": 0.001028316797830601,
+        "p95_absolute_relative_error": 0.004477349115802327,
+        "r2": 0.9999832634498103,
+        "rmse": 194381649270136.75
+      },
+      "model": "extra_trees",
+      "parameters": {
+        "max_depth": 16,
+        "max_features": 1.0,
+        "min_samples_leaf": 1,
+        "n_estimators": 200
+      },
+      "prediction_sanity": {
+        "all_finite": true,
+        "maximum": 2.224554059654022e+17,
+        "minimum": 1.863694823711773e+16,
+        "negative_count": 0,
+        "non_positive_count": 0
+      },
+      "target": "true_electron_density_m3",
+      "transform": "log10"
+    },
+    {
+      "candidate_id": "extra_trees_n200_depth16_leaf2_features1",
+      "metrics": {
+        "mae": 161805102155213.8,
+        "max_absolute_relative_error": 0.05318393177804293,
+        "mean_absolute_relative_error": 0.0019102899247253518,
+        "median_absolute_relative_error": 0.0011608702022753803,
+        "p95_absolute_relative_error": 0.0057781272039424915,
+        "r2": 0.9999692536892841,
+        "rmse": 263462492658227.47
+      },
+      "model": "extra_trees",
+      "parameters": {
+        "max_depth": 16,
+        "max_features": 1.0,
+        "min_samples_leaf": 2,
+        "n_estimators": 200
+      },
+      "prediction_sanity": {
+        "all_finite": true,
+        "maximum": 2.2157399749184355e+17,
+        "minimum": 1.9021078383627452e+16,
+        "negative_count": 0,
+        "non_positive_count": 0
+      },
+      "target": "true_electron_density_m3",
+      "transform": "log10"
+    },
+    {
+      "candidate_id": "extra_trees_n200_depth16_leaf4_features1",
+      "metrics": {
+        "mae": 264091326556150.0,
+        "max_absolute_relative_error": 0.08176919212690663,
+        "mean_absolute_relative_error": 0.0031642116207643823,
+        "median_absolute_relative_error": 0.00165893127017764,
+        "p95_absolute_relative_error": 0.011249665515943625,
+        "r2": 0.9999043521382687,
+        "rmse": 464686358461854.5
+      },
+      "model": "extra_trees",
+      "parameters": {
+        "max_depth": 16,
+        "max_features": 1.0,
+        "min_samples_leaf": 4,
+        "n_estimators": 200
+      },
+      "prediction_sanity": {
+        "all_finite": true,
+        "maximum": 2.191813740399951e+17,
+        "minimum": 1.9705951377902104e+16,
+        "negative_count": 0,
+        "non_positive_count": 0
+      },
+      "target": "true_electron_density_m3",
+      "transform": "log10"
+    },
+    {
+      "candidate_id": "extra_trees_n500_depthnone_leaf1_features1",
+      "metrics": {
+        "mae": 117328037521372.78,
+        "max_absolute_relative_error": 0.03767247134053232,
+        "mean_absolute_relative_error": 0.0013904366508219487,
+        "median_absolute_relative_error": 0.0009294418986868043,
+        "p95_absolute_relative_error": 0.0039696471210895435,
+        "r2": 0.9999871269315233,
+        "rmse": 170476032818992.1
+      },
+      "model": "extra_trees",
+      "parameters": {
+        "max_depth": null,
+        "max_features": 1.0,
+        "min_samples_leaf": 1,
+        "n_estimators": 500
+      },
+      "prediction_sanity": {
+        "all_finite": true,
+        "maximum": 2.2253319216796134e+17,
+        "minimum": 1.862126178655842e+16,
+        "negative_count": 0,
+        "non_positive_count": 0
+      },
+      "target": "true_electron_density_m3",
+      "transform": "log10"
+    },
+    {
+      "candidate_id": "extra_trees_n500_depthnone_leaf2_features1",
+      "metrics": {
+        "mae": 129684697556074.69,
+        "max_absolute_relative_error": 0.04922738975343002,
+        "mean_absolute_relative_error": 0.0015639997226113856,
+        "median_absolute_relative_error": 0.0008444082181183565,
+        "p95_absolute_relative_error": 0.0050305473851605,
+        "r2": 0.9999756431284389,
+        "rmse": 234494706601986.06
+      },
+      "model": "extra_trees",
+      "parameters": {
+        "max_depth": null,
+        "max_features": 1.0,
+        "min_samples_leaf": 2,
+        "n_estimators": 500
+      },
+      "prediction_sanity": {
+        "all_finite": true,
+        "maximum": 2.2166320669078656e+17,
+        "minimum": 1.8988924678752916e+16,
+        "negative_count": 0,
+        "non_positive_count": 0
+      },
+      "target": "true_electron_density_m3",
+      "transform": "log10"
+    },
+    {
+      "candidate_id": "extra_trees_n500_depthnone_leaf4_features1",
+      "metrics": {
+        "mae": 220381234491102.0,
+        "max_absolute_relative_error": 0.07846771181458399,
+        "mean_absolute_relative_error": 0.0026846610299151048,
+        "median_absolute_relative_error": 0.0010691241366646296,
+        "p95_absolute_relative_error": 0.01116874177050633,
+        "r2": 0.999910653851432,
+        "rmse": 449117738710139.25
+      },
+      "model": "extra_trees",
+      "parameters": {
+        "max_depth": null,
+        "max_features": 1.0,
+        "min_samples_leaf": 4,
+        "n_estimators": 500
+      },
+      "prediction_sanity": {
+        "all_finite": true,
+        "maximum": 2.1888581623837453e+17,
+        "minimum": 1.9677288423775644e+16,
+        "negative_count": 0,
+        "non_positive_count": 0
+      },
+      "target": "true_electron_density_m3",
+      "transform": "log10"
+    },
+    {
+      "candidate_id": "extra_trees_n500_depth8_leaf1_features1",
+      "metrics": {
+        "mae": 1072040920264478.4,
+        "max_absolute_relative_error": 0.1182380157175808,
+        "mean_absolute_relative_error": 0.01197626985328588,
+        "median_absolute_relative_error": 0.007461817389994083,
+        "p95_absolute_relative_error": 0.037221632987803135,
+        "r2": 0.9989124459181234,
+        "rmse": 1566923240139398.5
+      },
+      "model": "extra_trees",
+      "parameters": {
+        "max_depth": 8,
+        "max_features": 1.0,
+        "min_samples_leaf": 1,
+        "n_estimators": 500
+      },
+      "prediction_sanity": {
+        "all_finite": true,
+        "maximum": 2.182740404231914e+17,
+        "minimum": 1.983469495766034e+16,
+        "negative_count": 0,
+        "non_positive_count": 0
+      },
+      "target": "true_electron_density_m3",
+      "transform": "log10"
+    },
+    {
+      "candidate_id": "extra_trees_n500_depth8_leaf2_features1",
+      "metrics": {
+        "mae": 1101736544440527.9,
+        "max_absolute_relative_error": 0.12210753264327108,
+        "mean_absolute_relative_error": 0.012311139413897373,
+        "median_absolute_relative_error": 0.00808025205938186,
+        "p95_absolute_relative_error": 0.0368465626679322,
+        "r2": 0.9989030071583588,
+        "rmse": 1573708126059428.5
+      },
+      "model": "extra_trees",
+      "parameters": {
+        "max_depth": 8,
+        "max_features": 1.0,
+        "min_samples_leaf": 2,
+        "n_estimators": 500
+      },
+      "prediction_sanity": {
+        "all_finite": true,
+        "maximum": 2.1803179960233962e+17,
+        "minimum": 1.996497610424811e+16,
+        "negative_count": 0,
+        "non_positive_count": 0
+      },
+      "target": "true_electron_density_m3",
+      "transform": "log10"
+    },
+    {
+      "candidate_id": "extra_trees_n500_depth8_leaf4_features1",
+      "metrics": {
+        "mae": 1088073773477846.0,
+        "max_absolute_relative_error": 0.13059643793486198,
+        "mean_absolute_relative_error": 0.012216982297026469,
+        "median_absolute_relative_error": 0.0075294240976699015,
+        "p95_absolute_relative_error": 0.03817216917316656,
+        "r2": 0.9988923751784974,
+        "rmse": 1581315873021967.5
+      },
+      "model": "extra_trees",
+      "parameters": {
+        "max_depth": 8,
+        "max_features": 1.0,
+        "min_samples_leaf": 4,
+        "n_estimators": 500
+      },
+      "prediction_sanity": {
+        "all_finite": true,
+        "maximum": 2.1653004951513238e+17,
+        "minimum": 2.0372765982498292e+16,
+        "negative_count": 0,
+        "non_positive_count": 0
+      },
+      "target": "true_electron_density_m3",
+      "transform": "log10"
+    },
+    {
+      "candidate_id": "extra_trees_n500_depth16_leaf1_features1",
+      "metrics": {
+        "mae": 116705034735161.2,
+        "max_absolute_relative_error": 0.03529685902809873,
+        "mean_absolute_relative_error": 0.001383632333796658,
+        "median_absolute_relative_error": 0.0009135129266570874,
+        "p95_absolute_relative_error": 0.0039844902064391065,
+        "r2": 0.9999866187626286,
+        "rmse": 173808266437351.8
+      },
+      "model": "extra_trees",
+      "parameters": {
+        "max_depth": 16,
+        "max_features": 1.0,
+        "min_samples_leaf": 1,
+        "n_estimators": 500
+      },
+      "prediction_sanity": {
+        "all_finite": true,
+        "maximum": 2.2247469966443904e+17,
+        "minimum": 1.8622137048645764e+16,
+        "negative_count": 0,
+        "non_positive_count": 0
+      },
+      "target": "true_electron_density_m3",
+      "transform": "log10"
+    },
+    {
+      "candidate_id": "extra_trees_n500_depth16_leaf2_features1",
+      "metrics": {
+        "mae": 133883990361707.52,
+        "max_absolute_relative_error": 0.04990752276262966,
+        "mean_absolute_relative_error": 0.0016004651108241577,
+        "median_absolute_relative_error": 0.0008718504286852901,
+        "p95_absolute_relative_error": 0.005334755731430786,
+        "r2": 0.9999741874128446,
+        "rmse": 241400440498121.66
+      },
+      "model": "extra_trees",
+      "parameters": {
+        "max_depth": 16,
+        "max_features": 1.0,
+        "min_samples_leaf": 2,
+        "n_estimators": 500
+      },
+      "prediction_sanity": {
+        "all_finite": true,
+        "maximum": 2.2153574698045814e+17,
+        "minimum": 1.8988265433372492e+16,
+        "negative_count": 0,
+        "non_positive_count": 0
+      },
+      "target": "true_electron_density_m3",
+      "transform": "log10"
+    },
+    {
+      "candidate_id": "extra_trees_n500_depth16_leaf4_features1",
+      "metrics": {
+        "mae": 228202666572734.06,
+        "max_absolute_relative_error": 0.07846771181458399,
+        "mean_absolute_relative_error": 0.002741618612076253,
+        "median_absolute_relative_error": 0.001156818632933238,
+        "p95_absolute_relative_error": 0.011199449308347246,
+        "r2": 0.9999078591505713,
+        "rmse": 456087738048506.75
+      },
+      "model": "extra_trees",
+      "parameters": {
+        "max_depth": 16,
+        "max_features": 1.0,
+        "min_samples_leaf": 4,
+        "n_estimators": 500
+      },
+      "prediction_sanity": {
+        "all_finite": true,
+        "maximum": 2.188315017226789e+17,
+        "minimum": 1.9677288423775644e+16,
+        "negative_count": 0,
+        "non_positive_count": 0
+      },
+      "target": "true_electron_density_m3",
+      "transform": "log10"
+    },
+    {
+      "candidate_id": "hist_gradient_boosting_lr0.05_iter200_leaves15_l20",
+      "metrics": {
+        "mae": 515128357051777.5,
+        "max_absolute_relative_error": 0.06625582198391018,
+        "mean_absolute_relative_error": 0.006015534892103614,
+        "median_absolute_relative_error": 0.004609714835720228,
+        "p95_absolute_relative_error": 0.017051828502748036,
+        "r2": 0.9998026009104173,
+        "rmse": 667567005028722.9
+      },
+      "model": "hist_gradient_boosting",
+      "parameters": {
+        "l2_regularization": 0.0,
+        "learning_rate": 0.05,
+        "max_iter": 200,
+        "max_leaf_nodes": 15
+      },
+      "prediction_sanity": {
+        "all_finite": true,
+        "maximum": 2.1985880560759507e+17,
+        "minimum": 1.9439633286279136e+16,
+        "negative_count": 0,
+        "non_positive_count": 0
+      },
+      "target": "true_electron_density_m3",
+      "transform": "log10"
+    },
+    {
+      "candidate_id": "hist_gradient_boosting_lr0.05_iter200_leaves15_l20.1",
+      "metrics": {
+        "mae": 508275472611012.25,
+        "max_absolute_relative_error": 0.06358912768144594,
+        "mean_absolute_relative_error": 0.005946881677194902,
+        "median_absolute_relative_error": 0.004435551826970769,
+        "p95_absolute_relative_error": 0.01667753668624979,
+        "r2": 0.9998081813640411,
+        "rmse": 658063328386473.1
+      },
+      "model": "hist_gradient_boosting",
+      "parameters": {
+        "l2_regularization": 0.1,
+        "learning_rate": 0.05,
+        "max_iter": 200,
+        "max_leaf_nodes": 15
+      },
+      "prediction_sanity": {
+        "all_finite": true,
+        "maximum": 2.197819166704279e+17,
+        "minimum": 1.9367523438122028e+16,
+        "negative_count": 0,
+        "non_positive_count": 0
+      },
+      "target": "true_electron_density_m3",
+      "transform": "log10"
+    },
+    {
+      "candidate_id": "hist_gradient_boosting_lr0.05_iter200_leaves31_l20",
+      "metrics": {
+        "mae": 417524732528833.25,
+        "max_absolute_relative_error": 0.05695893322885307,
+        "mean_absolute_relative_error": 0.004811795711990929,
+        "median_absolute_relative_error": 0.0035614348786306115,
+        "p95_absolute_relative_error": 0.01343005350062685,
+        "r2": 0.9998699150090622,
+        "rmse": 541920881921656.3
+      },
+      "model": "hist_gradient_boosting",
+      "parameters": {
+        "l2_regularization": 0.0,
+        "learning_rate": 0.05,
+        "max_iter": 200,
+        "max_leaf_nodes": 31
+      },
+      "prediction_sanity": {
+        "all_finite": true,
+        "maximum": 2.201397055413495e+17,
+        "minimum": 1.9291283452265892e+16,
+        "negative_count": 0,
+        "non_positive_count": 0
+      },
+      "target": "true_electron_density_m3",
+      "transform": "log10"
+    },
+    {
+      "candidate_id": "hist_gradient_boosting_lr0.05_iter200_leaves31_l20.1",
+      "metrics": {
+        "mae": 424894203785039.0,
+        "max_absolute_relative_error": 0.06212095461460993,
+        "mean_absolute_relative_error": 0.004872620378362301,
+        "median_absolute_relative_error": 0.0038121129540400122,
+        "p95_absolute_relative_error": 0.01288992216596244,
+        "r2": 0.9998673615708883,
+        "rmse": 547213717138469.0
+      },
+      "model": "hist_gradient_boosting",
+      "parameters": {
+        "l2_regularization": 0.1,
+        "learning_rate": 0.05,
+        "max_iter": 200,
+        "max_leaf_nodes": 31
+      },
+      "prediction_sanity": {
+        "all_finite": true,
+        "maximum": 2.199011449496883e+17,
+        "minimum": 1.9319739283373464e+16,
+        "negative_count": 0,
+        "non_positive_count": 0
+      },
+      "target": "true_electron_density_m3",
+      "transform": "log10"
+    },
+    {
+      "candidate_id": "hist_gradient_boosting_lr0.05_iter400_leaves15_l20",
+      "metrics": {
+        "mae": 472663714851207.6,
+        "max_absolute_relative_error": 0.04839258540779258,
+        "mean_absolute_relative_error": 0.005442073669832004,
+        "median_absolute_relative_error": 0.00430257240681266,
+        "p95_absolute_relative_error": 0.014949474124714259,
+        "r2": 0.9998341330067902,
+        "rmse": 611930748804056.0
+      },
+      "model": "hist_gradient_boosting",
+      "parameters": {
+        "l2_regularization": 0.0,
+        "learning_rate": 0.05,
+        "max_iter": 400,
+        "max_leaf_nodes": 15
+      },
+      "prediction_sanity": {
+        "all_finite": true,
+        "maximum": 2.2034239410867357e+17,
+        "minimum": 1.9134933154471496e+16,
+        "negative_count": 0,
+        "non_positive_count": 0
+      },
+      "target": "true_electron_density_m3",
+      "transform": "log10"
+    },
+    {
+      "candidate_id": "hist_gradient_boosting_lr0.05_iter400_leaves15_l20.1",
+      "metrics": {
+        "mae": 462835077092320.6,
+        "max_absolute_relative_error": 0.04662799099041126,
+        "mean_absolute_relative_error": 0.005364859564818443,
+        "median_absolute_relative_error": 0.004094941472874642,
+        "p95_absolute_relative_error": 0.014724677501062426,
+        "r2": 0.9998411824174177,
+        "rmse": 598785922018949.0
+      },
+      "model": "hist_gradient_boosting",
+      "parameters": {
+        "l2_regularization": 0.1,
+        "learning_rate": 0.05,
+        "max_iter": 400,
+        "max_leaf_nodes": 15
+      },
+      "prediction_sanity": {
+        "all_finite": true,
+        "maximum": 2.2040450580455866e+17,
+        "minimum": 1.9102726329765452e+16,
+        "negative_count": 0,
+        "non_positive_count": 0
+      },
+      "target": "true_electron_density_m3",
+      "transform": "log10"
+    },
+    {
+      "candidate_id": "hist_gradient_boosting_lr0.05_iter400_leaves31_l20",
+      "metrics": {
+        "mae": 400780925744809.6,
+        "max_absolute_relative_error": 0.04680722090238255,
+        "mean_absolute_relative_error": 0.0045758109704593965,
+        "median_absolute_relative_error": 0.003490677266881437,
+        "p95_absolute_relative_error": 0.012540159010149344,
+        "r2": 0.999880130753741,
+        "rmse": 520206983170222.4
+      },
+      "model": "hist_gradient_boosting",
+      "parameters": {
+        "l2_regularization": 0.0,
+        "learning_rate": 0.05,
+        "max_iter": 400,
+        "max_leaf_nodes": 31
+      },
+      "prediction_sanity": {
+        "all_finite": true,
+        "maximum": 2.2053286909259296e+17,
+        "minimum": 1.910599757799115e+16,
+        "negative_count": 0,
+        "non_positive_count": 0
+      },
+      "target": "true_electron_density_m3",
+      "transform": "log10"
+    },
+    {
+      "candidate_id": "hist_gradient_boosting_lr0.05_iter400_leaves31_l20.1",
+      "metrics": {
+        "mae": 410598080373998.0,
+        "max_absolute_relative_error": 0.046666985693744854,
+        "mean_absolute_relative_error": 0.004663631489584055,
+        "median_absolute_relative_error": 0.0037136374934541054,
+        "p95_absolute_relative_error": 0.012245225163916521,
+        "r2": 0.9998766141687657,
+        "rmse": 527782439483384.75
+      },
+      "model": "hist_gradient_boosting",
+      "parameters": {
+        "l2_regularization": 0.1,
+        "learning_rate": 0.05,
+        "max_iter": 400,
+        "max_leaf_nodes": 31
+      },
+      "prediction_sanity": {
+        "all_finite": true,
+        "maximum": 2.201927946618283e+17,
+        "minimum": 1.909614536501233e+16,
+        "negative_count": 0,
+        "non_positive_count": 0
+      },
+      "target": "true_electron_density_m3",
+      "transform": "log10"
+    },
+    {
+      "candidate_id": "hist_gradient_boosting_lr0.1_iter200_leaves15_l20",
+      "metrics": {
+        "mae": 584658641420417.0,
+        "max_absolute_relative_error": 0.050987595943711536,
+        "mean_absolute_relative_error": 0.006508700584779604,
+        "median_absolute_relative_error": 0.005018825690697455,
+        "p95_absolute_relative_error": 0.016700767576071612,
+        "r2": 0.9997354093770439,
+        "rmse": 772875454601490.6
+      },
+      "model": "hist_gradient_boosting",
+      "parameters": {
+        "l2_regularization": 0.0,
+        "learning_rate": 0.1,
+        "max_iter": 200,
+        "max_leaf_nodes": 15
+      },
+      "prediction_sanity": {
+        "all_finite": true,
+        "maximum": 2.2015705991001034e+17,
+        "minimum": 1.918229647412016e+16,
+        "negative_count": 0,
+        "non_positive_count": 0
+      },
+      "target": "true_electron_density_m3",
+      "transform": "log10"
+    },
+    {
+      "candidate_id": "hist_gradient_boosting_lr0.1_iter200_leaves15_l20.1",
+      "metrics": {
+        "mae": 624322773051317.6,
+        "max_absolute_relative_error": 0.05832572517046166,
+        "mean_absolute_relative_error": 0.006849449095969053,
+        "median_absolute_relative_error": 0.0055287210931620765,
+        "p95_absolute_relative_error": 0.017875650614195784,
+        "r2": 0.9996991543144705,
+        "rmse": 824127079030561.6
+      },
+      "model": "hist_gradient_boosting",
+      "parameters": {
+        "l2_regularization": 0.1,
+        "learning_rate": 0.1,
+        "max_iter": 200,
+        "max_leaf_nodes": 15
+      },
+      "prediction_sanity": {
+        "all_finite": true,
+        "maximum": 2.195963407367095e+17,
+        "minimum": 1.9163543173236044e+16,
+        "negative_count": 0,
+        "non_positive_count": 0
+      },
+      "target": "true_electron_density_m3",
+      "transform": "log10"
+    },
+    {
+      "candidate_id": "hist_gradient_boosting_lr0.1_iter200_leaves31_l20",
+      "metrics": {
+        "mae": 507874242070160.6,
+        "max_absolute_relative_error": 0.04438727973946919,
+        "mean_absolute_relative_error": 0.005618921882804015,
+        "median_absolute_relative_error": 0.0045303540753784555,
+        "p95_absolute_relative_error": 0.015143253754144718,
+        "r2": 0.9998023543625332,
+        "rmse": 667983764481319.2
+      },
+      "model": "hist_gradient_boosting",
+      "parameters": {
+        "l2_regularization": 0.0,
+        "learning_rate": 0.1,
+        "max_iter": 200,
+        "max_leaf_nodes": 31
+      },
+      "prediction_sanity": {
+        "all_finite": true,
+        "maximum": 2.2029358820783014e+17,
+        "minimum": 1.90618295697139e+16,
+        "negative_count": 0,
+        "non_positive_count": 0
+      },
+      "target": "true_electron_density_m3",
+      "transform": "log10"
+    },
+    {
+      "candidate_id": "hist_gradient_boosting_lr0.1_iter200_leaves31_l20.1",
+      "metrics": {
+        "mae": 503591246805372.0,
+        "max_absolute_relative_error": 0.04838794630877443,
+        "mean_absolute_relative_error": 0.005598539324782825,
+        "median_absolute_relative_error": 0.004348506185475947,
+        "p95_absolute_relative_error": 0.01514104744118888,
+        "r2": 0.9998059028448036,
+        "rmse": 661960195623315.8
+      },
+      "model": "hist_gradient_boosting",
+      "parameters": {
+        "l2_regularization": 0.1,
+        "learning_rate": 0.1,
+        "max_iter": 200,
+        "max_leaf_nodes": 31
+      },
+      "prediction_sanity": {
+        "all_finite": true,
+        "maximum": 2.2033838816476656e+17,
+        "minimum": 1.906461656325284e+16,
+        "negative_count": 0,
+        "non_positive_count": 0
+      },
+      "target": "true_electron_density_m3",
+      "transform": "log10"
+    },
+    {
+      "candidate_id": "hist_gradient_boosting_lr0.1_iter400_leaves15_l20",
+      "metrics": {
+        "mae": 513760418439918.9,
+        "max_absolute_relative_error": 0.03722948252786865,
+        "mean_absolute_relative_error": 0.005786712051143009,
+        "median_absolute_relative_error": 0.004502355178041026,
+        "p95_absolute_relative_error": 0.015467154947205701,
+        "r2": 0.9997984586983233,
+        "rmse": 674534737592554.6
+      },
+      "model": "hist_gradient_boosting",
+      "parameters": {
+        "l2_regularization": 0.0,
+        "learning_rate": 0.1,
+        "max_iter": 400,
+        "max_leaf_nodes": 15
+      },
+      "prediction_sanity": {
+        "all_finite": true,
+        "maximum": 2.206534391028122e+17,
+        "minimum": 1.893118769654197e+16,
+        "negative_count": 0,
+        "non_positive_count": 0
+      },
+      "target": "true_electron_density_m3",
+      "transform": "log10"
+    },
+    {
+      "candidate_id": "hist_gradient_boosting_lr0.1_iter400_leaves15_l20.1",
+      "metrics": {
+        "mae": 541547955255412.1,
+        "max_absolute_relative_error": 0.04807709973447633,
+        "mean_absolute_relative_error": 0.006017801072149744,
+        "median_absolute_relative_error": 0.004843815561789722,
+        "p95_absolute_relative_error": 0.01597784733004328,
+        "r2": 0.9997726718469115,
+        "rmse": 716388989446356.4
+      },
+      "model": "hist_gradient_boosting",
+      "parameters": {
+        "l2_regularization": 0.1,
+        "learning_rate": 0.1,
+        "max_iter": 400,
+        "max_leaf_nodes": 15
+      },
+      "prediction_sanity": {
+        "all_finite": true,
+        "maximum": 2.2019256737319277e+17,
+        "minimum": 1.90593713455645e+16,
+        "negative_count": 0,
+        "non_positive_count": 0
+      },
+      "target": "true_electron_density_m3",
+      "transform": "log10"
+    },
+    {
+      "candidate_id": "hist_gradient_boosting_lr0.1_iter400_leaves31_l20",
+      "metrics": {
+        "mae": 459211398037027.4,
+        "max_absolute_relative_error": 0.03816822525863283,
+        "mean_absolute_relative_error": 0.005142364415242134,
+        "median_absolute_relative_error": 0.003886658533478557,
+        "p95_absolute_relative_error": 0.01361069005347202,
+        "r2": 0.9998399087403228,
+        "rmse": 601182183556548.8
+      },
+      "model": "hist_gradient_boosting",
+      "parameters": {
+        "l2_regularization": 0.0,
+        "learning_rate": 0.1,
+        "max_iter": 400,
+        "max_leaf_nodes": 31
+      },
+      "prediction_sanity": {
+        "all_finite": true,
+        "maximum": 2.2119008868881878e+17,
+        "minimum": 1.8839082348436376e+16,
+        "negative_count": 0,
+        "non_positive_count": 0
+      },
+      "target": "true_electron_density_m3",
+      "transform": "log10"
+    },
+    {
+      "candidate_id": "hist_gradient_boosting_lr0.1_iter400_leaves31_l20.1",
+      "metrics": {
+        "mae": 454452383180811.9,
+        "max_absolute_relative_error": 0.03852113227151438,
+        "mean_absolute_relative_error": 0.005147920122094288,
+        "median_absolute_relative_error": 0.003950368500887416,
+        "p95_absolute_relative_error": 0.014234347548128442,
+        "r2": 0.9998447078954878,
+        "rmse": 592102613894642.2
+      },
+      "model": "hist_gradient_boosting",
+      "parameters": {
+        "l2_regularization": 0.1,
+        "learning_rate": 0.1,
+        "max_iter": 400,
+        "max_leaf_nodes": 31
+      },
+      "prediction_sanity": {
+        "all_finite": true,
+        "maximum": 2.2120019919396563e+17,
+        "minimum": 1.892554030425694e+16,
+        "negative_count": 0,
+        "non_positive_count": 0
+      },
+      "target": "true_electron_density_m3",
+      "transform": "log10"
+    },
+    {
+      "candidate_id": "polynomial_degree_2",
+      "metrics": {
+        "mae_eV": 0.010515901899307439,
+        "max_absolute_error_eV": 0.053548744542233795,
+        "mean_absolute_relative_error": 0.006028487324866865,
+        "median_absolute_relative_error": 0.006052813462820675,
+        "p95_absolute_error_eV": 0.021021167074552122,
+        "r2": 0.990919819723042,
+        "rmse_eV": 0.012939196823024293
+      },
+      "model": "polynomial_regression",
+      "parameters": {
+        "degree": 2
+      },
+      "prediction_sanity": {
+        "all_finite": true,
+        "maximum": 2.0207600231521905,
+        "minimum": 1.5692983069794124,
+        "negative_count": 0,
+        "non_positive_count": 0
+      },
+      "target": "true_electron_temperature_eV",
+      "transform": "identity"
+    },
+    {
+      "candidate_id": "polynomial_degree_3",
+      "metrics": {
+        "mae_eV": 0.003723638767333521,
+        "max_absolute_error_eV": 0.021592044134572497,
+        "mean_absolute_relative_error": 0.0021331541921831253,
+        "median_absolute_relative_error": 0.002148682992336025,
+        "p95_absolute_error_eV": 0.007263427399581545,
+        "r2": 0.998852868439865,
+        "rmse_eV": 0.004599034820856206
+      },
+      "model": "polynomial_regression",
+      "parameters": {
+        "degree": 3
+      },
+      "prediction_sanity": {
+        "all_finite": true,
+        "maximum": 2.052716723559852,
+        "minimum": 1.5382950890032365,
+        "negative_count": 0,
+        "non_positive_count": 0
+      },
+      "target": "true_electron_temperature_eV",
+      "transform": "identity"
+    },
+    {
+      "candidate_id": "extra_trees_n200_depthnone_leaf1_features1",
+      "metrics": {
+        "mae_eV": 8.01515444410247e-06,
+        "max_absolute_error_eV": 0.00010538540411886288,
+        "mean_absolute_relative_error": 4.454275403460919e-06,
+        "median_absolute_relative_error": 2.8082102455990694e-06,
+        "p95_absolute_error_eV": 2.533402961549802e-05,
+        "r2": 0.9999999904789058,
+        "rmse_eV": 1.3249622841329647e-05
+      },
+      "model": "extra_trees",
+      "parameters": {
+        "max_depth": null,
+        "max_features": 1.0,
+        "min_samples_leaf": 1,
+        "n_estimators": 200
+      },
+      "prediction_sanity": {
+        "all_finite": true,
+        "maximum": 2.07421755826182,
+        "minimum": 1.5473553774746795,
+        "negative_count": 0,
+        "non_positive_count": 0
+      },
+      "target": "true_electron_temperature_eV",
+      "transform": "identity"
+    },
+    {
+      "candidate_id": "extra_trees_n200_depthnone_leaf2_features1",
+      "metrics": {
+        "mae_eV": 1.9071269039386317e-05,
+        "max_absolute_error_eV": 0.0008502221073811711,
+        "mean_absolute_relative_error": 1.0559191771501545e-05,
+        "median_absolute_relative_error": 6.841602379377351e-06,
+        "p95_absolute_error_eV": 6.30897626851645e-05,
+        "r2": 0.9999999292582783,
+        "rmse_eV": 3.611585463452287e-05
+      },
+      "model": "extra_trees",
+      "parameters": {
+        "max_depth": null,
+        "max_features": 1.0,
+        "min_samples_leaf": 2,
+        "n_estimators": 200
+      },
+      "prediction_sanity": {
+        "all_finite": true,
+        "maximum": 2.073458545587043,
+        "minimum": 1.547372682870212,
+        "negative_count": 0,
+        "non_positive_count": 0
+      },
+      "target": "true_electron_temperature_eV",
+      "transform": "identity"
+    },
+    {
+      "candidate_id": "extra_trees_n200_depthnone_leaf4_features1",
+      "metrics": {
+        "mae_eV": 4.959215174084699e-05,
+        "max_absolute_error_eV": 0.0023371145795301196,
+        "mean_absolute_relative_error": 2.7512152617976234e-05,
+        "median_absolute_relative_error": 1.7404042776890247e-05,
+        "p95_absolute_error_eV": 0.00015683130865125046,
+        "r2": 0.999999477760354,
+        "rmse_eV": 9.812846442641954e-05
+      },
+      "model": "extra_trees",
+      "parameters": {
+        "max_depth": null,
+        "max_features": 1.0,
+        "min_samples_leaf": 4,
+        "n_estimators": 200
+      },
+      "prediction_sanity": {
+        "all_finite": true,
+        "maximum": 2.071971653114894,
+        "minimum": 1.547544289917222,
+        "negative_count": 0,
+        "non_positive_count": 0
+      },
+      "target": "true_electron_temperature_eV",
+      "transform": "identity"
+    },
+    {
+      "candidate_id": "extra_trees_n200_depth8_leaf1_features1",
+      "metrics": {
+        "mae_eV": 0.0006820060673303113,
+        "max_absolute_error_eV": 0.004104521849800147,
+        "mean_absolute_relative_error": 0.00038128340316497845,
+        "median_absolute_relative_error": 0.0002762881766892563,
+        "p95_absolute_error_eV": 0.0022646357115785423,
+        "r2": 0.9999517610871733,
+        "rmse_eV": 0.000943102376727118
+      },
+      "model": "extra_trees",
+      "parameters": {
+        "max_depth": 8,
+        "max_features": 1.0,
+        "min_samples_leaf": 1,
+        "n_estimators": 200
+      },
+      "prediction_sanity": {
+        "all_finite": true,
+        "maximum": 2.0704773720057195,
+        "minimum": 1.5476323972696355,
+        "negative_count": 0,
+        "non_positive_count": 0
+      },
+      "target": "true_electron_temperature_eV",
+      "transform": "identity"
+    },
+    {
+      "candidate_id": "extra_trees_n200_depth8_leaf2_features1",
+      "metrics": {
+        "mae_eV": 0.0007743292837901044,
+        "max_absolute_error_eV": 0.00436781786214846,
+        "mean_absolute_relative_error": 0.0004369191097862542,
+        "median_absolute_relative_error": 0.00033559404937087505,
+        "p95_absolute_error_eV": 0.002454148350680439,
+        "r2": 0.9999403331012274,
+        "rmse_eV": 0.0010488824442910554
+      },
+      "model": "extra_trees",
+      "parameters": {
+        "max_depth": 8,
+        "max_features": 1.0,
+        "min_samples_leaf": 2,
+        "n_estimators": 200
+      },
+      "prediction_sanity": {
+        "all_finite": true,
+        "maximum": 2.069940949832276,
+        "minimum": 1.5476597526214098,
+        "negative_count": 0,
+        "non_positive_count": 0
+      },
+      "target": "true_electron_temperature_eV",
+      "transform": "identity"
+    },
+    {
+      "candidate_id": "extra_trees_n200_depth8_leaf4_features1",
+      "metrics": {
+        "mae_eV": 0.0007390173199251451,
+        "max_absolute_error_eV": 0.005278557327751177,
+        "mean_absolute_relative_error": 0.00041236022551826364,
+        "median_absolute_relative_error": 0.00028251269865044024,
+        "p95_absolute_error_eV": 0.002485045906734806,
+        "r2": 0.999937879257762,
+        "rmse_eV": 0.001070233156830095
+      },
+      "model": "extra_trees",
+      "parameters": {
+        "max_depth": 8,
+        "max_features": 1.0,
+        "min_samples_leaf": 4,
+        "n_estimators": 200
+      },
+      "prediction_sanity": {
+        "all_finite": true,
+        "maximum": 2.069030210366673,
+        "minimum": 1.5477684199094435,
+        "negative_count": 0,
+        "non_positive_count": 0
+      },
+      "target": "true_electron_temperature_eV",
+      "transform": "identity"
+    },
+    {
+      "candidate_id": "extra_trees_n200_depth16_leaf1_features1",
+      "metrics": {
+        "mae_eV": 2.7897167117109465e-05,
+        "max_absolute_error_eV": 0.00016443360514895033,
+        "mean_absolute_relative_error": 1.5839227360921663e-05,
+        "median_absolute_relative_error": 1.1366514802743216e-05,
+        "p95_absolute_error_eV": 8.31461621519702e-05,
+        "r2": 0.9999999194480815,
+        "rmse_eV": 3.853878581138192e-05
+      },
+      "model": "extra_trees",
+      "parameters": {
+        "max_depth": 16,
+        "max_features": 1.0,
+        "min_samples_leaf": 1,
+        "n_estimators": 200
+      },
+      "prediction_sanity": {
+        "all_finite": true,
+        "maximum": 2.07421755826182,
+        "minimum": 1.5473523538434373,
+        "negative_count": 0,
+        "non_positive_count": 0
+      },
+      "target": "true_electron_temperature_eV",
+      "transform": "identity"
+    },
+    {
+      "candidate_id": "extra_trees_n200_depth16_leaf2_features1",
+      "metrics": {
+        "mae_eV": 3.660364646903484e-05,
+        "max_absolute_error_eV": 0.0008502221073811711,
+        "mean_absolute_relative_error": 2.0423529583933846e-05,
+        "median_absolute_relative_error": 1.3172434779248725e-05,
+        "p95_absolute_error_eV": 0.00011525865806325525,
+        "r2": 0.9999998219999651,
+        "rmse_eV": 5.728885303153055e-05
+      },
+      "model": "extra_trees",
+      "parameters": {
+        "max_depth": 16,
+        "max_features": 1.0,
+        "min_samples_leaf": 2,
+        "n_estimators": 200
+      },
+      "prediction_sanity": {
+        "all_finite": true,
+        "maximum": 2.073458545587043,
+        "minimum": 1.547381669724831,
+        "negative_count": 0,
+        "non_positive_count": 0
+      },
+      "target": "true_electron_temperature_eV",
+      "transform": "identity"
+    },
+    {
+      "candidate_id": "extra_trees_n200_depth16_leaf4_features1",
+      "metrics": {
+        "mae_eV": 6.294474424358104e-05,
+        "max_absolute_error_eV": 0.0023371145795301196,
+        "mean_absolute_relative_error": 3.4961904800201836e-05,
+        "median_absolute_relative_error": 2.1780130649168792e-05,
+        "p95_absolute_error_eV": 0.00020778817209237126,
+        "r2": 0.9999993091511667,
+        "rmse_eV": 0.00011286300203514586
+      },
+      "model": "extra_trees",
+      "parameters": {
+        "max_depth": 16,
+        "max_features": 1.0,
+        "min_samples_leaf": 4,
+        "n_estimators": 200
+      },
+      "prediction_sanity": {
+        "all_finite": true,
+        "maximum": 2.071971653114894,
+        "minimum": 1.5475224407767425,
+        "negative_count": 0,
+        "non_positive_count": 0
+      },
+      "target": "true_electron_temperature_eV",
+      "transform": "identity"
+    },
+    {
+      "candidate_id": "extra_trees_n500_depthnone_leaf1_features1",
+      "metrics": {
+        "mae_eV": 6.777637145936183e-06,
+        "max_absolute_error_eV": 8.380348956849026e-05,
+        "mean_absolute_relative_error": 3.7715853148005113e-06,
+        "median_absolute_relative_error": 2.2267607563088244e-06,
+        "p95_absolute_error_eV": 2.30876512147815e-05,
+        "r2": 0.9999999934344279,
+        "rmse_eV": 1.1002626493505393e-05
+      },
+      "model": "extra_trees",
+      "parameters": {
+        "max_depth": null,
+        "max_features": 1.0,
+        "min_samples_leaf": 1,
+        "n_estimators": 500
+      },
+      "prediction_sanity": {
+        "all_finite": true,
+        "maximum": 2.074241641977426,
+        "minimum": 1.5473549353190235,
+        "negative_count": 0,
+        "non_positive_count": 0
+      },
+      "target": "true_electron_temperature_eV",
+      "transform": "identity"
+    },
+    {
+      "candidate_id": "extra_trees_n500_depthnone_leaf2_features1",
+      "metrics": {
+        "mae_eV": 1.3955009336279428e-05,
+        "max_absolute_error_eV": 0.0007998511872147063,
+        "mean_absolute_relative_error": 7.715534533584548e-06,
+        "median_absolute_relative_error": 4.787097860421434e-06,
+        "p95_absolute_error_eV": 4.403135623151083e-05,
+        "r2": 0.9999999551182377,
+        "rmse_eV": 2.8767030547920256e-05
+      },
+      "model": "extra_trees",
+      "parameters": {
+        "max_depth": null,
+        "max_features": 1.0,
+        "min_samples_leaf": 2,
+        "n_estimators": 500
+      },
+      "prediction_sanity": {
+        "all_finite": true,
+        "maximum": 2.0735089165072096,
+        "minimum": 1.5473764034781314,
+        "negative_count": 0,
+        "non_positive_count": 0
+      },
+      "target": "true_electron_temperature_eV",
+      "transform": "identity"
+    },
+    {
+      "candidate_id": "extra_trees_n500_depthnone_leaf4_features1",
+      "metrics": {
+        "mae_eV": 3.462995474508702e-05,
+        "max_absolute_error_eV": 0.002376411141673529,
+        "mean_absolute_relative_error": 1.9065078972548903e-05,
+        "median_absolute_relative_error": 1.1230590795387597e-05,
+        "p95_absolute_error_eV": 0.0001048019047394932,
+        "r2": 0.9999995657190797,
+        "rmse_eV": 8.948401426802415e-05
+      },
+      "model": "extra_trees",
+      "parameters": {
+        "max_depth": null,
+        "max_features": 1.0,
+        "min_samples_leaf": 4,
+        "n_estimators": 500
+      },
+      "prediction_sanity": {
+        "all_finite": true,
+        "maximum": 2.0719323565527508,
+        "minimum": 1.5475357355443509,
+        "negative_count": 0,
+        "non_positive_count": 0
+      },
+      "target": "true_electron_temperature_eV",
+      "transform": "identity"
+    },
+    {
+      "candidate_id": "extra_trees_n500_depth8_leaf1_features1",
+      "metrics": {
+        "mae_eV": 0.0005042100184985429,
+        "max_absolute_error_eV": 0.003882962736402984,
+        "mean_absolute_relative_error": 0.0002826804709958885,
+        "median_absolute_relative_error": 0.0002248408559716184,
+        "p95_absolute_error_eV": 0.0015368600354471063,
+        "r2": 0.9999704105416921,
+        "rmse_eV": 0.0007386328029690193
+      },
+      "model": "extra_trees",
+      "parameters": {
+        "max_depth": 8,
+        "max_features": 1.0,
+        "min_samples_leaf": 1,
+        "n_estimators": 500
+      },
+      "prediction_sanity": {
+        "all_finite": true,
+        "maximum": 2.0705393009713706,
+        "minimum": 1.5476955506156609,
+        "negative_count": 0,
+        "non_positive_count": 0
+      },
+      "target": "true_electron_temperature_eV",
+      "transform": "identity"
+    },
+    {
+      "candidate_id": "extra_trees_n500_depth8_leaf2_features1",
+      "metrics": {
+        "mae_eV": 0.0005610124479081457,
+        "max_absolute_error_eV": 0.004364367020762039,
+        "mean_absolute_relative_error": 0.00031326129606855347,
+        "median_absolute_relative_error": 0.00022252668804051358,
+        "p95_absolute_error_eV": 0.002129016645144754,
+        "r2": 0.999960963357246,
+        "rmse_eV": 0.0008483915098343465
+      },
+      "model": "extra_trees",
+      "parameters": {
+        "max_depth": 8,
+        "max_features": 1.0,
+        "min_samples_leaf": 2,
+        "n_estimators": 500
+      },
+      "prediction_sanity": {
+        "all_finite": true,
+        "maximum": 2.0699444006736623,
+        "minimum": 1.5476809833408083,
+        "negative_count": 0,
+        "non_positive_count": 0
+      },
+      "target": "true_electron_temperature_eV",
+      "transform": "identity"
+    },
+    {
+      "candidate_id": "extra_trees_n500_depth8_leaf4_features1",
+      "metrics": {
+        "mae_eV": 0.0005682425688581929,
+        "max_absolute_error_eV": 0.005431466047042033,
+        "mean_absolute_relative_error": 0.0003189402174106264,
+        "median_absolute_relative_error": 0.0002552180937805199,
+        "p95_absolute_error_eV": 0.0020803465193080612,
+        "r2": 0.9999617889323998,
+        "rmse_eV": 0.0008393723705695372
+      },
+      "model": "extra_trees",
+      "parameters": {
+        "max_depth": 8,
+        "max_features": 1.0,
+        "min_samples_leaf": 4,
+        "n_estimators": 500
+      },
+      "prediction_sanity": {
+        "all_finite": true,
+        "maximum": 2.0688773016473823,
+        "minimum": 1.5478501944891223,
+        "negative_count": 0,
+        "non_positive_count": 0
+      },
+      "target": "true_electron_temperature_eV",
+      "transform": "identity"
+    },
+    {
+      "candidate_id": "extra_trees_n500_depth16_leaf1_features1",
+      "metrics": {
+        "mae_eV": 1.7259116862657618e-05,
+        "max_absolute_error_eV": 0.0001020031681580047,
+        "mean_absolute_relative_error": 9.804370900611237e-06,
+        "median_absolute_relative_error": 7.036085129568452e-06,
+        "p95_absolute_error_eV": 5.339210336884335e-05,
+        "r2": 0.9999999683052396,
+        "rmse_eV": 2.4174295125412443e-05
+      },
+      "model": "extra_trees",
+      "parameters": {
+        "max_depth": 16,
+        "max_features": 1.0,
+        "min_samples_leaf": 1,
+        "n_estimators": 500
+      },
+      "prediction_sanity": {
+        "all_finite": true,
+        "maximum": 2.0742414393482695,
+        "minimum": 1.5473544657222114,
+        "negative_count": 0,
+        "non_positive_count": 0
+      },
+      "target": "true_electron_temperature_eV",
+      "transform": "identity"
+    },
+    {
+      "candidate_id": "extra_trees_n500_depth16_leaf2_features1",
+      "metrics": {
+        "mae_eV": 2.3358763718128034e-05,
+        "max_absolute_error_eV": 0.0008098119915960211,
+        "mean_absolute_relative_error": 1.306390552254861e-05,
+        "median_absolute_relative_error": 8.723886698794458e-06,
+        "p95_absolute_error_eV": 6.997084912673255e-05,
+        "r2": 0.9999999178437778,
+        "rmse_eV": 3.8920670534374736e-05
+      },
+      "model": "extra_trees",
+      "parameters": {
+        "max_depth": 16,
+        "max_features": 1.0,
+        "min_samples_leaf": 2,
+        "n_estimators": 500
+      },
+      "prediction_sanity": {
+        "all_finite": true,
+        "maximum": 2.0734989557028283,
+        "minimum": 1.5473767832277763,
+        "negative_count": 0,
+        "non_positive_count": 0
+      },
+      "target": "true_electron_temperature_eV",
+      "transform": "identity"
+    },
+    {
+      "candidate_id": "extra_trees_n500_depth16_leaf4_features1",
+      "metrics": {
+        "mae_eV": 4.039459197863757e-05,
+        "max_absolute_error_eV": 0.002376411141673529,
+        "mean_absolute_relative_error": 2.2307171423958025e-05,
+        "median_absolute_relative_error": 1.3672743852991539e-05,
+        "p95_absolute_error_eV": 0.00012372457186681228,
+        "r2": 0.9999995318832955,
+        "rmse_eV": 9.290458615226274e-05
+      },
+      "model": "extra_trees",
+      "parameters": {
+        "max_depth": 16,
+        "max_features": 1.0,
+        "min_samples_leaf": 4,
+        "n_estimators": 500
+      },
+      "prediction_sanity": {
+        "all_finite": true,
+        "maximum": 2.0719323565527508,
+        "minimum": 1.547531612077368,
+        "negative_count": 0,
+        "non_positive_count": 0
+      },
+      "target": "true_electron_temperature_eV",
+      "transform": "identity"
+    },
+    {
+      "candidate_id": "hist_gradient_boosting_lr0.05_iter200_leaves15_l20",
+      "metrics": {
+        "mae_eV": 0.0005466701629769831,
+        "max_absolute_error_eV": 0.0070733938098359594,
+        "mean_absolute_relative_error": 0.00030285325427347766,
+        "median_absolute_relative_error": 0.00022094739361701673,
+        "p95_absolute_error_eV": 0.0017217103095355066,
+        "r2": 0.9999616974364843,
+        "rmse_eV": 0.0008403767029477817
+      },
+      "model": "hist_gradient_boosting",
+      "parameters": {
+        "l2_regularization": 0.0,
+        "learning_rate": 0.05,
+        "max_iter": 200,
+        "max_leaf_nodes": 15
+      },
+      "prediction_sanity": {
+        "all_finite": true,
+        "maximum": 2.067662227086897,
+        "minimum": 1.5480906774768366,
+        "negative_count": 0,
+        "non_positive_count": 0
+      },
+      "target": "true_electron_temperature_eV",
+      "transform": "identity"
+    },
+    {
+      "candidate_id": "hist_gradient_boosting_lr0.05_iter200_leaves15_l20.1",
+      "metrics": {
+        "mae_eV": 0.0005462419311471396,
+        "max_absolute_error_eV": 0.007065890819411891,
+        "mean_absolute_relative_error": 0.0003027593618571665,
+        "median_absolute_relative_error": 0.00022248399702676783,
+        "p95_absolute_error_eV": 0.0016825299680711216,
+        "r2": 0.9999618504268614,
+        "rmse_eV": 0.000838696682357535
+      },
+      "model": "hist_gradient_boosting",
+      "parameters": {
+        "l2_regularization": 0.1,
+        "learning_rate": 0.05,
+        "max_iter": 200,
+        "max_leaf_nodes": 15
+      },
+      "prediction_sanity": {
+        "all_finite": true,
+        "maximum": 2.0678225254329803,
+        "minimum": 1.5480909678017563,
+        "negative_count": 0,
+        "non_positive_count": 0
+      },
+      "target": "true_electron_temperature_eV",
+      "transform": "identity"
+    },
+    {
+      "candidate_id": "hist_gradient_boosting_lr0.05_iter200_leaves31_l20",
+      "metrics": {
+        "mae_eV": 0.0005487294609002973,
+        "max_absolute_error_eV": 0.007055530670620147,
+        "mean_absolute_relative_error": 0.00030362388028640555,
+        "median_absolute_relative_error": 0.00022091426268610727,
+        "p95_absolute_error_eV": 0.0017521492377490105,
+        "r2": 0.9999607314508856,
+        "rmse_eV": 0.0008509078128785321
+      },
+      "model": "hist_gradient_boosting",
+      "parameters": {
+        "l2_regularization": 0.0,
+        "learning_rate": 0.05,
+        "max_iter": 200,
+        "max_leaf_nodes": 31
+      },
+      "prediction_sanity": {
+        "all_finite": true,
+        "maximum": 2.068065260817985,
+        "minimum": 1.5480205498878072,
+        "negative_count": 0,
+        "non_positive_count": 0
+      },
+      "target": "true_electron_temperature_eV",
+      "transform": "identity"
+    },
+    {
+      "candidate_id": "hist_gradient_boosting_lr0.05_iter200_leaves31_l20.1",
+      "metrics": {
+        "mae_eV": 0.0005486847949054042,
+        "max_absolute_error_eV": 0.007021841668539697,
+        "mean_absolute_relative_error": 0.00030359495929672557,
+        "median_absolute_relative_error": 0.00021704666386004672,
+        "p95_absolute_error_eV": 0.0017393071810700138,
+        "r2": 0.9999606852442869,
+        "rmse_eV": 0.0008514082896907328
+      },
+      "model": "hist_gradient_boosting",
+      "parameters": {
+        "l2_regularization": 0.1,
+        "learning_rate": 0.05,
+        "max_iter": 200,
+        "max_leaf_nodes": 31
+      },
+      "prediction_sanity": {
+        "all_finite": true,
+        "maximum": 2.067857278025863,
+        "minimum": 1.5479824564423814,
+        "negative_count": 0,
+        "non_positive_count": 0
+      },
+      "target": "true_electron_temperature_eV",
+      "transform": "identity"
+    },
+    {
+      "candidate_id": "hist_gradient_boosting_lr0.05_iter400_leaves15_l20",
+      "metrics": {
+        "mae_eV": 0.0005504752133013943,
+        "max_absolute_error_eV": 0.007024410004917492,
+        "mean_absolute_relative_error": 0.00030485921025710783,
+        "median_absolute_relative_error": 0.00022049236599434705,
+        "p95_absolute_error_eV": 0.0017935175506448168,
+        "r2": 0.9999611473310284,
+        "rmse_eV": 0.0008463899785036901
+      },
+      "model": "hist_gradient_boosting",
+      "parameters": {
+        "l2_regularization": 0.0,
+        "learning_rate": 0.05,
+        "max_iter": 400,
+        "max_leaf_nodes": 15
+      },
+      "prediction_sanity": {
+        "all_finite": true,
+        "maximum": 2.0679800553001946,
+        "minimum": 1.5479550907870536,
+        "negative_count": 0,
+        "non_positive_count": 0
+      },
+      "target": "true_electron_temperature_eV",
+      "transform": "identity"
+    },
+    {
+      "candidate_id": "hist_gradient_boosting_lr0.05_iter400_leaves15_l20.1",
+      "metrics": {
+        "mae_eV": 0.0005498684092604441,
+        "max_absolute_error_eV": 0.006982885412902817,
+        "mean_absolute_relative_error": 0.0003046346785096928,
+        "median_absolute_relative_error": 0.00021965971466114122,
+        "p95_absolute_error_eV": 0.0017868708580641344,
+        "r2": 0.9999611830912265,
+        "rmse_eV": 0.0008460003779716079
+      },
+      "model": "hist_gradient_boosting",
+      "parameters": {
+        "l2_regularization": 0.1,
+        "learning_rate": 0.05,
+        "max_iter": 400,
+        "max_leaf_nodes": 15
+      },
+      "prediction_sanity": {
+        "all_finite": true,
+        "maximum": 2.0680268493932434,
+        "minimum": 1.5479907407130982,
+        "negative_count": 0,
+        "non_positive_count": 0
+      },
+      "target": "true_electron_temperature_eV",
+      "transform": "identity"
+    },
+    {
+      "candidate_id": "hist_gradient_boosting_lr0.05_iter400_leaves31_l20",
+      "metrics": {
+        "mae_eV": 0.0005540865507016257,
+        "max_absolute_error_eV": 0.0067516642840383945,
+        "mean_absolute_relative_error": 0.00030648392154765337,
+        "median_absolute_relative_error": 0.0002164959792424879,
+        "p95_absolute_error_eV": 0.001828970369909486,
+        "r2": 0.9999594923001986,
+        "rmse_eV": 0.0008642290788879692
+      },
+      "model": "hist_gradient_boosting",
+      "parameters": {
+        "l2_regularization": 0.0,
+        "learning_rate": 0.05,
+        "max_iter": 400,
+        "max_leaf_nodes": 31
+      },
+      "prediction_sanity": {
+        "all_finite": true,
+        "maximum": 2.0681352668708866,
+        "minimum": 1.5479020644971384,
+        "negative_count": 0,
+        "non_positive_count": 0
+      },
+      "target": "true_electron_temperature_eV",
+      "transform": "identity"
+    },
+    {
+      "candidate_id": "hist_gradient_boosting_lr0.05_iter400_leaves31_l20.1",
+      "metrics": {
+        "mae_eV": 0.0005536331321246389,
+        "max_absolute_error_eV": 0.006960478157622241,
+        "mean_absolute_relative_error": 0.0003061873860858981,
+        "median_absolute_relative_error": 0.00021728081665393917,
+        "p95_absolute_error_eV": 0.0018542504268852947,
+        "r2": 0.9999592100846137,
+        "rmse_eV": 0.000867234378879673
+      },
+      "model": "hist_gradient_boosting",
+      "parameters": {
+        "l2_regularization": 0.1,
+        "learning_rate": 0.05,
+        "max_iter": 400,
+        "max_leaf_nodes": 31
+      },
+      "prediction_sanity": {
+        "all_finite": true,
+        "maximum": 2.067900553243102,
+        "minimum": 1.547896700307559,
+        "negative_count": 0,
+        "non_positive_count": 0
+      },
+      "target": "true_electron_temperature_eV",
+      "transform": "identity"
+    },
+    {
+      "candidate_id": "hist_gradient_boosting_lr0.1_iter200_leaves15_l20",
+      "metrics": {
+        "mae_eV": 0.0006036701626452375,
+        "max_absolute_error_eV": 0.006874016027359264,
+        "mean_absolute_relative_error": 0.0003377269585372757,
+        "median_absolute_relative_error": 0.0002568507418004519,
+        "p95_absolute_error_eV": 0.0017829287428750115,
+        "r2": 0.9999576719849931,
+        "rmse_eV": 0.0008834338480086184
+      },
+      "model": "hist_gradient_boosting",
+      "parameters": {
+        "l2_regularization": 0.0,
+        "learning_rate": 0.1,
+        "max_iter": 200,
+        "max_leaf_nodes": 15
+      },
+      "prediction_sanity": {
+        "all_finite": true,
+        "maximum": 2.0679741247777055,
+        "minimum": 1.5479817399293363,
+        "negative_count": 0,
+        "non_positive_count": 0
+      },
+      "target": "true_electron_temperature_eV",
+      "transform": "identity"
+    },
+    {
+      "candidate_id": "hist_gradient_boosting_lr0.1_iter200_leaves15_l20.1",
+      "metrics": {
+        "mae_eV": 0.0006078110076503176,
+        "max_absolute_error_eV": 0.007080026174416609,
+        "mean_absolute_relative_error": 0.00033992051622897646,
+        "median_absolute_relative_error": 0.00025901479442183583,
+        "p95_absolute_error_eV": 0.0017619271133784585,
+        "r2": 0.9999570193601968,
+        "rmse_eV": 0.0008902183080149996
+      },
+      "model": "hist_gradient_boosting",
+      "parameters": {
+        "l2_regularization": 0.1,
+        "learning_rate": 0.1,
+        "max_iter": 200,
+        "max_leaf_nodes": 15
+      },
+      "prediction_sanity": {
+        "all_finite": true,
+        "maximum": 2.0679289102910285,
+        "minimum": 1.547937759212472,
+        "negative_count": 0,
+        "non_positive_count": 0
+      },
+      "target": "true_electron_temperature_eV",
+      "transform": "identity"
+    },
+    {
+      "candidate_id": "hist_gradient_boosting_lr0.1_iter200_leaves31_l20",
+      "metrics": {
+        "mae_eV": 0.0005564683690738333,
+        "max_absolute_error_eV": 0.006914091721267557,
+        "mean_absolute_relative_error": 0.00030812877981551497,
+        "median_absolute_relative_error": 0.00022056155403183932,
+        "p95_absolute_error_eV": 0.001856909896573855,
+        "r2": 0.999959631208633,
+        "rmse_eV": 0.0008627460052622205
+      },
+      "model": "hist_gradient_boosting",
+      "parameters": {
+        "l2_regularization": 0.0,
+        "learning_rate": 0.1,
+        "max_iter": 200,
+        "max_leaf_nodes": 31
+      },
+      "prediction_sanity": {
+        "all_finite": true,
+        "maximum": 2.068145240884898,
+        "minimum": 1.547903253752435,
+        "negative_count": 0,
+        "non_positive_count": 0
+      },
+      "target": "true_electron_temperature_eV",
+      "transform": "identity"
+    },
+    {
+      "candidate_id": "hist_gradient_boosting_lr0.1_iter200_leaves31_l20.1",
+      "metrics": {
+        "mae_eV": 0.0005580889125590186,
+        "max_absolute_error_eV": 0.006738726236424686,
+        "mean_absolute_relative_error": 0.000308852448285343,
+        "median_absolute_relative_error": 0.00021793361579816353,
+        "p95_absolute_error_eV": 0.0018246183422122105,
+        "r2": 0.9999592214572983,
+        "rmse_eV": 0.0008671134731302715
+      },
+      "model": "hist_gradient_boosting",
+      "parameters": {
+        "l2_regularization": 0.1,
+        "learning_rate": 0.1,
+        "max_iter": 200,
+        "max_leaf_nodes": 31
+      },
+      "prediction_sanity": {
+        "all_finite": true,
+        "maximum": 2.0680560163713784,
+        "minimum": 1.5478757572323756,
+        "negative_count": 0,
+        "non_positive_count": 0
+      },
+      "target": "true_electron_temperature_eV",
+      "transform": "identity"
+    },
+    {
+      "candidate_id": "hist_gradient_boosting_lr0.1_iter400_leaves15_l20",
+      "metrics": {
+        "mae_eV": 0.0005973860824876221,
+        "max_absolute_error_eV": 0.00699214118390401,
+        "mean_absolute_relative_error": 0.00033329490023118326,
+        "median_absolute_relative_error": 0.00024756231575980394,
+        "p95_absolute_error_eV": 0.0018061267989785237,
+        "r2": 0.9999572934943362,
+        "rmse_eV": 0.0008873748231058519
+      },
+      "model": "hist_gradient_boosting",
+      "parameters": {
+        "l2_regularization": 0.0,
+        "learning_rate": 0.1,
+        "max_iter": 400,
+        "max_leaf_nodes": 15
+      },
+      "prediction_sanity": {
+        "all_finite": true,
+        "maximum": 2.068206127228809,
+        "minimum": 1.5478627650037997,
+        "negative_count": 0,
+        "non_positive_count": 0
+      },
+      "target": "true_electron_temperature_eV",
+      "transform": "identity"
+    },
+    {
+      "candidate_id": "hist_gradient_boosting_lr0.1_iter400_leaves15_l20.1",
+      "metrics": {
+        "mae_eV": 0.0006043896589836569,
+        "max_absolute_error_eV": 0.006912737058920371,
+        "mean_absolute_relative_error": 0.00033729047806810314,
+        "median_absolute_relative_error": 0.000254707550376198,
+        "p95_absolute_error_eV": 0.0018295081214575765,
+        "r2": 0.9999566279928948,
+        "rmse_eV": 0.000894262138223019
+      },
+      "model": "hist_gradient_boosting",
+      "parameters": {
+        "l2_regularization": 0.1,
+        "learning_rate": 0.1,
+        "max_iter": 400,
+        "max_leaf_nodes": 15
+      },
+      "prediction_sanity": {
+        "all_finite": true,
+        "maximum": 2.0681677375115988,
+        "minimum": 1.5478610126474275,
+        "negative_count": 0,
+        "non_positive_count": 0
+      },
+      "target": "true_electron_temperature_eV",
+      "transform": "identity"
+    },
+    {
+      "candidate_id": "hist_gradient_boosting_lr0.1_iter400_leaves31_l20",
+      "metrics": {
+        "mae_eV": 0.0005692264890880941,
+        "max_absolute_error_eV": 0.006818497523707112,
+        "mean_absolute_relative_error": 0.00031493462983465254,
+        "median_absolute_relative_error": 0.00022130620927545273,
+        "p95_absolute_error_eV": 0.0019343233926650265,
+        "r2": 0.9999572695084418,
+        "rmse_eV": 0.0008876239829316135
+      },
+      "model": "hist_gradient_boosting",
+      "parameters": {
+        "l2_regularization": 0.0,
+        "learning_rate": 0.1,
+        "max_iter": 400,
+        "max_leaf_nodes": 31
+      },
+      "prediction_sanity": {
+        "all_finite": true,
+        "maximum": 2.068159019194748,
+        "minimum": 1.547842562698266,
+        "negative_count": 0,
+        "non_positive_count": 0
+      },
+      "target": "true_electron_temperature_eV",
+      "transform": "identity"
+    },
+    {
+      "candidate_id": "hist_gradient_boosting_lr0.1_iter400_leaves31_l20.1",
+      "metrics": {
+        "mae_eV": 0.0005684754836791024,
+        "max_absolute_error_eV": 0.006848926745890438,
+        "mean_absolute_relative_error": 0.0003144234400588266,
+        "median_absolute_relative_error": 0.00021944113958600542,
+        "p95_absolute_error_eV": 0.0018584660267649262,
+        "r2": 0.9999571826466416,
+        "rmse_eV": 0.0008885256982152984
+      },
+      "model": "hist_gradient_boosting",
+      "parameters": {
+        "l2_regularization": 0.1,
+        "learning_rate": 0.1,
+        "max_iter": 400,
+        "max_leaf_nodes": 31
+      },
+      "prediction_sanity": {
+        "all_finite": true,
+        "maximum": 2.0683193164450886,
+        "minimum": 1.5478151356733123,
+        "negative_count": 0,
+        "non_positive_count": 0
+      },
+      "target": "true_electron_temperature_eV",
+      "transform": "identity"
+    }
+  ],
+  "scientific_scope": {
+    "absorbed_power_is_generator_rf_power": false,
+    "data_type": "synthetic data",
+    "domain": "numerically qualified model envelope",
+    "experimental_validation": false,
+    "industrial_validation": false,
+    "oipt_operating_range_claim": false,
+    "reactive_etch_or_deposition_prediction": false,
+    "source_model": "reduced-order argon plasma model",
+    "surrogate_role": "surrogate of the reduced-order simulator",
+    "wafer_scale_spatial_modelling": false
+  },
+  "selection": {
+    "density": {
+      "best_primary_value": 0.0039696471210895435,
+      "candidate_pool_size": 72,
+      "locked_test_evaluation_performed": false,
+      "phase4e_physics_acceptance_pending": true,
+      "practical_equivalence_relative_fraction": 0.02,
+      "primary_equivalent_candidate_ids": [
+        "extra_trees_n500_depthnone_leaf1_features1",
+        "extra_trees_n500_depthnone_leaf1_features1",
+        "extra_trees_n500_depth16_leaf1_features1"
+      ],
+      "primary_equivalent_candidates": [
+        {
+          "candidate_id": "extra_trees_n500_depthnone_leaf1_features1",
+          "transform": "identity"
+        },
+        {
+          "candidate_id": "extra_trees_n500_depthnone_leaf1_features1",
+          "transform": "log10"
+        },
+        {
+          "candidate_id": "extra_trees_n500_depth16_leaf1_features1",
+          "transform": "log10"
+        }
+      ],
+      "primary_metric": "p95_absolute_relative_error",
+      "primary_strict_upper_boundary": 0.0040490400635113345,
+      "secondary_metrics": [
+        "median_absolute_relative_error",
+        "rmse"
+      ],
+      "selected_candidate_id": "extra_trees_n500_depth16_leaf1_features1",
+      "selected_metrics": {
+        "mae": 116705034735161.2,
+        "max_absolute_relative_error": 0.03529685902809873,
+        "mean_absolute_relative_error": 0.001383632333796658,
+        "median_absolute_relative_error": 0.0009135129266570874,
+        "p95_absolute_relative_error": 0.0039844902064391065,
+        "r2": 0.9999866187626286,
+        "rmse": 173808266437351.8
+      },
+      "selected_model": "extra_trees",
+      "selected_parameters": {
+        "max_depth": 16,
+        "max_features": 1.0,
+        "min_samples_leaf": 1,
+        "n_estimators": 500
+      },
+      "selected_transform": "log10",
+      "selection_stage": "secondary_metric:median_absolute_relative_error",
+      "target": "true_electron_density_m3",
+      "validation_selected_only": true
+    },
+    "temperature": {
+      "best_primary_value": 1.1002626493505393e-05,
+      "candidate_pool_size": 36,
+      "locked_test_evaluation_performed": false,
+      "phase4e_physics_acceptance_pending": true,
+      "practical_equivalence_relative_fraction": 0.02,
+      "primary_equivalent_candidate_ids": [
+        "extra_trees_n500_depthnone_leaf1_features1"
+      ],
+      "primary_equivalent_candidates": [
+        {
+          "candidate_id": "extra_trees_n500_depthnone_leaf1_features1",
+          "transform": "identity"
+        }
+      ],
+      "primary_metric": "rmse_eV",
+      "primary_strict_upper_boundary": 1.1222679023375502e-05,
+      "secondary_metrics": [
+        "p95_absolute_error_eV",
+        "mae_eV"
+      ],
+      "selected_candidate_id": "extra_trees_n500_depthnone_leaf1_features1",
+      "selected_metrics": {
+        "mae_eV": 6.777637145936183e-06,
+        "max_absolute_error_eV": 8.380348956849026e-05,
+        "mean_absolute_relative_error": 3.7715853148005113e-06,
+        "median_absolute_relative_error": 2.2267607563088244e-06,
+        "p95_absolute_error_eV": 2.30876512147815e-05,
+        "r2": 0.9999999934344279,
+        "rmse_eV": 1.1002626493505393e-05
+      },
+      "selected_model": "extra_trees",
+      "selected_parameters": {
+        "max_depth": null,
+        "max_features": 1.0,
+        "min_samples_leaf": 1,
+        "n_estimators": 500
+      },
+      "selected_transform": "identity",
+      "selection_stage": "primary_metric",
+      "target": "true_electron_temperature_eV",
+      "validation_selected_only": true
+    }
+  },
+  "selection_design": {
+    "classical_configurations_per_target_transform": 36,
+    "locked_test_evaluation_performed": false,
+    "physics_acceptance_performed": false,
+    "practical_equivalence_relative_fraction": 0.02,
+    "production_model_persisted": false,
+    "target_transform_combinations": 3,
+    "total_fits": 108,
+    "train_validation_refit_performed": false,
+    "validation_selection_performed": true
+  }
+}
