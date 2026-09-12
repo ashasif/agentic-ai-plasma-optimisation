@@ -1,0 +1,80 @@
+{
+  "data_usage": {
+    "final_refit_rows": 6144,
+    "fit_splits": [
+      "train",
+      "validation"
+    ],
+    "test_evaluation_performed": false,
+    "test_targets_accessed": false,
+    "train_rows": 4096,
+    "validation_rows": 2048
+  },
+  "density": {
+    "candidate_id": "phase4er_hist_gradient_boosting_lr0.05_iter400_leaves31_l20.1",
+    "early_stopping": false,
+    "fit_rows": 6144,
+    "model": "hist_gradient_boosting",
+    "monotonic_cst": [
+      1,
+      1
+    ],
+    "parameters": {
+      "l2_regularization": 0.1,
+      "learning_rate": 0.05,
+      "max_iter": 400,
+      "max_leaf_nodes": 31
+    },
+    "target": "true_electron_density_m3",
+    "transform": "log10"
+  },
+  "gates": {
+    "final_configurations_frozen": true,
+    "final_train_validation_refit_performed": true,
+    "final_train_validation_refit_rows": 6144,
+    "locked_test_evaluation_performed": false,
+    "phase4f_ready_pending_tests_and_checkpoint": true,
+    "physics_acceptance_passed": true,
+    "test_targets_accessed": false
+  },
+  "input_artifacts": {
+    "density_validation_selection": {
+      "path": "results\\phase4\\phase4er_validation_selection.json"
+    },
+    "physics_acceptance": {
+      "path": "results\\phase4\\phase4er_physics_acceptance.json",
+      "sha256": "618cabc5fc28be08d24b73c747262b40ed2a6134820098ae0eb33b2d1fc71875"
+    },
+    "temperature_selection": {
+      "path": "results\\phase4\\validation_selection.json"
+    }
+  },
+  "phase": "4E-R",
+  "phase4f_status": "locked_pending_final_checkpoint",
+  "scientific_scope": {
+    "absorbed_power_is_generator_rf_power": false,
+    "experimental_validation": false,
+    "industrial_validation": false,
+    "numerically_qualified_model_envelope": true,
+    "oipt_operating_range_claim": false,
+    "reactive_etch_or_deposition_prediction": false,
+    "reduced_order_argon_plasma_model": true,
+    "surrogate_of_reduced_order_simulator": true,
+    "synthetic_data": true,
+    "wafer_scale_spatial_modelling": false
+  },
+  "stage": "final_train_validation_refit",
+  "temperature": {
+    "candidate_id": "extra_trees_n500_depthnone_leaf1_features1",
+    "fit_rows": 6144,
+    "model": "extra_trees",
+    "parameters": {
+      "max_depth": null,
+      "max_features": 1.0,
+      "min_samples_leaf": 1,
+      "n_estimators": 500
+    },
+    "target": "true_electron_temperature_eV",
+    "transform": "identity"
+  }
+}
