@@ -3,7 +3,7 @@
 **Closure type:** SUCCESSFUL PRE-TEST REDEVELOPMENT
 **Physics-aware acceptance:** PASS
 **Final TRAIN + VALIDATION refit:** COMPLETE
-**Phase 4F:** LOCKED PENDING FORMAL CLOSURE
+**Phase 4F:** UNLOCKED FOR ONE-TIME LOCKED TEST EVALUATION
 
 ## Predeclared redevelopment protocol
 
@@ -262,17 +262,24 @@ Final-refit artifact freeze commit:
 - Documentation factual QA: `50 / 50 checks passed`.
 
 - [x] Run staged whitespace check.
-- [ ] Commit Phase 4E-R closure documentation.
-- [ ] Confirm clean working tree.
-- [ ] Formally declare Phase 4E-R closed.
-- [ ] Formally unlock Phase 4F for the one-time TEST evaluation.
+- [x] Commit Phase 4E-R closure documentation.
+- [x] Confirm clean working tree.
+- [x] Formally declare Phase 4E-R closed.
+- [x] Formally unlock Phase 4F for the one-time TEST evaluation.
 
 ## Phase boundary
 
-Phase 4F remains locked until this closure gate is completed.
+Phase 4E-R is formally closed.
 
-Once Phase 4E-R is formally closed, Phase 4F may perform the one-time locked
-TEST evaluation using the frozen pre-test final surrogate configurations.
+Phase 4F is now unlocked exclusively for the one-time locked TEST evaluation
+using the frozen pre-test final surrogate configurations.
+
+At this boundary:
+
+- TEST targets have not been accessed;
+- TEST metrics have not been calculated;
+- the one-time Phase 4F TEST evaluation has not yet been performed;
+- no further development decisions are permitted from TEST information.
 
 No further model selection, retuning, hyperparameter modification, transform
 change, feature change, acceptance-rule modification, or development iteration
@@ -280,3 +287,31 @@ may use TEST information.
 
 Phase 4F TEST results must be treated as final evaluation evidence rather than
 development feedback.
+
+## Formal closure record
+
+Phase 4E-R is formally closed as a **successful pre-test redevelopment
+iteration**.
+
+Closure evidence:
+
+- predeclared Phase 4E-R protocol frozen before results;
+- selected density configuration frozen;
+- density physics-aware acceptance: PASS;
+- temperature physics-aware acceptance: PASS;
+- overall physics-aware acceptance: PASS;
+- final TRAIN + VALIDATION refit: COMPLETE;
+- final refit rows: 6,144;
+- TEST targets: NOT ACCESSED;
+- TEST evaluation: NOT PERFORMED;
+- targeted Phase 4E-R regression: 49 passed;
+- complete repository regression: 359 passed;
+- documentation factual QA: 50 / 50 checks passed;
+- staged whitespace gate: PASS;
+- closure documentation committed at `4ce7447`;
+- clean working tree confirmed before formal closure.
+
+The locked pre-test surrogate configuration is therefore eligible to enter
+Phase 4F.
+
+Phase 4F is restricted to the one-time final TEST evaluation.

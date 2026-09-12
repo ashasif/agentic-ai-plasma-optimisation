@@ -1,9 +1,9 @@
 ﻿# Phase 4E-R - Pre-Test Physics-Constrained Surrogate Redevelopment
 
-**Status:** TECHNICALLY COMPLETE - FORMAL CLOSURE PENDING
+**Status:** FORMALLY CLOSED - PRE-TEST REDEVELOPMENT PASSED
 **Physics-aware acceptance:** PASS
 **Final TRAIN + VALIDATION refit:** COMPLETE
-**Phase 4F status:** LOCKED PENDING FORMAL PHASE 4E-R CLOSURE CHECKPOINT
+**Phase 4F status:** UNLOCKED FOR ONE-TIME LOCKED TEST EVALUATION
 
 ## 1. Purpose
 
@@ -584,21 +584,32 @@ It must not be interpreted as a universal physical law for ICP systems.
 
 ## 13. Phase boundary
 
-All technical Phase 4E-R development gates required before the final closure
-checkpoint have now passed.
+Phase 4E-R is formally closed.
 
-However, Phase 4F remains locked until:
+All frozen pre-test requirements have been satisfied:
 
-- the Phase 4E-R technical summary is reviewed;
-- the Phase 4E-R closure checklist is completed;
-- closure documentation passes factual QA;
-- closure documentation is committed;
-- the repository returns to a clean formal Git checkpoint.
+- the Phase 4E-R protocol was frozen before redevelopment results;
+- density validation selection is complete;
+- both targets passed frozen physics-aware acceptance;
+- final surrogate configurations are frozen;
+- TRAIN + VALIDATION refit used exactly 6,144 rows;
+- TEST targets remained unaccessed;
+- targeted regression passed: 49 tests;
+- full repository regression passed: 359 tests;
+- closure documentation factual QA passed: 50 / 50 checks;
+- closure documentation was committed;
+- a clean Git checkpoint was confirmed before formal closure.
 
-Only after formal Phase 4E-R closure may Phase 4F begin.
+Phase 4F is therefore unlocked exclusively for the one-time locked TEST
+evaluation.
 
-Phase 4F will be the one-time locked TEST evaluation.
+No Phase 4F TEST evaluation has yet been performed.
 
-No further model selection, retuning, transform change, hyperparameter change,
-feature change, physics-rule change, or development iteration is permitted
-using TEST information.
+TEST targets remain unopened at the Phase 4E-R boundary.
+
+From this point onward, no model selection, retuning, transform change,
+hyperparameter change, feature change, physics-rule change, or development
+iteration may use TEST information.
+
+Phase 4F TEST results must be treated as final evaluation evidence and not as
+feedback for further surrogate development.
