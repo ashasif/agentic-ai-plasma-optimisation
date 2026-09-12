@@ -1,0 +1,42 @@
+{
+  "acceptance": {
+    "exact_array_equality_required": true,
+    "overall_passed": true
+  },
+  "density": {
+    "all_finite": true,
+    "exact_array_equal": true,
+    "max_absolute_difference": 0.0,
+    "max_relative_difference": 0.0,
+    "prediction_shape": [
+      1681
+    ]
+  },
+  "phase": "4G",
+  "probe_grid": {
+    "absorbed_power_points": 41,
+    "include_domain_endpoints": true,
+    "pressure_points": 41,
+    "role": "in_domain_persistence_reproducibility_diagnostic",
+    "total_points": 1681,
+    "type": "cartesian_regular"
+  },
+  "scientific_scope": {
+    "experimental_validation": false,
+    "industrial_validation": false,
+    "ood_validation": false,
+    "test_evaluation": false
+  },
+  "stage": "persistence_equivalence",
+  "status": "passed",
+  "temperature": {
+    "all_finite": true,
+    "exact_array_equal": true,
+    "max_absolute_difference": 0.0,
+    "max_relative_difference": 0.0,
+    "prediction_shape": [
+      1681
+    ]
+  },
+  "test_targets_accessed": false
+}

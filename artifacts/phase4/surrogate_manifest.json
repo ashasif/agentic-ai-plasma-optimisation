@@ -1,0 +1,120 @@
+{
+  "artifact": "persisted_surrogate_manifest",
+  "feature_contract": {
+    "feature_names": [
+      "nominal_absorbed_power_W",
+      "target_pressure_mTorr"
+    ],
+    "feature_order_frozen": true,
+    "feature_units": {
+      "nominal_absorbed_power_W": "W",
+      "target_pressure_mTorr": "mTorr"
+    }
+  },
+  "final_fit": {
+    "rows": 6144,
+    "splits": [
+      "train",
+      "validation"
+    ],
+    "test_targets_accessed": false
+  },
+  "models": {
+    "density": {
+      "artifact_file": "density_model.pkl",
+      "candidate_id": "phase4er_hist_gradient_boosting_lr0.05_iter400_leaves31_l20.1",
+      "model_type": "HistGradientBoostingRegressor",
+      "parameters": {
+        "early_stopping": false,
+        "l2_regularization": 0.1,
+        "learning_rate": 0.05,
+        "max_iter": 400,
+        "max_leaf_nodes": 31,
+        "monotonic_cst": [
+          1,
+          1
+        ],
+        "random_state": 20260913
+      },
+      "sha256": "2706589929cdbebabda82cc9091ce110d673adc1c380bb49de9590f89da0b6a8",
+      "target": "true_electron_density_m3",
+      "target_transform": "log10",
+      "target_unit": "m^-3"
+    },
+    "temperature": {
+      "artifact_file": "temperature_model.pkl",
+      "candidate_id": "extra_trees_n500_depthnone_leaf1_features1",
+      "model_type": "ExtraTreesRegressor",
+      "parameters": {
+        "max_depth": null,
+        "max_features": 1.0,
+        "min_samples_leaf": 1,
+        "n_estimators": 500,
+        "n_jobs": 1,
+        "random_state": 20260913
+      },
+      "sha256": "891c5f99082ae27f8dd08d610d528460ecae72e4d019c0bc47ba0f993420c7e5",
+      "target": "true_electron_temperature_eV",
+      "target_transform": "identity",
+      "target_unit": "eV"
+    }
+  },
+  "phase": "4G",
+  "provenance": {
+    "artifact_creation_timestamp_utc": "2026-09-12T05:37:31.693010+00:00",
+    "machine": "AMD64",
+    "numpy_version": "2.5.3",
+    "platform": "Windows-11-10.0.22631-SP0",
+    "processor": "Intel64 Family 6 Model 142 Stepping 9, GenuineIntel",
+    "python_version": "3.12.5",
+    "repository_clean_state_before_generation": true,
+    "scikit_learn_version": "1.9.1",
+    "scipy_version": "1.18.1",
+    "source_git_commit": "669da540efe5a9632a3f195af11015da2e85cd61",
+    "training_reconstruction_timestamp_utc": "2026-09-12T05:37:29.512868+00:00"
+  },
+  "qualified_domain": {
+    "nominal_absorbed_power_W": {
+      "max": 90.0,
+      "min": 15.0
+    },
+    "target_pressure_mTorr": {
+      "max": 60.0,
+      "min": 10.0
+    }
+  },
+  "schema_version": "1.0.0",
+  "scientific_limitations": [
+    "synthetic data",
+    "reduced-order argon plasma model",
+    "numerically qualified model envelope",
+    "surrogate of the reduced-order simulator",
+    "no experimental validation",
+    "no industrial validation",
+    "no OIPT operating-range claim",
+    "absorbed power is not generator RF power",
+    "no reactive etch/deposition prediction",
+    "no wafer-scale spatial modelling"
+  ],
+  "serialization": {
+    "format": "pickle",
+    "hash_verified_before_deserialization": true,
+    "pickle_protocol": 5,
+    "trusted_project_artifacts_only": true
+  },
+  "source_evidence": {
+    "phase3_dataset": {
+      "path": "data/synthetic/phase3/base_steady_state.csv",
+      "rows": 8192,
+      "sha256": "dc8d3a24f84b3eca9ce930a88e969e51892d69430ce5840cc546523e9f9dd423"
+    },
+    "phase4er_final_refit": {
+      "path": "results/phase4/phase4er_final_refit.json",
+      "sha256": "4132ff5221c14cf6753e1a19bed5ecaa17577462fcecce1699b57c719a81aa12"
+    },
+    "phase4f_locked_test": {
+      "path": "results/phase4/locked_test_evaluation.json",
+      "sha256": "a14638013561b8f1f66547fab9910d96b0a2ad2c12afad894948b1f690af14e0"
+    }
+  }
+}
