@@ -461,3 +461,71 @@ def test_final_refit_rejects_wrong_combined_row_count(
         match="VALIDATION row count",
     ):
         refit.run_phase4er_final_refit()
+
+
+def test_final_refit_writer_serializes_payload(
+    tmp_path,
+    monkeypatch,
+):
+    payload = {
+        "phase": "4E-R",
+        "stage": "final_train_validation_refit",
+        "phase4f_status": "locked_pending_final_checkpoint",
+        "data_usage": {
+            "final_refit_rows": 6144,
+            "test_targets_accessed": False,
+            "test_evaluation_performed": False,
+        },
+        "gates": {
+            "physics_acceptance_passed": True,
+            "final_train_validation_refit_performed": True,
+            "final_train_validation_refit_rows": 6144,
+            "final_configurations_frozen": True,
+            "test_targets_accessed": False,
+            "locked_test_evaluation_performed": False,
+            "phase4f_ready_pending_tests_and_checkpoint": True,
+        },
+    }
+
+    monkeypatch.setattr(
+        refit,
+        "run_phase4er_final_refit_result",
+        lambda **kwargs: payload,
+    )
+
+    destination = (
+        tmp_path
+        / "phase4er_final_refit.json"
+    )
+
+    result = refit.write_phase4er_final_refit(
+        destination
+    )
+
+    assert result == destination
+
+    observed = json.loads(
+        destination.read_text(
+            encoding="utf-8"
+        )
+    )
+
+    assert observed == payload
+
+    assert observed[
+        "data_usage"
+    ][
+        "final_refit_rows"
+    ] == 6144
+
+    assert observed[
+        "data_usage"
+    ][
+        "test_targets_accessed"
+    ] is False
+
+    assert observed[
+        "gates"
+    ][
+        "locked_test_evaluation_performed"
+    ] is False

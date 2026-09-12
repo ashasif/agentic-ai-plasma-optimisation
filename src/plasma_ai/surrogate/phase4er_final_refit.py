@@ -50,6 +50,10 @@ DEFAULT_ACCEPTANCE_PATH = Path(
     "results/phase4/phase4er_physics_acceptance.json"
 )
 
+DEFAULT_OUTPUT_PATH = Path(
+    "results/phase4/phase4er_final_refit.json"
+)
+
 EXPECTED_ACCEPTANCE_SHA256 = (
     "618cabc5fc28be08d24b73c747262b40ed2a6134820098ae0eb33b2d1fc71875"
 )
@@ -408,3 +412,175 @@ def run_phase4er_final_refit(
         fit_rows=EXPECTED_FINAL_REFIT_ROWS,
         test_targets_accessed=False,
     )
+
+
+def run_phase4er_final_refit_result(
+    *,
+    acceptance_path: str | Path = DEFAULT_ACCEPTANCE_PATH,
+    phase4er_selection_path: str | Path = DEFAULT_PHASE4ER_SELECTION_PATH,
+    phase4d_selection_path: str | Path = DEFAULT_PHASE4D_SELECTION_PATH,
+) -> dict:
+    """Perform the frozen final refit and return its metadata artifact."""
+
+    result = run_phase4er_final_refit(
+        acceptance_path=acceptance_path,
+        phase4er_selection_path=phase4er_selection_path,
+        phase4d_selection_path=phase4d_selection_path,
+    )
+
+    return {
+        "phase": "4E-R",
+        "stage": "final_train_validation_refit",
+        "phase4f_status": "locked_pending_final_checkpoint",
+        "input_artifacts": {
+            "physics_acceptance": {
+                "path": str(
+                    acceptance_path
+                ),
+                "sha256": EXPECTED_ACCEPTANCE_SHA256,
+            },
+            "density_validation_selection": {
+                "path": str(
+                    phase4er_selection_path
+                ),
+            },
+            "temperature_selection": {
+                "path": str(
+                    phase4d_selection_path
+                ),
+            },
+        },
+        "data_usage": {
+            "fit_splits": [
+                "train",
+                "validation",
+            ],
+            "train_rows": EXPECTED_TRAIN_ROWS,
+            "validation_rows": EXPECTED_VALIDATION_ROWS,
+            "final_refit_rows": result.fit_rows,
+            "test_targets_accessed": (
+                result.test_targets_accessed
+            ),
+            "test_evaluation_performed": False,
+        },
+        "density": {
+            "target": (
+                result.density.configuration.target_name
+            ),
+            "candidate_id": (
+                result.density
+                .configuration
+                .candidate_spec
+                .candidate_id
+            ),
+            "model": (
+                result.density
+                .configuration
+                .candidate_spec
+                .model_name
+            ),
+            "transform": (
+                result.density.configuration.transform_name
+            ),
+            "parameters": dict(
+                result.density
+                .configuration
+                .candidate_spec
+                .parameters
+            ),
+            "fit_rows": result.density.fit_rows,
+            "monotonic_cst": list(
+                result.density.model.monotonic_cst
+            ),
+            "early_stopping": (
+                result.density.model.early_stopping
+            ),
+        },
+        "temperature": {
+            "target": (
+                result.temperature.configuration.target_name
+            ),
+            "candidate_id": (
+                result.temperature
+                .configuration
+                .candidate_spec
+                .candidate_id
+            ),
+            "model": (
+                result.temperature
+                .configuration
+                .candidate_spec
+                .model_name
+            ),
+            "transform": (
+                result.temperature.configuration.transform_name
+            ),
+            "parameters": dict(
+                result.temperature
+                .configuration
+                .candidate_spec
+                .parameters
+            ),
+            "fit_rows": result.temperature.fit_rows,
+        },
+        "gates": {
+            "physics_acceptance_passed": True,
+            "final_train_validation_refit_performed": True,
+            "final_train_validation_refit_rows": (
+                result.fit_rows
+            ),
+            "final_configurations_frozen": True,
+            "test_targets_accessed": False,
+            "locked_test_evaluation_performed": False,
+            "phase4f_ready_pending_tests_and_checkpoint": True,
+        },
+        "scientific_scope": {
+            "synthetic_data": True,
+            "reduced_order_argon_plasma_model": True,
+            "numerically_qualified_model_envelope": True,
+            "surrogate_of_reduced_order_simulator": True,
+            "experimental_validation": False,
+            "industrial_validation": False,
+            "oipt_operating_range_claim": False,
+            "absorbed_power_is_generator_rf_power": False,
+            "reactive_etch_or_deposition_prediction": False,
+            "wafer_scale_spatial_modelling": False,
+        },
+    }
+
+
+def write_phase4er_final_refit(
+    output_path: str | Path = DEFAULT_OUTPUT_PATH,
+    *,
+    acceptance_path: str | Path = DEFAULT_ACCEPTANCE_PATH,
+    phase4er_selection_path: str | Path = DEFAULT_PHASE4ER_SELECTION_PATH,
+    phase4d_selection_path: str | Path = DEFAULT_PHASE4D_SELECTION_PATH,
+) -> Path:
+    """Run the final refit and write its machine-readable artifact."""
+
+    destination = Path(
+        output_path
+    )
+
+    payload = run_phase4er_final_refit_result(
+        acceptance_path=acceptance_path,
+        phase4er_selection_path=phase4er_selection_path,
+        phase4d_selection_path=phase4d_selection_path,
+    )
+
+    destination.parent.mkdir(
+        parents=True,
+        exist_ok=True,
+    )
+
+    destination.write_text(
+        json.dumps(
+            payload,
+            indent=2,
+            sort_keys=True,
+        )
+        + "\n",
+        encoding="utf-8",
+    )
+
+    return destination
