@@ -1,0 +1,564 @@
+{
+  "data_usage": {
+    "evaluation_split": "validation",
+    "fit_split": "train",
+    "test_rows": 2048,
+    "test_targets_accessed": false,
+    "train_rows": 4096,
+    "train_validation_refit_performed": false,
+    "validation_rows": 2048
+  },
+  "density_redevelopment": {
+    "candidate_count": 16,
+    "early_stopping": false,
+    "monotonic_cst": [
+      1,
+      1
+    ],
+    "practical_equivalence_relative_fraction": 0.02,
+    "results": [
+      {
+        "candidate_id": "phase4er_hist_gradient_boosting_lr0.05_iter200_leaves15_l20",
+        "metrics": {
+          "mae": 1238853461097498.0,
+          "max_absolute_relative_error": 0.09654611246422058,
+          "mean_absolute_relative_error": 0.013528891877207676,
+          "median_absolute_relative_error": 0.009229791578102851,
+          "p95_absolute_relative_error": 0.041469075864232964,
+          "r2": 0.9985244439306269,
+          "rmse": 1825156666128377.0
+        },
+        "model": "hist_gradient_boosting",
+        "parameters": {
+          "l2_regularization": 0.0,
+          "learning_rate": 0.05,
+          "max_iter": 200,
+          "max_leaf_nodes": 15
+        },
+        "prediction_sanity": {
+          "all_finite": true,
+          "maximum": 2.2355312881522963e+17,
+          "minimum": 1.8716765136439144e+16,
+          "negative_count": 0,
+          "non_positive_count": 0
+        },
+        "target": "true_electron_density_m3",
+        "transform": "log10"
+      },
+      {
+        "candidate_id": "phase4er_hist_gradient_boosting_lr0.05_iter200_leaves15_l20.1",
+        "metrics": {
+          "mae": 1240614759131806.5,
+          "max_absolute_relative_error": 0.09485647525614271,
+          "mean_absolute_relative_error": 0.013513077174116903,
+          "median_absolute_relative_error": 0.009264851253172725,
+          "p95_absolute_relative_error": 0.03971933270079122,
+          "r2": 0.9985485109987419,
+          "rmse": 1810210856532966.2
+        },
+        "model": "hist_gradient_boosting",
+        "parameters": {
+          "l2_regularization": 0.1,
+          "learning_rate": 0.05,
+          "max_iter": 200,
+          "max_leaf_nodes": 15
+        },
+        "prediction_sanity": {
+          "all_finite": true,
+          "maximum": 2.2344054714038502e+17,
+          "minimum": 1.8679060605658172e+16,
+          "negative_count": 0,
+          "non_positive_count": 0
+        },
+        "target": "true_electron_density_m3",
+        "transform": "log10"
+      },
+      {
+        "candidate_id": "phase4er_hist_gradient_boosting_lr0.05_iter200_leaves31_l20",
+        "metrics": {
+          "mae": 1232192283294102.5,
+          "max_absolute_relative_error": 0.084789137937615,
+          "mean_absolute_relative_error": 0.01379991834523029,
+          "median_absolute_relative_error": 0.010158554314556912,
+          "p95_absolute_relative_error": 0.037147117446686584,
+          "r2": 0.9987624079101945,
+          "rmse": 1671517981773198.5
+        },
+        "model": "hist_gradient_boosting",
+        "parameters": {
+          "l2_regularization": 0.0,
+          "learning_rate": 0.05,
+          "max_iter": 200,
+          "max_leaf_nodes": 31
+        },
+        "prediction_sanity": {
+          "all_finite": true,
+          "maximum": 2.2743949568969386e+17,
+          "minimum": 1.806752018748443e+16,
+          "negative_count": 0,
+          "non_positive_count": 0
+        },
+        "target": "true_electron_density_m3",
+        "transform": "log10"
+      },
+      {
+        "candidate_id": "phase4er_hist_gradient_boosting_lr0.05_iter200_leaves31_l20.1",
+        "metrics": {
+          "mae": 1210851624540826.2,
+          "max_absolute_relative_error": 0.0838756343986291,
+          "mean_absolute_relative_error": 0.013653858051579076,
+          "median_absolute_relative_error": 0.009747270246456993,
+          "p95_absolute_relative_error": 0.03724663951723951,
+          "r2": 0.9988100627279415,
+          "rmse": 1639020269909581.8
+        },
+        "model": "hist_gradient_boosting",
+        "parameters": {
+          "l2_regularization": 0.1,
+          "learning_rate": 0.05,
+          "max_iter": 200,
+          "max_leaf_nodes": 31
+        },
+        "prediction_sanity": {
+          "all_finite": true,
+          "maximum": 2.2715852446500742e+17,
+          "minimum": 1.818978408042041e+16,
+          "negative_count": 0,
+          "non_positive_count": 0
+        },
+        "target": "true_electron_density_m3",
+        "transform": "log10"
+      },
+      {
+        "candidate_id": "phase4er_hist_gradient_boosting_lr0.05_iter400_leaves15_l20",
+        "metrics": {
+          "mae": 1238400743124780.5,
+          "max_absolute_relative_error": 0.09655891117699336,
+          "mean_absolute_relative_error": 0.013500252212967023,
+          "median_absolute_relative_error": 0.009159767145568685,
+          "p95_absolute_relative_error": 0.04139508738565246,
+          "r2": 0.9985236960449213,
+          "rmse": 1825619147930809.0
+        },
+        "model": "hist_gradient_boosting",
+        "parameters": {
+          "l2_regularization": 0.0,
+          "learning_rate": 0.05,
+          "max_iter": 400,
+          "max_leaf_nodes": 15
+        },
+        "prediction_sanity": {
+          "all_finite": true,
+          "maximum": 2.239696805353544e+17,
+          "minimum": 1.8686705556386664e+16,
+          "negative_count": 0,
+          "non_positive_count": 0
+        },
+        "target": "true_electron_density_m3",
+        "transform": "log10"
+      },
+      {
+        "candidate_id": "phase4er_hist_gradient_boosting_lr0.05_iter400_leaves15_l20.1",
+        "metrics": {
+          "mae": 1240083227100193.8,
+          "max_absolute_relative_error": 0.0948509144012649,
+          "mean_absolute_relative_error": 0.013488913572961017,
+          "median_absolute_relative_error": 0.009292467811664543,
+          "p95_absolute_relative_error": 0.03946267284214797,
+          "r2": 0.9985476209494141,
+          "rmse": 1810765779800718.5
+        },
+        "model": "hist_gradient_boosting",
+        "parameters": {
+          "l2_regularization": 0.1,
+          "learning_rate": 0.05,
+          "max_iter": 400,
+          "max_leaf_nodes": 15
+        },
+        "prediction_sanity": {
+          "all_finite": true,
+          "maximum": 2.2383954737604016e+17,
+          "minimum": 1.86563788354111e+16,
+          "negative_count": 0,
+          "non_positive_count": 0
+        },
+        "target": "true_electron_density_m3",
+        "transform": "log10"
+      },
+      {
+        "candidate_id": "phase4er_hist_gradient_boosting_lr0.05_iter400_leaves31_l20",
+        "metrics": {
+          "mae": 1234951849413054.5,
+          "max_absolute_relative_error": 0.0847767612408668,
+          "mean_absolute_relative_error": 0.013791872556369572,
+          "median_absolute_relative_error": 0.010144186955865565,
+          "p95_absolute_relative_error": 0.03707370717580944,
+          "r2": 0.998758370316655,
+          "rmse": 1674242391015087.5
+        },
+        "model": "hist_gradient_boosting",
+        "parameters": {
+          "l2_regularization": 0.0,
+          "learning_rate": 0.05,
+          "max_iter": 400,
+          "max_leaf_nodes": 31
+        },
+        "prediction_sanity": {
+          "all_finite": true,
+          "maximum": 2.2763682711430685e+17,
+          "minimum": 1.804539175396871e+16,
+          "negative_count": 0,
+          "non_positive_count": 0
+        },
+        "target": "true_electron_density_m3",
+        "transform": "log10"
+      },
+      {
+        "candidate_id": "phase4er_hist_gradient_boosting_lr0.05_iter400_leaves31_l20.1",
+        "metrics": {
+          "mae": 1213733621224867.8,
+          "max_absolute_relative_error": 0.08391224389007498,
+          "mean_absolute_relative_error": 0.013643283653820577,
+          "median_absolute_relative_error": 0.009727623078162334,
+          "p95_absolute_relative_error": 0.037182267977943516,
+          "r2": 0.9988060602389571,
+          "rmse": 1641774471129433.0
+        },
+        "model": "hist_gradient_boosting",
+        "parameters": {
+          "l2_regularization": 0.1,
+          "learning_rate": 0.05,
+          "max_iter": 400,
+          "max_leaf_nodes": 31
+        },
+        "prediction_sanity": {
+          "all_finite": true,
+          "maximum": 2.2740373377733088e+17,
+          "minimum": 1.816726715198394e+16,
+          "negative_count": 0,
+          "non_positive_count": 0
+        },
+        "target": "true_electron_density_m3",
+        "transform": "log10"
+      },
+      {
+        "candidate_id": "phase4er_hist_gradient_boosting_lr0.1_iter200_leaves15_l20",
+        "metrics": {
+          "mae": 1398475658810986.0,
+          "max_absolute_relative_error": 0.09153760438587161,
+          "mean_absolute_relative_error": 0.015191849261178688,
+          "median_absolute_relative_error": 0.010487054739019133,
+          "p95_absolute_relative_error": 0.04505633814689317,
+          "r2": 0.9982384134531711,
+          "rmse": 1994225581665517.5
+        },
+        "model": "hist_gradient_boosting",
+        "parameters": {
+          "l2_regularization": 0.0,
+          "learning_rate": 0.1,
+          "max_iter": 200,
+          "max_leaf_nodes": 15
+        },
+        "prediction_sanity": {
+          "all_finite": true,
+          "maximum": 2.2375831264986774e+17,
+          "minimum": 1.874456317829966e+16,
+          "negative_count": 0,
+          "non_positive_count": 0
+        },
+        "target": "true_electron_density_m3",
+        "transform": "log10"
+      },
+      {
+        "candidate_id": "phase4er_hist_gradient_boosting_lr0.1_iter200_leaves15_l20.1",
+        "metrics": {
+          "mae": 1413112155700176.5,
+          "max_absolute_relative_error": 0.0997903088635632,
+          "mean_absolute_relative_error": 0.015433268548590055,
+          "median_absolute_relative_error": 0.011054930875504037,
+          "p95_absolute_relative_error": 0.04437459223821604,
+          "r2": 0.9982559855829607,
+          "rmse": 1984254280827586.5
+        },
+        "model": "hist_gradient_boosting",
+        "parameters": {
+          "l2_regularization": 0.1,
+          "learning_rate": 0.1,
+          "max_iter": 200,
+          "max_leaf_nodes": 15
+        },
+        "prediction_sanity": {
+          "all_finite": true,
+          "maximum": 2.235515230426847e+17,
+          "minimum": 1.906656182167232e+16,
+          "negative_count": 0,
+          "non_positive_count": 0
+        },
+        "target": "true_electron_density_m3",
+        "transform": "log10"
+      },
+      {
+        "candidate_id": "phase4er_hist_gradient_boosting_lr0.1_iter200_leaves31_l20",
+        "metrics": {
+          "mae": 1361856270430636.2,
+          "max_absolute_relative_error": 0.09196079047618053,
+          "mean_absolute_relative_error": 0.015268651332952896,
+          "median_absolute_relative_error": 0.011184810359841727,
+          "p95_absolute_relative_error": 0.042251115224140545,
+          "r2": 0.9985013344141788,
+          "rmse": 1839393544105035.8
+        },
+        "model": "hist_gradient_boosting",
+        "parameters": {
+          "l2_regularization": 0.0,
+          "learning_rate": 0.1,
+          "max_iter": 200,
+          "max_leaf_nodes": 31
+        },
+        "prediction_sanity": {
+          "all_finite": true,
+          "maximum": 2.281913803649188e+17,
+          "minimum": 1.8023232293600684e+16,
+          "negative_count": 0,
+          "non_positive_count": 0
+        },
+        "target": "true_electron_density_m3",
+        "transform": "log10"
+      },
+      {
+        "candidate_id": "phase4er_hist_gradient_boosting_lr0.1_iter200_leaves31_l20.1",
+        "metrics": {
+          "mae": 1355580295338824.0,
+          "max_absolute_relative_error": 0.0818291505569284,
+          "mean_absolute_relative_error": 0.014947568269233226,
+          "median_absolute_relative_error": 0.011349948753224266,
+          "p95_absolute_relative_error": 0.041620391689841205,
+          "r2": 0.9985171019966878,
+          "rmse": 1829691753764125.8
+        },
+        "model": "hist_gradient_boosting",
+        "parameters": {
+          "l2_regularization": 0.1,
+          "learning_rate": 0.1,
+          "max_iter": 200,
+          "max_leaf_nodes": 31
+        },
+        "prediction_sanity": {
+          "all_finite": true,
+          "maximum": 2.2821227002441085e+17,
+          "minimum": 1.7981217989022096e+16,
+          "negative_count": 0,
+          "non_positive_count": 0
+        },
+        "target": "true_electron_density_m3",
+        "transform": "log10"
+      },
+      {
+        "candidate_id": "phase4er_hist_gradient_boosting_lr0.1_iter400_leaves15_l20",
+        "metrics": {
+          "mae": 1398475817079275.5,
+          "max_absolute_relative_error": 0.09153759612140211,
+          "mean_absolute_relative_error": 0.015191850305790608,
+          "median_absolute_relative_error": 0.010487054834422043,
+          "p95_absolute_relative_error": 0.045056341285941735,
+          "r2": 0.9982384129960274,
+          "rmse": 1994225840423014.8
+        },
+        "model": "hist_gradient_boosting",
+        "parameters": {
+          "l2_regularization": 0.0,
+          "learning_rate": 0.1,
+          "max_iter": 400,
+          "max_leaf_nodes": 15
+        },
+        "prediction_sanity": {
+          "all_finite": true,
+          "maximum": 2.2375833690030717e+17,
+          "minimum": 1.8744563348822812e+16,
+          "negative_count": 0,
+          "non_positive_count": 0
+        },
+        "target": "true_electron_density_m3",
+        "transform": "log10"
+      },
+      {
+        "candidate_id": "phase4er_hist_gradient_boosting_lr0.1_iter400_leaves15_l20.1",
+        "metrics": {
+          "mae": 1413112281520684.5,
+          "max_absolute_relative_error": 0.09979030283342703,
+          "mean_absolute_relative_error": 0.015433269340335802,
+          "median_absolute_relative_error": 0.011054930949556514,
+          "p95_absolute_relative_error": 0.04437459923405386,
+          "r2": 0.9982559853359998,
+          "rmse": 1984254421317611.8
+        },
+        "model": "hist_gradient_boosting",
+        "parameters": {
+          "l2_regularization": 0.1,
+          "learning_rate": 0.1,
+          "max_iter": 400,
+          "max_leaf_nodes": 15
+        },
+        "prediction_sanity": {
+          "all_finite": true,
+          "maximum": 2.2355153371052093e+17,
+          "minimum": 1.9066561949391412e+16,
+          "negative_count": 0,
+          "non_positive_count": 0
+        },
+        "target": "true_electron_density_m3",
+        "transform": "log10"
+      },
+      {
+        "candidate_id": "phase4er_hist_gradient_boosting_lr0.1_iter400_leaves31_l20",
+        "metrics": {
+          "mae": 1361856270430636.2,
+          "max_absolute_relative_error": 0.09196079047618053,
+          "mean_absolute_relative_error": 0.015268651332952896,
+          "median_absolute_relative_error": 0.011184810359841727,
+          "p95_absolute_relative_error": 0.042251115224140545,
+          "r2": 0.9985013344141788,
+          "rmse": 1839393544105035.8
+        },
+        "model": "hist_gradient_boosting",
+        "parameters": {
+          "l2_regularization": 0.0,
+          "learning_rate": 0.1,
+          "max_iter": 400,
+          "max_leaf_nodes": 31
+        },
+        "prediction_sanity": {
+          "all_finite": true,
+          "maximum": 2.281913803649188e+17,
+          "minimum": 1.8023232293600684e+16,
+          "negative_count": 0,
+          "non_positive_count": 0
+        },
+        "target": "true_electron_density_m3",
+        "transform": "log10"
+      },
+      {
+        "candidate_id": "phase4er_hist_gradient_boosting_lr0.1_iter400_leaves31_l20.1",
+        "metrics": {
+          "mae": 1355580295338824.0,
+          "max_absolute_relative_error": 0.0818291505569284,
+          "mean_absolute_relative_error": 0.014947568269233226,
+          "median_absolute_relative_error": 0.011349948753224266,
+          "p95_absolute_relative_error": 0.041620391689841205,
+          "r2": 0.9985171019966878,
+          "rmse": 1829691753764125.8
+        },
+        "model": "hist_gradient_boosting",
+        "parameters": {
+          "l2_regularization": 0.1,
+          "learning_rate": 0.1,
+          "max_iter": 400,
+          "max_leaf_nodes": 31
+        },
+        "prediction_sanity": {
+          "all_finite": true,
+          "maximum": 2.2821227002441085e+17,
+          "minimum": 1.7981217989022096e+16,
+          "negative_count": 0,
+          "non_positive_count": 0
+        },
+        "target": "true_electron_density_m3",
+        "transform": "log10"
+      }
+    ],
+    "selection": {
+      "best_primary_value": 0.03707370717580944,
+      "locked_test_evaluation_performed": false,
+      "physics_acceptance_pending": true,
+      "practical_equivalence_relative_fraction": 0.02,
+      "primary_equivalent_candidate_ids": [
+        "phase4er_hist_gradient_boosting_lr0.05_iter200_leaves31_l20",
+        "phase4er_hist_gradient_boosting_lr0.05_iter200_leaves31_l20.1",
+        "phase4er_hist_gradient_boosting_lr0.05_iter400_leaves31_l20",
+        "phase4er_hist_gradient_boosting_lr0.05_iter400_leaves31_l20.1"
+      ],
+      "primary_equivalent_candidates": [
+        {
+          "candidate_id": "phase4er_hist_gradient_boosting_lr0.05_iter200_leaves31_l20",
+          "transform": "log10"
+        },
+        {
+          "candidate_id": "phase4er_hist_gradient_boosting_lr0.05_iter200_leaves31_l20.1",
+          "transform": "log10"
+        },
+        {
+          "candidate_id": "phase4er_hist_gradient_boosting_lr0.05_iter400_leaves31_l20",
+          "transform": "log10"
+        },
+        {
+          "candidate_id": "phase4er_hist_gradient_boosting_lr0.05_iter400_leaves31_l20.1",
+          "transform": "log10"
+        }
+      ],
+      "primary_metric": "p95_absolute_relative_error",
+      "primary_strict_upper_boundary": 0.03781518131932563,
+      "secondary_metrics": [
+        "median_absolute_relative_error",
+        "rmse"
+      ],
+      "selected_candidate_id": "phase4er_hist_gradient_boosting_lr0.05_iter400_leaves31_l20.1",
+      "selected_metrics": {
+        "mae": 1213733621224867.8,
+        "max_absolute_relative_error": 0.08391224389007498,
+        "mean_absolute_relative_error": 0.013643283653820577,
+        "median_absolute_relative_error": 0.009727623078162334,
+        "p95_absolute_relative_error": 0.037182267977943516,
+        "r2": 0.9988060602389571,
+        "rmse": 1641774471129433.0
+      },
+      "selected_model": "hist_gradient_boosting",
+      "selected_parameters": {
+        "l2_regularization": 0.1,
+        "learning_rate": 0.05,
+        "max_iter": 400,
+        "max_leaf_nodes": 31
+      },
+      "selected_prediction_sanity": {
+        "all_finite": true,
+        "maximum": 2.2740373377733088e+17,
+        "minimum": 1.816726715198394e+16,
+        "negative_count": 0,
+        "non_positive_count": 0
+      },
+      "selected_transform": "log10",
+      "selection_stage": "secondary_metric:median_absolute_relative_error",
+      "target": "true_electron_density_m3",
+      "validation_selected_only": true
+    },
+    "target": "true_electron_density_m3",
+    "transform": "log10"
+  },
+  "gates": {
+    "final_train_validation_refit_allowed": false,
+    "final_train_validation_refit_performed": false,
+    "locked_test_evaluation_performed": false,
+    "physics_acceptance_performed": false,
+    "production_model_persisted": false
+  },
+  "phase": "4E-R",
+  "phase4f_status": "locked",
+  "protocol_status": "predeclared_and_frozen",
+  "scientific_scope": {
+    "absorbed_power_is_generator_rf_power": false,
+    "experimental_validation": false,
+    "industrial_validation": false,
+    "numerically_qualified_model_envelope": true,
+    "oipt_operating_range_claim": false,
+    "reactive_etch_or_deposition_prediction": false,
+    "reduced_order_argon_plasma_model": true,
+    "surrogate_of_reduced_order_simulator": true,
+    "synthetic_data": true,
+    "wafer_scale_spatial_modelling": false
+  },
+  "stage": "pre_test_physics_constrained_density_redevelopment",
+  "temperature": {
+    "configuration_source": "frozen Phase 4D selection",
+    "physics_acceptance_required": true,
+    "redeveloped": false
+  }
+}
