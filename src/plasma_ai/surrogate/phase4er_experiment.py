@@ -8,6 +8,7 @@ TEST targets must remain withheld throughout.
 
 from __future__ import annotations
 
+import json
 from pathlib import Path
 
 from plasma_ai.surrogate.classical import (
@@ -311,3 +312,34 @@ def run_phase4er_validation_selection() -> dict:
             "production_model_persisted": False,
         },
     }
+
+
+def write_phase4er_validation_selection(
+    output_path: str | Path = DEFAULT_OUTPUT_PATH,
+) -> Path:
+    """Run Phase 4E-R and write its structured validation artifact."""
+
+    destination = Path(
+        output_path
+    )
+
+    payload = (
+        run_phase4er_validation_selection()
+    )
+
+    destination.parent.mkdir(
+        parents=True,
+        exist_ok=True,
+    )
+
+    destination.write_text(
+        json.dumps(
+            payload,
+            indent=2,
+            sort_keys=True,
+        )
+        + "\n",
+        encoding="utf-8",
+    )
+
+    return destination

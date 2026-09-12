@@ -2,6 +2,8 @@
 
 from __future__ import annotations
 
+import json
+
 import numpy as np
 import pytest
 
@@ -311,3 +313,65 @@ def test_phase4er_orchestration_rejects_wrong_feature_contract(
         match="feature contract",
     ):
         experiment.run_phase4er_validation_selection()
+
+
+def test_phase4er_writer_serializes_payload(
+    tmp_path,
+    monkeypatch,
+):
+    payload = {
+        "phase": "4E-R",
+        "phase4f_status": "locked",
+        "data_usage": {
+            "test_targets_accessed": False,
+            "train_validation_refit_performed": False,
+        },
+        "gates": {
+            "physics_acceptance_performed": False,
+            "final_train_validation_refit_allowed": False,
+            "locked_test_evaluation_performed": False,
+        },
+    }
+
+    monkeypatch.setattr(
+        experiment,
+        "run_phase4er_validation_selection",
+        lambda: payload,
+    )
+
+    destination = (
+        tmp_path
+        / "phase4er_validation_selection.json"
+    )
+
+    result = (
+        experiment.write_phase4er_validation_selection(
+            destination
+        )
+    )
+
+    assert result == destination
+
+    observed = json.loads(
+        destination.read_text(
+            encoding="utf-8"
+        )
+    )
+
+    assert observed == payload
+
+    assert observed[
+        "phase4f_status"
+    ] == "locked"
+
+    assert observed[
+        "data_usage"
+    ][
+        "test_targets_accessed"
+    ] is False
+
+    assert observed[
+        "gates"
+    ][
+        "final_train_validation_refit_allowed"
+    ] is False
