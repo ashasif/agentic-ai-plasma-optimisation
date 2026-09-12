@@ -3,11 +3,11 @@
 ## Status
 
 **Phase:** 4F
-**Technical status:** COMPLETE - FORMAL CLOSURE PENDING
+**Technical status:** FORMALLY CLOSED
 **TEST evaluation:** COMPLETED ONCE
 **TEST status:** CONSUMED - MUST NOT BE REUSED FOR DEVELOPMENT
 **Retuning after TEST:** PROHIBITED
-**Phase 4G status:** LOCKED PENDING FORMAL PHASE 4F CLOSURE
+**Phase 4G status:** UNLOCKED
 
 ---
 
@@ -479,17 +479,22 @@ The frozen TEST result must be preserved as final Phase 4 evaluation evidence.
 
 ## 20. Phase boundary
 
-Phase 4F is technically complete.
+Phase 4F is formally closed.
 
-Formal Phase 4F closure documentation and checkpoint remain required before
-Phase 4G may begin.
+All required closure evidence is complete:
 
-Phase 4G remains locked until:
+- one-time locked TEST evaluation completed;
+- frozen TEST artifact committed at `19e2dd7`;
+- TEST result factual QA passed: 48 / 48 checks;
+- Phase 4F closure documentation factual QA passed: 61 / 61 checks;
+- Phase 4F closure documentation committed at `81eb713`;
+- clean working tree confirmed before formal closure;
+- TEST is permanently consumed for Phase 4 surrogate development;
+- retuning from TEST remains prohibited.
 
-- this summary is reviewed;
-- the Phase 4F closure checklist is completed;
-- closure documentation passes factual QA;
-- closure documentation is committed;
-- the repository returns to a clean formal closure checkpoint.
+Phase 4G is formally unlocked.
 
-No further TEST evaluation is permitted.
+Phase 4G must use the already-frozen surrogate configuration and must not
+reopen surrogate development based on Phase 4F TEST performance.
+
+No further Phase 4 TEST evaluation is permitted.

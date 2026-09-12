@@ -7,8 +7,8 @@
 **Technical evaluation:** COMPLETE
 **TEST status:** CONSUMED
 **Retuning from TEST:** PROHIBITED
-**Formal closure:** PENDING
-**Phase 4G:** LOCKED PENDING FORMAL PHASE 4F CLOSURE
+**Formal closure:** COMPLETE
+**Phase 4G:** UNLOCKED
 
 ---
 
@@ -286,20 +286,44 @@ Freeze commit:
 
 - Documentation factual QA: `61 / 61 checks passed`.
 - [x] Run staged whitespace check.
-- [ ] Commit Phase 4F closure documentation.
-- [ ] Confirm clean working tree.
-- [ ] Formally declare Phase 4F closed.
-- [ ] Formally unlock Phase 4G.
+- [x] Commit Phase 4F closure documentation.
+- [x] Confirm clean working tree.
+- [x] Formally declare Phase 4F closed.
+- [x] Formally unlock Phase 4G.
 
 ---
 
 ## Phase boundary
 
-Phase 4F is technically complete but not yet formally closed.
+Phase 4F is formally closed.
 
-Phase 4G remains locked until the formal closure gate is completed.
+Phase 4G is formally unlocked.
 
 The Phase 4 TEST split is consumed and must not be evaluated again.
 
 Phase 4G must proceed using the already-frozen surrogate and may not reopen
 model development based on TEST performance.
+
+## Formal closure record
+
+Phase 4F is formally closed as the successful one-time locked TEST evaluation.
+
+Closure evidence:
+
+- frozen Phase 4F protocol commit: `6a20561`;
+- frozen TEST artifact commit: `19e2dd7`;
+- Phase 4F closure-documentation commit: `81eb713`;
+- final fit rows: 6,144;
+- TEST rows: 2,048;
+- TEST evaluation performed exactly as the locked final evaluation;
+- TEST result factual QA: 48 / 48 checks passed;
+- closure-documentation factual QA: 61 / 61 checks passed;
+- targeted Phase 4F regression before TEST: 22 passed;
+- complete repository regression before TEST: 381 passed;
+- staged whitespace gate: PASS;
+- clean working tree confirmed before formal closure;
+- TEST is consumed;
+- retuning from TEST is prohibited.
+
+Phase 4G is unlocked for inference-speed benchmarking, persistence,
+provenance, and reproducible inference using the frozen surrogate.
