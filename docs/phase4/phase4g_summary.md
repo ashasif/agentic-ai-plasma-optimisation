@@ -1,4 +1,4 @@
-# Phase 4G ? Persistence, Provenance, Reproducible Inference and Speed Benchmark Summary
+# Phase 4G — Persistence, Provenance, Reproducible Inference and Speed Benchmark Summary
 
 ## Status
 
@@ -101,8 +101,8 @@ Exact feature order:
 
 Qualified numerical envelope:
 
-- absorbed power: `15?90 W`;
-- pressure: `10?60 mTorr`.
+- absorbed power: `15–90 W`;
+- pressure: `10–60 mTorr`.
 
 Final fit:
 
@@ -400,8 +400,8 @@ Total operating points:
 
 Bounds:
 
-- absorbed power: `15?90 W`;
-- pressure: `10?60 mTorr`.
+- absorbed power: `15–90 W`;
+- pressure: `10–60 mTorr`.
 
 The benchmark grid is independent of the TEST split.
 
@@ -546,8 +546,8 @@ Speed-up relative to the canonical reduced-order source workload:
 | Workload | Median time per point | Speed-up |
 |---|---:|---:|
 | Reduced-order source simulator | 209.4124203125 ms | 1.0x |
-| Persisted surrogate ? scalar | 71.11772734375 ms | 2.944588193887268x |
-| Persisted surrogate ? batch | 1.4026125 ms | 149.3016926004153x |
+| Persisted surrogate — scalar | 71.11772734375 ms | 2.944588193887268x |
+| Persisted surrogate — batch | 1.4026125 ms | 149.3016926004153x |
 
 Primary Phase 4G speed results:
 
