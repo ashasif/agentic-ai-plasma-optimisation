@@ -5,10 +5,10 @@
 **Phase:** 4H
 **Purpose:** FINAL PHASE 4 AUDIT, CONSOLIDATION AND CLOSURE
 **Technical evidence audit:** COMPLETE
-**Phase 4H documentation:** FACTUAL QA PASSED - CLOSURE CHECKPOINT PENDING
-**Formal Phase 4 closure:** PENDING
+**Phase 4H documentation:** COMPLETE
+**Formal Phase 4 closure:** COMPLETE
 **TEST status:** CONSUMED ONCE IN PHASE 4F - NO FURTHER PHASE 4 TEST EVALUATION PERMITTED
-**Phase 5:** LOCKED
+**Phase 5:** UNLOCKED
 
 ---
 
@@ -331,15 +331,15 @@ Encoding-repair commit:
 - [x] Run `git diff --check`.
 - [x] Inspect complete Phase 4H diff.
 - [x] Confirm only intended Phase 4H documentation is changed.
-- [ ] Commit Phase 4H closure documentation.
-- [ ] Record Phase 4H closure-documentation commit.
-- [ ] Update closure record with final QA/regression/commit evidence.
-- [ ] Run final factual QA after closure-record update.
-- [ ] Run final staged-diff and whitespace validation.
-- [ ] Commit formal Phase 4 closure update.
-- [ ] Confirm clean working tree.
-- [ ] Formally declare Phase 4 closed.
-- [ ] Unlock Phase 5 only after all preceding items pass.
+- [x] Commit Phase 4H closure documentation.
+- [x] Record Phase 4H closure-documentation commit.
+- [x] Update closure record with final QA/regression/commit evidence.
+- [x] Run final factual QA after closure-record update.
+- [x] Run final staged-diff and whitespace validation.
+- [x] Commit formal Phase 4 closure update.
+- [x] Confirm clean working tree.
+- [x] Formally declare Phase 4 closed.
+- [x] Unlock Phase 5 only after all preceding items pass.
 
 ---
 
@@ -370,7 +370,43 @@ Phase 5 must not:
 
 ## 15. Formal closure record
 
-**PENDING**
+**STATUS: COMPLETE**
 
-Phase 4 must not be declared formally closed until every item in section 13 has
-passed and a clean final Git checkpoint has been established.
+Phase 4H closure-documentation checkpoint:
+
+`fde7e53aef2bef7a81958f6cd9d27e2eb59be38d`
+
+Closure-documentation commit subject:
+
+`docs: add phase 4h closure documentation`
+
+Formal Phase 4 closure update:
+
+`docs: formally close phase 4 and unlock phase 5`
+
+Final closure evidence:
+
+- Phase 4H initial factual QA: 185 / 185 checks passed;
+- Phase 4H final closure-record factual QA: 47 / 47 checks passed;
+- complete repository regression: 393 tests passed;
+- final staged-diff validation passed;
+- final whitespace validation passed;
+- frozen Phase 4F TEST artifact hash remained unchanged;
+- frozen Phase 4G benchmark artifact hash remained unchanged;
+- density and temperature model hashes remained unchanged;
+- no Phase 4F TEST rerun occurred during Phase 4H;
+- no Phase 4G real timing benchmark rerun occurred during Phase 4H;
+- Phase 4H closure changes are documentation-only;
+- all Phase 4H checklist items are complete.
+
+Phase 4 is formally closed.
+
+The Phase 4 TEST split remains consumed and must not be reused for surrogate
+development, tuning, model selection or acceptance decisions.
+
+Phase 5 is unlocked subject to the frozen Phase 4 feature contract, qualified
+numerical envelope, persisted-artifact identity, TEST discipline and scientific
+claim boundary.
+
+The Git commit containing this record is the formal Phase 4 closure checkpoint.
+Its post-commit working tree must be clean; otherwise this closure gate fails.
