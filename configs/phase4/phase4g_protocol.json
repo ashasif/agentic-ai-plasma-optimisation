@@ -1,0 +1,173 @@
+{
+  "equivalence": {
+    "acceptance": {
+      "same_runtime_exact_array_equality_required": true
+    },
+    "compare": [
+      "prediction_shape",
+      "all_finite",
+      "exact_array_equal",
+      "max_absolute_difference",
+      "max_relative_difference"
+    ],
+    "grid": {
+      "absorbed_power_points": 41,
+      "include_domain_endpoints": true,
+      "pressure_points": 41,
+      "total_points": 1681,
+      "type": "cartesian_regular"
+    }
+  },
+  "final_surrogate": {
+    "density": {
+      "candidate_id": "phase4er_hist_gradient_boosting_lr0.05_iter400_leaves31_l20.1",
+      "model": "HistGradientBoostingRegressor",
+      "parameters": {
+        "early_stopping": false,
+        "l2_regularization": 0.1,
+        "learning_rate": 0.05,
+        "max_iter": 400,
+        "max_leaf_nodes": 31,
+        "monotonic_cst": [
+          1,
+          1
+        ],
+        "random_state": 20260913
+      },
+      "target": "true_electron_density_m3",
+      "transform": "log10",
+      "unit": "m^-3"
+    },
+    "feature_order": [
+      "nominal_absorbed_power_W",
+      "target_pressure_mTorr"
+    ],
+    "feature_units": {
+      "nominal_absorbed_power_W": "W",
+      "target_pressure_mTorr": "mTorr"
+    },
+    "final_fit_rows": 6144,
+    "final_fit_splits": [
+      "train",
+      "validation"
+    ],
+    "qualified_domain": {
+      "nominal_absorbed_power_W": {
+        "max": 90.0,
+        "min": 15.0
+      },
+      "target_pressure_mTorr": {
+        "max": 60.0,
+        "min": 10.0
+      }
+    },
+    "temperature": {
+      "candidate_id": "extra_trees_n500_depthnone_leaf1_features1",
+      "model": "ExtraTreesRegressor",
+      "parameters": {
+        "max_depth": null,
+        "max_features": 1.0,
+        "min_samples_leaf": 1,
+        "n_estimators": 500,
+        "n_jobs": 1,
+        "random_state": 20260913
+      },
+      "target": "true_electron_temperature_eV",
+      "transform": "identity",
+      "unit": "eV"
+    }
+  },
+  "persistence": {
+    "artifact_directory": "artifacts/phase4",
+    "hash_algorithm": "sha256",
+    "manifest_required": true,
+    "new_third_party_dependency_permitted": false,
+    "pickle_protocol": 5,
+    "serialization": "pickle",
+    "trusted_artifacts_only": true,
+    "verify_hash_before_deserialization": true
+  },
+  "phase": "4G",
+  "phase4f_closure_commit": "f146103",
+  "protocol_version": "1.0.0",
+  "required_environment_metadata": [
+    "platform",
+    "machine",
+    "processor",
+    "python_version",
+    "numpy_version",
+    "scipy_version",
+    "scikit_learn_version",
+    "git_commit",
+    "repository_clean_state",
+    "benchmark_timestamp_utc"
+  ],
+  "scientific_claim_boundaries": [
+    "synthetic data",
+    "reduced-order argon plasma model",
+    "numerically qualified model envelope",
+    "surrogate of the reduced-order simulator",
+    "no experimental validation",
+    "no industrial validation",
+    "no OIPT operating-range claim",
+    "absorbed power is not generator RF power",
+    "no reactive etch/deposition prediction",
+    "no wafer-scale spatial modelling"
+  ],
+  "source_evidence": {
+    "phase3_dataset": {
+      "path": "data/synthetic/phase3/base_steady_state.csv",
+      "rows": 8192,
+      "sha256": "dc8d3a24f84b3eca9ce930a88e969e51892d69430ce5840cc546523e9f9dd423"
+    },
+    "phase4er_final_refit": {
+      "path": "results/phase4/phase4er_final_refit.json",
+      "sha256": "4132ff5221c14cf6753e1a19bed5ecaa17577462fcecce1699b57c719a81aa12"
+    },
+    "phase4f_locked_test": {
+      "path": "results/phase4/locked_test_evaluation.json",
+      "sha256": "a14638013561b8f1f66547fab9910d96b0a2ad2c12afad894948b1f690af14e0"
+    }
+  },
+  "speed_benchmark": {
+    "freeze_before_execution": true,
+    "included_workloads_predeclared": true,
+    "industrial_throughput_claim_permitted": false,
+    "point_grid": {
+      "absorbed_power_points": 8,
+      "include_domain_endpoints": true,
+      "pressure_points": 8,
+      "total_points": 64,
+      "type": "cartesian_regular"
+    },
+    "primary_summary": "median",
+    "raw_repetitions_preserved": true,
+    "source": {
+      "canonical_function": "plasma_ai.experiments.base_dataset.simulate_base_design_point",
+      "points_per_workload": 64,
+      "timed_repetitions": 3,
+      "warmup_workloads": 1
+    },
+    "speedup_definitions": {
+      "batch": "median_source_workload_runtime_ns / median_surrogate_batch_workload_runtime_ns",
+      "scalar": "median_source_workload_runtime_ns / median_surrogate_scalar_workload_runtime_ns"
+    },
+    "surrogate_batch": {
+      "points_per_workload": 64,
+      "timed_repetitions": 1000,
+      "warmup_workloads": 10
+    },
+    "surrogate_scalar": {
+      "points_per_workload": 64,
+      "timed_repetitions": 200,
+      "warmup_workloads": 5
+    },
+    "timing_function": "time.perf_counter_ns"
+  },
+  "status": "frozen_before_benchmark_execution",
+  "test_status": {
+    "consumed": true,
+    "may_influence_phase4g_development": false,
+    "rerun_permitted": false
+  }
+}
