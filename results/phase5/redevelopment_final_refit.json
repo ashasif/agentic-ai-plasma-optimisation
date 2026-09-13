@@ -1,0 +1,122 @@
+{
+  "phase": "5E-R",
+  "artifact": "redevelopment_final_refit",
+  "status": "final_development_refit_complete_pending_freeze",
+  "governance": {
+    "selection_frozen_before_refit": true,
+    "selection_freeze_commit": "9bbfc78bbf0ffb419b2056b3aab960fa95bc0b20",
+    "selected_candidates_only": true,
+    "train_and_validation_used_for_refit": true,
+    "test_rows_used_for_fit": 0,
+    "test_predictive_evaluation_run": false,
+    "post_selection_tuning_performed": false,
+    "phase5f_unlocked": false
+  },
+  "provenance": {
+    "phase5er_protocol": {
+      "path": "configs/phase5/phase5er_protocol.json",
+      "sha256": "8df07efea044580c7cfbdfc893c04076ba5fbfbd982b60d2fd5a37f186508bda"
+    },
+    "redevelopment_implementation": {
+      "path": "src/plasma_ai/monitoring/redevelopment.py",
+      "sha256": "5f6db4ec27d33052583cab754508e5bb28f20826ea003514b4505ad0d4a9ea6b"
+    },
+    "frozen_redevelopment_benchmark": {
+      "path": "results/phase5/redevelopment_benchmark.json",
+      "sha256": "336a6b4af44a5b833c88ebdeeb2b6e7b10fac50cba9e86ded8548f427b6eee4e"
+    },
+    "frozen_redevelopment_selection": {
+      "path": "results/phase5/redevelopment_selection.json",
+      "sha256": "74ea1818094f22dda82ab0c5f899e3dfebd64f3f2ebd90eb6267af9935c26b88",
+      "freeze_commit": "9bbfc78bbf0ffb419b2056b3aab960fa95bc0b20"
+    }
+  },
+  "environment": {
+    "python": "3.12.5",
+    "python_implementation": "CPython",
+    "platform": "Windows-11-10.0.22631-SP0",
+    "numpy": "2.5.3",
+    "scikit_learn": "1.9.1"
+  },
+  "fit_data": {
+    "splits": [
+      "train",
+      "validation"
+    ],
+    "episodes": 48,
+    "total_rows": 3072,
+    "active_rows": 1451,
+    "inactive_rows": 1621,
+    "feature_count": 9,
+    "feature_order": [
+      "nominal_absorbed_power_W",
+      "target_pressure_mTorr",
+      "nominal_flow_sccm",
+      "measured_absorbed_power_W",
+      "measured_flow_sccm",
+      "measured_pressure_mTorr",
+      "absorbed_power_relative_residual",
+      "flow_relative_residual",
+      "pressure_relative_residual"
+    ],
+    "test_rows": 0
+  },
+  "detector": {
+    "candidate_id": "ERD4_extra_trees_threshold_040",
+    "base_candidate": "D3_extra_trees",
+    "classifier": "ExtraTreesClassifier",
+    "parameters": {
+      "n_estimators": 500,
+      "max_depth": null,
+      "min_samples_leaf": 1,
+      "max_features": 1.0,
+      "class_weight": "balanced",
+      "n_jobs": 1,
+      "random_state": 20260924
+    },
+    "threshold": 0.4,
+    "fit_rows": 3072,
+    "artifact_path": "artifacts/phase5/fault_detector.pkl",
+    "artifact_sha256": "4a00e785d7e7f0a8429020399967cdd82c18da275d58e5b83bc11707eeac8a6a",
+    "serialization_equivalence": true
+  },
+  "diagnoser": {
+    "candidate_id": "ERG3_extra_trees",
+    "classifier": "ExtraTreesClassifier",
+    "parameters": {
+      "n_estimators": 500,
+      "max_depth": null,
+      "min_samples_leaf": 1,
+      "max_features": 1.0,
+      "class_weight": "balanced",
+      "n_jobs": 1,
+      "random_state": 20260924
+    },
+    "classes": [
+      "flow_delivery",
+      "power_coupling",
+      "pressure_path_anomaly"
+    ],
+    "fit_rows": 1451,
+    "train_majority_class": "pressure_path_anomaly",
+    "artifact_path": "artifacts/phase5/fault_diagnoser.pkl",
+    "artifact_sha256": "2e9dea016137594c707ecd3c32116691cc90d0127133f11c70372c93e6fcca84",
+    "serialization_equivalence": true
+  },
+  "test_state": {
+    "test_features_interpreted": false,
+    "test_targets_interpreted": false,
+    "test_matrix_created": false,
+    "test_predictions_generated": false,
+    "test_performance_calculated": false,
+    "test_consumed": false,
+    "phase5f_unlocked": false
+  },
+  "scientific_scope": {
+    "synthetic_data_only": true,
+    "pressure_path_anomaly_is_ambiguity_aware": true,
+    "pressure_path_anomaly_identifies_specific_mechanism": false,
+    "experimental_validation": false,
+    "industrial_validation": false
+  }
+}
