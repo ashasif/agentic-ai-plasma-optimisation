@@ -1,0 +1,2048 @@
+{
+  "phase": "5E-R",
+  "artifact": "redevelopment_benchmark",
+  "status": "validation_evidence_generated",
+  "governance": {
+    "protocol_frozen_before_execution": true,
+    "implementation_frozen_before_execution": true,
+    "implementation_commit": "3ede37aa36b3a7544a72e0ec6cc8065f4bf47c11",
+    "real_train_model_fitting_performed": true,
+    "real_validation_predictive_scoring_performed": true,
+    "formal_acceptance_applied": false,
+    "candidate_selection_performed": false,
+    "final_refit_performed": false,
+    "test_predictive_evaluation_run": false,
+    "phase5f_unlocked": false
+  },
+  "provenance": {
+    "phase5er_protocol": {
+      "path": "configs/phase5/phase5er_protocol.json",
+      "sha256": "8df07efea044580c7cfbdfc893c04076ba5fbfbd982b60d2fd5a37f186508bda"
+    },
+    "redevelopment_implementation": {
+      "path": "src/plasma_ai/monitoring/redevelopment.py",
+      "sha256": "5f6db4ec27d33052583cab754508e5bb28f20826ea003514b4505ad0d4a9ea6b"
+    },
+    "original_supervised_benchmark": {
+      "path": "results/phase5/supervised_benchmark.json",
+      "sha256": "fea87ce628e20add11044bca17323143b2b9bb436d3d4192ad94cac6d00856d4"
+    },
+    "original_controlled_stop": {
+      "path": "results/phase5/validation_selection.json",
+      "sha256": "0f44f13a1efa4d95f8e70642ed129618616aec7a3b03b1dbe42e9a8a3ea60916"
+    }
+  },
+  "development_data": {
+    "train": {
+      "rows": 2048,
+      "episodes": 32,
+      "active_rows": 951,
+      "inactive_rows": 1097,
+      "redeveloped_active_class_counts": {
+        "flow_delivery": 231,
+        "power_coupling": 236,
+        "pressure_path_anomaly": 484
+      }
+    },
+    "validation": {
+      "rows": 1024,
+      "episodes": 16,
+      "active_rows": 500,
+      "inactive_rows": 524,
+      "redeveloped_active_class_counts": {
+        "flow_delivery": 123,
+        "power_coupling": 129,
+        "pressure_path_anomaly": 248
+      }
+    },
+    "train_validation_episode_overlap": 0
+  },
+  "detector_contract": {
+    "candidate_ids": [
+      "ERD1_hgb_threshold_045",
+      "ERD2_hgb_threshold_040",
+      "ERD3_extra_trees_threshold_045",
+      "ERD4_extra_trees_threshold_040"
+    ],
+    "acceptance_criteria": {
+      "balanced_accuracy_min": 0.75,
+      "macro_f1_min": 0.75,
+      "fault_active_recall_min": 0.75,
+      "specificity_min": 0.75,
+      "per_active_fault_family_recall_min": 0.6
+    },
+    "acceptance_applied_in_this_artifact": false
+  },
+  "diagnoser_contract": {
+    "classes": [
+      "flow_delivery",
+      "power_coupling",
+      "pressure_path_anomaly"
+    ],
+    "candidate_ids": [
+      "ERG1_logistic_regression",
+      "ERG2_hist_gradient_boosting",
+      "ERG3_extra_trees"
+    ],
+    "acceptance_criteria": {
+      "macro_f1_min": 0.6,
+      "balanced_accuracy_min": 0.6,
+      "per_class_recall_min": 0.5,
+      "majority_baseline_macro_f1_improvement_min": 0.1
+    },
+    "acceptance_applied_in_this_artifact": false
+  },
+  "detectors": {
+    "ERD1_hgb_threshold_045": {
+      "candidate_id": "ERD1_hgb_threshold_045",
+      "fit_rows": 2048,
+      "validation_rows": 1024,
+      "threshold": 0.45,
+      "metrics": {
+        "balanced_accuracy": 0.8396030534351144,
+        "macro_f1": 0.8397403199629028,
+        "positive_precision": 0.9142156862745098,
+        "active_recall": 0.746,
+        "specificity": 0.933206106870229,
+        "false_positive_rate": 0.06679389312977099,
+        "auroc": 0.882412213740458,
+        "average_precision": 0.9137556239554326,
+        "confusion_matrix": {
+          "labels": [
+            false,
+            true
+          ],
+          "matrix": [
+            [
+              489,
+              35
+            ],
+            [
+              127,
+              373
+            ]
+          ]
+        },
+        "per_active_fault_family_recall": {
+          "flow_delivery": {
+            "support": 123,
+            "detected": 91,
+            "recall": 0.7398373983739838
+          },
+          "power_coupling": {
+            "support": 129,
+            "detected": 98,
+            "recall": 0.7596899224806202
+          },
+          "pressure_sensor_bias": {
+            "support": 125,
+            "detected": 85,
+            "recall": 0.68
+          },
+          "pumping_effectiveness": {
+            "support": 123,
+            "detected": 99,
+            "recall": 0.8048780487804879
+          }
+        }
+      },
+      "sequence_diagnostics": {
+        "summary": {
+          "ordered_unit": "step_index; not calibrated physical time",
+          "fault_episode_count": 12,
+          "detected_fault_episode_count": 12,
+          "missed_fault_episode_count": 0,
+          "fault_episode_detection_rate": 1.0,
+          "mean_detection_delay_steps": 5.416666666666667,
+          "median_detection_delay_steps": 0.0,
+          "max_detection_delay_steps": 23,
+          "pre_active_false_alarm_episode_count": 5,
+          "normal_episode_count": 4,
+          "normal_episode_false_alarm_count": 2
+        },
+        "episode_records": [
+          {
+            "episode_id": "monitor_validation_001",
+            "fault_episode": false,
+            "first_active_step": null,
+            "first_alarm_at_or_after_active_step": null,
+            "detection_delay_steps": null,
+            "missed_fault_episode": false,
+            "pre_active_false_alarm": false,
+            "normal_episode_false_alarm": true
+          },
+          {
+            "episode_id": "monitor_validation_002",
+            "fault_episode": false,
+            "first_active_step": null,
+            "first_alarm_at_or_after_active_step": null,
+            "detection_delay_steps": null,
+            "missed_fault_episode": false,
+            "pre_active_false_alarm": false,
+            "normal_episode_false_alarm": true
+          },
+          {
+            "episode_id": "monitor_validation_003",
+            "fault_episode": true,
+            "first_active_step": 24,
+            "first_alarm_at_or_after_active_step": 24,
+            "detection_delay_steps": 0,
+            "missed_fault_episode": false,
+            "pre_active_false_alarm": true,
+            "normal_episode_false_alarm": false
+          },
+          {
+            "episode_id": "monitor_validation_004",
+            "fault_episode": true,
+            "first_active_step": 31,
+            "first_alarm_at_or_after_active_step": 31,
+            "detection_delay_steps": 0,
+            "missed_fault_episode": false,
+            "pre_active_false_alarm": false,
+            "normal_episode_false_alarm": false
+          },
+          {
+            "episode_id": "monitor_validation_005",
+            "fault_episode": true,
+            "first_active_step": 22,
+            "first_alarm_at_or_after_active_step": 34,
+            "detection_delay_steps": 12,
+            "missed_fault_episode": false,
+            "pre_active_false_alarm": false,
+            "normal_episode_false_alarm": false
+          },
+          {
+            "episode_id": "monitor_validation_006",
+            "fault_episode": true,
+            "first_active_step": 23,
+            "first_alarm_at_or_after_active_step": 46,
+            "detection_delay_steps": 23,
+            "missed_fault_episode": false,
+            "pre_active_false_alarm": true,
+            "normal_episode_false_alarm": false
+          },
+          {
+            "episode_id": "monitor_validation_007",
+            "fault_episode": true,
+            "first_active_step": 21,
+            "first_alarm_at_or_after_active_step": 21,
+            "detection_delay_steps": 0,
+            "missed_fault_episode": false,
+            "pre_active_false_alarm": true,
+            "normal_episode_false_alarm": false
+          },
+          {
+            "episode_id": "monitor_validation_008",
+            "fault_episode": true,
+            "first_active_step": 23,
+            "first_alarm_at_or_after_active_step": 23,
+            "detection_delay_steps": 0,
+            "missed_fault_episode": false,
+            "pre_active_false_alarm": false,
+            "normal_episode_false_alarm": false
+          },
+          {
+            "episode_id": "monitor_validation_009",
+            "fault_episode": true,
+            "first_active_step": 20,
+            "first_alarm_at_or_after_active_step": 20,
+            "detection_delay_steps": 0,
+            "missed_fault_episode": false,
+            "pre_active_false_alarm": false,
+            "normal_episode_false_alarm": false
+          },
+          {
+            "episode_id": "monitor_validation_010",
+            "fault_episode": false,
+            "first_active_step": null,
+            "first_alarm_at_or_after_active_step": null,
+            "detection_delay_steps": null,
+            "missed_fault_episode": false,
+            "pre_active_false_alarm": false,
+            "normal_episode_false_alarm": false
+          },
+          {
+            "episode_id": "monitor_validation_011",
+            "fault_episode": true,
+            "first_active_step": 24,
+            "first_alarm_at_or_after_active_step": 24,
+            "detection_delay_steps": 0,
+            "missed_fault_episode": false,
+            "pre_active_false_alarm": true,
+            "normal_episode_false_alarm": false
+          },
+          {
+            "episode_id": "monitor_validation_012",
+            "fault_episode": true,
+            "first_active_step": 17,
+            "first_alarm_at_or_after_active_step": 17,
+            "detection_delay_steps": 0,
+            "missed_fault_episode": false,
+            "pre_active_false_alarm": true,
+            "normal_episode_false_alarm": false
+          },
+          {
+            "episode_id": "monitor_validation_013",
+            "fault_episode": false,
+            "first_active_step": null,
+            "first_alarm_at_or_after_active_step": null,
+            "detection_delay_steps": null,
+            "missed_fault_episode": false,
+            "pre_active_false_alarm": false,
+            "normal_episode_false_alarm": false
+          },
+          {
+            "episode_id": "monitor_validation_014",
+            "fault_episode": true,
+            "first_active_step": 21,
+            "first_alarm_at_or_after_active_step": 37,
+            "detection_delay_steps": 16,
+            "missed_fault_episode": false,
+            "pre_active_false_alarm": false,
+            "normal_episode_false_alarm": false
+          },
+          {
+            "episode_id": "monitor_validation_015",
+            "fault_episode": true,
+            "first_active_step": 26,
+            "first_alarm_at_or_after_active_step": 40,
+            "detection_delay_steps": 14,
+            "missed_fault_episode": false,
+            "pre_active_false_alarm": false,
+            "normal_episode_false_alarm": false
+          },
+          {
+            "episode_id": "monitor_validation_016",
+            "fault_episode": true,
+            "first_active_step": 16,
+            "first_alarm_at_or_after_active_step": 16,
+            "detection_delay_steps": 0,
+            "missed_fault_episode": false,
+            "pre_active_false_alarm": false,
+            "normal_episode_false_alarm": false
+          }
+        ]
+      }
+    },
+    "ERD2_hgb_threshold_040": {
+      "candidate_id": "ERD2_hgb_threshold_040",
+      "fit_rows": 2048,
+      "validation_rows": 1024,
+      "threshold": 0.4,
+      "metrics": {
+        "balanced_accuracy": 0.8368320610687023,
+        "macro_f1": 0.837020531593188,
+        "positive_precision": 0.9036144578313253,
+        "active_recall": 0.75,
+        "specificity": 0.9236641221374046,
+        "false_positive_rate": 0.07633587786259542,
+        "auroc": 0.882412213740458,
+        "average_precision": 0.9137556239554326,
+        "confusion_matrix": {
+          "labels": [
+            false,
+            true
+          ],
+          "matrix": [
+            [
+              484,
+              40
+            ],
+            [
+              125,
+              375
+            ]
+          ]
+        },
+        "per_active_fault_family_recall": {
+          "flow_delivery": {
+            "support": 123,
+            "detected": 92,
+            "recall": 0.7479674796747967
+          },
+          "power_coupling": {
+            "support": 129,
+            "detected": 99,
+            "recall": 0.7674418604651163
+          },
+          "pressure_sensor_bias": {
+            "support": 125,
+            "detected": 85,
+            "recall": 0.68
+          },
+          "pumping_effectiveness": {
+            "support": 123,
+            "detected": 99,
+            "recall": 0.8048780487804879
+          }
+        }
+      },
+      "sequence_diagnostics": {
+        "summary": {
+          "ordered_unit": "step_index; not calibrated physical time",
+          "fault_episode_count": 12,
+          "detected_fault_episode_count": 12,
+          "missed_fault_episode_count": 0,
+          "fault_episode_detection_rate": 1.0,
+          "mean_detection_delay_steps": 5.166666666666667,
+          "median_detection_delay_steps": 0.0,
+          "max_detection_delay_steps": 23,
+          "pre_active_false_alarm_episode_count": 5,
+          "normal_episode_count": 4,
+          "normal_episode_false_alarm_count": 2
+        },
+        "episode_records": [
+          {
+            "episode_id": "monitor_validation_001",
+            "fault_episode": false,
+            "first_active_step": null,
+            "first_alarm_at_or_after_active_step": null,
+            "detection_delay_steps": null,
+            "missed_fault_episode": false,
+            "pre_active_false_alarm": false,
+            "normal_episode_false_alarm": true
+          },
+          {
+            "episode_id": "monitor_validation_002",
+            "fault_episode": false,
+            "first_active_step": null,
+            "first_alarm_at_or_after_active_step": null,
+            "detection_delay_steps": null,
+            "missed_fault_episode": false,
+            "pre_active_false_alarm": false,
+            "normal_episode_false_alarm": true
+          },
+          {
+            "episode_id": "monitor_validation_003",
+            "fault_episode": true,
+            "first_active_step": 24,
+            "first_alarm_at_or_after_active_step": 24,
+            "detection_delay_steps": 0,
+            "missed_fault_episode": false,
+            "pre_active_false_alarm": true,
+            "normal_episode_false_alarm": false
+          },
+          {
+            "episode_id": "monitor_validation_004",
+            "fault_episode": true,
+            "first_active_step": 31,
+            "first_alarm_at_or_after_active_step": 31,
+            "detection_delay_steps": 0,
+            "missed_fault_episode": false,
+            "pre_active_false_alarm": false,
+            "normal_episode_false_alarm": false
+          },
+          {
+            "episode_id": "monitor_validation_005",
+            "fault_episode": true,
+            "first_active_step": 22,
+            "first_alarm_at_or_after_active_step": 34,
+            "detection_delay_steps": 12,
+            "missed_fault_episode": false,
+            "pre_active_false_alarm": false,
+            "normal_episode_false_alarm": false
+          },
+          {
+            "episode_id": "monitor_validation_006",
+            "fault_episode": true,
+            "first_active_step": 23,
+            "first_alarm_at_or_after_active_step": 46,
+            "detection_delay_steps": 23,
+            "missed_fault_episode": false,
+            "pre_active_false_alarm": true,
+            "normal_episode_false_alarm": false
+          },
+          {
+            "episode_id": "monitor_validation_007",
+            "fault_episode": true,
+            "first_active_step": 21,
+            "first_alarm_at_or_after_active_step": 21,
+            "detection_delay_steps": 0,
+            "missed_fault_episode": false,
+            "pre_active_false_alarm": true,
+            "normal_episode_false_alarm": false
+          },
+          {
+            "episode_id": "monitor_validation_008",
+            "fault_episode": true,
+            "first_active_step": 23,
+            "first_alarm_at_or_after_active_step": 23,
+            "detection_delay_steps": 0,
+            "missed_fault_episode": false,
+            "pre_active_false_alarm": false,
+            "normal_episode_false_alarm": false
+          },
+          {
+            "episode_id": "monitor_validation_009",
+            "fault_episode": true,
+            "first_active_step": 20,
+            "first_alarm_at_or_after_active_step": 20,
+            "detection_delay_steps": 0,
+            "missed_fault_episode": false,
+            "pre_active_false_alarm": false,
+            "normal_episode_false_alarm": false
+          },
+          {
+            "episode_id": "monitor_validation_010",
+            "fault_episode": false,
+            "first_active_step": null,
+            "first_alarm_at_or_after_active_step": null,
+            "detection_delay_steps": null,
+            "missed_fault_episode": false,
+            "pre_active_false_alarm": false,
+            "normal_episode_false_alarm": false
+          },
+          {
+            "episode_id": "monitor_validation_011",
+            "fault_episode": true,
+            "first_active_step": 24,
+            "first_alarm_at_or_after_active_step": 24,
+            "detection_delay_steps": 0,
+            "missed_fault_episode": false,
+            "pre_active_false_alarm": true,
+            "normal_episode_false_alarm": false
+          },
+          {
+            "episode_id": "monitor_validation_012",
+            "fault_episode": true,
+            "first_active_step": 17,
+            "first_alarm_at_or_after_active_step": 17,
+            "detection_delay_steps": 0,
+            "missed_fault_episode": false,
+            "pre_active_false_alarm": true,
+            "normal_episode_false_alarm": false
+          },
+          {
+            "episode_id": "monitor_validation_013",
+            "fault_episode": false,
+            "first_active_step": null,
+            "first_alarm_at_or_after_active_step": null,
+            "detection_delay_steps": null,
+            "missed_fault_episode": false,
+            "pre_active_false_alarm": false,
+            "normal_episode_false_alarm": false
+          },
+          {
+            "episode_id": "monitor_validation_014",
+            "fault_episode": true,
+            "first_active_step": 21,
+            "first_alarm_at_or_after_active_step": 37,
+            "detection_delay_steps": 16,
+            "missed_fault_episode": false,
+            "pre_active_false_alarm": false,
+            "normal_episode_false_alarm": false
+          },
+          {
+            "episode_id": "monitor_validation_015",
+            "fault_episode": true,
+            "first_active_step": 26,
+            "first_alarm_at_or_after_active_step": 37,
+            "detection_delay_steps": 11,
+            "missed_fault_episode": false,
+            "pre_active_false_alarm": false,
+            "normal_episode_false_alarm": false
+          },
+          {
+            "episode_id": "monitor_validation_016",
+            "fault_episode": true,
+            "first_active_step": 16,
+            "first_alarm_at_or_after_active_step": 16,
+            "detection_delay_steps": 0,
+            "missed_fault_episode": false,
+            "pre_active_false_alarm": false,
+            "normal_episode_false_alarm": false
+          }
+        ]
+      }
+    },
+    "ERD3_extra_trees_threshold_045": {
+      "candidate_id": "ERD3_extra_trees_threshold_045",
+      "fit_rows": 2048,
+      "validation_rows": 1024,
+      "threshold": 0.45,
+      "metrics": {
+        "balanced_accuracy": 0.8470992366412213,
+        "macro_f1": 0.8471458093432434,
+        "positive_precision": 0.9390862944162437,
+        "active_recall": 0.74,
+        "specificity": 0.9541984732824428,
+        "false_positive_rate": 0.04580152671755725,
+        "auroc": 0.8642251908396946,
+        "average_precision": 0.900567259449166,
+        "confusion_matrix": {
+          "labels": [
+            false,
+            true
+          ],
+          "matrix": [
+            [
+              500,
+              24
+            ],
+            [
+              130,
+              370
+            ]
+          ]
+        },
+        "per_active_fault_family_recall": {
+          "flow_delivery": {
+            "support": 123,
+            "detected": 95,
+            "recall": 0.7723577235772358
+          },
+          "power_coupling": {
+            "support": 129,
+            "detected": 88,
+            "recall": 0.6821705426356589
+          },
+          "pressure_sensor_bias": {
+            "support": 125,
+            "detected": 86,
+            "recall": 0.688
+          },
+          "pumping_effectiveness": {
+            "support": 123,
+            "detected": 101,
+            "recall": 0.8211382113821138
+          }
+        }
+      },
+      "sequence_diagnostics": {
+        "summary": {
+          "ordered_unit": "step_index; not calibrated physical time",
+          "fault_episode_count": 12,
+          "detected_fault_episode_count": 12,
+          "missed_fault_episode_count": 0,
+          "fault_episode_detection_rate": 1.0,
+          "mean_detection_delay_steps": 5.416666666666667,
+          "median_detection_delay_steps": 0.0,
+          "max_detection_delay_steps": 24,
+          "pre_active_false_alarm_episode_count": 4,
+          "normal_episode_count": 4,
+          "normal_episode_false_alarm_count": 2
+        },
+        "episode_records": [
+          {
+            "episode_id": "monitor_validation_001",
+            "fault_episode": false,
+            "first_active_step": null,
+            "first_alarm_at_or_after_active_step": null,
+            "detection_delay_steps": null,
+            "missed_fault_episode": false,
+            "pre_active_false_alarm": false,
+            "normal_episode_false_alarm": true
+          },
+          {
+            "episode_id": "monitor_validation_002",
+            "fault_episode": false,
+            "first_active_step": null,
+            "first_alarm_at_or_after_active_step": null,
+            "detection_delay_steps": null,
+            "missed_fault_episode": false,
+            "pre_active_false_alarm": false,
+            "normal_episode_false_alarm": true
+          },
+          {
+            "episode_id": "monitor_validation_003",
+            "fault_episode": true,
+            "first_active_step": 24,
+            "first_alarm_at_or_after_active_step": 24,
+            "detection_delay_steps": 0,
+            "missed_fault_episode": false,
+            "pre_active_false_alarm": true,
+            "normal_episode_false_alarm": false
+          },
+          {
+            "episode_id": "monitor_validation_004",
+            "fault_episode": true,
+            "first_active_step": 31,
+            "first_alarm_at_or_after_active_step": 31,
+            "detection_delay_steps": 0,
+            "missed_fault_episode": false,
+            "pre_active_false_alarm": false,
+            "normal_episode_false_alarm": false
+          },
+          {
+            "episode_id": "monitor_validation_005",
+            "fault_episode": true,
+            "first_active_step": 22,
+            "first_alarm_at_or_after_active_step": 45,
+            "detection_delay_steps": 23,
+            "missed_fault_episode": false,
+            "pre_active_false_alarm": false,
+            "normal_episode_false_alarm": false
+          },
+          {
+            "episode_id": "monitor_validation_006",
+            "fault_episode": true,
+            "first_active_step": 23,
+            "first_alarm_at_or_after_active_step": 47,
+            "detection_delay_steps": 24,
+            "missed_fault_episode": false,
+            "pre_active_false_alarm": true,
+            "normal_episode_false_alarm": false
+          },
+          {
+            "episode_id": "monitor_validation_007",
+            "fault_episode": true,
+            "first_active_step": 21,
+            "first_alarm_at_or_after_active_step": 21,
+            "detection_delay_steps": 0,
+            "missed_fault_episode": false,
+            "pre_active_false_alarm": false,
+            "normal_episode_false_alarm": false
+          },
+          {
+            "episode_id": "monitor_validation_008",
+            "fault_episode": true,
+            "first_active_step": 23,
+            "first_alarm_at_or_after_active_step": 23,
+            "detection_delay_steps": 0,
+            "missed_fault_episode": false,
+            "pre_active_false_alarm": false,
+            "normal_episode_false_alarm": false
+          },
+          {
+            "episode_id": "monitor_validation_009",
+            "fault_episode": true,
+            "first_active_step": 20,
+            "first_alarm_at_or_after_active_step": 20,
+            "detection_delay_steps": 0,
+            "missed_fault_episode": false,
+            "pre_active_false_alarm": false,
+            "normal_episode_false_alarm": false
+          },
+          {
+            "episode_id": "monitor_validation_010",
+            "fault_episode": false,
+            "first_active_step": null,
+            "first_alarm_at_or_after_active_step": null,
+            "detection_delay_steps": null,
+            "missed_fault_episode": false,
+            "pre_active_false_alarm": false,
+            "normal_episode_false_alarm": false
+          },
+          {
+            "episode_id": "monitor_validation_011",
+            "fault_episode": true,
+            "first_active_step": 24,
+            "first_alarm_at_or_after_active_step": 24,
+            "detection_delay_steps": 0,
+            "missed_fault_episode": false,
+            "pre_active_false_alarm": false,
+            "normal_episode_false_alarm": false
+          },
+          {
+            "episode_id": "monitor_validation_012",
+            "fault_episode": true,
+            "first_active_step": 17,
+            "first_alarm_at_or_after_active_step": 17,
+            "detection_delay_steps": 0,
+            "missed_fault_episode": false,
+            "pre_active_false_alarm": true,
+            "normal_episode_false_alarm": false
+          },
+          {
+            "episode_id": "monitor_validation_013",
+            "fault_episode": false,
+            "first_active_step": null,
+            "first_alarm_at_or_after_active_step": null,
+            "detection_delay_steps": null,
+            "missed_fault_episode": false,
+            "pre_active_false_alarm": false,
+            "normal_episode_false_alarm": false
+          },
+          {
+            "episode_id": "monitor_validation_014",
+            "fault_episode": true,
+            "first_active_step": 21,
+            "first_alarm_at_or_after_active_step": 28,
+            "detection_delay_steps": 7,
+            "missed_fault_episode": false,
+            "pre_active_false_alarm": true,
+            "normal_episode_false_alarm": false
+          },
+          {
+            "episode_id": "monitor_validation_015",
+            "fault_episode": true,
+            "first_active_step": 26,
+            "first_alarm_at_or_after_active_step": 35,
+            "detection_delay_steps": 9,
+            "missed_fault_episode": false,
+            "pre_active_false_alarm": false,
+            "normal_episode_false_alarm": false
+          },
+          {
+            "episode_id": "monitor_validation_016",
+            "fault_episode": true,
+            "first_active_step": 16,
+            "first_alarm_at_or_after_active_step": 18,
+            "detection_delay_steps": 2,
+            "missed_fault_episode": false,
+            "pre_active_false_alarm": false,
+            "normal_episode_false_alarm": false
+          }
+        ]
+      }
+    },
+    "ERD4_extra_trees_threshold_040": {
+      "candidate_id": "ERD4_extra_trees_threshold_040",
+      "fit_rows": 2048,
+      "validation_rows": 1024,
+      "threshold": 0.4,
+      "metrics": {
+        "balanced_accuracy": 0.8447862595419847,
+        "macro_f1": 0.8451126095530976,
+        "positive_precision": 0.9073634204275535,
+        "active_recall": 0.764,
+        "specificity": 0.9255725190839694,
+        "false_positive_rate": 0.07442748091603053,
+        "auroc": 0.8642251908396946,
+        "average_precision": 0.900567259449166,
+        "confusion_matrix": {
+          "labels": [
+            false,
+            true
+          ],
+          "matrix": [
+            [
+              485,
+              39
+            ],
+            [
+              118,
+              382
+            ]
+          ]
+        },
+        "per_active_fault_family_recall": {
+          "flow_delivery": {
+            "support": 123,
+            "detected": 96,
+            "recall": 0.7804878048780488
+          },
+          "power_coupling": {
+            "support": 129,
+            "detected": 97,
+            "recall": 0.751937984496124
+          },
+          "pressure_sensor_bias": {
+            "support": 125,
+            "detected": 87,
+            "recall": 0.696
+          },
+          "pumping_effectiveness": {
+            "support": 123,
+            "detected": 102,
+            "recall": 0.8292682926829268
+          }
+        }
+      },
+      "sequence_diagnostics": {
+        "summary": {
+          "ordered_unit": "step_index; not calibrated physical time",
+          "fault_episode_count": 12,
+          "detected_fault_episode_count": 12,
+          "missed_fault_episode_count": 0,
+          "fault_episode_detection_rate": 1.0,
+          "mean_detection_delay_steps": 4.333333333333333,
+          "median_detection_delay_steps": 0.0,
+          "max_detection_delay_steps": 24,
+          "pre_active_false_alarm_episode_count": 5,
+          "normal_episode_count": 4,
+          "normal_episode_false_alarm_count": 2
+        },
+        "episode_records": [
+          {
+            "episode_id": "monitor_validation_001",
+            "fault_episode": false,
+            "first_active_step": null,
+            "first_alarm_at_or_after_active_step": null,
+            "detection_delay_steps": null,
+            "missed_fault_episode": false,
+            "pre_active_false_alarm": false,
+            "normal_episode_false_alarm": true
+          },
+          {
+            "episode_id": "monitor_validation_002",
+            "fault_episode": false,
+            "first_active_step": null,
+            "first_alarm_at_or_after_active_step": null,
+            "detection_delay_steps": null,
+            "missed_fault_episode": false,
+            "pre_active_false_alarm": false,
+            "normal_episode_false_alarm": true
+          },
+          {
+            "episode_id": "monitor_validation_003",
+            "fault_episode": true,
+            "first_active_step": 24,
+            "first_alarm_at_or_after_active_step": 24,
+            "detection_delay_steps": 0,
+            "missed_fault_episode": false,
+            "pre_active_false_alarm": true,
+            "normal_episode_false_alarm": false
+          },
+          {
+            "episode_id": "monitor_validation_004",
+            "fault_episode": true,
+            "first_active_step": 31,
+            "first_alarm_at_or_after_active_step": 31,
+            "detection_delay_steps": 0,
+            "missed_fault_episode": false,
+            "pre_active_false_alarm": false,
+            "normal_episode_false_alarm": false
+          },
+          {
+            "episode_id": "monitor_validation_005",
+            "fault_episode": true,
+            "first_active_step": 22,
+            "first_alarm_at_or_after_active_step": 34,
+            "detection_delay_steps": 12,
+            "missed_fault_episode": false,
+            "pre_active_false_alarm": false,
+            "normal_episode_false_alarm": false
+          },
+          {
+            "episode_id": "monitor_validation_006",
+            "fault_episode": true,
+            "first_active_step": 23,
+            "first_alarm_at_or_after_active_step": 47,
+            "detection_delay_steps": 24,
+            "missed_fault_episode": false,
+            "pre_active_false_alarm": true,
+            "normal_episode_false_alarm": false
+          },
+          {
+            "episode_id": "monitor_validation_007",
+            "fault_episode": true,
+            "first_active_step": 21,
+            "first_alarm_at_or_after_active_step": 21,
+            "detection_delay_steps": 0,
+            "missed_fault_episode": false,
+            "pre_active_false_alarm": false,
+            "normal_episode_false_alarm": false
+          },
+          {
+            "episode_id": "monitor_validation_008",
+            "fault_episode": true,
+            "first_active_step": 23,
+            "first_alarm_at_or_after_active_step": 23,
+            "detection_delay_steps": 0,
+            "missed_fault_episode": false,
+            "pre_active_false_alarm": false,
+            "normal_episode_false_alarm": false
+          },
+          {
+            "episode_id": "monitor_validation_009",
+            "fault_episode": true,
+            "first_active_step": 20,
+            "first_alarm_at_or_after_active_step": 20,
+            "detection_delay_steps": 0,
+            "missed_fault_episode": false,
+            "pre_active_false_alarm": false,
+            "normal_episode_false_alarm": false
+          },
+          {
+            "episode_id": "monitor_validation_010",
+            "fault_episode": false,
+            "first_active_step": null,
+            "first_alarm_at_or_after_active_step": null,
+            "detection_delay_steps": null,
+            "missed_fault_episode": false,
+            "pre_active_false_alarm": false,
+            "normal_episode_false_alarm": false
+          },
+          {
+            "episode_id": "monitor_validation_011",
+            "fault_episode": true,
+            "first_active_step": 24,
+            "first_alarm_at_or_after_active_step": 24,
+            "detection_delay_steps": 0,
+            "missed_fault_episode": false,
+            "pre_active_false_alarm": false,
+            "normal_episode_false_alarm": false
+          },
+          {
+            "episode_id": "monitor_validation_012",
+            "fault_episode": true,
+            "first_active_step": 17,
+            "first_alarm_at_or_after_active_step": 17,
+            "detection_delay_steps": 0,
+            "missed_fault_episode": false,
+            "pre_active_false_alarm": true,
+            "normal_episode_false_alarm": false
+          },
+          {
+            "episode_id": "monitor_validation_013",
+            "fault_episode": false,
+            "first_active_step": null,
+            "first_alarm_at_or_after_active_step": null,
+            "detection_delay_steps": null,
+            "missed_fault_episode": false,
+            "pre_active_false_alarm": false,
+            "normal_episode_false_alarm": false
+          },
+          {
+            "episode_id": "monitor_validation_014",
+            "fault_episode": true,
+            "first_active_step": 21,
+            "first_alarm_at_or_after_active_step": 28,
+            "detection_delay_steps": 7,
+            "missed_fault_episode": false,
+            "pre_active_false_alarm": true,
+            "normal_episode_false_alarm": false
+          },
+          {
+            "episode_id": "monitor_validation_015",
+            "fault_episode": true,
+            "first_active_step": 26,
+            "first_alarm_at_or_after_active_step": 35,
+            "detection_delay_steps": 9,
+            "missed_fault_episode": false,
+            "pre_active_false_alarm": false,
+            "normal_episode_false_alarm": false
+          },
+          {
+            "episode_id": "monitor_validation_016",
+            "fault_episode": true,
+            "first_active_step": 16,
+            "first_alarm_at_or_after_active_step": 16,
+            "detection_delay_steps": 0,
+            "missed_fault_episode": false,
+            "pre_active_false_alarm": true,
+            "normal_episode_false_alarm": false
+          }
+        ]
+      }
+    }
+  },
+  "diagnosers": {
+    "ERG1_logistic_regression": {
+      "candidate_id": "ERG1_logistic_regression",
+      "fit_rows": 951,
+      "validation_active_rows": 500,
+      "metrics": {
+        "macro_f1": 0.39430394797564233,
+        "balanced_accuracy": 0.39640397904354135,
+        "minimum_per_class_recall": 0.10569105691056911,
+        "per_class": {
+          "flow_delivery": {
+            "precision": 0.07647058823529412,
+            "recall": 0.10569105691056911,
+            "f1": 0.08873720136518772,
+            "support": 123
+          },
+          "power_coupling": {
+            "precision": 0.6527777777777778,
+            "recall": 0.7286821705426356,
+            "f1": 0.6886446886446886,
+            "support": 129
+          },
+          "pressure_path_anomaly": {
+            "precision": 0.4731182795698925,
+            "recall": 0.3548387096774194,
+            "f1": 0.4055299539170507,
+            "support": 248
+          }
+        },
+        "confusion_matrix": {
+          "labels": [
+            "flow_delivery",
+            "power_coupling",
+            "pressure_path_anomaly"
+          ],
+          "matrix": [
+            [
+              13,
+              42,
+              68
+            ],
+            [
+              5,
+              94,
+              30
+            ],
+            [
+              152,
+              8,
+              88
+            ]
+          ]
+        }
+      },
+      "majority_baseline": {
+        "majority_class": "pressure_path_anomaly",
+        "macro_f1": 0.22103386809269163,
+        "balanced_accuracy": 0.3333333333333333
+      },
+      "macro_f1_improvement_vs_majority": 0.1732700798829507
+    },
+    "ERG2_hist_gradient_boosting": {
+      "candidate_id": "ERG2_hist_gradient_boosting",
+      "fit_rows": 951,
+      "validation_active_rows": 500,
+      "metrics": {
+        "macro_f1": 0.724049118565774,
+        "balanced_accuracy": 0.7195022841076123,
+        "minimum_per_class_recall": 0.4959349593495935,
+        "per_class": {
+          "flow_delivery": {
+            "precision": 0.7349397590361446,
+            "recall": 0.4959349593495935,
+            "f1": 0.5922330097087378,
+            "support": 123
+          },
+          "power_coupling": {
+            "precision": 0.7887323943661971,
+            "recall": 0.8682170542635659,
+            "f1": 0.8265682656826568,
+            "support": 129
+          },
+          "pressure_path_anomaly": {
+            "precision": 0.7163636363636363,
+            "recall": 0.7943548387096774,
+            "f1": 0.7533460803059273,
+            "support": 248
+          }
+        },
+        "confusion_matrix": {
+          "labels": [
+            "flow_delivery",
+            "power_coupling",
+            "pressure_path_anomaly"
+          ],
+          "matrix": [
+            [
+              61,
+              0,
+              62
+            ],
+            [
+              1,
+              112,
+              16
+            ],
+            [
+              21,
+              30,
+              197
+            ]
+          ]
+        }
+      },
+      "majority_baseline": {
+        "majority_class": "pressure_path_anomaly",
+        "macro_f1": 0.22103386809269163,
+        "balanced_accuracy": 0.3333333333333333
+      },
+      "macro_f1_improvement_vs_majority": 0.5030152504730824
+    },
+    "ERG3_extra_trees": {
+      "candidate_id": "ERG3_extra_trees",
+      "fit_rows": 951,
+      "validation_active_rows": 500,
+      "metrics": {
+        "macro_f1": 0.6517458883367632,
+        "balanced_accuracy": 0.6624166204152665,
+        "minimum_per_class_recall": 0.6511627906976745,
+        "per_class": {
+          "flow_delivery": {
+            "precision": 0.49700598802395207,
+            "recall": 0.6747967479674797,
+            "f1": 0.5724137931034483,
+            "support": 123
+          },
+          "power_coupling": {
+            "precision": 0.6829268292682927,
+            "recall": 0.6511627906976745,
+            "f1": 0.6666666666666666,
+            "support": 129
+          },
+          "pressure_path_anomaly": {
+            "precision": 0.780952380952381,
+            "recall": 0.6612903225806451,
+            "f1": 0.7161572052401747,
+            "support": 248
+          }
+        },
+        "confusion_matrix": {
+          "labels": [
+            "flow_delivery",
+            "power_coupling",
+            "pressure_path_anomaly"
+          ],
+          "matrix": [
+            [
+              83,
+              39,
+              1
+            ],
+            [
+              0,
+              84,
+              45
+            ],
+            [
+              84,
+              0,
+              164
+            ]
+          ]
+        }
+      },
+      "majority_baseline": {
+        "majority_class": "pressure_path_anomaly",
+        "macro_f1": 0.22103386809269163,
+        "balanced_accuracy": 0.3333333333333333
+      },
+      "macro_f1_improvement_vs_majority": 0.4307120202440715
+    }
+  },
+  "secondary_end_to_end": {
+    "selection_metric": false,
+    "classes": [
+      "none",
+      "flow_delivery",
+      "power_coupling",
+      "pressure_path_anomaly"
+    ],
+    "candidate_pairs": {
+      "ERD1_hgb_threshold_045__ERG1_logistic_regression": {
+        "detector_candidate": "ERD1_hgb_threshold_045",
+        "diagnoser_candidate": "ERG1_logistic_regression",
+        "metrics": {
+          "macro_f1": 0.48982650496817776,
+          "balanced_accuracy": 0.49321559059938136,
+          "per_class": {
+            "none": {
+              "precision": 0.7938311688311688,
+              "recall": 0.933206106870229,
+              "f1": 0.8578947368421053,
+              "support": 524
+            },
+            "flow_delivery": {
+              "precision": 0.0673076923076923,
+              "recall": 0.056910569105691054,
+              "f1": 0.06167400881057269,
+              "support": 123
+            },
+            "power_coupling": {
+              "precision": 0.6136363636363636,
+              "recall": 0.627906976744186,
+              "f1": 0.6206896551724138,
+              "support": 129
+            },
+            "pressure_path_anomaly": {
+              "precision": 0.5116279069767442,
+              "recall": 0.3548387096774194,
+              "f1": 0.41904761904761906,
+              "support": 248
+            }
+          },
+          "confusion_matrix": {
+            "labels": [
+              "none",
+              "flow_delivery",
+              "power_coupling",
+              "pressure_path_anomaly"
+            ],
+            "matrix": [
+              [
+                489,
+                8,
+                3,
+                24
+              ],
+              [
+                32,
+                7,
+                41,
+                43
+              ],
+              [
+                31,
+                0,
+                81,
+                17
+              ],
+              [
+                64,
+                89,
+                7,
+                88
+              ]
+            ]
+          }
+        }
+      },
+      "ERD1_hgb_threshold_045__ERG2_hist_gradient_boosting": {
+        "detector_candidate": "ERD1_hgb_threshold_045",
+        "diagnoser_candidate": "ERG2_hist_gradient_boosting",
+        "metrics": {
+          "macro_f1": 0.6985793691516777,
+          "balanced_accuracy": 0.676076092310175,
+          "per_class": {
+            "none": {
+              "precision": 0.7938311688311688,
+              "recall": 0.933206106870229,
+              "f1": 0.8578947368421053,
+              "support": 524
+            },
+            "flow_delivery": {
+              "precision": 0.85,
+              "recall": 0.4146341463414634,
+              "f1": 0.5573770491803278,
+              "support": 123
+            },
+            "power_coupling": {
+              "precision": 0.7050359712230215,
+              "recall": 0.7596899224806202,
+              "f1": 0.7313432835820896,
+              "support": 129
+            },
+            "pressure_path_anomaly": {
+              "precision": 0.7081339712918661,
+              "recall": 0.5967741935483871,
+              "f1": 0.6477024070021882,
+              "support": 248
+            }
+          },
+          "confusion_matrix": {
+            "labels": [
+              "none",
+              "flow_delivery",
+              "power_coupling",
+              "pressure_path_anomaly"
+            ],
+            "matrix": [
+              [
+                489,
+                3,
+                11,
+                21
+              ],
+              [
+                32,
+                51,
+                0,
+                40
+              ],
+              [
+                31,
+                0,
+                98,
+                0
+              ],
+              [
+                64,
+                6,
+                30,
+                148
+              ]
+            ]
+          }
+        }
+      },
+      "ERD1_hgb_threshold_045__ERG3_extra_trees": {
+        "detector_candidate": "ERD1_hgb_threshold_045",
+        "diagnoser_candidate": "ERG3_extra_trees",
+        "metrics": {
+          "macro_f1": 0.7305827544860783,
+          "balanced_accuracy": 0.6992017289022499,
+          "per_class": {
+            "none": {
+              "precision": 0.7938311688311688,
+              "recall": 0.933206106870229,
+              "f1": 0.8578947368421053,
+              "support": 524
+            },
+            "flow_delivery": {
+              "precision": 0.75,
+              "recall": 0.6097560975609756,
+              "f1": 0.672645739910314,
+              "support": 123
+            },
+            "power_coupling": {
+              "precision": 0.8041237113402062,
+              "recall": 0.6046511627906976,
+              "f1": 0.6902654867256637,
+              "support": 129
+            },
+            "pressure_path_anomaly": {
+              "precision": 0.7630331753554502,
+              "recall": 0.6491935483870968,
+              "f1": 0.7015250544662309,
+              "support": 248
+            }
+          },
+          "confusion_matrix": {
+            "labels": [
+              "none",
+              "flow_delivery",
+              "power_coupling",
+              "pressure_path_anomaly"
+            ],
+            "matrix": [
+              [
+                489,
+                2,
+                4,
+                29
+              ],
+              [
+                32,
+                75,
+                15,
+                1
+              ],
+              [
+                31,
+                0,
+                78,
+                20
+              ],
+              [
+                64,
+                23,
+                0,
+                161
+              ]
+            ]
+          }
+        }
+      },
+      "ERD2_hgb_threshold_040__ERG1_logistic_regression": {
+        "detector_candidate": "ERD2_hgb_threshold_040",
+        "diagnoser_candidate": "ERG1_logistic_regression",
+        "metrics": {
+          "macro_f1": 0.4913216164419867,
+          "balanced_accuracy": 0.4948005992375025,
+          "per_class": {
+            "none": {
+              "precision": 0.7947454844006568,
+              "recall": 0.9236641221374046,
+              "f1": 0.8543689320388349,
+              "support": 524
+            },
+            "flow_delivery": {
+              "precision": 0.07547169811320754,
+              "recall": 0.06504065040650407,
+              "f1": 0.06986899563318777,
+              "support": 123
+            },
+            "power_coupling": {
+              "precision": 0.6165413533834586,
+              "recall": 0.6356589147286822,
+              "f1": 0.6259541984732825,
+              "support": 129
+            },
+            "pressure_path_anomaly": {
+              "precision": 0.5,
+              "recall": 0.3548387096774194,
+              "f1": 0.41509433962264153,
+              "support": 248
+            }
+          },
+          "confusion_matrix": {
+            "labels": [
+              "none",
+              "flow_delivery",
+              "power_coupling",
+              "pressure_path_anomaly"
+            ],
+            "matrix": [
+              [
+                484,
+                9,
+                3,
+                28
+              ],
+              [
+                31,
+                8,
+                41,
+                43
+              ],
+              [
+                30,
+                0,
+                82,
+                17
+              ],
+              [
+                64,
+                89,
+                7,
+                88
+              ]
+            ]
+          }
+        }
+      },
+      "ERD2_hgb_threshold_040__ERG2_hist_gradient_boosting": {
+        "detector_candidate": "ERD2_hgb_threshold_040",
+        "diagnoser_candidate": "ERG2_hist_gradient_boosting",
+        "metrics": {
+          "macro_f1": 0.6984229726214526,
+          "balanced_accuracy": 0.677661100948296,
+          "per_class": {
+            "none": {
+              "precision": 0.7947454844006568,
+              "recall": 0.9236641221374046,
+              "f1": 0.8543689320388349,
+              "support": 524
+            },
+            "flow_delivery": {
+              "precision": 0.8524590163934426,
+              "recall": 0.42276422764227645,
+              "f1": 0.5652173913043478,
+              "support": 123
+            },
+            "power_coupling": {
+              "precision": 0.6971830985915493,
+              "recall": 0.7674418604651163,
+              "f1": 0.7306273062730627,
+              "support": 129
+            },
+            "pressure_path_anomaly": {
+              "precision": 0.6981132075471698,
+              "recall": 0.5967741935483871,
+              "f1": 0.6434782608695652,
+              "support": 248
+            }
+          },
+          "confusion_matrix": {
+            "labels": [
+              "none",
+              "flow_delivery",
+              "power_coupling",
+              "pressure_path_anomaly"
+            ],
+            "matrix": [
+              [
+                484,
+                3,
+                13,
+                24
+              ],
+              [
+                31,
+                52,
+                0,
+                40
+              ],
+              [
+                30,
+                0,
+                99,
+                0
+              ],
+              [
+                64,
+                6,
+                30,
+                148
+              ]
+            ]
+          }
+        }
+      },
+      "ERD2_hgb_threshold_040__ERG3_extra_trees": {
+        "detector_candidate": "ERD2_hgb_threshold_040",
+        "diagnoser_candidate": "ERG3_extra_trees",
+        "metrics": {
+          "macro_f1": 0.7303560231840278,
+          "balanced_accuracy": 0.7007867375403709,
+          "per_class": {
+            "none": {
+              "precision": 0.7947454844006568,
+              "recall": 0.9236641221374046,
+              "f1": 0.8543689320388349,
+              "support": 524
+            },
+            "flow_delivery": {
+              "precision": 0.7450980392156863,
+              "recall": 0.6178861788617886,
+              "f1": 0.6755555555555556,
+              "support": 123
+            },
+            "power_coupling": {
+              "precision": 0.8061224489795918,
+              "recall": 0.6124031007751938,
+              "f1": 0.6960352422907489,
+              "support": 129
+            },
+            "pressure_path_anomaly": {
+              "precision": 0.7488372093023256,
+              "recall": 0.6491935483870968,
+              "f1": 0.6954643628509719,
+              "support": 248
+            }
+          },
+          "confusion_matrix": {
+            "labels": [
+              "none",
+              "flow_delivery",
+              "power_coupling",
+              "pressure_path_anomaly"
+            ],
+            "matrix": [
+              [
+                484,
+                3,
+                4,
+                33
+              ],
+              [
+                31,
+                76,
+                15,
+                1
+              ],
+              [
+                30,
+                0,
+                79,
+                20
+              ],
+              [
+                64,
+                23,
+                0,
+                161
+              ]
+            ]
+          }
+        }
+      },
+      "ERD3_extra_trees_threshold_045__ERG1_logistic_regression": {
+        "detector_candidate": "ERD3_extra_trees_threshold_045",
+        "diagnoser_candidate": "ERG1_logistic_regression",
+        "metrics": {
+          "macro_f1": 0.5137095866357038,
+          "balanced_accuracy": 0.5163782218129472,
+          "per_class": {
+            "none": {
+              "precision": 0.7936507936507936,
+              "recall": 0.9541984732824428,
+              "f1": 0.8665511265164645,
+              "support": 524
+            },
+            "flow_delivery": {
+              "precision": 0.11214953271028037,
+              "recall": 0.0975609756097561,
+              "f1": 0.10434782608695652,
+              "support": 123
+            },
+            "power_coupling": {
+              "precision": 0.6296296296296297,
+              "recall": 0.6589147286821705,
+              "f1": 0.6439393939393939,
+              "support": 129
+            },
+            "pressure_path_anomaly": {
+              "precision": 0.5789473684210527,
+              "recall": 0.3548387096774194,
+              "f1": 0.44,
+              "support": 248
+            }
+          },
+          "confusion_matrix": {
+            "labels": [
+              "none",
+              "flow_delivery",
+              "power_coupling",
+              "pressure_path_anomaly"
+            ],
+            "matrix": [
+              [
+                500,
+                3,
+                2,
+                19
+              ],
+              [
+                28,
+                12,
+                41,
+                42
+              ],
+              [
+                41,
+                0,
+                85,
+                3
+              ],
+              [
+                61,
+                92,
+                7,
+                88
+              ]
+            ]
+          }
+        }
+      },
+      "ERD3_extra_trees_threshold_045__ERG2_hist_gradient_boosting": {
+        "detector_candidate": "ERD3_extra_trees_threshold_045",
+        "diagnoser_candidate": "ERG2_hist_gradient_boosting",
+        "metrics": {
+          "macro_f1": 0.699719156795819,
+          "balanced_accuracy": 0.6700580289598559,
+          "per_class": {
+            "none": {
+              "precision": 0.7936507936507936,
+              "recall": 0.9541984732824428,
+              "f1": 0.8665511265164645,
+              "support": 524
+            },
+            "flow_delivery": {
+              "precision": 0.8709677419354839,
+              "recall": 0.43902439024390244,
+              "f1": 0.5837837837837838,
+              "support": 123
+            },
+            "power_coupling": {
+              "precision": 0.6875,
+              "recall": 0.6821705426356589,
+              "f1": 0.6848249027237354,
+              "support": 129
+            },
+            "pressure_path_anomaly": {
+              "precision": 0.7352941176470589,
+              "recall": 0.6048387096774194,
+              "f1": 0.6637168141592921,
+              "support": 248
+            }
+          },
+          "confusion_matrix": {
+            "labels": [
+              "none",
+              "flow_delivery",
+              "power_coupling",
+              "pressure_path_anomaly"
+            ],
+            "matrix": [
+              [
+                500,
+                1,
+                10,
+                13
+              ],
+              [
+                28,
+                54,
+                0,
+                41
+              ],
+              [
+                41,
+                0,
+                88,
+                0
+              ],
+              [
+                61,
+                7,
+                30,
+                150
+              ]
+            ]
+          }
+        }
+      },
+      "ERD3_extra_trees_threshold_045__ERG3_extra_trees": {
+        "detector_candidate": "ERD3_extra_trees_threshold_045",
+        "diagnoser_candidate": "ERG3_extra_trees",
+        "metrics": {
+          "macro_f1": 0.7561552030246472,
+          "balanced_accuracy": 0.7233724246319446,
+          "per_class": {
+            "none": {
+              "precision": 0.7936507936507936,
+              "recall": 0.9541984732824428,
+              "f1": 0.8665511265164645,
+              "support": 524
+            },
+            "flow_delivery": {
+              "precision": 0.7476635514018691,
+              "recall": 0.6504065040650406,
+              "f1": 0.6956521739130435,
+              "support": 123
+            },
+            "power_coupling": {
+              "precision": 0.8282828282828283,
+              "recall": 0.6356589147286822,
+              "f1": 0.7192982456140351,
+              "support": 129
+            },
+            "pressure_path_anomaly": {
+              "precision": 0.8617021276595744,
+              "recall": 0.6532258064516129,
+              "f1": 0.7431192660550459,
+              "support": 248
+            }
+          },
+          "confusion_matrix": {
+            "labels": [
+              "none",
+              "flow_delivery",
+              "power_coupling",
+              "pressure_path_anomaly"
+            ],
+            "matrix": [
+              [
+                500,
+                2,
+                2,
+                20
+              ],
+              [
+                28,
+                80,
+                15,
+                0
+              ],
+              [
+                41,
+                0,
+                82,
+                6
+              ],
+              [
+                61,
+                25,
+                0,
+                162
+              ]
+            ]
+          }
+        }
+      },
+      "ERD4_extra_trees_threshold_040__ERG1_logistic_regression": {
+        "detector_candidate": "ERD4_extra_trees_threshold_040",
+        "diagnoser_candidate": "ERG1_logistic_regression",
+        "metrics": {
+          "macro_f1": 0.5074821557020618,
+          "balanced_accuracy": 0.5111597177594529,
+          "per_class": {
+            "none": {
+              "precision": 0.8043117744610282,
+              "recall": 0.9255725190839694,
+              "f1": 0.8606921029281278,
+              "support": 524
+            },
+            "flow_delivery": {
+              "precision": 0.10714285714285714,
+              "recall": 0.0975609756097561,
+              "f1": 0.10212765957446808,
+              "support": 123
+            },
+            "power_coupling": {
+              "precision": 0.6323529411764706,
+              "recall": 0.6666666666666666,
+              "f1": 0.6490566037735849,
+              "support": 129
+            },
+            "pressure_path_anomaly": {
+              "precision": 0.5086705202312138,
+              "recall": 0.3548387096774194,
+              "f1": 0.4180522565320665,
+              "support": 248
+            }
+          },
+          "confusion_matrix": {
+            "labels": [
+              "none",
+              "flow_delivery",
+              "power_coupling",
+              "pressure_path_anomaly"
+            ],
+            "matrix": [
+              [
+                485,
+                6,
+                2,
+                31
+              ],
+              [
+                27,
+                12,
+                41,
+                43
+              ],
+              [
+                32,
+                0,
+                86,
+                11
+              ],
+              [
+                59,
+                94,
+                7,
+                88
+              ]
+            ]
+          }
+        }
+      },
+      "ERD4_extra_trees_threshold_040__ERG2_hist_gradient_boosting": {
+        "detector_candidate": "ERD4_extra_trees_threshold_040",
+        "diagnoser_candidate": "ERG2_hist_gradient_boosting",
+        "metrics": {
+          "macro_f1": 0.7040400236478227,
+          "balanced_accuracy": 0.6833839857166861,
+          "per_class": {
+            "none": {
+              "precision": 0.8043117744610282,
+              "recall": 0.9255725190839694,
+              "f1": 0.8606921029281278,
+              "support": 524
+            },
+            "flow_delivery": {
+              "precision": 0.8333333333333334,
+              "recall": 0.44715447154471544,
+              "f1": 0.582010582010582,
+              "support": 123
+            },
+            "power_coupling": {
+              "precision": 0.6928571428571428,
+              "recall": 0.751937984496124,
+              "f1": 0.7211895910780669,
+              "support": 129
+            },
+            "pressure_path_anomaly": {
+              "precision": 0.7023255813953488,
+              "recall": 0.6088709677419355,
+              "f1": 0.652267818574514,
+              "support": 248
+            }
+          },
+          "confusion_matrix": {
+            "labels": [
+              "none",
+              "flow_delivery",
+              "power_coupling",
+              "pressure_path_anomaly"
+            ],
+            "matrix": [
+              [
+                485,
+                3,
+                13,
+                23
+              ],
+              [
+                27,
+                55,
+                0,
+                41
+              ],
+              [
+                32,
+                0,
+                97,
+                0
+              ],
+              [
+                59,
+                8,
+                30,
+                151
+              ]
+            ]
+          }
+        }
+      },
+      "ERD4_extra_trees_threshold_040__ERG3_extra_trees": {
+        "detector_candidate": "ERD4_extra_trees_threshold_040",
+        "diagnoser_candidate": "ERG3_extra_trees",
+        "metrics": {
+          "macro_f1": 0.7441917992922903,
+          "balanced_accuracy": 0.7181539205784504,
+          "per_class": {
+            "none": {
+              "precision": 0.8043117744610282,
+              "recall": 0.9255725190839694,
+              "f1": 0.8606921029281278,
+              "support": 524
+            },
+            "flow_delivery": {
+              "precision": 0.7207207207207207,
+              "recall": 0.6504065040650406,
+              "f1": 0.6837606837606838,
+              "support": 123
+            },
+            "power_coupling": {
+              "precision": 0.83,
+              "recall": 0.6434108527131783,
+              "f1": 0.7248908296943232,
+              "support": 129
+            },
+            "pressure_path_anomaly": {
+              "precision": 0.7714285714285715,
+              "recall": 0.6532258064516129,
+              "f1": 0.7074235807860262,
+              "support": 248
+            }
+          },
+          "confusion_matrix": {
+            "labels": [
+              "none",
+              "flow_delivery",
+              "power_coupling",
+              "pressure_path_anomaly"
+            ],
+            "matrix": [
+              [
+                485,
+                4,
+                2,
+                33
+              ],
+              [
+                27,
+                80,
+                15,
+                1
+              ],
+              [
+                32,
+                0,
+                83,
+                14
+              ],
+              [
+                59,
+                27,
+                0,
+                162
+              ]
+            ]
+          }
+        }
+      }
+    }
+  },
+  "test_state": {
+    "test_features_interpreted": false,
+    "test_targets_interpreted": false,
+    "test_matrix_created": false,
+    "test_predictions_generated": false,
+    "test_performance_calculated": false,
+    "test_consumed": false,
+    "phase5f_unlocked": false
+  },
+  "scientific_scope": {
+    "synthetic_data_only": true,
+    "pressure_path_anomaly_is_ambiguity_aware": true,
+    "pressure_path_anomaly_identifies_specific_mechanism": false,
+    "original_four_family_failure_preserved": true,
+    "experimental_validation": false,
+    "industrial_validation": false,
+    "oipt_operating_range_claim": false
+  }
+}
