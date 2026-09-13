@@ -1,0 +1,285 @@
+{
+  "phase": "5E",
+  "title": "Validation Acceptance, Selection and Final Refit",
+  "status": "controlled_stop_before_test",
+  "governance": {
+    "phase5d_closure_commit": "c6fa4d160eecb929d1286390b104d760a24c7534",
+    "protocol_state": "FROZEN",
+    "formal_validation_acceptance_applied": true,
+    "acceptance_outcome": "FAIL",
+    "frozen_failure_action": "controlled_stop_before_test",
+    "controlled_stop_required": true,
+    "candidate_ranking_performed": false,
+    "model_selection_performed": false,
+    "final_refit_performed": false,
+    "test_predictive_evaluation_run": false,
+    "phase5f_unlocked": false
+  },
+  "provenance": {
+    "protocol_path": "configs/phase5/phase5_protocol.json",
+    "protocol_sha256": "70de30b7a5f2e36b567f8848ee0e626833c25eb8285e7b4df9e63d5db77ddcec",
+    "supervised_benchmark_path": "results/phase5/supervised_benchmark.json",
+    "supervised_benchmark_sha256": "fea87ce628e20add11044bca17323143b2b9bb436d3d4192ad94cac6d00856d4"
+  },
+  "detector_acceptance": {
+    "candidate_order": [
+      "D1_logistic_regression",
+      "D2_hist_gradient_boosting",
+      "D3_extra_trees"
+    ],
+    "required_criteria": {
+      "balanced_accuracy_min": 0.75,
+      "macro_f1_min": 0.75,
+      "fault_active_recall_min": 0.75,
+      "specificity_min": 0.75,
+      "per_active_fault_family_recall_min": 0.6
+    },
+    "candidate_results": {
+      "D1_logistic_regression": {
+        "metrics": {
+          "balanced_accuracy": 0.6069618320610687,
+          "macro_f1": 0.6039358871217277,
+          "fault_active_recall": 0.504,
+          "specificity": 0.7099236641221374,
+          "minimum_per_active_fault_family_recall": 0.07317073170731707
+        },
+        "criteria": {
+          "balanced_accuracy_min": 0.75,
+          "macro_f1_min": 0.75,
+          "fault_active_recall_min": 0.75,
+          "specificity_min": 0.75,
+          "per_active_fault_family_recall_min": 0.6
+        },
+        "checks": {
+          "balanced_accuracy": false,
+          "macro_f1": false,
+          "fault_active_recall": false,
+          "specificity": false,
+          "per_active_fault_family_recall": false
+        },
+        "failed_criteria": [
+          "balanced_accuracy",
+          "macro_f1",
+          "fault_active_recall",
+          "specificity",
+          "per_active_fault_family_recall"
+        ],
+        "passed": false
+      },
+      "D2_hist_gradient_boosting": {
+        "metrics": {
+          "balanced_accuracy": 0.8385114503816794,
+          "macro_f1": 0.8385662541649137,
+          "fault_active_recall": 0.74,
+          "specificity": 0.9370229007633588,
+          "minimum_per_active_fault_family_recall": 0.672
+        },
+        "criteria": {
+          "balanced_accuracy_min": 0.75,
+          "macro_f1_min": 0.75,
+          "fault_active_recall_min": 0.75,
+          "specificity_min": 0.75,
+          "per_active_fault_family_recall_min": 0.6
+        },
+        "checks": {
+          "balanced_accuracy": true,
+          "macro_f1": true,
+          "fault_active_recall": false,
+          "specificity": true,
+          "per_active_fault_family_recall": true
+        },
+        "failed_criteria": [
+          "fault_active_recall"
+        ],
+        "passed": false
+      },
+      "D3_extra_trees": {
+        "metrics": {
+          "balanced_accuracy": 0.8417786259541984,
+          "macro_f1": 0.8413679210814761,
+          "fault_active_recall": 0.716,
+          "specificity": 0.9675572519083969,
+          "minimum_per_active_fault_family_recall": 0.6511627906976745
+        },
+        "criteria": {
+          "balanced_accuracy_min": 0.75,
+          "macro_f1_min": 0.75,
+          "fault_active_recall_min": 0.75,
+          "specificity_min": 0.75,
+          "per_active_fault_family_recall_min": 0.6
+        },
+        "checks": {
+          "balanced_accuracy": true,
+          "macro_f1": true,
+          "fault_active_recall": false,
+          "specificity": true,
+          "per_active_fault_family_recall": true
+        },
+        "failed_criteria": [
+          "fault_active_recall"
+        ],
+        "passed": false
+      }
+    },
+    "passing_candidates": [],
+    "passing_candidate_count": 0
+  },
+  "diagnoser_acceptance": {
+    "candidate_order": [
+      "G1_logistic_regression",
+      "G2_hist_gradient_boosting",
+      "G3_extra_trees"
+    ],
+    "required_criteria": {
+      "macro_f1_min": 0.5,
+      "balanced_accuracy_min": 0.5,
+      "per_class_recall_min": 0.25,
+      "majority_baseline_macro_f1_improvement_min": 0.1
+    },
+    "candidate_results": {
+      "G1_logistic_regression": {
+        "metrics": {
+          "macro_f1": 0.24800156914512417,
+          "balanced_accuracy": 0.2548557383248251,
+          "minimum_per_class_recall": 0.0,
+          "macro_f1_improvement_vs_majority": 0.14928567829440187
+        },
+        "criteria": {
+          "macro_f1_min": 0.5,
+          "balanced_accuracy_min": 0.5,
+          "per_class_recall_min": 0.25,
+          "majority_baseline_macro_f1_improvement_min": 0.1
+        },
+        "checks": {
+          "macro_f1": false,
+          "balanced_accuracy": false,
+          "per_class_recall": false,
+          "majority_baseline_improvement": true
+        },
+        "failed_criteria": [
+          "macro_f1",
+          "balanced_accuracy",
+          "per_class_recall"
+        ],
+        "passed": false
+      },
+      "G2_hist_gradient_boosting": {
+        "metrics": {
+          "macro_f1": 0.3521296296296296,
+          "balanced_accuracy": 0.36660994516921913,
+          "minimum_per_class_recall": 0.0,
+          "macro_f1_improvement_vs_majority": 0.2534137387789073
+        },
+        "criteria": {
+          "macro_f1_min": 0.5,
+          "balanced_accuracy_min": 0.5,
+          "per_class_recall_min": 0.25,
+          "majority_baseline_macro_f1_improvement_min": 0.1
+        },
+        "checks": {
+          "macro_f1": false,
+          "balanced_accuracy": false,
+          "per_class_recall": false,
+          "majority_baseline_improvement": true
+        },
+        "failed_criteria": [
+          "macro_f1",
+          "balanced_accuracy",
+          "per_class_recall"
+        ],
+        "passed": false
+      },
+      "G3_extra_trees": {
+        "metrics": {
+          "macro_f1": 0.2524905530745448,
+          "balanced_accuracy": 0.2843637738702968,
+          "minimum_per_class_recall": 0.0,
+          "macro_f1_improvement_vs_majority": 0.15377466222382252
+        },
+        "criteria": {
+          "macro_f1_min": 0.5,
+          "balanced_accuracy_min": 0.5,
+          "per_class_recall_min": 0.25,
+          "majority_baseline_macro_f1_improvement_min": 0.1
+        },
+        "checks": {
+          "macro_f1": false,
+          "balanced_accuracy": false,
+          "per_class_recall": false,
+          "majority_baseline_improvement": true
+        },
+        "failed_criteria": [
+          "macro_f1",
+          "balanced_accuracy",
+          "per_class_recall"
+        ],
+        "passed": false
+      }
+    },
+    "passing_candidates": [],
+    "passing_candidate_count": 0
+  },
+  "selection": {
+    "selection_rules_recorded": {
+      "binary_detector": [
+        "highest_balanced_accuracy",
+        "highest_macro_f1",
+        "lowest_false_positive_rate",
+        "candidate_priority_D1_D2_D3"
+      ],
+      "active_fault_diagnoser": [
+        "highest_macro_f1",
+        "highest_balanced_accuracy",
+        "highest_minimum_per_class_recall",
+        "candidate_priority_G1_G2_G3"
+      ]
+    },
+    "selection_rules_applied": false,
+    "selected_detector_candidate": null,
+    "selected_diagnoser_candidate": null,
+    "reason": "No detector candidate and no active-fault diagnoser candidate satisfied all frozen validation acceptance criteria."
+  },
+  "final_refit": {
+    "planned_contract": {
+      "splits": [
+        "train",
+        "validation"
+      ],
+      "episodes": 48,
+      "detector_rows": 3072,
+      "diagnoser_rows": "active train+validation rows only",
+      "test_rows_for_fit": 0
+    },
+    "performed": false,
+    "detector_refit_rows": 0,
+    "diagnoser_refit_rows": 0,
+    "test_rows_for_fit": 0,
+    "reason": "Final refit is blocked because validation acceptance failed before candidate selection."
+  },
+  "test_state": {
+    "development_test_access": false,
+    "test_features_interpreted": false,
+    "test_targets_interpreted": false,
+    "test_matrix_created": false,
+    "test_predictions_generated": false,
+    "test_performance_calculated": false,
+    "test_evaluation_allowed": false,
+    "phase5f_unlocked": false
+  },
+  "controlled_stop": {
+    "required": true,
+    "trigger": "zero detector candidates and zero diagnoser candidates passed the frozen validation gate",
+    "action": "controlled_stop_before_test",
+    "thresholds_relaxed_after_results": false,
+    "candidate_family_changed_after_results": false,
+    "test_consumed": false
+  },
+  "scientific_interpretation": {
+    "detector_summary": "D2 and D3 achieved strong balanced accuracy and macro F1 but both failed the frozen minimum active-fault recall requirement.",
+    "diagnoser_summary": "All three diagnosers failed the frozen macro-F1, balanced-accuracy and minimum per-class recall requirements.",
+    "observability_note": "The poor diagnosis performance, including zero recall for some fault families, is consistent with the pre-existing structural-identifiability concern for the frozen observable feature set.",
+    "dataset_scope": "synthetic Phase 3 monitoring dataset",
+    "experimental_validation": false,
+    "industrial_validation": false
+  }
+}
