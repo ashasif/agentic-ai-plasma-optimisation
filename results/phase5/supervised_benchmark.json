@@ -1,0 +1,1885 @@
+{
+  "phase": "5D",
+  "title": "Supervised Fault Detection and Diagnosis Benchmark",
+  "status": "validation_benchmark_evidence",
+  "governance": {
+    "algorithm_implementation_commit": "f98d742a755578408dff6b1ae3dc7f12e0563d0e",
+    "protocol_state": "FROZEN",
+    "candidate_configuration_frozen_before_real_benchmark": true,
+    "hyperparameter_search_performed": false,
+    "candidate_ranking_performed": false,
+    "model_selection_performed": false,
+    "acceptance_gate_applied": false,
+    "final_refit_performed": false,
+    "test_predictive_evaluation_run": false,
+    "interpretation": "Phase 5D records validation benchmark evidence for all frozen supervised candidates. Candidate acceptance, ranking, selection and final TRAIN+VALIDATION refit are deferred to Phase 5E."
+  },
+  "provenance": {
+    "protocol_path": "configs/phase5/phase5_protocol.json",
+    "protocol_sha256": "70de30b7a5f2e36b567f8848ee0e626833c25eb8285e7b4df9e63d5db77ddcec",
+    "phase5c_result_path": "results/phase5/anomaly_baselines.json",
+    "phase5c_result_sha256": "4908eee78f9f68dbda6059830563fb81b22b863df7a53ff5118186825fb420e0",
+    "monitoring_dataset_path": "data/synthetic/phase3/monitoring_episodes.csv",
+    "monitoring_dataset_sha256": "ee20fe9e6ffac4875911cba23247abeeeba236954349c1696cc1cb1ee59c7a3a",
+    "feature_manifest_path": "configs/phase3/monitoring_feature_manifest.json",
+    "feature_manifest_sha256": "ece31a97b317bda2da3a366dec1fb69d8756e05f3da64b10268d033dabbe948b",
+    "python_version": "3.12.5",
+    "numpy_version": "2.5.3",
+    "sklearn_version": "1.9.1"
+  },
+  "data": {
+    "train_rows": 2048,
+    "train_episodes": 32,
+    "train_inactive_rows": 1097,
+    "train_active_rows": 951,
+    "validation_rows": 1024,
+    "validation_episodes": 16,
+    "validation_inactive_rows": 524,
+    "validation_active_rows": 500,
+    "test_rows_for_fit": 0,
+    "test_rows_for_scoring": 0
+  },
+  "feature_contract": {
+    "model_feature_order": [
+      "nominal_absorbed_power_W",
+      "target_pressure_mTorr",
+      "nominal_flow_sccm",
+      "measured_absorbed_power_W",
+      "measured_flow_sccm",
+      "measured_pressure_mTorr",
+      "absorbed_power_relative_residual",
+      "flow_relative_residual",
+      "pressure_relative_residual"
+    ]
+  },
+  "candidate_contract": {
+    "detector_candidate_order": [
+      "D1_logistic_regression",
+      "D2_hist_gradient_boosting",
+      "D3_extra_trees"
+    ],
+    "diagnoser_candidate_order": [
+      "G1_logistic_regression",
+      "G2_hist_gradient_boosting",
+      "G3_extra_trees"
+    ],
+    "detector_candidates": {
+      "D1_logistic_regression": {
+        "scaler": "StandardScaler",
+        "classifier": "LogisticRegression",
+        "parameters": {
+          "C": 1.0,
+          "solver": "lbfgs",
+          "max_iter": 2000,
+          "class_weight": "balanced"
+        },
+        "threshold": 0.5
+      },
+      "D2_hist_gradient_boosting": {
+        "classifier": "HistGradientBoostingClassifier",
+        "parameters": {
+          "learning_rate": 0.05,
+          "max_iter": 300,
+          "max_leaf_nodes": 15,
+          "l2_regularization": 0.1,
+          "early_stopping": false,
+          "random_state": 20260924
+        },
+        "threshold": 0.5
+      },
+      "D3_extra_trees": {
+        "classifier": "ExtraTreesClassifier",
+        "parameters": {
+          "n_estimators": 500,
+          "max_depth": null,
+          "min_samples_leaf": 1,
+          "max_features": 1.0,
+          "class_weight": "balanced",
+          "n_jobs": 1,
+          "random_state": 20260924
+        },
+        "threshold": 0.5
+      }
+    },
+    "diagnoser_candidates": {
+      "G1_logistic_regression": {
+        "scaler": "StandardScaler",
+        "classifier": "LogisticRegression",
+        "parameters": {
+          "C": 1.0,
+          "solver": "lbfgs",
+          "max_iter": 2000,
+          "class_weight": "balanced"
+        }
+      },
+      "G2_hist_gradient_boosting": {
+        "classifier": "HistGradientBoostingClassifier",
+        "parameters": {
+          "learning_rate": 0.05,
+          "max_iter": 300,
+          "max_leaf_nodes": 15,
+          "l2_regularization": 0.1,
+          "early_stopping": false,
+          "random_state": 20260924
+        }
+      },
+      "G3_extra_trees": {
+        "classifier": "ExtraTreesClassifier",
+        "parameters": {
+          "n_estimators": 500,
+          "max_depth": null,
+          "min_samples_leaf": 1,
+          "max_features": 1.0,
+          "class_weight": "balanced",
+          "n_jobs": 1,
+          "random_state": 20260924
+        }
+      }
+    }
+  },
+  "validation_acceptance_contract_recorded_but_not_applied": {
+    "binary_detector": {
+      "balanced_accuracy_min": 0.75,
+      "macro_f1_min": 0.75,
+      "fault_active_recall_min": 0.75,
+      "specificity_min": 0.75,
+      "per_active_fault_family_recall_min": 0.6
+    },
+    "active_fault_diagnoser": {
+      "macro_f1_min": 0.5,
+      "balanced_accuracy_min": 0.5,
+      "per_class_recall_min": 0.25,
+      "majority_baseline_macro_f1_improvement_min": 0.1
+    },
+    "failure_action": "controlled_stop_before_test"
+  },
+  "detectors": {
+    "D1_logistic_regression": {
+      "candidate_id": "D1_logistic_regression",
+      "fit_rows": 2048,
+      "threshold": 0.5,
+      "metrics": {
+        "balanced_accuracy": 0.6069618320610687,
+        "macro_f1": 0.6039358871217277,
+        "positive_precision": 0.6237623762376238,
+        "active_recall": 0.504,
+        "specificity": 0.7099236641221374,
+        "false_positive_rate": 0.2900763358778626,
+        "auroc": 0.5833625954198474,
+        "average_precision": 0.6777382800442033,
+        "confusion_matrix": {
+          "labels": [
+            "inactive",
+            "active"
+          ],
+          "matrix": [
+            [
+              372,
+              152
+            ],
+            [
+              248,
+              252
+            ]
+          ],
+          "true_negative": 372,
+          "false_positive": 152,
+          "false_negative": 248,
+          "true_positive": 252
+        },
+        "per_active_fault_family_recall": {
+          "flow_delivery": {
+            "support": 123,
+            "detected": 9,
+            "recall": 0.07317073170731707
+          },
+          "power_coupling": {
+            "support": 129,
+            "detected": 124,
+            "recall": 0.9612403100775194
+          },
+          "pressure_sensor_bias": {
+            "support": 125,
+            "detected": 62,
+            "recall": 0.496
+          },
+          "pumping_effectiveness": {
+            "support": 123,
+            "detected": 57,
+            "recall": 0.4634146341463415
+          }
+        }
+      },
+      "validation_sequence_diagnostics": {
+        "summary": {
+          "ordered_unit": "step_index; not calibrated physical time",
+          "fault_episode_count": 12,
+          "detected_fault_episode_count": 9,
+          "missed_fault_episode_count": 3,
+          "fault_episode_detection_rate": 0.75,
+          "mean_detection_delay_steps": 2.4444444444444446,
+          "median_detection_delay_steps": 0.0,
+          "max_detection_delay_steps": 17,
+          "pre_active_false_alarm_episode_count": 10,
+          "normal_episode_count": 4,
+          "normal_episode_false_alarm_count": 4
+        },
+        "episode_records": [
+          {
+            "episode_id": "monitor_validation_001",
+            "fault_episode": false,
+            "first_active_step": null,
+            "first_alarm_at_or_after_active_step": null,
+            "detection_delay_steps": null,
+            "missed_fault_episode": false,
+            "pre_active_false_alarm": false,
+            "normal_episode_false_alarm": true
+          },
+          {
+            "episode_id": "monitor_validation_002",
+            "fault_episode": false,
+            "first_active_step": null,
+            "first_alarm_at_or_after_active_step": null,
+            "detection_delay_steps": null,
+            "missed_fault_episode": false,
+            "pre_active_false_alarm": false,
+            "normal_episode_false_alarm": true
+          },
+          {
+            "episode_id": "monitor_validation_003",
+            "fault_episode": true,
+            "first_active_step": 24,
+            "first_alarm_at_or_after_active_step": null,
+            "detection_delay_steps": null,
+            "missed_fault_episode": true,
+            "pre_active_false_alarm": true,
+            "normal_episode_false_alarm": false
+          },
+          {
+            "episode_id": "monitor_validation_004",
+            "fault_episode": true,
+            "first_active_step": 31,
+            "first_alarm_at_or_after_active_step": null,
+            "detection_delay_steps": null,
+            "missed_fault_episode": true,
+            "pre_active_false_alarm": true,
+            "normal_episode_false_alarm": false
+          },
+          {
+            "episode_id": "monitor_validation_005",
+            "fault_episode": true,
+            "first_active_step": 22,
+            "first_alarm_at_or_after_active_step": 25,
+            "detection_delay_steps": 3,
+            "missed_fault_episode": false,
+            "pre_active_false_alarm": true,
+            "normal_episode_false_alarm": false
+          },
+          {
+            "episode_id": "monitor_validation_006",
+            "fault_episode": true,
+            "first_active_step": 23,
+            "first_alarm_at_or_after_active_step": 24,
+            "detection_delay_steps": 1,
+            "missed_fault_episode": false,
+            "pre_active_false_alarm": true,
+            "normal_episode_false_alarm": false
+          },
+          {
+            "episode_id": "monitor_validation_007",
+            "fault_episode": true,
+            "first_active_step": 21,
+            "first_alarm_at_or_after_active_step": 21,
+            "detection_delay_steps": 0,
+            "missed_fault_episode": false,
+            "pre_active_false_alarm": true,
+            "normal_episode_false_alarm": false
+          },
+          {
+            "episode_id": "monitor_validation_008",
+            "fault_episode": true,
+            "first_active_step": 23,
+            "first_alarm_at_or_after_active_step": 40,
+            "detection_delay_steps": 17,
+            "missed_fault_episode": false,
+            "pre_active_false_alarm": true,
+            "normal_episode_false_alarm": false
+          },
+          {
+            "episode_id": "monitor_validation_009",
+            "fault_episode": true,
+            "first_active_step": 20,
+            "first_alarm_at_or_after_active_step": null,
+            "detection_delay_steps": null,
+            "missed_fault_episode": true,
+            "pre_active_false_alarm": false,
+            "normal_episode_false_alarm": false
+          },
+          {
+            "episode_id": "monitor_validation_010",
+            "fault_episode": false,
+            "first_active_step": null,
+            "first_alarm_at_or_after_active_step": null,
+            "detection_delay_steps": null,
+            "missed_fault_episode": false,
+            "pre_active_false_alarm": false,
+            "normal_episode_false_alarm": true
+          },
+          {
+            "episode_id": "monitor_validation_011",
+            "fault_episode": true,
+            "first_active_step": 24,
+            "first_alarm_at_or_after_active_step": 24,
+            "detection_delay_steps": 0,
+            "missed_fault_episode": false,
+            "pre_active_false_alarm": true,
+            "normal_episode_false_alarm": false
+          },
+          {
+            "episode_id": "monitor_validation_012",
+            "fault_episode": true,
+            "first_active_step": 17,
+            "first_alarm_at_or_after_active_step": 17,
+            "detection_delay_steps": 0,
+            "missed_fault_episode": false,
+            "pre_active_false_alarm": true,
+            "normal_episode_false_alarm": false
+          },
+          {
+            "episode_id": "monitor_validation_013",
+            "fault_episode": false,
+            "first_active_step": null,
+            "first_alarm_at_or_after_active_step": null,
+            "detection_delay_steps": null,
+            "missed_fault_episode": false,
+            "pre_active_false_alarm": false,
+            "normal_episode_false_alarm": true
+          },
+          {
+            "episode_id": "monitor_validation_014",
+            "fault_episode": true,
+            "first_active_step": 21,
+            "first_alarm_at_or_after_active_step": 21,
+            "detection_delay_steps": 0,
+            "missed_fault_episode": false,
+            "pre_active_false_alarm": true,
+            "normal_episode_false_alarm": false
+          },
+          {
+            "episode_id": "monitor_validation_015",
+            "fault_episode": true,
+            "first_active_step": 26,
+            "first_alarm_at_or_after_active_step": 27,
+            "detection_delay_steps": 1,
+            "missed_fault_episode": false,
+            "pre_active_false_alarm": true,
+            "normal_episode_false_alarm": false
+          },
+          {
+            "episode_id": "monitor_validation_016",
+            "fault_episode": true,
+            "first_active_step": 16,
+            "first_alarm_at_or_after_active_step": 16,
+            "detection_delay_steps": 0,
+            "missed_fault_episode": false,
+            "pre_active_false_alarm": false,
+            "normal_episode_false_alarm": false
+          }
+        ]
+      }
+    },
+    "D2_hist_gradient_boosting": {
+      "candidate_id": "D2_hist_gradient_boosting",
+      "fit_rows": 2048,
+      "threshold": 0.5,
+      "metrics": {
+        "balanced_accuracy": 0.8385114503816794,
+        "macro_f1": 0.8385662541649137,
+        "positive_precision": 0.9181141439205955,
+        "active_recall": 0.74,
+        "specificity": 0.9370229007633588,
+        "false_positive_rate": 0.06297709923664122,
+        "auroc": 0.882412213740458,
+        "average_precision": 0.9137556239554326,
+        "confusion_matrix": {
+          "labels": [
+            "inactive",
+            "active"
+          ],
+          "matrix": [
+            [
+              491,
+              33
+            ],
+            [
+              130,
+              370
+            ]
+          ],
+          "true_negative": 491,
+          "false_positive": 33,
+          "false_negative": 130,
+          "true_positive": 370
+        },
+        "per_active_fault_family_recall": {
+          "flow_delivery": {
+            "support": 123,
+            "detected": 91,
+            "recall": 0.7398373983739838
+          },
+          "power_coupling": {
+            "support": 129,
+            "detected": 96,
+            "recall": 0.7441860465116279
+          },
+          "pressure_sensor_bias": {
+            "support": 125,
+            "detected": 84,
+            "recall": 0.672
+          },
+          "pumping_effectiveness": {
+            "support": 123,
+            "detected": 99,
+            "recall": 0.8048780487804879
+          }
+        }
+      },
+      "validation_sequence_diagnostics": {
+        "summary": {
+          "ordered_unit": "step_index; not calibrated physical time",
+          "fault_episode_count": 12,
+          "detected_fault_episode_count": 12,
+          "missed_fault_episode_count": 0,
+          "fault_episode_detection_rate": 1.0,
+          "mean_detection_delay_steps": 5.416666666666667,
+          "median_detection_delay_steps": 0.0,
+          "max_detection_delay_steps": 23,
+          "pre_active_false_alarm_episode_count": 5,
+          "normal_episode_count": 4,
+          "normal_episode_false_alarm_count": 2
+        },
+        "episode_records": [
+          {
+            "episode_id": "monitor_validation_001",
+            "fault_episode": false,
+            "first_active_step": null,
+            "first_alarm_at_or_after_active_step": null,
+            "detection_delay_steps": null,
+            "missed_fault_episode": false,
+            "pre_active_false_alarm": false,
+            "normal_episode_false_alarm": true
+          },
+          {
+            "episode_id": "monitor_validation_002",
+            "fault_episode": false,
+            "first_active_step": null,
+            "first_alarm_at_or_after_active_step": null,
+            "detection_delay_steps": null,
+            "missed_fault_episode": false,
+            "pre_active_false_alarm": false,
+            "normal_episode_false_alarm": true
+          },
+          {
+            "episode_id": "monitor_validation_003",
+            "fault_episode": true,
+            "first_active_step": 24,
+            "first_alarm_at_or_after_active_step": 24,
+            "detection_delay_steps": 0,
+            "missed_fault_episode": false,
+            "pre_active_false_alarm": true,
+            "normal_episode_false_alarm": false
+          },
+          {
+            "episode_id": "monitor_validation_004",
+            "fault_episode": true,
+            "first_active_step": 31,
+            "first_alarm_at_or_after_active_step": 31,
+            "detection_delay_steps": 0,
+            "missed_fault_episode": false,
+            "pre_active_false_alarm": false,
+            "normal_episode_false_alarm": false
+          },
+          {
+            "episode_id": "monitor_validation_005",
+            "fault_episode": true,
+            "first_active_step": 22,
+            "first_alarm_at_or_after_active_step": 34,
+            "detection_delay_steps": 12,
+            "missed_fault_episode": false,
+            "pre_active_false_alarm": false,
+            "normal_episode_false_alarm": false
+          },
+          {
+            "episode_id": "monitor_validation_006",
+            "fault_episode": true,
+            "first_active_step": 23,
+            "first_alarm_at_or_after_active_step": 46,
+            "detection_delay_steps": 23,
+            "missed_fault_episode": false,
+            "pre_active_false_alarm": true,
+            "normal_episode_false_alarm": false
+          },
+          {
+            "episode_id": "monitor_validation_007",
+            "fault_episode": true,
+            "first_active_step": 21,
+            "first_alarm_at_or_after_active_step": 21,
+            "detection_delay_steps": 0,
+            "missed_fault_episode": false,
+            "pre_active_false_alarm": true,
+            "normal_episode_false_alarm": false
+          },
+          {
+            "episode_id": "monitor_validation_008",
+            "fault_episode": true,
+            "first_active_step": 23,
+            "first_alarm_at_or_after_active_step": 23,
+            "detection_delay_steps": 0,
+            "missed_fault_episode": false,
+            "pre_active_false_alarm": false,
+            "normal_episode_false_alarm": false
+          },
+          {
+            "episode_id": "monitor_validation_009",
+            "fault_episode": true,
+            "first_active_step": 20,
+            "first_alarm_at_or_after_active_step": 20,
+            "detection_delay_steps": 0,
+            "missed_fault_episode": false,
+            "pre_active_false_alarm": false,
+            "normal_episode_false_alarm": false
+          },
+          {
+            "episode_id": "monitor_validation_010",
+            "fault_episode": false,
+            "first_active_step": null,
+            "first_alarm_at_or_after_active_step": null,
+            "detection_delay_steps": null,
+            "missed_fault_episode": false,
+            "pre_active_false_alarm": false,
+            "normal_episode_false_alarm": false
+          },
+          {
+            "episode_id": "monitor_validation_011",
+            "fault_episode": true,
+            "first_active_step": 24,
+            "first_alarm_at_or_after_active_step": 24,
+            "detection_delay_steps": 0,
+            "missed_fault_episode": false,
+            "pre_active_false_alarm": true,
+            "normal_episode_false_alarm": false
+          },
+          {
+            "episode_id": "monitor_validation_012",
+            "fault_episode": true,
+            "first_active_step": 17,
+            "first_alarm_at_or_after_active_step": 17,
+            "detection_delay_steps": 0,
+            "missed_fault_episode": false,
+            "pre_active_false_alarm": true,
+            "normal_episode_false_alarm": false
+          },
+          {
+            "episode_id": "monitor_validation_013",
+            "fault_episode": false,
+            "first_active_step": null,
+            "first_alarm_at_or_after_active_step": null,
+            "detection_delay_steps": null,
+            "missed_fault_episode": false,
+            "pre_active_false_alarm": false,
+            "normal_episode_false_alarm": false
+          },
+          {
+            "episode_id": "monitor_validation_014",
+            "fault_episode": true,
+            "first_active_step": 21,
+            "first_alarm_at_or_after_active_step": 37,
+            "detection_delay_steps": 16,
+            "missed_fault_episode": false,
+            "pre_active_false_alarm": false,
+            "normal_episode_false_alarm": false
+          },
+          {
+            "episode_id": "monitor_validation_015",
+            "fault_episode": true,
+            "first_active_step": 26,
+            "first_alarm_at_or_after_active_step": 40,
+            "detection_delay_steps": 14,
+            "missed_fault_episode": false,
+            "pre_active_false_alarm": false,
+            "normal_episode_false_alarm": false
+          },
+          {
+            "episode_id": "monitor_validation_016",
+            "fault_episode": true,
+            "first_active_step": 16,
+            "first_alarm_at_or_after_active_step": 16,
+            "detection_delay_steps": 0,
+            "missed_fault_episode": false,
+            "pre_active_false_alarm": false,
+            "normal_episode_false_alarm": false
+          }
+        ]
+      }
+    },
+    "D3_extra_trees": {
+      "candidate_id": "D3_extra_trees",
+      "fit_rows": 2048,
+      "threshold": 0.5,
+      "metrics": {
+        "balanced_accuracy": 0.8417786259541984,
+        "macro_f1": 0.8413679210814761,
+        "positive_precision": 0.9546666666666667,
+        "active_recall": 0.716,
+        "specificity": 0.9675572519083969,
+        "false_positive_rate": 0.03244274809160305,
+        "auroc": 0.8642251908396946,
+        "average_precision": 0.900567259449166,
+        "confusion_matrix": {
+          "labels": [
+            "inactive",
+            "active"
+          ],
+          "matrix": [
+            [
+              507,
+              17
+            ],
+            [
+              142,
+              358
+            ]
+          ],
+          "true_negative": 507,
+          "false_positive": 17,
+          "false_negative": 142,
+          "true_positive": 358
+        },
+        "per_active_fault_family_recall": {
+          "flow_delivery": {
+            "support": 123,
+            "detected": 90,
+            "recall": 0.7317073170731707
+          },
+          "power_coupling": {
+            "support": 129,
+            "detected": 84,
+            "recall": 0.6511627906976745
+          },
+          "pressure_sensor_bias": {
+            "support": 125,
+            "detected": 85,
+            "recall": 0.68
+          },
+          "pumping_effectiveness": {
+            "support": 123,
+            "detected": 99,
+            "recall": 0.8048780487804879
+          }
+        }
+      },
+      "validation_sequence_diagnostics": {
+        "summary": {
+          "ordered_unit": "step_index; not calibrated physical time",
+          "fault_episode_count": 12,
+          "detected_fault_episode_count": 12,
+          "missed_fault_episode_count": 0,
+          "fault_episode_detection_rate": 1.0,
+          "mean_detection_delay_steps": 6.916666666666667,
+          "median_detection_delay_steps": 0.0,
+          "max_detection_delay_steps": 27,
+          "pre_active_false_alarm_episode_count": 3,
+          "normal_episode_count": 4,
+          "normal_episode_false_alarm_count": 2
+        },
+        "episode_records": [
+          {
+            "episode_id": "monitor_validation_001",
+            "fault_episode": false,
+            "first_active_step": null,
+            "first_alarm_at_or_after_active_step": null,
+            "detection_delay_steps": null,
+            "missed_fault_episode": false,
+            "pre_active_false_alarm": false,
+            "normal_episode_false_alarm": true
+          },
+          {
+            "episode_id": "monitor_validation_002",
+            "fault_episode": false,
+            "first_active_step": null,
+            "first_alarm_at_or_after_active_step": null,
+            "detection_delay_steps": null,
+            "missed_fault_episode": false,
+            "pre_active_false_alarm": false,
+            "normal_episode_false_alarm": true
+          },
+          {
+            "episode_id": "monitor_validation_003",
+            "fault_episode": true,
+            "first_active_step": 24,
+            "first_alarm_at_or_after_active_step": 24,
+            "detection_delay_steps": 0,
+            "missed_fault_episode": false,
+            "pre_active_false_alarm": true,
+            "normal_episode_false_alarm": false
+          },
+          {
+            "episode_id": "monitor_validation_004",
+            "fault_episode": true,
+            "first_active_step": 31,
+            "first_alarm_at_or_after_active_step": 31,
+            "detection_delay_steps": 0,
+            "missed_fault_episode": false,
+            "pre_active_false_alarm": false,
+            "normal_episode_false_alarm": false
+          },
+          {
+            "episode_id": "monitor_validation_005",
+            "fault_episode": true,
+            "first_active_step": 22,
+            "first_alarm_at_or_after_active_step": 49,
+            "detection_delay_steps": 27,
+            "missed_fault_episode": false,
+            "pre_active_false_alarm": false,
+            "normal_episode_false_alarm": false
+          },
+          {
+            "episode_id": "monitor_validation_006",
+            "fault_episode": true,
+            "first_active_step": 23,
+            "first_alarm_at_or_after_active_step": 47,
+            "detection_delay_steps": 24,
+            "missed_fault_episode": false,
+            "pre_active_false_alarm": true,
+            "normal_episode_false_alarm": false
+          },
+          {
+            "episode_id": "monitor_validation_007",
+            "fault_episode": true,
+            "first_active_step": 21,
+            "first_alarm_at_or_after_active_step": 21,
+            "detection_delay_steps": 0,
+            "missed_fault_episode": false,
+            "pre_active_false_alarm": false,
+            "normal_episode_false_alarm": false
+          },
+          {
+            "episode_id": "monitor_validation_008",
+            "fault_episode": true,
+            "first_active_step": 23,
+            "first_alarm_at_or_after_active_step": 23,
+            "detection_delay_steps": 0,
+            "missed_fault_episode": false,
+            "pre_active_false_alarm": false,
+            "normal_episode_false_alarm": false
+          },
+          {
+            "episode_id": "monitor_validation_009",
+            "fault_episode": true,
+            "first_active_step": 20,
+            "first_alarm_at_or_after_active_step": 20,
+            "detection_delay_steps": 0,
+            "missed_fault_episode": false,
+            "pre_active_false_alarm": false,
+            "normal_episode_false_alarm": false
+          },
+          {
+            "episode_id": "monitor_validation_010",
+            "fault_episode": false,
+            "first_active_step": null,
+            "first_alarm_at_or_after_active_step": null,
+            "detection_delay_steps": null,
+            "missed_fault_episode": false,
+            "pre_active_false_alarm": false,
+            "normal_episode_false_alarm": false
+          },
+          {
+            "episode_id": "monitor_validation_011",
+            "fault_episode": true,
+            "first_active_step": 24,
+            "first_alarm_at_or_after_active_step": 24,
+            "detection_delay_steps": 0,
+            "missed_fault_episode": false,
+            "pre_active_false_alarm": false,
+            "normal_episode_false_alarm": false
+          },
+          {
+            "episode_id": "monitor_validation_012",
+            "fault_episode": true,
+            "first_active_step": 17,
+            "first_alarm_at_or_after_active_step": 17,
+            "detection_delay_steps": 0,
+            "missed_fault_episode": false,
+            "pre_active_false_alarm": true,
+            "normal_episode_false_alarm": false
+          },
+          {
+            "episode_id": "monitor_validation_013",
+            "fault_episode": false,
+            "first_active_step": null,
+            "first_alarm_at_or_after_active_step": null,
+            "detection_delay_steps": null,
+            "missed_fault_episode": false,
+            "pre_active_false_alarm": false,
+            "normal_episode_false_alarm": false
+          },
+          {
+            "episode_id": "monitor_validation_014",
+            "fault_episode": true,
+            "first_active_step": 21,
+            "first_alarm_at_or_after_active_step": 37,
+            "detection_delay_steps": 16,
+            "missed_fault_episode": false,
+            "pre_active_false_alarm": false,
+            "normal_episode_false_alarm": false
+          },
+          {
+            "episode_id": "monitor_validation_015",
+            "fault_episode": true,
+            "first_active_step": 26,
+            "first_alarm_at_or_after_active_step": 40,
+            "detection_delay_steps": 14,
+            "missed_fault_episode": false,
+            "pre_active_false_alarm": false,
+            "normal_episode_false_alarm": false
+          },
+          {
+            "episode_id": "monitor_validation_016",
+            "fault_episode": true,
+            "first_active_step": 16,
+            "first_alarm_at_or_after_active_step": 18,
+            "detection_delay_steps": 2,
+            "missed_fault_episode": false,
+            "pre_active_false_alarm": false,
+            "normal_episode_false_alarm": false
+          }
+        ]
+      }
+    }
+  },
+  "diagnosers": {
+    "G1_logistic_regression": {
+      "candidate_id": "G1_logistic_regression",
+      "fit_rows": 951,
+      "validation_active_rows": 500,
+      "metrics": {
+        "macro_f1": 0.24800156914512417,
+        "balanced_accuracy": 0.2548557383248251,
+        "minimum_per_class_recall": 0.0,
+        "per_class": {
+          "flow_delivery": {
+            "precision": 0.023255813953488372,
+            "recall": 0.016260162601626018,
+            "f1": 0.019138755980861243,
+            "support": 123
+          },
+          "power_coupling": {
+            "precision": 0.7636363636363637,
+            "recall": 0.6511627906976745,
+            "f1": 0.702928870292887,
+            "support": 129
+          },
+          "pressure_sensor_bias": {
+            "precision": 0.21890547263681592,
+            "recall": 0.352,
+            "f1": 0.26993865030674846,
+            "support": 125
+          },
+          "pumping_effectiveness": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 123
+          }
+        },
+        "confusion_matrix": {
+          "labels": [
+            "flow_delivery",
+            "power_coupling",
+            "pressure_sensor_bias",
+            "pumping_effectiveness"
+          ],
+          "matrix": [
+            [
+              2,
+              25,
+              41,
+              55
+            ],
+            [
+              0,
+              84,
+              36,
+              9
+            ],
+            [
+              41,
+              1,
+              44,
+              39
+            ],
+            [
+              43,
+              0,
+              80,
+              0
+            ]
+          ]
+        }
+      },
+      "majority_baseline": {
+        "majority_class": "pumping_effectiveness",
+        "macro_f1": 0.09871589085072231,
+        "balanced_accuracy": 0.25
+      },
+      "macro_f1_improvement_vs_majority": 0.14928567829440187
+    },
+    "G2_hist_gradient_boosting": {
+      "candidate_id": "G2_hist_gradient_boosting",
+      "fit_rows": 951,
+      "validation_active_rows": 500,
+      "metrics": {
+        "macro_f1": 0.3521296296296296,
+        "balanced_accuracy": 0.36660994516921913,
+        "minimum_per_class_recall": 0.0,
+        "per_class": {
+          "flow_delivery": {
+            "precision": 0.6989247311827957,
+            "recall": 0.5284552845528455,
+            "f1": 0.6018518518518519,
+            "support": 123
+          },
+          "power_coupling": {
+            "precision": 0.7076023391812866,
+            "recall": 0.937984496124031,
+            "f1": 0.8066666666666666,
+            "support": 129
+          },
+          "pressure_sensor_bias": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 125
+          },
+          "pumping_effectiveness": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 123
+          }
+        },
+        "confusion_matrix": {
+          "labels": [
+            "flow_delivery",
+            "power_coupling",
+            "pressure_sensor_bias",
+            "pumping_effectiveness"
+          ],
+          "matrix": [
+            [
+              65,
+              16,
+              41,
+              1
+            ],
+            [
+              1,
+              121,
+              7,
+              0
+            ],
+            [
+              11,
+              0,
+              0,
+              114
+            ],
+            [
+              16,
+              34,
+              73,
+              0
+            ]
+          ]
+        }
+      },
+      "majority_baseline": {
+        "majority_class": "pumping_effectiveness",
+        "macro_f1": 0.09871589085072231,
+        "balanced_accuracy": 0.25
+      },
+      "macro_f1_improvement_vs_majority": 0.2534137387789073
+    },
+    "G3_extra_trees": {
+      "candidate_id": "G3_extra_trees",
+      "fit_rows": 951,
+      "validation_active_rows": 500,
+      "metrics": {
+        "macro_f1": 0.2524905530745448,
+        "balanced_accuracy": 0.2843637738702968,
+        "minimum_per_class_recall": 0.0,
+        "per_class": {
+          "flow_delivery": {
+            "precision": 0.34146341463414637,
+            "recall": 0.45528455284552843,
+            "f1": 0.3902439024390244,
+            "support": 123
+          },
+          "power_coupling": {
+            "precision": 0.567741935483871,
+            "recall": 0.6821705426356589,
+            "f1": 0.6197183098591549,
+            "support": 129
+          },
+          "pressure_sensor_bias": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 125
+          },
+          "pumping_effectiveness": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 123
+          }
+        },
+        "confusion_matrix": {
+          "labels": [
+            "flow_delivery",
+            "power_coupling",
+            "pressure_sensor_bias",
+            "pumping_effectiveness"
+          ],
+          "matrix": [
+            [
+              56,
+              67,
+              0,
+              0
+            ],
+            [
+              0,
+              88,
+              6,
+              35
+            ],
+            [
+              63,
+              0,
+              0,
+              62
+            ],
+            [
+              45,
+              0,
+              78,
+              0
+            ]
+          ]
+        }
+      },
+      "majority_baseline": {
+        "majority_class": "pumping_effectiveness",
+        "macro_f1": 0.09871589085072231,
+        "balanced_accuracy": 0.25
+      },
+      "macro_f1_improvement_vs_majority": 0.15377466222382252
+    }
+  },
+  "secondary_end_to_end_five_state": {
+    "D1_logistic_regression__G1_logistic_regression": {
+      "detector_candidate_id": "D1_logistic_regression",
+      "diagnoser_candidate_id": "G1_logistic_regression",
+      "predicted_active_rows": 404,
+      "metrics": {
+        "macro_f1": 0.27743835112256165,
+        "balanced_accuracy": 0.27221729096396236,
+        "per_class": {
+          "none": {
+            "precision": 0.6,
+            "recall": 0.7099236641221374,
+            "f1": 0.6503496503496503,
+            "support": 524
+          },
+          "flow_delivery": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 123
+          },
+          "power_coupling": {
+            "precision": 0.8484848484848485,
+            "recall": 0.6511627906976745,
+            "f1": 0.7368421052631579,
+            "support": 129
+          },
+          "pressure_sensor_bias": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 125
+          },
+          "pumping_effectiveness": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 123
+          }
+        },
+        "confusion_matrix": {
+          "labels": [
+            "none",
+            "flow_delivery",
+            "power_coupling",
+            "pressure_sensor_bias",
+            "pumping_effectiveness"
+          ],
+          "matrix": [
+            [
+              372,
+              67,
+              13,
+              34,
+              38
+            ],
+            [
+              114,
+              0,
+              1,
+              3,
+              5
+            ],
+            [
+              5,
+              0,
+              84,
+              36,
+              4
+            ],
+            [
+              63,
+              26,
+              1,
+              0,
+              35
+            ],
+            [
+              66,
+              29,
+              0,
+              28,
+              0
+            ]
+          ]
+        }
+      }
+    },
+    "D1_logistic_regression__G2_hist_gradient_boosting": {
+      "detector_candidate_id": "D1_logistic_regression",
+      "diagnoser_candidate_id": "G2_hist_gradient_boosting",
+      "predicted_active_rows": 404,
+      "metrics": {
+        "macro_f1": 0.30485168261341544,
+        "balanced_accuracy": 0.32670774284522536,
+        "per_class": {
+          "none": {
+            "precision": 0.6,
+            "recall": 0.7099236641221374,
+            "f1": 0.6503496503496503,
+            "support": 524
+          },
+          "flow_delivery": {
+            "precision": 0.07142857142857142,
+            "recall": 0.024390243902439025,
+            "f1": 0.03636363636363636,
+            "support": 123
+          },
+          "power_coupling": {
+            "precision": 0.7837837837837838,
+            "recall": 0.8992248062015504,
+            "f1": 0.8375451263537906,
+            "support": 129
+          },
+          "pressure_sensor_bias": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 125
+          },
+          "pumping_effectiveness": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 123
+          }
+        },
+        "confusion_matrix": {
+          "labels": [
+            "none",
+            "flow_delivery",
+            "power_coupling",
+            "pressure_sensor_bias",
+            "pumping_effectiveness"
+          ],
+          "matrix": [
+            [
+              372,
+              20,
+              27,
+              41,
+              64
+            ],
+            [
+              114,
+              3,
+              3,
+              3,
+              0
+            ],
+            [
+              5,
+              1,
+              116,
+              7,
+              0
+            ],
+            [
+              63,
+              9,
+              0,
+              0,
+              53
+            ],
+            [
+              66,
+              9,
+              2,
+              46,
+              0
+            ]
+          ]
+        }
+      }
+    },
+    "D1_logistic_regression__G3_extra_trees": {
+      "detector_candidate_id": "D1_logistic_regression",
+      "diagnoser_candidate_id": "G3_extra_trees",
+      "predicted_active_rows": 404,
+      "metrics": {
+        "macro_f1": 0.2852320381969783,
+        "balanced_accuracy": 0.28492290639220963,
+        "per_class": {
+          "none": {
+            "precision": 0.6,
+            "recall": 0.7099236641221374,
+            "f1": 0.6503496503496503,
+            "support": 524
+          },
+          "flow_delivery": {
+            "precision": 0.05,
+            "recall": 0.032520325203252036,
+            "f1": 0.03940886699507389,
+            "support": 123
+          },
+          "power_coupling": {
+            "precision": 0.8,
+            "recall": 0.6821705426356589,
+            "f1": 0.7364016736401674,
+            "support": 129
+          },
+          "pressure_sensor_bias": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 125
+          },
+          "pumping_effectiveness": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 123
+          }
+        },
+        "confusion_matrix": {
+          "labels": [
+            "none",
+            "flow_delivery",
+            "power_coupling",
+            "pressure_sensor_bias",
+            "pumping_effectiveness"
+          ],
+          "matrix": [
+            [
+              372,
+              33,
+              17,
+              34,
+              68
+            ],
+            [
+              114,
+              4,
+              5,
+              0,
+              0
+            ],
+            [
+              5,
+              0,
+              88,
+              6,
+              30
+            ],
+            [
+              63,
+              14,
+              0,
+              0,
+              48
+            ],
+            [
+              66,
+              29,
+              0,
+              28,
+              0
+            ]
+          ]
+        }
+      }
+    },
+    "D2_hist_gradient_boosting__G1_logistic_regression": {
+      "detector_candidate_id": "D2_hist_gradient_boosting",
+      "diagnoser_candidate_id": "G1_logistic_regression",
+      "predicted_active_rows": 403,
+      "metrics": {
+        "macro_f1": 0.3563059610448823,
+        "balanced_accuracy": 0.37570966618027624,
+        "per_class": {
+          "none": {
+            "precision": 0.7906602254428341,
+            "recall": 0.9370229007633588,
+            "f1": 0.8576419213973799,
+            "support": 524
+          },
+          "flow_delivery": {
+            "precision": 0.03333333333333333,
+            "recall": 0.008130081300813009,
+            "f1": 0.013071895424836602,
+            "support": 123
+          },
+          "power_coupling": {
+            "precision": 0.7281553398058253,
+            "recall": 0.5813953488372093,
+            "f1": 0.646551724137931,
+            "support": 129
+          },
+          "pressure_sensor_bias": {
+            "precision": 0.21153846153846154,
+            "recall": 0.352,
+            "f1": 0.26426426426426425,
+            "support": 125
+          },
+          "pumping_effectiveness": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 123
+          }
+        },
+        "confusion_matrix": {
+          "labels": [
+            "none",
+            "flow_delivery",
+            "power_coupling",
+            "pressure_sensor_bias",
+            "pumping_effectiveness"
+          ],
+          "matrix": [
+            [
+              491,
+              6,
+              3,
+              23,
+              1
+            ],
+            [
+              32,
+              1,
+              24,
+              40,
+              26
+            ],
+            [
+              33,
+              0,
+              75,
+              21,
+              0
+            ],
+            [
+              41,
+              4,
+              1,
+              44,
+              35
+            ],
+            [
+              24,
+              19,
+              0,
+              80,
+              0
+            ]
+          ]
+        }
+      }
+    },
+    "D2_hist_gradient_boosting__G2_hist_gradient_boosting": {
+      "detector_candidate_id": "D2_hist_gradient_boosting",
+      "diagnoser_candidate_id": "G2_hist_gradient_boosting",
+      "predicted_active_rows": 403,
+      "metrics": {
+        "macro_f1": 0.42887623187967383,
+        "balanced_accuracy": 0.41916861872329003,
+        "per_class": {
+          "none": {
+            "precision": 0.7906602254428341,
+            "recall": 0.9370229007633588,
+            "f1": 0.8576419213973799,
+            "support": 524
+          },
+          "flow_delivery": {
+            "precision": 0.7846153846153846,
+            "recall": 0.4146341463414634,
+            "f1": 0.5425531914893617,
+            "support": 123
+          },
+          "power_coupling": {
+            "precision": 0.7441860465116279,
+            "recall": 0.7441860465116279,
+            "f1": 0.7441860465116279,
+            "support": 129
+          },
+          "pressure_sensor_bias": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 125
+          },
+          "pumping_effectiveness": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 123
+          }
+        },
+        "confusion_matrix": {
+          "labels": [
+            "none",
+            "flow_delivery",
+            "power_coupling",
+            "pressure_sensor_bias",
+            "pumping_effectiveness"
+          ],
+          "matrix": [
+            [
+              491,
+              4,
+              1,
+              25,
+              3
+            ],
+            [
+              32,
+              51,
+              0,
+              40,
+              0
+            ],
+            [
+              33,
+              0,
+              96,
+              0,
+              0
+            ],
+            [
+              41,
+              1,
+              0,
+              0,
+              83
+            ],
+            [
+              24,
+              9,
+              32,
+              58,
+              0
+            ]
+          ]
+        }
+      }
+    },
+    "D2_hist_gradient_boosting__G3_extra_trees": {
+      "detector_candidate_id": "D2_hist_gradient_boosting",
+      "diagnoser_candidate_id": "G3_extra_trees",
+      "predicted_active_rows": 403,
+      "metrics": {
+        "macro_f1": 0.3816539780843826,
+        "balanced_accuracy": 0.39421115984637567,
+        "per_class": {
+          "none": {
+            "precision": 0.7906602254428341,
+            "recall": 0.9370229007633588,
+            "f1": 0.8576419213973799,
+            "support": 524
+          },
+          "flow_delivery": {
+            "precision": 0.4117647058823529,
+            "recall": 0.3983739837398374,
+            "f1": 0.4049586776859504,
+            "support": 123
+          },
+          "power_coupling": {
+            "precision": 0.656,
+            "recall": 0.6356589147286822,
+            "f1": 0.6456692913385826,
+            "support": 129
+          },
+          "pressure_sensor_bias": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 125
+          },
+          "pumping_effectiveness": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 123
+          }
+        },
+        "confusion_matrix": {
+          "labels": [
+            "none",
+            "flow_delivery",
+            "power_coupling",
+            "pressure_sensor_bias",
+            "pumping_effectiveness"
+          ],
+          "matrix": [
+            [
+              491,
+              4,
+              1,
+              25,
+              3
+            ],
+            [
+              32,
+              49,
+              42,
+              0,
+              0
+            ],
+            [
+              33,
+              0,
+              82,
+              0,
+              14
+            ],
+            [
+              41,
+              45,
+              0,
+              0,
+              39
+            ],
+            [
+              24,
+              21,
+              0,
+              78,
+              0
+            ]
+          ]
+        }
+      }
+    },
+    "D3_extra_trees__G1_logistic_regression": {
+      "detector_candidate_id": "D3_extra_trees",
+      "diagnoser_candidate_id": "G1_logistic_regression",
+      "predicted_active_rows": 375,
+      "metrics": {
+        "macro_f1": 0.36358657734582484,
+        "balanced_accuracy": 0.38336692400618305,
+        "per_class": {
+          "none": {
+            "precision": 0.7812018489984591,
+            "recall": 0.9675572519083969,
+            "f1": 0.8644501278772379,
+            "support": 524
+          },
+          "flow_delivery": {
+            "precision": 0.038461538461538464,
+            "recall": 0.008130081300813009,
+            "f1": 0.013422818791946308,
+            "support": 123
+          },
+          "power_coupling": {
+            "precision": 0.7450980392156863,
+            "recall": 0.5891472868217055,
+            "f1": 0.658008658008658,
+            "support": 129
+          },
+          "pressure_sensor_bias": {
+            "precision": 0.23529411764705882,
+            "recall": 0.352,
+            "f1": 0.28205128205128205,
+            "support": 125
+          },
+          "pumping_effectiveness": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 123
+          }
+        },
+        "confusion_matrix": {
+          "labels": [
+            "none",
+            "flow_delivery",
+            "power_coupling",
+            "pressure_sensor_bias",
+            "pumping_effectiveness"
+          ],
+          "matrix": [
+            [
+              507,
+              2,
+              1,
+              14,
+              0
+            ],
+            [
+              33,
+              1,
+              24,
+              41,
+              24
+            ],
+            [
+              45,
+              0,
+              76,
+              8,
+              0
+            ],
+            [
+              40,
+              4,
+              1,
+              44,
+              36
+            ],
+            [
+              24,
+              19,
+              0,
+              80,
+              0
+            ]
+          ]
+        }
+      }
+    },
+    "D3_extra_trees__G2_hist_gradient_boosting": {
+      "detector_candidate_id": "D3_extra_trees",
+      "diagnoser_candidate_id": "G2_hist_gradient_boosting",
+      "predicted_active_rows": 375,
+      "metrics": {
+        "macro_f1": 0.4171676991214138,
+        "balanced_accuracy": 0.4034188052691817,
+        "per_class": {
+          "none": {
+            "precision": 0.7812018489984591,
+            "recall": 0.9675572519083969,
+            "f1": 0.8644501278772379,
+            "support": 524
+          },
+          "flow_delivery": {
+            "precision": 0.8305084745762712,
+            "recall": 0.3983739837398374,
+            "f1": 0.5384615384615384,
+            "support": 123
+          },
+          "power_coupling": {
+            "precision": 0.717948717948718,
+            "recall": 0.6511627906976745,
+            "f1": 0.6829268292682927,
+            "support": 129
+          },
+          "pressure_sensor_bias": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 125
+          },
+          "pumping_effectiveness": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 123
+          }
+        },
+        "confusion_matrix": {
+          "labels": [
+            "none",
+            "flow_delivery",
+            "power_coupling",
+            "pressure_sensor_bias",
+            "pumping_effectiveness"
+          ],
+          "matrix": [
+            [
+              507,
+              0,
+              1,
+              15,
+              1
+            ],
+            [
+              33,
+              49,
+              0,
+              41,
+              0
+            ],
+            [
+              45,
+              0,
+              84,
+              0,
+              0
+            ],
+            [
+              40,
+              1,
+              0,
+              0,
+              84
+            ],
+            [
+              24,
+              9,
+              32,
+              58,
+              0
+            ]
+          ]
+        }
+      }
+    },
+    "D3_extra_trees__G3_extra_trees": {
+      "detector_candidate_id": "D3_extra_trees",
+      "diagnoser_candidate_id": "G3_extra_trees",
+      "predicted_active_rows": 375,
+      "metrics": {
+        "macro_f1": 0.3881489354635135,
+        "balanced_accuracy": 0.40349443393244505,
+        "per_class": {
+          "none": {
+            "precision": 0.7812018489984591,
+            "recall": 0.9675572519083969,
+            "f1": 0.8644501278772379,
+            "support": 524
+          },
+          "flow_delivery": {
+            "precision": 0.43478260869565216,
+            "recall": 0.4065040650406504,
+            "f1": 0.42016806722689076,
+            "support": 123
+          },
+          "power_coupling": {
+            "precision": 0.6693548387096774,
+            "recall": 0.6434108527131783,
+            "f1": 0.6561264822134387,
+            "support": 129
+          },
+          "pressure_sensor_bias": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 125
+          },
+          "pumping_effectiveness": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 123
+          }
+        },
+        "confusion_matrix": {
+          "labels": [
+            "none",
+            "flow_delivery",
+            "power_coupling",
+            "pressure_sensor_bias",
+            "pumping_effectiveness"
+          ],
+          "matrix": [
+            [
+              507,
+              0,
+              1,
+              15,
+              1
+            ],
+            [
+              33,
+              50,
+              40,
+              0,
+              0
+            ],
+            [
+              45,
+              0,
+              83,
+              0,
+              1
+            ],
+            [
+              40,
+              44,
+              0,
+              0,
+              41
+            ],
+            [
+              24,
+              21,
+              0,
+              78,
+              0
+            ]
+          ]
+        }
+      }
+    }
+  },
+  "scientific_scope": {
+    "dataset": "synthetic Phase 3 monitoring dataset",
+    "single_fault_only": true,
+    "compound_faults_evaluated": false,
+    "step_index_interpretation": "ordered quasi-steady sequence position; not calibrated physical time",
+    "structural_identifiability_note": "Pumping-effectiveness and pressure-sensor-bias faults may be partially confounded because the frozen observable feature set contains pressure measurement but no fabricated plasma diagnostic.",
+    "experimental_validation": false,
+    "industrial_validation": false,
+    "oipt_operating_range_claim": false
+  }
+}
