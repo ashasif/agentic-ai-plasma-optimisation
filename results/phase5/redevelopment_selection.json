@@ -1,0 +1,240 @@
+{
+  "phase": "5E-R",
+  "artifact": "redevelopment_selection",
+  "status": "validation_acceptance_passed_selection_recorded_pending_final_refit",
+  "governance": {
+    "protocol_frozen_before_acceptance": true,
+    "benchmark_frozen_before_acceptance": true,
+    "benchmark_freeze_commit": "78b29631698ca260de5118c9061dad9cd24699c9",
+    "formal_acceptance_applied": true,
+    "candidate_selection_performed": true,
+    "selection_based_only_on_frozen_validation_evidence": true,
+    "acceptance_relaxed_after_results": false,
+    "candidate_set_changed_after_results": false,
+    "final_refit_performed": false,
+    "test_predictive_evaluation_run": false,
+    "phase5f_unlocked": false
+  },
+  "provenance": {
+    "phase5er_protocol": {
+      "path": "configs/phase5/phase5er_protocol.json",
+      "sha256": "8df07efea044580c7cfbdfc893c04076ba5fbfbd982b60d2fd5a37f186508bda"
+    },
+    "redevelopment_implementation": {
+      "path": "src/plasma_ai/monitoring/redevelopment.py",
+      "sha256": "5f6db4ec27d33052583cab754508e5bb28f20826ea003514b4505ad0d4a9ea6b"
+    },
+    "frozen_redevelopment_benchmark": {
+      "path": "results/phase5/redevelopment_benchmark.json",
+      "sha256": "336a6b4af44a5b833c88ebdeeb2b6e7b10fac50cba9e86ded8548f427b6eee4e",
+      "freeze_commit": "78b29631698ca260de5118c9061dad9cd24699c9"
+    },
+    "original_phase5e_controlled_stop": {
+      "path": "results/phase5/validation_selection.json",
+      "sha256": "0f44f13a1efa4d95f8e70642ed129618616aec7a3b03b1dbe42e9a8a3ea60916"
+    }
+  },
+  "detector_acceptance": {
+    "criteria": {
+      "balanced_accuracy_min": 0.75,
+      "macro_f1_min": 0.75,
+      "fault_active_recall_min": 0.75,
+      "specificity_min": 0.75,
+      "per_active_fault_family_recall_min": 0.6
+    },
+    "candidate_results": {
+      "ERD1_hgb_threshold_045": {
+        "candidate_id": "ERD1_hgb_threshold_045",
+        "checks": {
+          "balanced_accuracy": true,
+          "macro_f1": true,
+          "fault_active_recall": false,
+          "specificity": true,
+          "per_active_fault_family_recall": true
+        },
+        "passed": false,
+        "minimum_per_active_fault_family_recall": 0.68
+      },
+      "ERD2_hgb_threshold_040": {
+        "candidate_id": "ERD2_hgb_threshold_040",
+        "checks": {
+          "balanced_accuracy": true,
+          "macro_f1": true,
+          "fault_active_recall": true,
+          "specificity": true,
+          "per_active_fault_family_recall": true
+        },
+        "passed": true,
+        "minimum_per_active_fault_family_recall": 0.68
+      },
+      "ERD3_extra_trees_threshold_045": {
+        "candidate_id": "ERD3_extra_trees_threshold_045",
+        "checks": {
+          "balanced_accuracy": true,
+          "macro_f1": true,
+          "fault_active_recall": false,
+          "specificity": true,
+          "per_active_fault_family_recall": true
+        },
+        "passed": false,
+        "minimum_per_active_fault_family_recall": 0.6821705426356589
+      },
+      "ERD4_extra_trees_threshold_040": {
+        "candidate_id": "ERD4_extra_trees_threshold_040",
+        "checks": {
+          "balanced_accuracy": true,
+          "macro_f1": true,
+          "fault_active_recall": true,
+          "specificity": true,
+          "per_active_fault_family_recall": true
+        },
+        "passed": true,
+        "minimum_per_active_fault_family_recall": 0.696
+      }
+    },
+    "passing_candidates": [
+      "ERD2_hgb_threshold_040",
+      "ERD4_extra_trees_threshold_040"
+    ],
+    "task_passed": true,
+    "selected_candidate": "ERD4_extra_trees_threshold_040",
+    "selected_configuration": {
+      "base_candidate": "D3_extra_trees",
+      "classifier": "ExtraTreesClassifier",
+      "parameters": {
+        "n_estimators": 500,
+        "max_depth": null,
+        "min_samples_leaf": 1,
+        "max_features": 1.0,
+        "class_weight": "balanced",
+        "n_jobs": 1,
+        "random_state": 20260924
+      },
+      "threshold": 0.4
+    },
+    "selection_rules": [
+      "filter_to_candidates_passing_all_acceptance_criteria",
+      "highest_balanced_accuracy",
+      "highest_macro_f1",
+      "lowest_false_positive_rate",
+      "highest_decision_threshold",
+      "candidate_priority_ERD1_ERD2_ERD3_ERD4"
+    ]
+  },
+  "diagnoser_acceptance": {
+    "criteria": {
+      "macro_f1_min": 0.6,
+      "balanced_accuracy_min": 0.6,
+      "per_class_recall_min": 0.5,
+      "majority_baseline_macro_f1_improvement_min": 0.1
+    },
+    "candidate_results": {
+      "ERG1_logistic_regression": {
+        "candidate_id": "ERG1_logistic_regression",
+        "checks": {
+          "macro_f1": false,
+          "balanced_accuracy": false,
+          "per_class_recall": false,
+          "majority_baseline_improvement": true
+        },
+        "passed": false
+      },
+      "ERG2_hist_gradient_boosting": {
+        "candidate_id": "ERG2_hist_gradient_boosting",
+        "checks": {
+          "macro_f1": true,
+          "balanced_accuracy": true,
+          "per_class_recall": false,
+          "majority_baseline_improvement": true
+        },
+        "passed": false
+      },
+      "ERG3_extra_trees": {
+        "candidate_id": "ERG3_extra_trees",
+        "checks": {
+          "macro_f1": true,
+          "balanced_accuracy": true,
+          "per_class_recall": true,
+          "majority_baseline_improvement": true
+        },
+        "passed": true
+      }
+    },
+    "passing_candidates": [
+      "ERG3_extra_trees"
+    ],
+    "task_passed": true,
+    "selected_candidate": "ERG3_extra_trees",
+    "selected_configuration": {
+      "classifier": "ExtraTreesClassifier",
+      "parameters": {
+        "n_estimators": 500,
+        "max_depth": null,
+        "min_samples_leaf": 1,
+        "max_features": 1.0,
+        "class_weight": "balanced",
+        "n_jobs": 1,
+        "random_state": 20260924
+      }
+    },
+    "selection_rules": [
+      "filter_to_candidates_passing_all_acceptance_criteria",
+      "highest_macro_f1",
+      "highest_balanced_accuracy",
+      "highest_minimum_per_class_recall",
+      "candidate_priority_ERG1_ERG2_ERG3"
+    ],
+    "classes": [
+      "flow_delivery",
+      "power_coupling",
+      "pressure_path_anomaly"
+    ],
+    "class_mapping": {
+      "flow_delivery": "flow_delivery",
+      "power_coupling": "power_coupling",
+      "pressure_sensor_bias": "pressure_path_anomaly",
+      "pumping_effectiveness": "pressure_path_anomaly"
+    }
+  },
+  "overall_validation_gate": {
+    "detector_task_passed": true,
+    "diagnoser_task_passed": true,
+    "redevelopment_validation_passed": true,
+    "failure_action": "controlled_stop_before_test",
+    "controlled_stop_triggered": false
+  },
+  "final_refit_state": {
+    "authorized": true,
+    "performed": false,
+    "required_splits": [
+      "train",
+      "validation"
+    ],
+    "episodes": 48,
+    "detector_rows": 3072,
+    "diagnoser_rows": 1451,
+    "test_rows_for_fit": 0,
+    "selected_detector": "ERD4_extra_trees_threshold_040",
+    "selected_diagnoser": "ERG3_extra_trees"
+  },
+  "test_state": {
+    "test_features_interpreted": false,
+    "test_targets_interpreted": false,
+    "test_matrix_created": false,
+    "test_predictions_generated": false,
+    "test_performance_calculated": false,
+    "test_consumed": false,
+    "phase5f_unlocked": false
+  },
+  "scientific_scope": {
+    "synthetic_data_only": true,
+    "original_four_family_failure_preserved": true,
+    "pressure_path_anomaly_is_ambiguity_aware": true,
+    "pressure_path_anomaly_identifies_specific_mechanism": false,
+    "validation_already_used_as_redevelopment_feedback": true,
+    "validation_is_unseen_final_holdout": false,
+    "experimental_validation": false,
+    "industrial_validation": false,
+    "oipt_operating_range_claim": false
+  }
+}
