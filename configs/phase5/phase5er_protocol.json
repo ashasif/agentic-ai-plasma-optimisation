@@ -1,0 +1,320 @@
+{
+  "phase": "5E-R",
+  "parent_phase_title": "Process Monitoring, Anomaly Detection and Fault Diagnosis",
+  "title": "Validation-Only Redevelopment for Observable Fault Diagnosis",
+  "protocol_state": "FROZEN",
+  "effective_only_after_freeze_commit": true,
+  "parent_controlled_stop_commit": "f08bb6ddc340066cc857fb615e6f414bab13c596",
+  "purpose": "Redevelop Phase 5 validation-only diagnostics after the original frozen Phase 5E path correctly stopped before TEST. The redevelopment addresses detector active-recall shortfall and the source-level observability limitation of the original four-family diagnosis task.",
+  "governance": {
+    "original_phase5e_path_remains_frozen": true,
+    "original_validation_failure_is_not_overwritten": true,
+    "validation_has_been_used_as_redevelopment_feedback": true,
+    "validation_is_not_an_unseen_final_holdout": true,
+    "phase5_test_predictive_holdout_remains_unconsumed": true,
+    "test_access_during_redevelopment": false,
+    "test_based_tuning": false,
+    "acceptance_threshold_relaxation": false,
+    "redevelopment_execution_allowed_before_freeze_commit": false,
+    "separate_protocol_required": true
+  },
+  "provenance": {
+    "original_phase5_protocol": {
+      "path": "configs/phase5/phase5_protocol.json",
+      "sha256": "70de30b7a5f2e36b567f8848ee0e626833c25eb8285e7b4df9e63d5db77ddcec"
+    },
+    "phase5d_supervised_benchmark": {
+      "path": "results/phase5/supervised_benchmark.json",
+      "sha256": "fea87ce628e20add11044bca17323143b2b9bb436d3d4192ad94cac6d00856d4"
+    },
+    "phase5e_controlled_stop": {
+      "path": "results/phase5/validation_selection.json",
+      "sha256": "0f44f13a1efa4d95f8e70642ed129618616aec7a3b03b1dbe42e9a8a3ea60916"
+    },
+    "phase3_feature_manifest": {
+      "path": "configs/phase3/monitoring_feature_manifest.json",
+      "sha256": "ece31a97b317bda2da3a366dec1fb69d8756e05f3da64b10268d033dabbe948b"
+    },
+    "monitoring_process_source": {
+      "path": "src/plasma_ai/experiments/monitoring_process.py",
+      "sha256": "a4f345b13a19dd051d3209cd53238dcd5f69a5285778ee20aea2fa89a0000738"
+    },
+    "monitoring_observation_source": {
+      "path": "src/plasma_ai/experiments/monitoring_observation.py",
+      "sha256": "7aca13e5a72171566479eac4cfde01a11d39c28049218f3edb2abd322dd06a8d"
+    }
+  },
+  "source_audit_conclusion": {
+    "finding": "The original four-family active-fault diagnosis is not reliably mechanism-identifiable from the approved observable feature set.",
+    "pumping_effectiveness_path": "pumping_effectiveness modifies the latent pumping factor before the process solve, changing true pumping speed and potentially true pressure",
+    "pressure_sensor_bias_path": "pressure_sensor_bias acts after the process solve at the observation layer and multiplies true pressure when measured pressure is constructed",
+    "observable_bottleneck": "Under the approved predictive feature contract, both mechanisms are observed through the same measured-pressure channel without an independent true-pressure or plasma-state measurement.",
+    "important_caveat": "The two generator mechanisms are not asserted to be algebraically identical. Severity distributions and operating-point response can differ, but using those distributional differences to claim robust mechanism identification would exceed the observable evidence.",
+    "redevelopment_action": "Do not attempt to distinguish pressure_sensor_bias from pumping_effectiveness using the existing approved observables. Consolidate them into an observable pressure_path_anomaly diagnosis."
+  },
+  "feature_contract": {
+    "raw_features": [
+      "nominal_absorbed_power_W",
+      "target_pressure_mTorr",
+      "nominal_flow_sccm",
+      "measured_absorbed_power_W",
+      "measured_flow_sccm",
+      "measured_pressure_mTorr"
+    ],
+    "derived_features": {
+      "absorbed_power_relative_residual": "measured_absorbed_power_W / nominal_absorbed_power_W - 1",
+      "flow_relative_residual": "measured_flow_sccm / nominal_flow_sccm - 1",
+      "pressure_relative_residual": "measured_pressure_mTorr / target_pressure_mTorr - 1"
+    },
+    "model_feature_order": [
+      "nominal_absorbed_power_W",
+      "target_pressure_mTorr",
+      "nominal_flow_sccm",
+      "measured_absorbed_power_W",
+      "measured_flow_sccm",
+      "measured_pressure_mTorr",
+      "absorbed_power_relative_residual",
+      "flow_relative_residual",
+      "pressure_relative_residual"
+    ],
+    "feature_contract_changed_from_original_phase5": false,
+    "ordering_column": "step_index",
+    "ordering_column_is_model_feature": false,
+    "group_columns": [
+      "episode_id",
+      "split"
+    ],
+    "forbidden_predictive_inputs": [
+      "all protected Phase 3 ground truth",
+      "fault design metadata",
+      "fault severity or direction",
+      "true_pressure_mTorr",
+      "true_pumping_speed_m3_s",
+      "true plasma-state variables",
+      "measurement-noise latent variables",
+      "episode_id",
+      "split",
+      "step_index as a numeric predictor",
+      "future rows",
+      "centered windows",
+      "Phase 4 surrogate outputs without measured counterparts",
+      "fabricated plasma diagnostics"
+    ],
+    "new_temporal_features": false,
+    "phase4_surrogate_outputs_used": false,
+    "new_synthetic_measurements_created": false
+  },
+  "binary_detector": {
+    "target": "fault_effect_active",
+    "training_rows": "all TRAIN rows",
+    "validation_rows": "all VALIDATION rows",
+    "base_model_hyperparameters_changed": false,
+    "rationale": "D2 and D3 passed all original detector validation criteria except active-fault recall. Redevelopment therefore changes only the decision threshold using a small predeclared grid while preserving the model families, hyperparameters, features and acceptance criteria.",
+    "candidates": {
+      "ERD1_hgb_threshold_045": {
+        "base_candidate": "D2_hist_gradient_boosting",
+        "classifier": "HistGradientBoostingClassifier",
+        "parameters": {
+          "learning_rate": 0.05,
+          "max_iter": 300,
+          "max_leaf_nodes": 15,
+          "l2_regularization": 0.1,
+          "early_stopping": false,
+          "random_state": 20260924
+        },
+        "threshold": 0.45
+      },
+      "ERD2_hgb_threshold_040": {
+        "base_candidate": "D2_hist_gradient_boosting",
+        "classifier": "HistGradientBoostingClassifier",
+        "parameters": {
+          "learning_rate": 0.05,
+          "max_iter": 300,
+          "max_leaf_nodes": 15,
+          "l2_regularization": 0.1,
+          "early_stopping": false,
+          "random_state": 20260924
+        },
+        "threshold": 0.4
+      },
+      "ERD3_extra_trees_threshold_045": {
+        "base_candidate": "D3_extra_trees",
+        "classifier": "ExtraTreesClassifier",
+        "parameters": {
+          "n_estimators": 500,
+          "max_depth": null,
+          "min_samples_leaf": 1,
+          "max_features": 1.0,
+          "class_weight": "balanced",
+          "n_jobs": 1,
+          "random_state": 20260924
+        },
+        "threshold": 0.45
+      },
+      "ERD4_extra_trees_threshold_040": {
+        "base_candidate": "D3_extra_trees",
+        "classifier": "ExtraTreesClassifier",
+        "parameters": {
+          "n_estimators": 500,
+          "max_depth": null,
+          "min_samples_leaf": 1,
+          "max_features": 1.0,
+          "class_weight": "balanced",
+          "n_jobs": 1,
+          "random_state": 20260924
+        },
+        "threshold": 0.4
+      }
+    },
+    "acceptance": {
+      "balanced_accuracy_min": 0.75,
+      "macro_f1_min": 0.75,
+      "fault_active_recall_min": 0.75,
+      "specificity_min": 0.75,
+      "per_active_fault_family_recall_min": 0.6
+    },
+    "acceptance_changed_from_original_phase5": false,
+    "selection_rules": [
+      "filter_to_candidates_passing_all_acceptance_criteria",
+      "highest_balanced_accuracy",
+      "highest_macro_f1",
+      "lowest_false_positive_rate",
+      "highest_decision_threshold",
+      "candidate_priority_ERD1_ERD2_ERD3_ERD4"
+    ]
+  },
+  "active_fault_diagnosis": {
+    "original_target": "active_fault_family",
+    "training_rows": "ground-truth active TRAIN rows only",
+    "validation_rows": "ground-truth active VALIDATION rows only",
+    "original_classes": [
+      "flow_delivery",
+      "power_coupling",
+      "pressure_sensor_bias",
+      "pumping_effectiveness"
+    ],
+    "redevelopment_classes": [
+      "flow_delivery",
+      "power_coupling",
+      "pressure_path_anomaly"
+    ],
+    "class_mapping": {
+      "flow_delivery": "flow_delivery",
+      "power_coupling": "power_coupling",
+      "pressure_sensor_bias": "pressure_path_anomaly",
+      "pumping_effectiveness": "pressure_path_anomaly"
+    },
+    "pressure_path_interpretation": "An observable pressure-path anomaly is present. The available monitoring channels do not support a robust claim that the underlying mechanism is specifically sensor bias versus pumping effectiveness.",
+    "candidate_model_families_changed": false,
+    "candidate_hyperparameters_changed": false,
+    "candidates": {
+      "ERG1_logistic_regression": {
+        "classifier": "LogisticRegression",
+        "scaler": "StandardScaler",
+        "parameters": {
+          "C": 1.0,
+          "solver": "lbfgs",
+          "max_iter": 2000,
+          "class_weight": "balanced"
+        }
+      },
+      "ERG2_hist_gradient_boosting": {
+        "classifier": "HistGradientBoostingClassifier",
+        "parameters": {
+          "learning_rate": 0.05,
+          "max_iter": 300,
+          "max_leaf_nodes": 15,
+          "l2_regularization": 0.1,
+          "early_stopping": false,
+          "random_state": 20260924
+        }
+      },
+      "ERG3_extra_trees": {
+        "classifier": "ExtraTreesClassifier",
+        "parameters": {
+          "n_estimators": 500,
+          "max_depth": null,
+          "min_samples_leaf": 1,
+          "max_features": 1.0,
+          "class_weight": "balanced",
+          "n_jobs": 1,
+          "random_state": 20260924
+        }
+      }
+    },
+    "acceptance": {
+      "macro_f1_min": 0.6,
+      "balanced_accuracy_min": 0.6,
+      "per_class_recall_min": 0.5,
+      "majority_baseline_macro_f1_improvement_min": 0.1
+    },
+    "acceptance_rationale": "Because redevelopment consolidates four active classes into three, the diagnostic acceptance gate is strengthened rather than relaxed: macro F1 and balanced accuracy increase from 0.50 to 0.60, and minimum per-class recall increases from 0.25 to 0.50. Majority-baseline improvement remains 0.10.",
+    "selection_rules": [
+      "filter_to_candidates_passing_all_acceptance_criteria",
+      "highest_macro_f1",
+      "highest_balanced_accuracy",
+      "highest_minimum_per_class_recall",
+      "candidate_priority_ERG1_ERG2_ERG3"
+    ]
+  },
+  "secondary_end_to_end_reporting": {
+    "classes": [
+      "none",
+      "flow_delivery",
+      "power_coupling",
+      "pressure_path_anomaly"
+    ],
+    "metrics": [
+      "macro_f1",
+      "balanced_accuracy",
+      "per_class_precision_recall_f1_support",
+      "confusion_matrix"
+    ],
+    "selection_metric": false
+  },
+  "failure_action": "controlled_stop_before_test",
+  "final_refit": {
+    "allowed_only_if_detector_and_diagnoser_pass": true,
+    "splits": [
+      "train",
+      "validation"
+    ],
+    "episodes": 48,
+    "detector_rows": 3072,
+    "diagnoser_rows": 1451,
+    "diagnoser_rows_definition": "active TRAIN+VALIDATION rows after class mapping",
+    "test_rows_for_fit": 0,
+    "no_new_model_family_after_selection": true,
+    "no_threshold_change_after_selection": true
+  },
+  "phase5f_unlock": {
+    "requires_passing_detector": true,
+    "requires_passing_diagnoser": true,
+    "requires_selection_record": true,
+    "requires_final_refit_record": true,
+    "requires_clean_repository_checkpoint": true,
+    "test_remains_locked_until_all_requirements_pass": true
+  },
+  "planned_outputs": {
+    "redevelopment_benchmark": "results/phase5/redevelopment_benchmark.json",
+    "redevelopment_selection": "results/phase5/redevelopment_selection.json"
+  },
+  "test_discipline": {
+    "test_features_for_development": false,
+    "test_targets_for_development": false,
+    "test_predictions_during_redevelopment": false,
+    "test_performance_during_redevelopment": false,
+    "test_based_candidate_selection": false,
+    "test_based_threshold_selection": false,
+    "locked_test_evaluation_permitted_only_after_phase5f_unlock": true
+  },
+  "scientific_claim_boundary": [
+    "All evidence remains synthetic.",
+    "pressure_path_anomaly does not identify whether the underlying mechanism is pressure sensor bias or pumping effectiveness.",
+    "The original four-family validation failure remains part of the project evidence and is not superseded.",
+    "Validation has already been used as redevelopment feedback and is not an unseen final holdout.",
+    "The locked Phase 5 TEST remains the predictive holdout and is not accessed during redevelopment.",
+    "No experimental or industrial validation claim is permitted.",
+    "No OIPT operating-range claim is permitted."
+  ]
+}
