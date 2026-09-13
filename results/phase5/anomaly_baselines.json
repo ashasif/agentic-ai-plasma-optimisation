@@ -1,0 +1,230 @@
+{
+  "phase": "5C",
+  "title": "Healthy-Reference Anomaly Monitoring",
+  "status": "validation_descriptive_evidence",
+  "governance": {
+    "algorithm_implementation_commit": "0a067ef9886e623617c412428b0f064eb5abb4b8",
+    "protocol_state": "FROZEN",
+    "development_test_access": false,
+    "test_predictive_evaluation_run": false,
+    "model_selection_performed": false,
+    "acceptance_gate_applied": false,
+    "interpretation": "Phase 5C anomaly baselines are descriptive monitoring evidence and do not replace the supervised Phase 5D/5E acceptance gates."
+  },
+  "provenance": {
+    "protocol_path": "configs/phase5/phase5_protocol.json",
+    "protocol_sha256": "70de30b7a5f2e36b567f8848ee0e626833c25eb8285e7b4df9e63d5db77ddcec",
+    "monitoring_dataset_path": "data/synthetic/phase3/monitoring_episodes.csv",
+    "monitoring_dataset_sha256": "ee20fe9e6ffac4875911cba23247abeeeba236954349c1696cc1cb1ee59c7a3a",
+    "feature_manifest_path": "configs/phase3/monitoring_feature_manifest.json",
+    "feature_manifest_sha256": "ece31a97b317bda2da3a366dec1fb69d8756e05f3da64b10268d033dabbe948b",
+    "python_version": "3.12.5",
+    "numpy_version": "2.5.3",
+    "sklearn_version": "1.9.1"
+  },
+  "data": {
+    "train_rows": 2048,
+    "train_episodes": 32,
+    "train_healthy_rows": 1097,
+    "train_active_fault_rows": 951,
+    "validation_rows": 1024,
+    "validation_episodes": 16,
+    "validation_healthy_rows": 524,
+    "validation_active_fault_rows": 500,
+    "test_rows_for_fit": 0,
+    "test_rows_for_scoring": 0
+  },
+  "feature_contract": {
+    "raw_features": [
+      "nominal_absorbed_power_W",
+      "target_pressure_mTorr",
+      "nominal_flow_sccm",
+      "measured_absorbed_power_W",
+      "measured_flow_sccm",
+      "measured_pressure_mTorr"
+    ],
+    "model_feature_order": [
+      "nominal_absorbed_power_W",
+      "target_pressure_mTorr",
+      "nominal_flow_sccm",
+      "measured_absorbed_power_W",
+      "measured_flow_sccm",
+      "measured_pressure_mTorr",
+      "absorbed_power_relative_residual",
+      "flow_relative_residual",
+      "pressure_relative_residual"
+    ],
+    "robust_residual_features": [
+      "absorbed_power_relative_residual",
+      "flow_relative_residual",
+      "pressure_relative_residual"
+    ]
+  },
+  "baselines": {
+    "robust_residual": {
+      "contract": {
+        "training_rows": "train rows with fault_effect_active == false",
+        "residual_features": [
+          "absorbed_power_relative_residual",
+          "flow_relative_residual",
+          "pressure_relative_residual"
+        ],
+        "robust_scale": "1.4826 * MAD; fallback to train-healthy standard deviation if MAD is zero",
+        "row_score": "max absolute robust z-score",
+        "threshold_quantile": 0.99
+      },
+      "fit": {
+        "healthy_fit_rows": 1097,
+        "medians": [
+          -0.0007714227652662053,
+          -0.0002965179459313294,
+          0.0002932525195873392
+        ],
+        "scales": [
+          0.014214698709952754,
+          0.007482220403782449,
+          0.012330032522080205
+        ],
+        "scale_sources": [
+          "mad",
+          "mad",
+          "mad"
+        ],
+        "threshold": 3.0448206893200407,
+        "threshold_quantile": 0.99,
+        "train_healthy_alarm_rows": 11,
+        "train_healthy_alarm_rate": 0.010027347310847767,
+        "train_healthy_score_min": 0.13673813405978433,
+        "train_healthy_score_max": 3.9410593814722197
+      },
+      "validation_row_metrics": {
+        "rows": 1024,
+        "active_fault_rows": 500,
+        "healthy_rows": 524,
+        "true_positive": 374,
+        "true_negative": 523,
+        "false_positive": 1,
+        "false_negative": 126,
+        "balanced_accuracy": 0.8730458015267175,
+        "macro_f1": 0.8732938740713676,
+        "positive_precision": 0.9973333333333333,
+        "active_recall": 0.748,
+        "specificity": 0.9980916030534351,
+        "false_positive_rate": 0.0019083969465648854,
+        "auroc": 0.9180648854961833,
+        "average_precision": 0.9435048843576391
+      },
+      "validation_per_fault_family_recall": {
+        "flow_delivery": {
+          "support": 123,
+          "detected": 98,
+          "recall": 0.7967479674796748
+        },
+        "power_coupling": {
+          "support": 129,
+          "detected": 99,
+          "recall": 0.7674418604651163
+        },
+        "pressure_sensor_bias": {
+          "support": 125,
+          "detected": 82,
+          "recall": 0.656
+        },
+        "pumping_effectiveness": {
+          "support": 123,
+          "detected": 95,
+          "recall": 0.7723577235772358
+        }
+      },
+      "validation_sequence_summary": {
+        "ordered_unit": "step_index; not calibrated physical time",
+        "fault_episode_count": 12,
+        "detected_fault_episode_count": 12,
+        "missed_fault_episode_count": 0,
+        "fault_episode_detection_rate": 1.0,
+        "mean_detection_delay_steps": 5.666666666666667,
+        "median_detection_delay_steps": 0.0,
+        "max_detection_delay_steps": 24,
+        "pre_active_false_alarm_episode_count": 1,
+        "normal_episode_count": 4,
+        "normal_episode_false_alarm_count": 0
+      }
+    },
+    "isolation_forest": {
+      "contract": {
+        "training_rows": "train rows with fault_effect_active == false",
+        "n_estimators": 500,
+        "contamination": 0.01,
+        "random_state": 20260924,
+        "n_jobs": 1
+      },
+      "fit": {
+        "healthy_fit_rows": 1097,
+        "train_healthy_alarm_rows": 11,
+        "train_healthy_alarm_rate": 0.010027347310847767,
+        "train_healthy_score_min": -0.17674221980020027,
+        "train_healthy_score_max": 0.03853622960455916
+      },
+      "validation_row_metrics": {
+        "rows": 1024,
+        "active_fault_rows": 500,
+        "healthy_rows": 524,
+        "true_positive": 118,
+        "true_negative": 519,
+        "false_positive": 5,
+        "false_negative": 382,
+        "balanced_accuracy": 0.6132290076335878,
+        "macro_f1": 0.5536166258342485,
+        "positive_precision": 0.959349593495935,
+        "active_recall": 0.236,
+        "specificity": 0.9904580152671756,
+        "false_positive_rate": 0.009541984732824428,
+        "auroc": 0.8814274809160305,
+        "average_precision": 0.8672951490046549
+      },
+      "validation_per_fault_family_recall": {
+        "flow_delivery": {
+          "support": 123,
+          "detected": 96,
+          "recall": 0.7804878048780488
+        },
+        "power_coupling": {
+          "support": 129,
+          "detected": 5,
+          "recall": 0.03875968992248062
+        },
+        "pressure_sensor_bias": {
+          "support": 125,
+          "detected": 8,
+          "recall": 0.064
+        },
+        "pumping_effectiveness": {
+          "support": 123,
+          "detected": 9,
+          "recall": 0.07317073170731707
+        }
+      },
+      "validation_sequence_summary": {
+        "ordered_unit": "step_index; not calibrated physical time",
+        "fault_episode_count": 12,
+        "detected_fault_episode_count": 10,
+        "missed_fault_episode_count": 2,
+        "fault_episode_detection_rate": 0.8333333333333334,
+        "mean_detection_delay_steps": 11.0,
+        "median_detection_delay_steps": 12.0,
+        "max_detection_delay_steps": 27,
+        "pre_active_false_alarm_episode_count": 4,
+        "normal_episode_count": 4,
+        "normal_episode_false_alarm_count": 0
+      }
+    }
+  },
+  "scientific_scope": {
+    "dataset": "synthetic Phase 3 monitoring dataset",
+    "time_interpretation": "step_index is ordered quasi-steady sequence position, not calibrated physical time",
+    "experimental_validation": false,
+    "industrial_validation": false,
+    "oipt_operating_range_claim": false,
+    "compound_faults_evaluated": false
+  }
+}
