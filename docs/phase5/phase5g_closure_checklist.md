@@ -1,0 +1,74 @@
+# Phase 5G Closure Checklist
+
+## Formal closure state
+
+- [x] Phase 5F was formally closed before Phase 5G implementation.
+- [x] Phase 5G protocol was frozen before implementation.
+- [x] Phase 5G protocol SHA-256 is frozen.
+- [x] Phase 5G runtime implementation is frozen.
+- [x] Runtime implementation SHA-256 is frozen.
+- [x] Runtime tests are frozen.
+- [x] Runtime test SHA-256 is frozen.
+- [x] Production monitoring manifest is frozen.
+- [x] Production monitoring manifest SHA-256 is frozen.
+- [x] Persistence-equivalence evidence is frozen.
+- [x] Persistence-equivalence SHA-256 is frozen.
+- [x] Frozen detector artifact remained byte-identical.
+- [x] Frozen diagnoser artifact remained byte-identical.
+- [x] Phase 5F TEST evidence remained byte-identical.
+- [x] Detector candidate remains ERD4_extra_trees_threshold_040.
+- [x] Detector threshold remains 0.40.
+- [x] Detector fit-row count remains 3072.
+- [x] Diagnoser candidate remains ERG3_extra_trees.
+- [x] Diagnoser fit-row count remains 1451.
+- [x] Pressure-path diagnosis remains ambiguity-aware.
+- [x] Public runtime contract accepts six raw features.
+- [x] Runtime representation contains nine model features.
+- [x] Residual features are row-local only.
+- [x] No target-derived runtime features are used.
+- [x] No protected-truth runtime features are used.
+- [x] No future-row runtime features are used.
+- [x] Artifact hashes are verified before pickle deserialization.
+- [x] Runtime wrapper identities are validated.
+- [x] Estimator parameters are validated.
+- [x] Exact scientific-runtime compatibility is validated.
+- [x] Production manifest was generated from a clean committed repository.
+- [x] Production manifest overwrite is refused.
+- [x] Trusted production manifest load passed.
+- [x] Persistence-equivalence probe contains exactly 45 rows.
+- [x] Persistence-equivalence probe uses no TRAIN data.
+- [x] Persistence-equivalence probe uses no VALIDATION data.
+- [x] Persistence-equivalence probe uses no TEST data.
+- [x] Persistence-equivalence probe uses no targets.
+- [x] Persistence-equivalence probe is not a performance evaluation.
+- [x] Raw-to-model feature equivalence passed exactly.
+- [x] Detector probability equivalence passed exactly.
+- [x] Detector decision equivalence passed exactly.
+- [x] Diagnoser prediction equivalence passed exactly.
+- [x] End-to-end state equivalence passed exactly.
+- [x] All detector probabilities are finite.
+- [x] Maximum probability difference is exactly 0.0.
+- [x] No numerical-tolerance substitution was used.
+- [x] Phase 5 TEST dataset was not reopened.
+- [x] No new Phase 5 TEST predictions were generated.
+- [x] No new Phase 5 TEST performance was calculated.
+- [x] No model selection was performed.
+- [x] No threshold selection was performed.
+- [x] No model retraining was performed.
+- [x] No model reconstruction was performed.
+- [x] No model reserialization was performed.
+- [x] Frozen model bytes were not modified.
+- [x] No experimental-validation claim is made.
+- [x] No industrial-validation claim is made.
+- [x] No OIPT operating-range claim is made.
+- [x] Persistence equivalence is not presented as model-performance validation.
+- [x] Persistence equivalence is not presented as OOD validation.
+- [x] Synthetic-data limitation is preserved.
+- [x] Reduced-order argon scope is preserved.
+- [x] Phase 5G technical work is complete.
+- [x] Phase 5G evidence chain is complete.
+- [x] Phase 5G documentation is complete.
+- [x] Full repository regression passes at closure.
+- [x] Repository is clean at the formal closure checkpoint.
+- [x] Phase 5G is formally closed.
+- [x] Phase 5H is unlocked.
