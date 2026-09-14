@@ -1,0 +1,223 @@
+{
+  "artifact": "grid_qualification_scenario_set",
+  "effective_contract": {
+    "amendment_001_sha256": "9cf31578c6adddb195766fefa38ada89c6678e2df60bea708ddded0383c53912",
+    "base_protocol_sha256": "57fee45c69c5f42f9e94b786e895a5d89b163d141367326706eac2d3d2ed1cb1",
+    "effective_sha256": "91a6915a1773ca96364d555a4b2c9cd62ab8a692b6825f8859dc7331c90cf0b7"
+  },
+  "evidence_separation": {
+    "experimental_evidence_used": false,
+    "industrial_evidence_used": false,
+    "phase4_test_used": false,
+    "phase5_test_used": false,
+    "phase6c_search_evidence_used_to_choose_scenarios": false,
+    "source_simulator_used": false
+  },
+  "expected_feasibility": {
+    "policy": "not_predeclared",
+    "reason": "Feasibility must be discovered by the frozen search rather than encoded from optimisation evidence."
+  },
+  "grid_contract": {
+    "candidate_enumeration": {
+      "candidate_index": "power_index * 101 + pressure_index",
+      "inner_axis": "target_pressure_mTorr ascending",
+      "outer_axis": "nominal_absorbed_power_W ascending"
+    },
+    "continuous_optimum_claimed": false,
+    "power_increment_W": 0.5,
+    "power_lower_W": 15.0,
+    "power_points": 151,
+    "power_upper_W": 90.0,
+    "pressure_increment_mTorr": 0.5,
+    "pressure_lower_mTorr": 10.0,
+    "pressure_points": 101,
+    "pressure_upper_mTorr": 60.0,
+    "tie_break_is_scientific_objective": false,
+    "tie_break_policy": "After all declared objective components compare equal, retain the lowest candidate_index.",
+    "total_points": 15251
+  },
+  "pareto_contract": {
+    "comparison_space": "minimization-form objective components",
+    "comparison_tolerance": null,
+    "dominance_definition": "candidate A dominates B iff A is <= B on every active minimization-form objective component and A is < B on at least one component",
+    "required_when_objective_count_greater_than_one": true,
+    "retain_candidate_order": true
+  },
+  "phase": "6C1",
+  "purpose": "Predeclare deterministic-grid qualification cases before any Phase 6C optimisation search is executed.",
+  "result_contract": {
+    "one_surrogate_batch_for_complete_grid": true,
+    "planned_result_path": "results/phase6/deterministic_grid_baseline.json",
+    "record_all_scenario_feasible_counts": true,
+    "record_constraint_failures_summary": true,
+    "record_pareto_indices_for_multiobjective_cases": true,
+    "record_prediction_ranges": true,
+    "record_protocol_hashes": true,
+    "record_raw_objective_components": true,
+    "record_selected_candidate": true,
+    "record_selected_candidate_index": true,
+    "record_source_git_commit": true,
+    "record_surrogate_manifest_hash": true,
+    "reuse_same_predictions_across_scenarios": true
+  },
+  "scenario_count": 10,
+  "scenario_order_frozen": true,
+  "scenario_roles": {
+    "boundary_margin_reference": "pure boundary-margin structural reference",
+    "density_1p5e17_temperature_window": "density tracking under a two-sided temperature constraint",
+    "hard_density_1e17_min_power": "minimum-power search under explicit density tolerance",
+    "hard_density_1p5e17_nominal": "nominal-point recovery under explicit density tolerance",
+    "hard_density_interior_margin": "density-constrained search with explicit interior-domain margin",
+    "nominal_centre_reference": "pure nominal-distance structural reference",
+    "soft_density_1e17_low_power": "density tracking with lexicographic power tie-break",
+    "soft_density_2e17_low_power": "higher-density tracking with lexicographic power tie-break",
+    "soft_density_5e16": "single-objective density tracking reference",
+    "temperature_window_min_power": "minimum-power search under temperature constraints"
+  },
+  "scenario_set_id": "phase6c_grid_qualification_v1",
+  "scenarios": [
+    {
+      "density_relative_tolerance": null,
+      "density_target_mode": "soft_objective",
+      "maximum_electron_temperature_eV": null,
+      "minimum_electron_temperature_eV": null,
+      "minimum_normalized_boundary_margin": null,
+      "nominal_operating_point": null,
+      "objective_priority": [
+        "density_target_error"
+      ],
+      "scenario_id": "soft_density_5e16",
+      "target_electron_density_m3": 5e+16
+    },
+    {
+      "density_relative_tolerance": null,
+      "density_target_mode": "soft_objective",
+      "maximum_electron_temperature_eV": null,
+      "minimum_electron_temperature_eV": null,
+      "minimum_normalized_boundary_margin": null,
+      "nominal_operating_point": null,
+      "objective_priority": [
+        "density_target_error",
+        "absorbed_power"
+      ],
+      "scenario_id": "soft_density_1e17_low_power",
+      "target_electron_density_m3": 1e+17
+    },
+    {
+      "density_relative_tolerance": null,
+      "density_target_mode": "soft_objective",
+      "maximum_electron_temperature_eV": null,
+      "minimum_electron_temperature_eV": null,
+      "minimum_normalized_boundary_margin": null,
+      "nominal_operating_point": null,
+      "objective_priority": [
+        "density_target_error",
+        "absorbed_power"
+      ],
+      "scenario_id": "soft_density_2e17_low_power",
+      "target_electron_density_m3": 2e+17
+    },
+    {
+      "density_relative_tolerance": 0.05,
+      "density_target_mode": "hard_constraint",
+      "maximum_electron_temperature_eV": null,
+      "minimum_electron_temperature_eV": null,
+      "minimum_normalized_boundary_margin": null,
+      "nominal_operating_point": null,
+      "objective_priority": [
+        "absorbed_power"
+      ],
+      "scenario_id": "hard_density_1e17_min_power",
+      "target_electron_density_m3": 1e+17
+    },
+    {
+      "density_relative_tolerance": 0.05,
+      "density_target_mode": "hard_constraint",
+      "maximum_electron_temperature_eV": null,
+      "minimum_electron_temperature_eV": null,
+      "minimum_normalized_boundary_margin": null,
+      "nominal_operating_point": {
+        "nominal_absorbed_power_W": 52.5,
+        "target_pressure_mTorr": 35.0
+      },
+      "objective_priority": [
+        "nominal_distance",
+        "absorbed_power"
+      ],
+      "scenario_id": "hard_density_1p5e17_nominal",
+      "target_electron_density_m3": 1.5e+17
+    },
+    {
+      "density_relative_tolerance": null,
+      "density_target_mode": "disabled",
+      "maximum_electron_temperature_eV": 1.85,
+      "minimum_electron_temperature_eV": 1.65,
+      "minimum_normalized_boundary_margin": null,
+      "nominal_operating_point": null,
+      "objective_priority": [
+        "absorbed_power"
+      ],
+      "scenario_id": "temperature_window_min_power",
+      "target_electron_density_m3": null
+    },
+    {
+      "density_relative_tolerance": null,
+      "density_target_mode": "soft_objective",
+      "maximum_electron_temperature_eV": 1.85,
+      "minimum_electron_temperature_eV": 1.65,
+      "minimum_normalized_boundary_margin": null,
+      "nominal_operating_point": null,
+      "objective_priority": [
+        "density_target_error",
+        "absorbed_power"
+      ],
+      "scenario_id": "density_1p5e17_temperature_window",
+      "target_electron_density_m3": 1.5e+17
+    },
+    {
+      "density_relative_tolerance": 0.1,
+      "density_target_mode": "hard_constraint",
+      "maximum_electron_temperature_eV": null,
+      "minimum_electron_temperature_eV": null,
+      "minimum_normalized_boundary_margin": 0.1,
+      "nominal_operating_point": null,
+      "objective_priority": [
+        "boundary_margin",
+        "absorbed_power"
+      ],
+      "scenario_id": "hard_density_interior_margin",
+      "target_electron_density_m3": 1e+17
+    },
+    {
+      "density_relative_tolerance": null,
+      "density_target_mode": "disabled",
+      "maximum_electron_temperature_eV": null,
+      "minimum_electron_temperature_eV": null,
+      "minimum_normalized_boundary_margin": null,
+      "nominal_operating_point": null,
+      "objective_priority": [
+        "boundary_margin"
+      ],
+      "scenario_id": "boundary_margin_reference",
+      "target_electron_density_m3": null
+    },
+    {
+      "density_relative_tolerance": null,
+      "density_target_mode": "disabled",
+      "maximum_electron_temperature_eV": null,
+      "minimum_electron_temperature_eV": null,
+      "minimum_normalized_boundary_margin": null,
+      "nominal_operating_point": {
+        "nominal_absorbed_power_W": 52.5,
+        "target_pressure_mTorr": 35.0
+      },
+      "objective_priority": [
+        "nominal_distance"
+      ],
+      "scenario_id": "nominal_centre_reference",
+      "target_electron_density_m3": null
+    }
+  ],
+  "schema_version": "1.0.0",
+  "source_commit": "b1d0d5e0f2c0de221ffa7af8d4238831d93f6930"
+}
