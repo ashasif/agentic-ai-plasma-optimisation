@@ -1,0 +1,161 @@
+{
+  "artifact": "optimizer_selection",
+  "candidate_review": {
+    "deterministic_grid": {
+      "limitations": [
+        "restricted to 0.5 W by 0.5 mTorr grid",
+        "does not search the continuous decision domain",
+        "does not establish a continuous optimum"
+      ],
+      "qualification_status": "retained",
+      "role": "mandatory_reference_and_fallback",
+      "selected_as_primary_continuous_optimizer": false,
+      "strengths": [
+        "deterministic",
+        "auditable",
+        "complete frozen 15251-point discrete search",
+        "feasible on all five continuous qualification scenarios",
+        "no stochastic search behavior"
+      ]
+    },
+    "differential_evolution": {
+      "all_pairs_exactly_repeatable": true,
+      "all_runs_phase6_pass": true,
+      "overall_qualification_pass": true,
+      "qualified_scenario_count": 5,
+      "required_scenario_count": 5,
+      "role": "primary_continuous_candidate",
+      "scenario_evidence": [
+        {
+          "both_runs_pass": true,
+          "exact_repeatability_pass": true,
+          "objective_name": "density_target_error",
+          "qualification_pass": true,
+          "representative_prediction_cache_misses": 1037,
+          "representative_primary_objective_gap_vs_grid": 0.0,
+          "representative_scipy_success": true,
+          "scenario_id": "soft_density_5e16"
+        },
+        {
+          "both_runs_pass": true,
+          "exact_repeatability_pass": true,
+          "objective_name": "absorbed_power",
+          "qualification_pass": true,
+          "representative_prediction_cache_misses": 2541,
+          "representative_primary_objective_gap_vs_grid": -0.0062134197697862326,
+          "representative_scipy_success": true,
+          "scenario_id": "hard_density_1e17_min_power"
+        },
+        {
+          "both_runs_pass": true,
+          "exact_repeatability_pass": true,
+          "objective_name": "absorbed_power",
+          "qualification_pass": true,
+          "representative_prediction_cache_misses": 2914,
+          "representative_primary_objective_gap_vs_grid": 8.526512829121202e-16,
+          "representative_scipy_success": true,
+          "scenario_id": "temperature_window_min_power"
+        },
+        {
+          "both_runs_pass": true,
+          "exact_repeatability_pass": true,
+          "objective_name": "boundary_margin",
+          "qualification_pass": true,
+          "representative_prediction_cache_misses": 2827,
+          "representative_primary_objective_gap_vs_grid": 1.7935652962819404e-13,
+          "representative_scipy_success": true,
+          "scenario_id": "boundary_margin_reference"
+        },
+        {
+          "both_runs_pass": true,
+          "exact_repeatability_pass": true,
+          "objective_name": "nominal_distance",
+          "qualification_pass": true,
+          "representative_prediction_cache_misses": 2710,
+          "representative_primary_objective_gap_vs_grid": 8.980080861471638e-14,
+          "representative_scipy_success": true,
+          "scenario_id": "nominal_centre_reference"
+        }
+      ],
+      "selected": true
+    },
+    "shgo": {
+      "all_pairs_exactly_repeatable": true,
+      "failed_scenarios": [
+        {
+          "both_runs_pass": false,
+          "exact_repeatability_pass": true,
+          "scenario_id": "hard_density_1e17_min_power",
+          "scipy_success_both_runs": true
+        }
+      ],
+      "overall_qualification_pass": false,
+      "qualified_scenario_count": 4,
+      "required_scenario_count": 5,
+      "retuning_authorized": false,
+      "role": "non_selected_global_comparator",
+      "selected": false
+    }
+  },
+  "governance": {
+    "agentic_orchestration_used": false,
+    "continuous_benchmark_modified": false,
+    "deterministic_grid_modified": false,
+    "optimizer_parameters_retuned": false,
+    "phase4_test_accessed": false,
+    "phase5_test_accessed": false,
+    "scenarios_retuned": false,
+    "shgo_redevelopment_authorized": false,
+    "source_simulator_executed": false
+  },
+  "next_phase": {
+    "phase6e_role": "Selected-method robustness, boundary behavior, infeasible-target handling and tradeoff diagnostics.",
+    "phase6e_unlocked": true,
+    "phase6f_locked_until_phase6e_complete": true
+  },
+  "phase": "6D3",
+  "provenance": {
+    "base_protocol_sha256": "57fee45c69c5f42f9e94b786e895a5d89b163d141367326706eac2d3d2ed1cb1",
+    "continuous_benchmark_amendment_sha256": "e54e2e3a6d947f274171afc4e01bd203ea5e617b2f27730add1109321431d62f",
+    "continuous_benchmark_base_sha256": "0e618bf046a0d3749393003f15d2015ba2b607b79bc7490c24ac861ca03e9ad9",
+    "continuous_benchmark_result_sha256": "a4c8a55fd2ecfbf666479c6ee054a196c1a093b7640907f071fce0a04e7657d9",
+    "deterministic_grid_result_sha256": "cb3cbad2345d5a83286e7940fdd7f1960e96b1a3fdd7eea6f0492caa058a7f59",
+    "effective_continuous_benchmark_sha256": "13ce4e5a488d4df6ba5b1e5370a93099f560629e49600ded77be658de8e3ce2a",
+    "grid_qualification_scenarios_sha256": "6af65defab31691ffbaef1fc91c7a685267d6169af45f277c097488252d0fc1a",
+    "phase6_amendment_001_sha256": "9cf31578c6adddb195766fefa38ada89c6678e2df60bea708ddded0383c53912",
+    "source_commit": "26a4ee64ac0991f6c2bfd87a522aa646151e5d9d"
+  },
+  "schema_version": "1.0.0",
+  "selection": {
+    "fallback_method": "deterministic_grid",
+    "global_continuous_optimum_claimed": false,
+    "mandatory_reference_method": "deterministic_grid",
+    "non_selected_method": "shgo",
+    "primary_continuous_optimizer": "differential_evolution",
+    "primary_optimizer_selected": true,
+    "production_runtime_claimed": false,
+    "qualified_continuous_method_count": 1,
+    "selection_basis": "Differential Evolution is the only continuous method that satisfies the complete frozen Phase 6D qualification contract.",
+    "selection_requires_no_tie_break": true,
+    "shgo_non_selection_reason": "SHGO failed explicit Phase 6 feasibility on both repeats of hard_density_1e17_min_power despite SciPy success=True; therefore it failed the frozen overall qualification contract."
+  },
+  "selection_rules": {
+    "evidence_only_from_frozen_phase6c_and_phase6d": true,
+    "grid_beating_required": false,
+    "method_must_pass_all_five_qualification_scenarios": true,
+    "method_must_pass_overall_continuous_qualification": true,
+    "method_must_satisfy_exact_repeatability_contract": true,
+    "no_post_benchmark_retuning": true,
+    "no_weighted_selection_score": true,
+    "phase6_final_feasibility_overrides_scipy_success_flag": true,
+    "selection_from_unqualified_continuous_method_allowed": false,
+    "simpler_reference_retained_when_useful": true
+  },
+  "selection_scope": {
+    "final_phase6_runtime_frozen": false,
+    "phase6e_qualification_still_required": true,
+    "phase6f_runtime_freeze_still_required": true,
+    "purpose": "Select the primary continuous optimizer for Phase 6E robustness/qualification and subsequent Phase 6F runtime freeze."
+  },
+  "selection_status": "frozen"
+}
