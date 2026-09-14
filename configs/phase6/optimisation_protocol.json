@@ -1,0 +1,300 @@
+{
+  "boundary_policy": {
+    "boundary_margin_always_reported": true,
+    "implicit_boundary_exclusion": false,
+    "minimum_margin_only_when_scenario_explicitly_requests_it": true,
+    "qualified_domain_boundary_is_permitted": true
+  },
+  "candidate_optimisation_methods": {
+    "deterministic_grid": {
+      "role": "mandatory_baseline",
+      "stochastic": false
+    },
+    "reinforcement_learning": {
+      "allowed": false
+    },
+    "scipy_differential_evolution": {
+      "atol": 1e-12,
+      "enabled_for_benchmark": true,
+      "hard_bounds_required": true,
+      "maxiter": 300,
+      "mutation": [
+        0.5,
+        1.0
+      ],
+      "polish": false,
+      "popsize": 20,
+      "recombination": 0.7,
+      "rng_seed": 20260914,
+      "role": "primary_continuous_candidate",
+      "strategy": "best1bin",
+      "tol": 1e-09,
+      "updating": "immediate",
+      "workers": 1
+    },
+    "scipy_local_minimize": {
+      "enabled_for_primary_selection": false,
+      "reason": "the frozen tree-based surrogate response is not assumed to be smooth or differentiable",
+      "role": "diagnostic_comparator_only"
+    },
+    "scipy_shgo": {
+      "enabled_for_benchmark": true,
+      "hard_bounds_required": true,
+      "iters": 3,
+      "n": 256,
+      "role": "deterministic_global_comparator",
+      "sampling_method": "simplicial",
+      "workers": 1
+    }
+  },
+  "decision_space": {
+    "automatic_clipping_allowed": false,
+    "continuous_problem": true,
+    "decision_vector_order": [
+      "nominal_absorbed_power_W",
+      "target_pressure_mTorr"
+    ],
+    "dimension": 2,
+    "domain_bounds_are_hard_constraints": true,
+    "out_of_domain_evaluation_allowed": false
+  },
+  "deterministic_grid_baseline": {
+    "continuous_optimum_claimed": false,
+    "includes_domain_boundaries": true,
+    "power_increment_W": 0.5,
+    "power_points": 151,
+    "pressure_increment_mTorr": 0.5,
+    "pressure_points": 101,
+    "required": true,
+    "retain_all_feasible_candidates": true,
+    "retain_non_dominated_candidates_when_multiobjective": true,
+    "total_points": 15251
+  },
+  "feasibility_definitions": {
+    "density_target_achieved": "density_relative_error <= explicitly supplied density_relative_tolerance when density target achievement is required",
+    "domain_feasible": "decision variables are finite and inside the inclusive qualified Phase 4 domain",
+    "global_physical_infeasibility_claim_allowed": false,
+    "infeasible_status": "no_feasible_point_found_under_search_protocol",
+    "optimisation_success": "scenario_feasible AND every explicitly required target-achievement condition is satisfied",
+    "prediction_valid": "surrogate outputs are finite and physically positive under the frozen output contract",
+    "reason": "failure to locate a feasible point numerically is not proof that no physical operating point exists",
+    "scenario_feasible": "domain_feasible AND prediction_valid AND all explicit hard scenario constraints are satisfied"
+  },
+  "frozen_phase4_contract": {
+    "density_model": {
+      "path": "artifacts/phase4/density_model.pkl",
+      "sha256": "2706589929cdbebabda82cc9091ce110d673adc1c380bb49de9590f89da0b6a8",
+      "target": "true_electron_density_m3",
+      "target_transform": "log10"
+    },
+    "feature_order": [
+      "nominal_absorbed_power_W",
+      "target_pressure_mTorr"
+    ],
+    "locked_test_evidence": {
+      "content_access_allowed_in_phase6": false,
+      "path": "results/phase4/locked_test_evaluation.json",
+      "sha256": "a14638013561b8f1f66547fab9910d96b0a2ad2c12afad894948b1f690af14e0"
+    },
+    "qualified_domain": {
+      "nominal_absorbed_power_W": {
+        "bounds": "inclusive",
+        "lower": 15.0,
+        "upper": 90.0
+      },
+      "target_pressure_mTorr": {
+        "bounds": "inclusive",
+        "lower": 10.0,
+        "upper": 60.0
+      }
+    },
+    "temperature_model": {
+      "path": "artifacts/phase4/temperature_model.pkl",
+      "sha256": "891c5f99082ae27f8dd08d610d528460ecae72e4d019c0bc47ba0f993420c7e5",
+      "target": "true_electron_temperature_eV",
+      "target_transform": "identity"
+    }
+  },
+  "governance": {
+    "agentic_orchestration_allowed": false,
+    "phase4_test_may_not_be_reopened": true,
+    "phase5_test_may_not_be_reopened": true,
+    "phase6_entry_commit": "7f8f9b32c8551f422283d996cd358e729146181a",
+    "phase7_locked_until_phase6_closure": true,
+    "required_branch": "main",
+    "silent_extrapolation_allowed": false,
+    "source_simulator_allowed_during_routine_optimisation": false,
+    "test_evidence_may_not_be_used_for_tuning": true
+  },
+  "method_selection_policy": {
+    "automatic_preference_for_complex_method": false,
+    "comparison_evidence": [
+      "feasibility success",
+      "target achievement",
+      "raw objective components",
+      "comparison with deterministic grid baseline",
+      "evaluation count",
+      "repeat-run reproducibility",
+      "boundary behaviour"
+    ],
+    "eligibility_requirements": [
+      "no qualified-domain violation",
+      "no silent clipping",
+      "deterministic or seed-controlled repeatability",
+      "correct infeasibility handling",
+      "valid prediction contract",
+      "returns scenario-feasible solution whenever the mandatory grid baseline demonstrates one, unless the discrepancy is explicitly diagnosed"
+    ],
+    "selection_occurs_only_after_frozen_qualification_scenarios": true,
+    "tie_break_preference": "simpler scientifically adequate method"
+  },
+  "objective_definitions": {
+    "boundary_margin_cost": "0.5 - normalized_boundary_margin",
+    "density_relative_error": "abs(predicted_density - target_density) / target_density",
+    "normalized_absorbed_power": "(power - 15.0) / 75.0",
+    "normalized_boundary_margin": "min((power - 15.0) / 75.0, (90.0 - power) / 75.0, (pressure - 10.0) / 50.0, (60.0 - pressure) / 50.0)",
+    "normalized_nominal_distance": "sqrt(((power - nominal_power) / 75.0)^2 + ((pressure - nominal_pressure) / 50.0)^2)",
+    "pareto_diagnostics_required_for_multiobjective_grid": true,
+    "raw_components_must_be_reported": true,
+    "scalarised_score_may_hide_tradeoffs": false
+  },
+  "phase": "6A",
+  "phase5_non_input_guard": {
+    "fault_detector_sha256": "4a00e785d7e7f0a8429020399967cdd82c18da275d58e5b83bc11707eeac8a6a",
+    "fault_diagnoser_sha256": "2e9dea016137594c707ecd3c32116691cc90d0127133f11c70372c93e6fcca84",
+    "locked_test_evidence_sha256": "63ff1ea3448e0ab49ef0ea13f3e4cfbdcea985b7ede624b0d61cb17d5da53fb3",
+    "monitoring_manifest_sha256": "a18afb158aa7c02ac0e345b5f238a91e34f876d10dd43218c574554b874a9259",
+    "phase5_models_are_phase6_optimisation_inputs": false,
+    "phase5_retuning_allowed_in_phase6": false,
+    "phase5_test_access_allowed_in_phase6": false
+  },
+  "phase6_development_boundaries": {
+    "phase6a": "protocol freeze",
+    "phase6b": "trusted surrogate adapter and optimisation primitives",
+    "phase6c": "deterministic grid baseline and feasible-region characterisation",
+    "phase6d": "classical global optimisation benchmark and controlled method selection",
+    "phase6e": "robustness, boundary, trade-off and infeasibility qualification",
+    "phase6f": "final optimiser runtime, persistence and reproducibility",
+    "phase6g": "final Phase 6 audit, closure and Phase 7 unlock"
+  },
+  "phase6a_closure_conditions": [
+    "protocol JSON passes semantic validation",
+    "frozen surrogate hashes remain unchanged",
+    "trusted Phase 4G interface remains unchanged",
+    "no Phase 6 optimisation implementation exists",
+    "no Phase 6 results exist",
+    "no Phase 6 artifacts exist",
+    "working tree contains only intended Phase 6A files before commit"
+  ],
+  "prediction_validity": {
+    "all_predictions_must_be_finite": true,
+    "electron_density_m3_must_be_positive": true,
+    "electron_temperature_eV_must_be_positive": true,
+    "invalid_prediction_is_feasible": false
+  },
+  "protocol_name": "constrained_operating_point_optimisation",
+  "protocol_schema_version": "1.0.0",
+  "reproducibility": {
+    "exact_input_scenario_record_required": true,
+    "explicit_method_parameters_required": true,
+    "full_precision_machine_readable_results": true,
+    "git_commit_required_in_results": true,
+    "phase6_random_seed": 20260914,
+    "protocol_hash_required_in_results": true,
+    "single_threaded_where_supported": true,
+    "surrogate_manifest_hash_required_in_results": true
+  },
+  "scenario_contract": {
+    "density_target": {
+      "field": "target_electron_density_m3",
+      "must_be_positive_when_present": true,
+      "nullable": true
+    },
+    "density_target_tolerance": {
+      "field": "density_relative_tolerance",
+      "must_be_explicit": true,
+      "required_when_density_target_is_hard": true,
+      "universal_default": null
+    },
+    "minimum_boundary_margin": {
+      "field": "minimum_normalized_boundary_margin",
+      "implicit_margin_constraint": false,
+      "nullable": true,
+      "valid_range": [
+        0.0,
+        0.5
+      ]
+    },
+    "nominal_operating_point": {
+      "fields": [
+        "nominal_absorbed_power_W",
+        "target_pressure_mTorr"
+      ],
+      "must_be_inside_qualified_domain": true,
+      "nullable": true
+    },
+    "objective_priority": {
+      "must_be_explicit": true,
+      "ranking_policy": "lexicographic"
+    },
+    "secondary_objectives": {
+      "allowed": [
+        "nominal_distance",
+        "absorbed_power",
+        "boundary_margin"
+      ],
+      "hidden_weights_allowed": false,
+      "must_be_explicit": true
+    },
+    "temperature_range": {
+      "bounds": "inclusive",
+      "fields": [
+        "minimum_electron_temperature_eV",
+        "maximum_electron_temperature_eV"
+      ],
+      "must_be_explicit_when_active": true,
+      "nullable": true
+    }
+  },
+  "scientific_scope": {
+    "experimental_validation_claimed": false,
+    "generator_rf_power_equivalent_to_absorbed_power": false,
+    "industrial_throughput_claimed_from_surrogate_speed": false,
+    "industrial_validation_claimed": false,
+    "oipt_hardware_performance_claimed": false,
+    "oipt_operating_range_claimed": false,
+    "reactive_chemistry_claimed": false,
+    "system": "reduced-order synthetic argon ICP environment",
+    "wafer_scale_spatial_behaviour_claimed": false
+  },
+  "source_model_policy": {
+    "development_source_simulator_use_allowed": false,
+    "optional_independent_post_selection_spot_check": "requires a separately frozen protocol before use",
+    "post_selection_spot_check_may_retune_optimizer": false,
+    "routine_source_simulator_use_allowed": false
+  },
+  "tradeoff_policy": {
+    "hidden_scalarisation_allowed": false,
+    "objective_priority_always_exposed": true,
+    "pareto_set_exposed_when_multiple_grid_objectives_are_active": true,
+    "raw_objective_components_always_exposed": true
+  },
+  "trusted_surrogate_interface": {
+    "direct_estimator_access_allowed": false,
+    "direct_pickle_loading_allowed": false,
+    "loaded_type": "LoadedPhase4GSurrogate",
+    "loader_function": "load_phase4g_surrogate",
+    "module": "plasma_ai.surrogate.phase4g_persistence",
+    "persistence_source_path": "src/plasma_ai/surrogate/phase4g_persistence.py",
+    "persistence_source_sha256": "d05aa383b6023001f9abf505ee720fd9b988c6a0836f08721301c9a9baa89da5",
+    "prediction_container": "Phase4GPredictions",
+    "prediction_container_fields": [
+      "electron_density_m3",
+      "electron_temperature_eV"
+    ],
+    "prediction_method": "predict_physical",
+    "production_manifest_path": "artifacts/phase4/surrogate_manifest.json",
+    "production_manifest_sha256": "0f9b8405a00fa97a07335ec73747381245847c7c6c495050f214ed3a6254102a",
+    "trusted_loader_required": true
+  }
+}
