@@ -1,0 +1,335 @@
+{
+  "artifact": "robustness_qualification_protocol",
+  "challenge_suite": [
+    {
+      "challenge_id": "selected_method_replay",
+      "expected_outcome": "feasible",
+      "run_deterministic_grid_reference": true,
+      "run_selected_method": true,
+      "scenario": {
+        "density_relative_tolerance": 0.05,
+        "density_target_mode": "hard_constraint",
+        "maximum_electron_temperature_eV": null,
+        "minimum_electron_temperature_eV": null,
+        "minimum_normalized_boundary_margin": null,
+        "nominal_operating_point": null,
+        "objective_priority": [
+          "absorbed_power"
+        ],
+        "scenario_id": "hard_density_1e17_min_power",
+        "target_electron_density_m3": 1e+17
+      },
+      "scenario_source": "frozen_phase6c1_scenario",
+      "scientific_role": "Re-run the previously qualified hard-density minimum-power problem under the three frozen Phase 6E seeds."
+    },
+    {
+      "analytic_geometry": {
+        "maximum_feasible_power_W": 82.5,
+        "maximum_feasible_pressure_mTorr": 55.0,
+        "minimum_feasible_power_W": 22.5,
+        "minimum_feasible_pressure_mTorr": 15.0,
+        "minimum_normalized_boundary_margin": 0.1,
+        "theoretical_minimum_absorbed_power_W": 22.5,
+        "theoretical_minimum_normalized_absorbed_power": 0.1
+      },
+      "challenge_id": "boundary_margin_constraint_edge",
+      "expected_outcome": "feasible",
+      "run_deterministic_grid_reference": true,
+      "run_selected_method": true,
+      "scenario": {
+        "density_relative_tolerance": null,
+        "density_target_mode": "disabled",
+        "maximum_electron_temperature_eV": null,
+        "minimum_electron_temperature_eV": null,
+        "minimum_normalized_boundary_margin": 0.1,
+        "nominal_operating_point": null,
+        "objective_priority": [
+          "absorbed_power"
+        ],
+        "scenario_id": "phase6e_boundary_margin_constraint_edge",
+        "target_electron_density_m3": null
+      },
+      "scenario_source": "phase6e_predeclared",
+      "scientific_role": "Test hard normalized-boundary-margin enforcement at a known geometric constraint edge while minimizing absorbed power."
+    },
+    {
+      "challenge_id": "deliberate_infeasible_high_density",
+      "derivation": {
+        "density_relative_tolerance": 0.01,
+        "frozen_grid_density_maximum_m3": 2.2900906167162906e+17,
+        "relative_error_at_frozen_grid_maximum": 0.2,
+        "target_electron_density_m3": 2.8626132708953632e+17,
+        "target_multiplier": 1.25
+      },
+      "expected_outcome": "no_feasible_point_found_under_search_protocol",
+      "interpretation": "Failure to find a feasible point is evidence only for the frozen surrogate/search protocol and is not a claim of global physical infeasibility.",
+      "run_deterministic_grid_reference": true,
+      "run_selected_method": true,
+      "scenario": {
+        "density_relative_tolerance": 0.01,
+        "density_target_mode": "hard_constraint",
+        "maximum_electron_temperature_eV": null,
+        "minimum_electron_temperature_eV": null,
+        "minimum_normalized_boundary_margin": null,
+        "nominal_operating_point": null,
+        "objective_priority": [
+          "absorbed_power"
+        ],
+        "scenario_id": "phase6e_infeasible_high_density",
+        "target_electron_density_m3": 2.8626132708953632e+17
+      },
+      "scenario_source": "phase6e_predeclared_from_frozen_grid_envelope",
+      "scientific_role": "Verify fail-closed handling when a hard density target is deliberately placed above the frozen surrogate density envelope."
+    }
+  ],
+  "evidence_separation": {
+    "agentic_orchestration_allowed": false,
+    "experimental_validation_claimed": false,
+    "global_continuous_optimum_claimed": false,
+    "industrial_validation_claimed": false,
+    "phase4_test_access_allowed": false,
+    "phase5_test_access_allowed": false,
+    "qualification_evidence_not_test_evidence": true,
+    "shgo_execution_allowed": false,
+    "source_simulator_execution_allowed": false
+  },
+  "expected_feasible_acceptance": {
+    "challenge_ids": [
+      "selected_method_replay",
+      "boundary_margin_constraint_edge"
+    ],
+    "every_seed_must_return_phase6_feasible_candidate": true,
+    "every_seed_must_satisfy_grid_reference_gap_rule": true,
+    "every_seed_objective_must_be_finite": true,
+    "objective_spread_must_not_exceed": 1e-06,
+    "reason_scipy_success_not_required": "Explicit Phase 6 final feasibility is authoritative.",
+    "scipy_success_required": false
+  },
+  "expected_infeasible_acceptance": {
+    "all_de_seed_runs_must_return_final_phase6_feasible_false": true,
+    "challenge_id": "deliberate_infeasible_high_density",
+    "deterministic_grid_feasible_candidate_count_must_equal": 0,
+    "false_feasible_candidate_is_qualification_failure": true,
+    "global_physical_infeasibility_must_not_be_claimed": true,
+    "required_status": "no_feasible_point_found_under_search_protocol",
+    "scipy_success_flag_may_be_true_or_false": true
+  },
+  "grid_reference_execution": {
+    "additional_complete_grid_surrogate_batches_allowed": false,
+    "candidate_count": 15251,
+    "one_shared_surrogate_batch_allowed": true,
+    "power_increment_W": 0.5,
+    "power_points": 151,
+    "pressure_increment_mTorr": 0.5,
+    "pressure_points": 101,
+    "shared_batch_purpose": [
+      "three challenge grid references",
+      "five deferred multiobjective tradeoff diagnostics"
+    ]
+  },
+  "perturbation_diagnostics": {
+    "all_neighbours_required_to_remain_feasible": false,
+    "completion_required_for_phase6e": true,
+    "coordinate_clipping_allowed": false,
+    "for_each_valid_perturbation_record": [
+      "electron_density_m3",
+      "electron_temperature_eV",
+      "scenario_feasible",
+      "all active constraint values",
+      "primary objective",
+      "primary objective delta from source candidate",
+      "normalized_boundary_margin"
+    ],
+    "interpretation": "Constraint-edge optima may legitimately lose feasibility under small perturbations; this is a sensitivity diagnostic rather than an automatic failure condition.",
+    "offsets": [
+      [
+        -0.25,
+        0.0
+      ],
+      [
+        0.25,
+        0.0
+      ],
+      [
+        0.0,
+        -0.25
+      ],
+      [
+        0.0,
+        0.25
+      ],
+      [
+        -0.25,
+        -0.25
+      ],
+      [
+        -0.25,
+        0.25
+      ],
+      [
+        0.25,
+        -0.25
+      ],
+      [
+        0.25,
+        0.25
+      ]
+    ],
+    "out_of_domain_perturbations": "record_as_not_evaluated_outside_domain",
+    "power_delta_W": 0.25,
+    "pressure_delta_mTorr": 0.25,
+    "source": "representative repeat-0 Differential Evolution candidate from each of the five frozen Phase 6D2B qualification scenarios",
+    "source_scenario_ids": [
+      "soft_density_5e16",
+      "hard_density_1e17_min_power",
+      "temperature_window_min_power",
+      "boundary_margin_reference",
+      "nominal_centre_reference"
+    ]
+  },
+  "phase": "6E1",
+  "phase_progression": {
+    "phase6f_runtime_freeze_unlocked_only_if_phase6e_passes": true,
+    "phase6g_final_audit_remains_locked": true,
+    "phase7_remains_locked": true
+  },
+  "planned_result": {
+    "must_record": [
+      "all frozen provenance hashes",
+      "selected optimizer identity",
+      "all nine DE challenge runs",
+      "per-seed objective values",
+      "objective spreads",
+      "grid challenge references",
+      "deliberate infeasibility evidence",
+      "all perturbation outcomes",
+      "all tradeoff summaries",
+      "surrogate prediction counts",
+      "runtime library versions",
+      "overall Phase 6E qualification status"
+    ],
+    "path": "results/phase6/robustness_qualification.json"
+  },
+  "provenance": {
+    "base_protocol_sha256": "57fee45c69c5f42f9e94b786e895a5d89b163d141367326706eac2d3d2ed1cb1",
+    "continuous_benchmark_amendment_sha256": "e54e2e3a6d947f274171afc4e01bd203ea5e617b2f27730add1109321431d62f",
+    "continuous_benchmark_base_sha256": "0e618bf046a0d3749393003f15d2015ba2b607b79bc7490c24ac861ca03e9ad9",
+    "continuous_benchmark_result_sha256": "a4c8a55fd2ecfbf666479c6ee054a196c1a093b7640907f071fce0a04e7657d9",
+    "deterministic_grid_result_sha256": "cb3cbad2345d5a83286e7940fdd7f1960e96b1a3fdd7eea6f0492caa058a7f59",
+    "grid_qualification_scenarios_sha256": "6af65defab31691ffbaef1fc91c7a685267d6169af45f277c097488252d0fc1a",
+    "optimizer_selection_sha256": "c4c4963f1f4c0bee2803c4087e514e768a0e95bacd3d58ef1289f887696c3038",
+    "phase6_amendment_001_sha256": "9cf31578c6adddb195766fefa38ada89c6678e2df60bea708ddded0383c53912",
+    "source_commit": "ec5600897431cde10038db9a20ba18aa9c56dc60"
+  },
+  "qualification_objectives": [
+    "robustness to predeclared RNG seed variation",
+    "hard constraint-edge behavior",
+    "deliberate infeasible-target handling",
+    "local operating-point perturbation sensitivity",
+    "multiobjective tradeoff diagnostics without hidden scalarization"
+  ],
+  "qualification_pass_contract": {
+    "failure_response": "STOP, diagnose and document. Any redevelopment requires a separately frozen protocol amendment.",
+    "infeasibility_handling_pass_requires": [
+      "deterministic grid contains zero feasible candidates for deliberate infeasible challenge",
+      "all three DE seed runs remain explicitly infeasible",
+      "no false feasible point is returned",
+      "no global physical infeasibility claim is made"
+    ],
+    "optimizer_retuning_on_failure_allowed": false,
+    "perturbation_diagnostic_pass_requires": [
+      "all five source candidates processed",
+      "all eight predeclared offsets accounted for per source candidate",
+      "no clipping",
+      "no out-of-domain inference"
+    ],
+    "phase6e_overall_pass_requires": [
+      "selected-method robustness pass",
+      "infeasibility-handling pass",
+      "perturbation-diagnostic pass",
+      "tradeoff-diagnostic pass",
+      "all frozen upstream hashes unchanged"
+    ],
+    "selected_method_robustness_pass_requires": [
+      "all six expected-feasible DE runs pass Phase 6 final feasibility",
+      "both expected-feasible challenge objective spreads are <= 1e-6",
+      "all expected-feasible DE objectives satisfy the frozen grid-gap rule"
+    ],
+    "tradeoff_diagnostic_pass_requires": [
+      "all five deferred multiobjective scenarios processed",
+      "exact Pareto semantics retained",
+      "no weighted scalarization",
+      "no continuous multiobjective optimizer executed"
+    ]
+  },
+  "schema_version": "1.0.0",
+  "seed_robustness": {
+    "all_expected_feasible_runs_must_pass_final_phase6_feasibility": true,
+    "alternate_seeds_are_qualification_only": true,
+    "exact_coordinate_equality_across_different_seeds_required": false,
+    "grid_reference_gap_rule": "For expected-feasible challenges, every DE run must have primary_objective <= deterministic_grid_objective + 1e-6.",
+    "grid_reference_gap_tolerance": 1e-06,
+    "maximum_allowed_objective_spread": 1e-06,
+    "objective_spread_definition": "max(primary_objective) - min(primary_objective)",
+    "optimizer_parameters_other_than_seed_must_remain_identical": true,
+    "production_seed": 20260914,
+    "seed_count": 3,
+    "seeds": [
+      20260914,
+      20260915,
+      20260916
+    ]
+  },
+  "selected_method": {
+    "fallback": "deterministic_grid",
+    "mandatory_reference": "deterministic_grid",
+    "name": "differential_evolution",
+    "parameter_retuning_allowed": false,
+    "parameter_source": "configs/phase6/continuous_optimizer_benchmark.json",
+    "production_seed": 20260914,
+    "production_seed_changed": false,
+    "shgo_executed_in_phase6e": false,
+    "shgo_redevelopment_allowed": false
+  },
+  "selected_method_run_contract": {
+    "automatic_clipping_allowed": false,
+    "challenge_count": 3,
+    "out_of_domain_surrogate_inference_allowed": false,
+    "phase6_final_feasibility_recheck_required": true,
+    "planned_de_run_count": 9,
+    "run_count_definition": "3 challenges * 3 predeclared seeds",
+    "same_non_seed_de_parameters_as_phase6d": true,
+    "scipy_success_alone_never_defines_qualification": true,
+    "seed_count": 3
+  },
+  "tradeoff_diagnostics": {
+    "continuous_multiobjective_optimizer_executed": false,
+    "for_each_scenario_record": [
+      "feasible_candidate_count",
+      "pareto_candidate_count",
+      "objective-wise minima and maxima across Pareto set",
+      "power range across Pareto set",
+      "pressure range across Pareto set",
+      "electron-density range across Pareto set",
+      "electron-temperature range across Pareto set",
+      "lexicographic selected point membership in Pareto set"
+    ],
+    "interpretation": "Tradeoff evidence is descriptive and does not introduce a new hidden preference or scalarization.",
+    "knee_point_selected": false,
+    "pareto_dominance_tolerance": null,
+    "production_point_selected_from_tradeoff_diagnostic": false,
+    "retain_exact_non_dominated_candidates": true,
+    "scenario_count": 5,
+    "scenario_ids": [
+      "soft_density_1e17_low_power",
+      "soft_density_2e17_low_power",
+      "hard_density_1p5e17_nominal",
+      "density_1p5e17_temperature_window",
+      "hard_density_interior_margin"
+    ],
+    "source_method": "deterministic_grid_exact_pareto_analysis",
+    "use_one_shared_complete_grid_surrogate_prediction_batch": true,
+    "use_same_15251_point_grid_contract": true,
+    "weighted_scalarization_allowed": false
+  }
+}
