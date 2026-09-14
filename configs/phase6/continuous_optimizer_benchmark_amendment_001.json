@@ -1,0 +1,108 @@
+{
+  "amendment_id": "continuous_optimizer_benchmark_amendment_001",
+  "artifact": "continuous_optimizer_benchmark_amendment",
+  "base_benchmark_protocol": {
+    "immutable": true,
+    "path": "configs/phase6/continuous_optimizer_benchmark.json",
+    "sha256": "0e618bf046a0d3749393003f15d2015ba2b607b79bc7490c24ac861ca03e9ad9",
+    "source_commit": "0cc5a599da82fd2a6a33b03a67de6a3c5d3012ad"
+  },
+  "effective_hard_constraint_representation": {
+    "domain": {
+      "automatic_clipping_allowed": false,
+      "bounds": [
+        [
+          15.0,
+          90.0
+        ],
+        [
+          10.0,
+          60.0
+        ]
+      ],
+      "out_of_domain_prediction_allowed": false,
+      "phase6_fail_closed_validation_retained": true,
+      "representation": "optimizer_bounds_only"
+    },
+    "final_candidate_requires_phase6_feasibility_recheck": true,
+    "functions": {
+      "density_hard_constraint": "density_relative_tolerance - density_relative_error",
+      "maximum_temperature_constraint": "maximum_electron_temperature_eV - predicted_electron_temperature_eV",
+      "minimum_boundary_margin_constraint": "normalized_boundary_margin - minimum_normalized_boundary_margin",
+      "minimum_temperature_constraint": "predicted_electron_temperature_eV - minimum_electron_temperature_eV"
+    },
+    "mathematical_convention": "Every active hard-constraint function g(x) is feasible iff g(x) >= 0.",
+    "method_specific_representation": {
+      "differential_evolution": {
+        "construction": "NonlinearConstraint(g, 0.0, numpy.inf)",
+        "mathematical_function_changed": false,
+        "representation": "scipy.optimize.NonlinearConstraint"
+      },
+      "shgo": {
+        "construction": "{\"type\": \"ineq\", \"fun\": g}",
+        "mathematical_function_changed": false,
+        "reason": "Avoid SHGO's internal conversion of NonlinearConstraint at an out-of-domain placeholder x0 while preserving the same frozen g(x) >= 0 functions.",
+        "representation": "scipy_old_style_inequality_dict",
+        "scipy_semantics": "old-style inequality fun(x) >= 0"
+      }
+    },
+    "objective_penalty_substitution_allowed": false
+  },
+  "evidence_separation": {
+    "continuous_scientific_benchmark_execution_in_this_gate": false,
+    "method_selection_in_this_gate": false,
+    "phase4_test_access_allowed": false,
+    "phase5_test_access_allowed": false,
+    "production_surrogate_execution_in_this_gate": false,
+    "source_simulator_execution_allowed": false
+  },
+  "implementation_requirements": {
+    "method_specific_wrapper_only": true,
+    "real_benchmark_remains_locked_until_implementation_gate_passes": true,
+    "same_g_functions_used_by_de_and_shgo": true,
+    "shgo_constraint_function_must_retain_phase6_domain_validation": true,
+    "shgo_old_style_dict_must_not_clip_coordinates": true,
+    "shgo_old_style_dict_must_not_round_coordinates": true,
+    "single_constraint_function_source_of_truth": true,
+    "synthetic_constraint_qualification_required_before_real_benchmark": true
+  },
+  "phase": "6D1.1",
+  "schema_version": "1.0.0",
+  "scope": {
+    "differential_evolution_parameters_changed": false,
+    "grid_reference_changed": false,
+    "hard_constraint_functions_changed": false,
+    "hard_constraint_sign_convention_changed": false,
+    "method_selection_policy_changed": false,
+    "objective_definitions_changed": false,
+    "optimizer_bounds_changed": false,
+    "reproducibility_contract_changed": false,
+    "scenario_eligibility_changed": false,
+    "scenario_set_changed": false,
+    "scientific_scope_changed": false,
+    "shgo_parameters_changed": false,
+    "test_separation_changed": false
+  },
+  "trigger": {
+    "gate": "Phase 6 Gate 10 / Phase 6D2A",
+    "method": "shgo",
+    "observed_behavior": "SciPy SHGO converted scipy.optimize.NonlinearConstraint to its legacy constraint representation and evaluated the constraint at an internal placeholder point outside the qualified Phase 4 operating domain before the actual bounded SHGO search began.",
+    "observed_placeholder_example": {
+      "nominal_absorbed_power_W": 0.013333333333333334,
+      "target_pressure_mTorr": 0.02
+    },
+    "phase6_fail_closed_domain_validation": "correctly_rejected_placeholder",
+    "production_surrogate_accessed": false,
+    "response": "Change SHGO's SciPy constraint representation only. Do not weaken domain validation and do not alter the mathematical hard constraints.",
+    "scientific_evidence_generated": false,
+    "type": "synthetic_implementation_qualification_failure"
+  },
+  "validation_requirements": {
+    "complete_phase6_optimisation_test_suite_required": true,
+    "de_shgo_constraint_value_equivalence_test_required": true,
+    "differential_evolution_synthetic_constraint_test_required": true,
+    "exact_repeatability_tests_required": true,
+    "shgo_no_out_of_domain_placeholder_failure_required": true,
+    "shgo_synthetic_constraint_test_required": true
+  }
+}
