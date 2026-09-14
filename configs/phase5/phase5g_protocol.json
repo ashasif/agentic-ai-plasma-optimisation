@@ -1,0 +1,301 @@
+{
+  "feature_construction": {
+    "derived_features": {
+      "absorbed_power_relative_residual": "measured_absorbed_power_W / nominal_absorbed_power_W - 1",
+      "flow_relative_residual": "measured_flow_sccm / nominal_flow_sccm - 1",
+      "pressure_relative_residual": "measured_pressure_mTorr / target_pressure_mTorr - 1"
+    },
+    "future_rows_used": false,
+    "model_feature_order": [
+      "nominal_absorbed_power_W",
+      "target_pressure_mTorr",
+      "nominal_flow_sccm",
+      "measured_absorbed_power_W",
+      "measured_flow_sccm",
+      "measured_pressure_mTorr",
+      "absorbed_power_relative_residual",
+      "flow_relative_residual",
+      "pressure_relative_residual"
+    ],
+    "row_local_only": true,
+    "target_or_truth_features_used": false
+  },
+  "governance": {
+    "existing_manifest_overwrite_permitted": false,
+    "frozen_models_must_remain_byte_identical": true,
+    "new_test_performance_calculation_permitted": false,
+    "new_test_predictions_permitted": false,
+    "phase5_test_dataset_access_permitted": false,
+    "phase5_test_permanently_consumed": true,
+    "phase5f_closure_commit": "3b4dbe21dc2cc8166f0b31cf56b36b7bd5607e2c",
+    "phase5f_formally_closed": true,
+    "post_test_candidate_change_permitted": false,
+    "post_test_model_selection_permitted": false,
+    "post_test_retuning_permitted": false,
+    "post_test_threshold_selection_permitted": false,
+    "production_manifest_generation_requires_clean_repository": true
+  },
+  "implementation_status_at_freeze": "not_started",
+  "manifest_contract": {
+    "artifact_creation_timestamp_recorded": true,
+    "copy_model_artifacts": false,
+    "manifest_only": true,
+    "model_hashes_recorded": true,
+    "path": "artifacts/phase5/monitoring_manifest.json",
+    "repository_clean_state_recorded": true,
+    "required_sections": [
+      "phase",
+      "stage",
+      "schema_version",
+      "status",
+      "feature_contract",
+      "prediction_contract",
+      "models",
+      "provenance",
+      "scientific_scope"
+    ],
+    "reserialize_model_artifacts": false,
+    "runtime_versions_recorded": true,
+    "schema_version": 1,
+    "source_git_commit_recorded": true
+  },
+  "model_artifacts": {
+    "artifact_handling": "reference_existing_frozen_bytes_without_reserialization",
+    "detector": {
+      "artifact_file": "fault_detector.pkl",
+      "candidate_id": "ERD4_extra_trees_threshold_040",
+      "estimator_type": "sklearn.ensemble.ExtraTreesClassifier",
+      "fit_rows": 3072,
+      "parameters": {
+        "class_weight": "balanced",
+        "max_depth": null,
+        "max_features": 1.0,
+        "min_samples_leaf": 1,
+        "n_estimators": 500,
+        "n_jobs": 1,
+        "random_state": 20260924
+      },
+      "repository_path": "artifacts/phase5/fault_detector.pkl",
+      "sha256": "4a00e785d7e7f0a8429020399967cdd82c18da275d58e5b83bc11707eeac8a6a",
+      "threshold": 0.4,
+      "wrapper_type": "plasma_ai.monitoring.supervised.FittedDetectorCandidate"
+    },
+    "diagnoser": {
+      "artifact_file": "fault_diagnoser.pkl",
+      "candidate_id": "ERG3_extra_trees",
+      "classes": [
+        "flow_delivery",
+        "power_coupling",
+        "pressure_path_anomaly"
+      ],
+      "estimator_type": "sklearn.ensemble.ExtraTreesClassifier",
+      "fit_rows": 1451,
+      "parameters": {
+        "class_weight": "balanced",
+        "max_depth": null,
+        "max_features": 1.0,
+        "min_samples_leaf": 1,
+        "n_estimators": 500,
+        "n_jobs": 1,
+        "random_state": 20260924
+      },
+      "repository_path": "artifacts/phase5/fault_diagnoser.pkl",
+      "sha256": "2e9dea016137594c707ecd3c32116691cc90d0127133f11c70372c93e6fcca84",
+      "train_majority_class": "pressure_path_anomaly",
+      "wrapper_type": "plasma_ai.monitoring.redevelopment.FittedRedevelopmentDiagnoserCandidate"
+    }
+  },
+  "persistence_equivalence": {
+    "compare_reference": "direct_load_of_exact_frozen_verified_model_bytes",
+    "compare_runtime": "phase5g_manifest_verified_loader",
+    "numerical_tolerance_substitution_permitted": false,
+    "overall_pass_requires_all_checks": true,
+    "required_checks": {
+      "all_probabilities_finite": true,
+      "detector_active_probability_exact_array_equal": true,
+      "detector_decision_exact_array_equal": true,
+      "diagnoser_prediction_exact_array_equal": true,
+      "end_to_end_state_exact_array_equal": true,
+      "raw_to_model_feature_matrix_exact_equal": true
+    },
+    "result_path": "results/phase5/persistence_equivalence.json"
+  },
+  "phase": "5G",
+  "phase5g_exit_requirements": {
+    "frozen_model_bytes_unchanged": true,
+    "full_repository_regression_passed": true,
+    "manifest_created_from_clean_committed_state": true,
+    "manifest_hash_validation_passed": true,
+    "models_reserialized": false,
+    "models_retrained": false,
+    "models_retuned": false,
+    "persistence_equivalence_passed": true,
+    "protocol_frozen_before_implementation": true,
+    "raw_to_model_feature_builder_implemented": true,
+    "runtime_compatibility_validation_passed": true,
+    "runtime_prediction_interface_implemented": true,
+    "test_dataset_reopened": false,
+    "trusted_loader_implemented": true
+  },
+  "protocol_state": "FROZEN",
+  "purpose": {
+    "model_development": false,
+    "model_reconstruction": false,
+    "model_reserialization": false,
+    "model_retraining": false,
+    "performance_tuning": false,
+    "primary": "Provide a trusted, reproducible inference interface around the already-frozen Phase 5 detector and diagnoser artifacts.",
+    "test_evaluation": false
+  },
+  "reproducibility_probe": {
+    "construction": "cartesian product of power x pressure x residual scenario with nominal flow fixed at 20 sccm",
+    "expected_rows": 45,
+    "nominal_absorbed_power_W": [
+      25.0,
+      50.0,
+      80.0
+    ],
+    "nominal_flow_sccm": 20.0,
+    "performance_evaluation": false,
+    "residual_scenarios": [
+      {
+        "flow_relative": 0.0,
+        "name": "nominal",
+        "power_relative": 0.0,
+        "pressure_relative": 0.0
+      },
+      {
+        "flow_relative": 0.0,
+        "name": "power_minus_10pct",
+        "power_relative": -0.1,
+        "pressure_relative": 0.0
+      },
+      {
+        "flow_relative": -0.07,
+        "name": "flow_minus_7pct",
+        "power_relative": 0.0,
+        "pressure_relative": 0.0
+      },
+      {
+        "flow_relative": 0.0,
+        "name": "pressure_plus_10pct",
+        "power_relative": 0.0,
+        "pressure_relative": 0.1
+      },
+      {
+        "flow_relative": 0.0,
+        "name": "pressure_minus_10pct",
+        "power_relative": 0.0,
+        "pressure_relative": -0.1
+      }
+    ],
+    "role": "persistence_equivalence_only",
+    "target_pressure_mTorr": [
+      20.0,
+      32.5,
+      45.0
+    ],
+    "test_or_validation_dataset": false,
+    "uses_targets": false
+  },
+  "runtime_compatibility": {
+    "exact_platform_match_required": false,
+    "platform_recorded_for_provenance": true,
+    "policy": "exact_scientific_runtime_versions",
+    "python_implementation_recorded": true,
+    "required_exact_versions": {
+      "numpy": "2.5.3",
+      "python": "3.12.5",
+      "scikit_learn": "1.9.1",
+      "scipy": "1.18.1"
+    }
+  },
+  "runtime_input_contract": {
+    "accepted_rank": [
+      1,
+      2
+    ],
+    "batch_shape": "[n_rows, 6]",
+    "dtype": "float64",
+    "empty_batch_permitted": false,
+    "finite_required": true,
+    "public_input": "raw_monitoring_features_only",
+    "raw_feature_order": [
+      "nominal_absorbed_power_W",
+      "target_pressure_mTorr",
+      "nominal_flow_sccm",
+      "measured_absorbed_power_W",
+      "measured_flow_sccm",
+      "measured_pressure_mTorr"
+    ],
+    "single_row_shape": [
+      6
+    ],
+    "strictly_positive_inputs": [
+      "nominal_absorbed_power_W",
+      "target_pressure_mTorr",
+      "nominal_flow_sccm"
+    ]
+  },
+  "runtime_prediction_contract": {
+    "detector_decision_rule": "active_probability >= 0.40",
+    "detector_probability_method": "predict_active_probability",
+    "detector_threshold": 0.4,
+    "deterministic_for_fixed_artifacts_and_runtime": true,
+    "diagnoser_execution": "detector_positive_rows_only",
+    "end_to_end_states": [
+      "none",
+      "flow_delivery",
+      "power_coupling",
+      "pressure_path_anomaly"
+    ],
+    "inactive_state": "none",
+    "prediction_array_order": "input_row_order",
+    "prediction_output_fields": [
+      "active_probability",
+      "fault_active",
+      "diagnostic_state"
+    ],
+    "pressure_path_anomaly_identifies_specific_mechanism": false
+  },
+  "scientific_scope": {
+    "experimental_validation": false,
+    "industrial_validation": false,
+    "oipt_operating_range_claim": false,
+    "pressure_path_anomaly_identifies_specific_mechanism": false,
+    "pressure_path_anomaly_is_ambiguity_aware": true,
+    "reduced_order_argon_monitoring_environment": true,
+    "reproducibility_probe_is_ood_validation": false,
+    "runtime_reproducibility_is_performance_validation": false,
+    "synthetic_data_only": true
+  },
+  "source_evidence": {
+    "locked_test_evaluation": {
+      "path": "results/phase5/locked_test_evaluation.json",
+      "reexecution_permitted": false,
+      "role": "frozen provenance only; not runtime feedback",
+      "sha256": "63ff1ea3448e0ab49ef0ea13f3e4cfbdcea985b7ede624b0d61cb17d5da53fb3"
+    },
+    "redevelopment_final_refit": {
+      "path": "results/phase5/redevelopment_final_refit.json",
+      "sha256": "b04d4676b97235c2a23e00920e27935f96e4e2c2da1751145078f0b89d0a8e7a"
+    },
+    "redevelopment_selection": {
+      "path": "results/phase5/redevelopment_selection.json",
+      "sha256": "74ea1818094f22dda82ab0c5f899e3dfebd64f3f2ebd90eb6267af9935c26b88"
+    }
+  },
+  "stage": "persistence_and_reproducible_inference",
+  "trusted_loading": {
+    "arbitrary_untrusted_pickle_loading_permitted": false,
+    "hash_before_pickle_deserialization": true,
+    "validate_candidate_id": true,
+    "validate_detector_threshold": true,
+    "validate_diagnosis_classes": true,
+    "validate_estimator_parameters": true,
+    "validate_estimator_type": true,
+    "validate_fit_rows": true,
+    "validate_manifest_against_protocol": true,
+    "validate_wrapper_type": true
+  }
+}
