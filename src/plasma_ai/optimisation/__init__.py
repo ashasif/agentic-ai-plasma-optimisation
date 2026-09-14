@@ -25,6 +25,14 @@ from plasma_ai.optimisation.scenario import (
     ScenarioValidationError,
     parse_optimisation_scenario,
 )
+from plasma_ai.optimisation.surrogate_adapter import (
+    Phase6Prediction,
+    Phase6PredictionBatch,
+    Phase6SurrogateAdapter,
+    PredictionContractError,
+    SurrogateAdapterError,
+    load_phase6_surrogate_adapter,
+)
 
 
 __all__ = [
@@ -33,8 +41,13 @@ __all__ = [
     "EffectivePhase6Protocol",
     "OperatingPoint",
     "OptimisationScenario",
+    "Phase6Prediction",
+    "Phase6PredictionBatch",
+    "Phase6SurrogateAdapter",
+    "PredictionContractError",
     "ProtocolIntegrityError",
     "ScenarioValidationError",
+    "SurrogateAdapterError",
     "boundary_margin_cost",
     "density_relative_error",
     "effective_contract_sha256",
@@ -42,6 +55,7 @@ __all__ = [
     "file_sha256",
     "lexicographic_objective_key",
     "load_effective_phase6_protocol",
+    "load_phase6_surrogate_adapter",
     "normalized_absorbed_power",
     "normalized_boundary_margin",
     "normalized_nominal_distance",
