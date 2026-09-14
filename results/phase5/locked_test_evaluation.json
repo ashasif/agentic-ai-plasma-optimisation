@@ -1,0 +1,574 @@
+{
+  "data_usage": {
+    "detector_final_fit_rows": 3072,
+    "diagnoser_final_fit_rows": 1451,
+    "final_fit_splits": [
+      "train",
+      "validation"
+    ],
+    "retuning_after_test_permitted": false,
+    "test_active_rows": 463,
+    "test_episodes": 16,
+    "test_evaluation_performed": true,
+    "test_features_accessed": true,
+    "test_inactive_rows": 561,
+    "test_may_affect_model_selection": false,
+    "test_performance_calculated": true,
+    "test_predictions_generated": true,
+    "test_rows": 1024,
+    "test_targets_accessed": true
+  },
+  "detector": {
+    "candidate_id": "ERD4_extra_trees_threshold_040",
+    "fit_rows": 3072,
+    "metrics": {
+      "active_recall": 0.6781857451403888,
+      "auroc": 0.8313063297182214,
+      "average_precision": 0.8682481767587944,
+      "balanced_accuracy": 0.7998771862956846,
+      "confusion_matrix": {
+        "labels": [
+          false,
+          true
+        ],
+        "matrix": [
+          [
+            517,
+            44
+          ],
+          [
+            149,
+            314
+          ]
+        ]
+      },
+      "false_positive_rate": 0.0784313725490196,
+      "macro_f1": 0.8038133073646447,
+      "per_active_fault_family_recall": {
+        "flow_delivery": {
+          "detected": 82,
+          "recall": 0.7008547008547008,
+          "support": 117
+        },
+        "power_coupling": {
+          "detected": 65,
+          "recall": 0.6310679611650486,
+          "support": 103
+        },
+        "pressure_sensor_bias": {
+          "detected": 85,
+          "recall": 0.7142857142857143,
+          "support": 119
+        },
+        "pumping_effectiveness": {
+          "detected": 82,
+          "recall": 0.6612903225806451,
+          "support": 124
+        }
+      },
+      "positive_precision": 0.8770949720670391,
+      "specificity": 0.9215686274509803
+    },
+    "prediction_integrity": {
+      "predicted_active_rows": 358,
+      "predicted_inactive_rows": 666,
+      "probability_finite": true,
+      "probability_max": 0.992,
+      "probability_min": 0.024,
+      "row_count": 1024
+    },
+    "sequence_diagnostics": {
+      "episode_records": [
+        {
+          "detection_delay_steps": 0,
+          "episode_id": "monitor_test_001",
+          "fault_episode": true,
+          "first_active_step": 23,
+          "first_alarm_at_or_after_active_step": 23,
+          "missed_fault_episode": false,
+          "normal_episode_false_alarm": false,
+          "pre_active_false_alarm": true
+        },
+        {
+          "detection_delay_steps": 18,
+          "episode_id": "monitor_test_002",
+          "fault_episode": true,
+          "first_active_step": 29,
+          "first_alarm_at_or_after_active_step": 47,
+          "missed_fault_episode": false,
+          "normal_episode_false_alarm": false,
+          "pre_active_false_alarm": false
+        },
+        {
+          "detection_delay_steps": 12,
+          "episode_id": "monitor_test_003",
+          "fault_episode": true,
+          "first_active_step": 28,
+          "first_alarm_at_or_after_active_step": 40,
+          "missed_fault_episode": false,
+          "normal_episode_false_alarm": false,
+          "pre_active_false_alarm": false
+        },
+        {
+          "detection_delay_steps": null,
+          "episode_id": "monitor_test_004",
+          "fault_episode": false,
+          "first_active_step": null,
+          "first_alarm_at_or_after_active_step": null,
+          "missed_fault_episode": false,
+          "normal_episode_false_alarm": true,
+          "pre_active_false_alarm": false
+        },
+        {
+          "detection_delay_steps": 0,
+          "episode_id": "monitor_test_005",
+          "fault_episode": true,
+          "first_active_step": 26,
+          "first_alarm_at_or_after_active_step": 26,
+          "missed_fault_episode": false,
+          "normal_episode_false_alarm": false,
+          "pre_active_false_alarm": true
+        },
+        {
+          "detection_delay_steps": 0,
+          "episode_id": "monitor_test_006",
+          "fault_episode": true,
+          "first_active_step": 24,
+          "first_alarm_at_or_after_active_step": 24,
+          "missed_fault_episode": false,
+          "normal_episode_false_alarm": false,
+          "pre_active_false_alarm": true
+        },
+        {
+          "detection_delay_steps": 9,
+          "episode_id": "monitor_test_007",
+          "fault_episode": true,
+          "first_active_step": 23,
+          "first_alarm_at_or_after_active_step": 32,
+          "missed_fault_episode": false,
+          "normal_episode_false_alarm": false,
+          "pre_active_false_alarm": false
+        },
+        {
+          "detection_delay_steps": 9,
+          "episode_id": "monitor_test_008",
+          "fault_episode": true,
+          "first_active_step": 29,
+          "first_alarm_at_or_after_active_step": 38,
+          "missed_fault_episode": false,
+          "normal_episode_false_alarm": false,
+          "pre_active_false_alarm": true
+        },
+        {
+          "detection_delay_steps": 0,
+          "episode_id": "monitor_test_009",
+          "fault_episode": true,
+          "first_active_step": 16,
+          "first_alarm_at_or_after_active_step": 16,
+          "missed_fault_episode": false,
+          "normal_episode_false_alarm": false,
+          "pre_active_false_alarm": false
+        },
+        {
+          "detection_delay_steps": 0,
+          "episode_id": "monitor_test_010",
+          "fault_episode": true,
+          "first_active_step": 23,
+          "first_alarm_at_or_after_active_step": 23,
+          "missed_fault_episode": false,
+          "normal_episode_false_alarm": false,
+          "pre_active_false_alarm": true
+        },
+        {
+          "detection_delay_steps": null,
+          "episode_id": "monitor_test_011",
+          "fault_episode": false,
+          "first_active_step": null,
+          "first_alarm_at_or_after_active_step": null,
+          "missed_fault_episode": false,
+          "normal_episode_false_alarm": true,
+          "pre_active_false_alarm": false
+        },
+        {
+          "detection_delay_steps": 14,
+          "episode_id": "monitor_test_012",
+          "fault_episode": true,
+          "first_active_step": 23,
+          "first_alarm_at_or_after_active_step": 37,
+          "missed_fault_episode": false,
+          "normal_episode_false_alarm": false,
+          "pre_active_false_alarm": false
+        },
+        {
+          "detection_delay_steps": 0,
+          "episode_id": "monitor_test_013",
+          "fault_episode": true,
+          "first_active_step": 30,
+          "first_alarm_at_or_after_active_step": 30,
+          "missed_fault_episode": false,
+          "normal_episode_false_alarm": false,
+          "pre_active_false_alarm": true
+        },
+        {
+          "detection_delay_steps": null,
+          "episode_id": "monitor_test_014",
+          "fault_episode": false,
+          "first_active_step": null,
+          "first_alarm_at_or_after_active_step": null,
+          "missed_fault_episode": false,
+          "normal_episode_false_alarm": true,
+          "pre_active_false_alarm": false
+        },
+        {
+          "detection_delay_steps": 15,
+          "episode_id": "monitor_test_015",
+          "fault_episode": true,
+          "first_active_step": 31,
+          "first_alarm_at_or_after_active_step": 46,
+          "missed_fault_episode": false,
+          "normal_episode_false_alarm": false,
+          "pre_active_false_alarm": false
+        },
+        {
+          "detection_delay_steps": null,
+          "episode_id": "monitor_test_016",
+          "fault_episode": false,
+          "first_active_step": null,
+          "first_alarm_at_or_after_active_step": null,
+          "missed_fault_episode": false,
+          "normal_episode_false_alarm": true,
+          "pre_active_false_alarm": false
+        }
+      ],
+      "summary": {
+        "detected_fault_episode_count": 12,
+        "fault_episode_count": 12,
+        "fault_episode_detection_rate": 1.0,
+        "max_detection_delay_steps": 18,
+        "mean_detection_delay_steps": 6.416666666666667,
+        "median_detection_delay_steps": 4.5,
+        "missed_fault_episode_count": 0,
+        "normal_episode_count": 4,
+        "normal_episode_false_alarm_count": 4,
+        "ordered_unit": "step_index; not calibrated physical time",
+        "pre_active_false_alarm_episode_count": 6
+      }
+    },
+    "threshold": 0.4
+  },
+  "diagnoser": {
+    "candidate_id": "ERG3_extra_trees",
+    "classes": [
+      "flow_delivery",
+      "power_coupling",
+      "pressure_path_anomaly"
+    ],
+    "fit_rows": 1451,
+    "ground_truth_active_rows_only": true,
+    "majority_baseline": {
+      "macro_f1_improvement": 0.5068630223079902,
+      "metrics": {
+        "balanced_accuracy": 0.3333333333333333,
+        "confusion_matrix": {
+          "labels": [
+            "flow_delivery",
+            "power_coupling",
+            "pressure_path_anomaly"
+          ],
+          "matrix": [
+            [
+              0,
+              0,
+              117
+            ],
+            [
+              0,
+              0,
+              103
+            ],
+            [
+              0,
+              0,
+              243
+            ]
+          ]
+        },
+        "macro_f1": 0.2294617563739377,
+        "per_class": {
+          "flow_delivery": {
+            "f1": 0.0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "support": 117
+          },
+          "power_coupling": {
+            "f1": 0.0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "support": 103
+          },
+          "pressure_path_anomaly": {
+            "f1": 0.6883852691218131,
+            "precision": 0.5248380129589633,
+            "recall": 1.0,
+            "support": 243
+          }
+        }
+      }
+    },
+    "metrics": {
+      "balanced_accuracy": 0.7531878405664814,
+      "confusion_matrix": {
+        "labels": [
+          "flow_delivery",
+          "power_coupling",
+          "pressure_path_anomaly"
+        ],
+        "matrix": [
+          [
+            83,
+            1,
+            33
+          ],
+          [
+            0,
+            91,
+            12
+          ],
+          [
+            65,
+            16,
+            162
+          ]
+        ]
+      },
+      "macro_f1": 0.7363247786819279,
+      "minimum_per_class_recall": 0.6666666666666666,
+      "per_class": {
+        "flow_delivery": {
+          "f1": 0.6264150943396226,
+          "precision": 0.5608108108108109,
+          "recall": 0.7094017094017094,
+          "support": 117
+        },
+        "power_coupling": {
+          "f1": 0.8625592417061612,
+          "precision": 0.8425925925925926,
+          "recall": 0.883495145631068,
+          "support": 103
+        },
+        "pressure_path_anomaly": {
+          "f1": 0.72,
+          "precision": 0.782608695652174,
+          "recall": 0.6666666666666666,
+          "support": 243
+        }
+      }
+    },
+    "training_majority_class": "pressure_path_anomaly"
+  },
+  "evaluation_status": "completed",
+  "feature_contract": {
+    "feature_count": 9,
+    "feature_order_frozen": true,
+    "features": [
+      "nominal_absorbed_power_W",
+      "target_pressure_mTorr",
+      "nominal_flow_sccm",
+      "measured_absorbed_power_W",
+      "measured_flow_sccm",
+      "measured_pressure_mTorr",
+      "absorbed_power_relative_residual",
+      "flow_relative_residual",
+      "pressure_relative_residual"
+    ]
+  },
+  "governance": {
+    "final_models_frozen_before_test": true,
+    "model_changes_permitted_from_test": false,
+    "phase5f_unlock_qualified": true,
+    "rerun_for_performance_improvement_permitted": false,
+    "test_used_for_model_selection": false,
+    "test_used_for_retuning": false,
+    "test_used_for_threshold_selection": false
+  },
+  "input_artifacts": {
+    "fault_detector": {
+      "path": "artifacts\\phase5\\fault_detector.pkl",
+      "sha256": "4a00e785d7e7f0a8429020399967cdd82c18da275d58e5b83bc11707eeac8a6a"
+    },
+    "fault_diagnoser": {
+      "path": "artifacts\\phase5\\fault_diagnoser.pkl",
+      "sha256": "2e9dea016137594c707ecd3c32116691cc90d0127133f11c70372c93e6fcca84"
+    },
+    "phase5_protocol": {
+      "path": "configs\\phase5\\phase5_protocol.json",
+      "sha256": "70de30b7a5f2e36b567f8848ee0e626833c25eb8285e7b4df9e63d5db77ddcec"
+    },
+    "phase5er_protocol": {
+      "path": "configs\\phase5\\phase5er_protocol.json",
+      "sha256": "8df07efea044580c7cfbdfc893c04076ba5fbfbd982b60d2fd5a37f186508bda"
+    },
+    "redevelopment_benchmark": {
+      "path": "results\\phase5\\redevelopment_benchmark.json",
+      "sha256": "336a6b4af44a5b833c88ebdeeb2b6e7b10fac50cba9e86ded8548f427b6eee4e"
+    },
+    "redevelopment_final_refit": {
+      "path": "results\\phase5\\redevelopment_final_refit.json",
+      "sha256": "b04d4676b97235c2a23e00920e27935f96e4e2c2da1751145078f0b89d0a8e7a"
+    },
+    "redevelopment_selection": {
+      "path": "results\\phase5\\redevelopment_selection.json",
+      "sha256": "74ea1818094f22dda82ab0c5f899e3dfebd64f3f2ebd90eb6267af9935c26b88"
+    }
+  },
+  "interpretation": {
+    "model_changes_permitted_from_test": false,
+    "performance_threshold_introduced": false,
+    "retuning_after_test_permitted": false,
+    "test_is_development_feedback": false,
+    "test_is_final_generalisation_evidence": true,
+    "threshold_changes_permitted_from_test": false
+  },
+  "irreversible_test_evaluation": true,
+  "phase": "5F",
+  "preflight": {
+    "detector_fit_rows": 3072,
+    "detector_threshold": 0.4,
+    "diagnoser_fit_rows": 1451,
+    "frozen_hashes": {
+      "fault_detector": "4a00e785d7e7f0a8429020399967cdd82c18da275d58e5b83bc11707eeac8a6a",
+      "fault_diagnoser": "2e9dea016137594c707ecd3c32116691cc90d0127133f11c70372c93e6fcca84",
+      "phase5_protocol": "70de30b7a5f2e36b567f8848ee0e626833c25eb8285e7b4df9e63d5db77ddcec",
+      "phase5er_protocol": "8df07efea044580c7cfbdfc893c04076ba5fbfbd982b60d2fd5a37f186508bda",
+      "redevelopment_benchmark": "336a6b4af44a5b833c88ebdeeb2b6e7b10fac50cba9e86ded8548f427b6eee4e",
+      "redevelopment_final_refit": "b04d4676b97235c2a23e00920e27935f96e4e2c2da1751145078f0b89d0a8e7a",
+      "redevelopment_selection": "74ea1818094f22dda82ab0c5f899e3dfebd64f3f2ebd90eb6267af9935c26b88"
+    },
+    "phase": "5F",
+    "phase5f_unlock_qualified": true,
+    "selected_detector": "ERD4_extra_trees_threshold_040",
+    "selected_diagnoser": "ERG3_extra_trees",
+    "test_consumed_before_evaluation": false,
+    "test_fit_rows": 0
+  },
+  "scientific_scope": {
+    "experimental_validation": false,
+    "industrial_validation": false,
+    "oipt_operating_range_claim": false,
+    "pressure_path_anomaly_identifies_specific_mechanism": false,
+    "pressure_path_anomaly_is_ambiguity_aware": true,
+    "reduced_order_argon_monitoring_environment": true,
+    "synthetic_data_only": true
+  },
+  "secondary_end_to_end": {
+    "classes": [
+      "none",
+      "flow_delivery",
+      "power_coupling",
+      "pressure_path_anomaly"
+    ],
+    "metrics": {
+      "balanced_accuracy": 0.6683110939726208,
+      "confusion_matrix": {
+        "labels": [
+          "none",
+          "flow_delivery",
+          "power_coupling",
+          "pressure_path_anomaly"
+        ],
+        "matrix": [
+          [
+            517,
+            3,
+            3,
+            38
+          ],
+          [
+            35,
+            82,
+            0,
+            0
+          ],
+          [
+            38,
+            0,
+            65,
+            0
+          ],
+          [
+            76,
+            49,
+            16,
+            102
+          ]
+        ]
+      },
+      "macro_f1": 0.6809791205369379,
+      "per_class": {
+        "flow_delivery": {
+          "f1": 0.6533864541832669,
+          "precision": 0.6119402985074627,
+          "recall": 0.7008547008547008,
+          "support": 117
+        },
+        "none": {
+          "f1": 0.8427057864710676,
+          "precision": 0.7762762762762763,
+          "recall": 0.9215686274509803,
+          "support": 561
+        },
+        "power_coupling": {
+          "f1": 0.6951871657754011,
+          "precision": 0.7738095238095238,
+          "recall": 0.6310679611650486,
+          "support": 103
+        },
+        "pressure_path_anomaly": {
+          "f1": 0.5326370757180157,
+          "precision": 0.7285714285714285,
+          "recall": 0.41975308641975306,
+          "support": 243
+        }
+      }
+    },
+    "prediction_counts": {
+      "flow_delivery": 134,
+      "none": 666,
+      "power_coupling": 84,
+      "pressure_path_anomaly": 140
+    },
+    "selection_metric": false,
+    "truth_counts": {
+      "flow_delivery": 117,
+      "none": 561,
+      "power_coupling": 103,
+      "pressure_path_anomaly": 243
+    }
+  },
+  "stage": "one_time_locked_test_evaluation",
+  "test_state": {
+    "test_consumed": true,
+    "test_features_interpreted": true,
+    "test_matrix_created": true,
+    "test_performance_calculated": true,
+    "test_predictions_generated": true,
+    "test_targets_interpreted": true
+  },
+  "test_target_summary": {
+    "binary_active_rows": 463,
+    "binary_inactive_rows": 561,
+    "original_family_counts": {
+      "flow_delivery": 117,
+      "none": 561,
+      "power_coupling": 103,
+      "pressure_sensor_bias": 119,
+      "pumping_effectiveness": 124
+    },
+    "redeveloped_active_class_counts": {
+      "flow_delivery": 117,
+      "power_coupling": 103,
+      "pressure_path_anomaly": 243
+    }
+  }
+}
