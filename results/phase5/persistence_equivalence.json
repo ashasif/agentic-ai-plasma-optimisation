@@ -1,0 +1,173 @@
+{
+  "acceptance": {
+    "exact_array_equality_required": true,
+    "numerical_tolerance_substitution_permitted": false,
+    "overall_passed": true,
+    "required_checks": {
+      "all_probabilities_finite": true,
+      "detector_active_probability_exact_array_equal": true,
+      "detector_decision_exact_array_equal": true,
+      "diagnoser_prediction_exact_array_equal": true,
+      "end_to_end_state_exact_array_equal": true,
+      "raw_to_model_feature_matrix_exact_equal": true
+    }
+  },
+  "equivalence": {
+    "detector_active_probability": {
+      "exact_array_equal": true,
+      "max_absolute_difference": 0.0,
+      "reference_all_finite": true,
+      "reference_shape": [
+        45
+      ],
+      "runtime_all_finite": true,
+      "runtime_shape": [
+        45
+      ]
+    },
+    "detector_decision": {
+      "exact_array_equal": true,
+      "reference_shape": [
+        45
+      ],
+      "runtime_shape": [
+        45
+      ]
+    },
+    "diagnoser_prediction": {
+      "active_indices_exact_array_equal": true,
+      "evaluated_row_count": 36,
+      "exact_array_equal": true,
+      "reference_shape": [
+        36
+      ],
+      "runtime_shape": [
+        36
+      ]
+    },
+    "end_to_end_state": {
+      "exact_array_equal": true,
+      "reference_shape": [
+        45
+      ],
+      "runtime_shape": [
+        45
+      ]
+    },
+    "raw_to_model_feature_matrix": {
+      "exact_array_equal": true,
+      "reference_shape": [
+        45,
+        9
+      ],
+      "runtime_shape": [
+        45,
+        9
+      ]
+    }
+  },
+  "governance": {
+    "model_bytes_modified": false,
+    "model_selection_performed": false,
+    "models_reconstructed": false,
+    "models_reserialized": false,
+    "models_retrained": false,
+    "phase5_test_dataset_opened": false,
+    "phase5_test_performance_calculated": false,
+    "phase5_test_predictions_generated": false,
+    "threshold_selection_performed": false,
+    "train_or_validation_data_opened": false
+  },
+  "phase": "5G",
+  "probe": {
+    "dataset_source": "deterministic_synthetic_protocol_probe",
+    "model_feature_count": 9,
+    "nominal_absorbed_power_W": [
+      25.0,
+      50.0,
+      80.0
+    ],
+    "nominal_flow_sccm": 20.0,
+    "performance_evaluation": false,
+    "raw_feature_count": 6,
+    "residual_scenarios": [
+      {
+        "flow_relative": 0.0,
+        "name": "nominal",
+        "power_relative": 0.0,
+        "pressure_relative": 0.0
+      },
+      {
+        "flow_relative": 0.0,
+        "name": "power_minus_10pct",
+        "power_relative": -0.1,
+        "pressure_relative": 0.0
+      },
+      {
+        "flow_relative": -0.07,
+        "name": "flow_minus_7pct",
+        "power_relative": 0.0,
+        "pressure_relative": 0.0
+      },
+      {
+        "flow_relative": 0.0,
+        "name": "pressure_plus_10pct",
+        "power_relative": 0.0,
+        "pressure_relative": 0.1
+      },
+      {
+        "flow_relative": 0.0,
+        "name": "pressure_minus_10pct",
+        "power_relative": 0.0,
+        "pressure_relative": -0.1
+      }
+    ],
+    "role": "persistence_equivalence_only",
+    "row_count": 45,
+    "target_pressure_mTorr": [
+      20.0,
+      32.5,
+      45.0
+    ],
+    "uses_targets": false,
+    "uses_test_data": false,
+    "uses_train_data": false,
+    "uses_validation_data": false
+  },
+  "provenance": {
+    "detector": {
+      "path": "artifacts/phase5/fault_detector.pkl",
+      "sha256": "4a00e785d7e7f0a8429020399967cdd82c18da275d58e5b83bc11707eeac8a6a"
+    },
+    "diagnoser": {
+      "path": "artifacts/phase5/fault_diagnoser.pkl",
+      "sha256": "2e9dea016137594c707ecd3c32116691cc90d0127133f11c70372c93e6fcca84"
+    },
+    "evaluation_git_commit": "638326cf9e22de9bcf49b8017ba2fe33c93bdd27",
+    "phase5g_protocol": {
+      "path": "configs/phase5/phase5g_protocol.json",
+      "sha256": "2ca15b486bf15c3c439e19607812358f632151c94de15541ae6d27e04fe1574c"
+    },
+    "production_manifest": {
+      "freeze_commit": "638326cf9e22de9bcf49b8017ba2fe33c93bdd27",
+      "path": "artifacts/phase5/monitoring_manifest.json",
+      "sha256": "a18afb158aa7c02ac0e345b5f238a91e34f876d10dd43218c574554b874a9259"
+    },
+    "runtime_implementation": {
+      "freeze_commit": "0ffba2d134f5b788957e30c2ec3c12f8f22920c2",
+      "path": "src/plasma_ai/monitoring/phase5g_persistence.py",
+      "sha256": "7d8a91a6cb7b860bc62acad08a9b4624388106d4e009aff2eaef907c05057834"
+    }
+  },
+  "scientific_scope": {
+    "experimental_validation": false,
+    "industrial_validation": false,
+    "model_performance_evaluation": false,
+    "ood_validation": false,
+    "persistence_reproducibility_diagnostic": true,
+    "pressure_path_anomaly_identifies_specific_mechanism": false,
+    "synthetic_probe_only": true
+  },
+  "stage": "persistence_equivalence",
+  "status": "passed"
+}
