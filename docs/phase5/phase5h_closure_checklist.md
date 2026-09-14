@@ -1,0 +1,105 @@
+# Phase 5H ? Final Phase 5 Closure Checklist
+
+## Final formal closure state
+
+- [x] Phase 5 repository audit started from the exact Phase 5G closure commit.
+- [x] Repository was clean at Phase 5H entry.
+- [x] Phase 5 base protocol hash was verified.
+- [x] Phase 5E-R protocol hash was verified.
+- [x] Phase 5G protocol hash was verified.
+- [x] Healthy-reference anomaly evidence hash was verified.
+- [x] Original supervised benchmark hash was verified.
+- [x] Original validation-selection hash was verified.
+- [x] Original controlled-stop evidence remains preserved.
+- [x] Redevelopment benchmark hash was verified.
+- [x] Redevelopment selection hash was verified.
+- [x] Redevelopment final-refit record hash was verified.
+- [x] Frozen detector artifact hash was verified.
+- [x] Frozen diagnoser artifact hash was verified.
+- [x] Locked TEST evaluation hash was verified.
+- [x] Production monitoring manifest hash was verified.
+- [x] Persistence-equivalence evidence hash was verified.
+- [x] Phase 5G runtime implementation hash was verified.
+- [x] Phase 5G runtime-test hash was verified.
+- [x] Key Phase 5 commits remain ancestors of final HEAD.
+- [x] Phase 5F closure documentation exists.
+- [x] Phase 5G closure documentation exists.
+- [x] Phase 5F is formally closed.
+- [x] Phase 5G is formally closed.
+- [x] Phase 5H was formally unlocked by Phase 5G closure.
+- [x] Phase 5 TEST was consumed exactly once.
+- [x] Phase 5 TEST is permanently consumed.
+- [x] Phase 5 TEST rerun for development is prohibited.
+- [x] Post-TEST detector retuning is prohibited.
+- [x] Post-TEST threshold selection is prohibited.
+- [x] Post-TEST model selection is prohibited.
+- [x] No Phase 5H model fitting was performed.
+- [x] No Phase 5H model reconstruction was performed.
+- [x] No Phase 5H model reserialization was performed.
+- [x] No Phase 5H TEST predictions were generated.
+- [x] No Phase 5H TEST metrics were generated.
+- [x] Frozen detector candidate remains ERD4_extra_trees_threshold_040.
+- [x] Frozen detector threshold remains 0.40.
+- [x] Frozen detector fit rows remain 3072.
+- [x] Frozen diagnoser candidate remains ERG3_extra_trees.
+- [x] Frozen diagnoser fit rows remain 1451.
+- [x] Frozen diagnosis classes remain ambiguity-aware.
+- [x] Pressure-path anomaly does not claim unique mechanism identification.
+- [x] Six raw runtime monitoring features remain frozen.
+- [x] Nine model features remain frozen.
+- [x] Residual construction remains deterministic and row-local.
+- [x] No target-derived predictive features were introduced.
+- [x] No protected truth predictive features were introduced.
+- [x] No future-row predictive features were introduced.
+- [x] Original four-family diagnosis limitation remains preserved.
+- [x] Original Phase 5D/5E failure remains preserved.
+- [x] Controlled redevelopment occurred before TEST.
+- [x] Redevelopment selection used validation evidence only.
+- [x] Final refit used TRAIN + VALIDATION only.
+- [x] No TEST rows were used for model fitting.
+- [x] Locked TEST detector evidence remains frozen.
+- [x] Locked TEST sequence evidence remains frozen.
+- [x] Locked TEST diagnoser evidence remains frozen.
+- [x] Locked TEST end-to-end evidence remains frozen.
+- [x] Detector TEST active recall limitation remains documented.
+- [x] Sequence false-alarm limitation remains documented.
+- [x] Pressure-path end-to-end recall limitation remains documented.
+- [x] TEST evidence was not used for post-TEST tuning.
+- [x] Production manifest was generated from a clean committed runtime implementation.
+- [x] Production manifest is write-once.
+- [x] Artifact hashes are verified before trusted pickle deserialization.
+- [x] Scientific runtime compatibility remains explicitly checked.
+- [x] Persistence-equivalence probe used exactly 45 rows.
+- [x] Persistence-equivalence probe used no TRAIN data.
+- [x] Persistence-equivalence probe used no VALIDATION data.
+- [x] Persistence-equivalence probe used no TEST data.
+- [x] Persistence-equivalence probe used no targets.
+- [x] Persistence-equivalence probe was not a performance evaluation.
+- [x] Feature-construction exact equality passed.
+- [x] Detector-probability exact equality passed.
+- [x] Detector-decision exact equality passed.
+- [x] Diagnoser-prediction exact equality passed.
+- [x] End-to-end-state exact equality passed.
+- [x] Maximum persistence-equivalence probability difference was 0.0.
+- [x] No tolerance substitution was used for frozen exact-equivalence checks.
+- [x] Synthetic-data scope remains explicit.
+- [x] Reduced-order argon scope remains explicit.
+- [x] No experimental-validation claim is made.
+- [x] No industrial-validation claim is made.
+- [x] No OIPT operating-range claim is made.
+- [x] No wafer-scale spatial diagnosis claim is made.
+- [x] No reactive etch/deposition chemistry diagnosis claim is made.
+- [x] Detection delay is not presented as calibrated physical time.
+- [x] Phase 5H introduces no new scientific performance claim.
+- [x] Phase 5H introduces no new model-development feedback.
+- [x] Phase 5 evidence chain is complete.
+- [x] Phase 5 governance chain is complete.
+- [x] Phase 5 persistence chain is complete.
+- [x] Phase 5 closure documentation is complete.
+- [x] Full repository regression passes at final Phase 5 closure.
+- [x] Repository is clean at the final Phase 5 closure checkpoint.
+- [x] Phase 5 is formally closed.
+- [x] Phase 6 is formally unlocked.
+- [x] Phase 6 must not silently reopen or retune Phase 5.
+- [x] Phase 6 is constrained operating-point optimisation.
+- [x] Agentic orchestration remains reserved for Phase 7.
