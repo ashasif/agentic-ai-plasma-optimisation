@@ -1,0 +1,1425 @@
+{
+  "evidence_separation": {
+    "agentic_orchestration_used": false,
+    "global_continuous_optimum_claimed": false,
+    "global_physical_infeasibility_claimed": false,
+    "phase4_test_accessed": false,
+    "phase5_test_accessed": false,
+    "qualification_evidence_not_test_evidence": true,
+    "shgo_executed": false,
+    "source_simulator_executed": false
+  },
+  "perturbation_diagnostics": {
+    "completion_pass": true,
+    "coordinate_clipping_used": false,
+    "offset_count_per_source": 8,
+    "out_of_domain_inference_used": false,
+    "results": [
+      {
+        "expected_offset_count": 8,
+        "records": [
+          {
+            "candidate_power_W": 22.891220933467,
+            "candidate_pressure_mTorr": 42.02313390098714,
+            "constraint_values": [],
+            "delta_power_W": -0.25,
+            "delta_pressure_mTorr": 0.0,
+            "electron_density_m3": 4.941621221437579e+16,
+            "electron_temperature_eV": 1.6306218085058624,
+            "evaluated": true,
+            "normalized_boundary_margin": 0.10521627911289334,
+            "out_of_domain": false,
+            "primary_objective": 0.01167575571248416,
+            "primary_objective_delta": 0.011531438536723039,
+            "scenario_feasible": true
+          },
+          {
+            "candidate_power_W": 23.391220933467,
+            "candidate_pressure_mTorr": 42.02313390098714,
+            "constraint_values": [],
+            "delta_power_W": 0.25,
+            "delta_pressure_mTorr": 0.0,
+            "electron_density_m3": 5.0696356047941096e+16,
+            "electron_temperature_eV": 1.6306218085058624,
+            "evaluated": true,
+            "normalized_boundary_margin": 0.11188294577956,
+            "out_of_domain": false,
+            "primary_objective": 0.01392712095882192,
+            "primary_objective_delta": 0.0137828037830608,
+            "scenario_feasible": true
+          },
+          {
+            "candidate_power_W": 23.141220933467,
+            "candidate_pressure_mTorr": 41.77313390098714,
+            "constraint_values": [],
+            "delta_power_W": 0.0,
+            "delta_pressure_mTorr": -0.25,
+            "electron_density_m3": 5.0007215858788056e+16,
+            "electron_temperature_eV": 1.6320909341037984,
+            "evaluated": true,
+            "normalized_boundary_margin": 0.10854961244622667,
+            "out_of_domain": false,
+            "primary_objective": 0.00014431717576112,
+            "primary_objective_delta": 0.0,
+            "scenario_feasible": true
+          },
+          {
+            "candidate_power_W": 23.141220933467,
+            "candidate_pressure_mTorr": 42.27313390098714,
+            "constraint_values": [],
+            "delta_power_W": 0.0,
+            "delta_pressure_mTorr": 0.25,
+            "electron_density_m3": 5.0011472720744824e+16,
+            "electron_temperature_eV": 1.6291629591222032,
+            "evaluated": true,
+            "normalized_boundary_margin": 0.10854961244622667,
+            "out_of_domain": false,
+            "primary_objective": 0.00022945441489648,
+            "primary_objective_delta": 8.513723913536e-05,
+            "scenario_feasible": true
+          },
+          {
+            "candidate_power_W": 22.891220933467,
+            "candidate_pressure_mTorr": 41.77313390098714,
+            "constraint_values": [],
+            "delta_power_W": -0.25,
+            "delta_pressure_mTorr": -0.25,
+            "electron_density_m3": 4.941621221437579e+16,
+            "electron_temperature_eV": 1.6320909341037984,
+            "evaluated": true,
+            "normalized_boundary_margin": 0.10521627911289334,
+            "out_of_domain": false,
+            "primary_objective": 0.01167575571248416,
+            "primary_objective_delta": 0.011531438536723039,
+            "scenario_feasible": true
+          },
+          {
+            "candidate_power_W": 22.891220933467,
+            "candidate_pressure_mTorr": 42.27313390098714,
+            "constraint_values": [],
+            "delta_power_W": -0.25,
+            "delta_pressure_mTorr": 0.25,
+            "electron_density_m3": 4.942041876717443e+16,
+            "electron_temperature_eV": 1.6291629591222032,
+            "evaluated": true,
+            "normalized_boundary_margin": 0.10521627911289334,
+            "out_of_domain": false,
+            "primary_objective": 0.01159162465651136,
+            "primary_objective_delta": 0.011447307480750239,
+            "scenario_feasible": true
+          },
+          {
+            "candidate_power_W": 23.391220933467,
+            "candidate_pressure_mTorr": 41.77313390098714,
+            "constraint_values": [],
+            "delta_power_W": 0.25,
+            "delta_pressure_mTorr": -0.25,
+            "electron_density_m3": 5.0696356047941096e+16,
+            "electron_temperature_eV": 1.6320909341037984,
+            "evaluated": true,
+            "normalized_boundary_margin": 0.11188294577956,
+            "out_of_domain": false,
+            "primary_objective": 0.01392712095882192,
+            "primary_objective_delta": 0.0137828037830608,
+            "scenario_feasible": true
+          },
+          {
+            "candidate_power_W": 23.391220933467,
+            "candidate_pressure_mTorr": 42.27313390098714,
+            "constraint_values": [],
+            "delta_power_W": 0.25,
+            "delta_pressure_mTorr": 0.25,
+            "electron_density_m3": 5.070067157292486e+16,
+            "electron_temperature_eV": 1.6291629591222032,
+            "evaluated": true,
+            "normalized_boundary_margin": 0.11188294577956,
+            "out_of_domain": false,
+            "primary_objective": 0.01401343145849728,
+            "primary_objective_delta": 0.01386911428273616,
+            "scenario_feasible": true
+          }
+        ],
+        "scenario_id": "soft_density_5e16",
+        "source_operating_point": {
+          "nominal_absorbed_power_W": 23.141220933467,
+          "target_pressure_mTorr": 42.02313390098714
+        },
+        "source_primary_objective": 0.00014431717576112
+      },
+      {
+        "expected_offset_count": 8,
+        "records": [
+          {
+            "candidate_power_W": 38.28399351726603,
+            "candidate_pressure_mTorr": 57.55928352686808,
+            "constraint_values": [
+              {
+                "name": "density_hard_constraint",
+                "passes_greater_equal_zero": false,
+                "value": -0.010146783619393758
+              }
+            ],
+            "delta_power_W": -0.25,
+            "delta_pressure_mTorr": 0.0,
+            "electron_density_m3": 9.398532163806062e+16,
+            "electron_temperature_eV": 1.5565747793002718,
+            "evaluated": true,
+            "normalized_boundary_margin": 0.048814329462638424,
+            "out_of_domain": false,
+            "primary_objective": 0.3104532468968804,
+            "primary_objective_delta": -0.003333333333333355,
+            "scenario_feasible": false
+          },
+          {
+            "candidate_power_W": 38.78399351726603,
+            "candidate_pressure_mTorr": 57.55928352686808,
+            "constraint_values": [
+              {
+                "name": "density_hard_constraint",
+                "passes_greater_equal_zero": true,
+                "value": 0.010504967979523043
+              }
+            ],
+            "delta_power_W": 0.25,
+            "delta_pressure_mTorr": 0.0,
+            "electron_density_m3": 9.60504967979523e+16,
+            "electron_temperature_eV": 1.556574622290154,
+            "evaluated": true,
+            "normalized_boundary_margin": 0.048814329462638424,
+            "out_of_domain": false,
+            "primary_objective": 0.31711991356354713,
+            "primary_objective_delta": 0.003333333333333355,
+            "scenario_feasible": true
+          },
+          {
+            "candidate_power_W": 38.53399351726603,
+            "candidate_pressure_mTorr": 57.30928352686808,
+            "constraint_values": [
+              {
+                "name": "density_hard_constraint",
+                "passes_greater_equal_zero": true,
+                "value": 0.008086989950896642
+              }
+            ],
+            "delta_power_W": 0.0,
+            "delta_pressure_mTorr": -0.25,
+            "electron_density_m3": 9.580869899508966e+16,
+            "electron_temperature_eV": 1.5575485176340065,
+            "evaluated": true,
+            "normalized_boundary_margin": 0.05381432946263843,
+            "out_of_domain": false,
+            "primary_objective": 0.3137865802302138,
+            "primary_objective_delta": 0.0,
+            "scenario_feasible": true
+          },
+          {
+            "candidate_power_W": 38.53399351726603,
+            "candidate_pressure_mTorr": 57.80928352686808,
+            "constraint_values": [
+              {
+                "name": "density_hard_constraint",
+                "passes_greater_equal_zero": true,
+                "value": 0.010504967979523043
+              }
+            ],
+            "delta_power_W": 0.0,
+            "delta_pressure_mTorr": 0.25,
+            "electron_density_m3": 9.60504967979523e+16,
+            "electron_temperature_eV": 1.555592316157985,
+            "evaluated": true,
+            "normalized_boundary_margin": 0.04381432946263843,
+            "out_of_domain": false,
+            "primary_objective": 0.3137865802302138,
+            "primary_objective_delta": 0.0,
+            "scenario_feasible": true
+          },
+          {
+            "candidate_power_W": 38.28399351726603,
+            "candidate_pressure_mTorr": 57.30928352686808,
+            "constraint_values": [
+              {
+                "name": "density_hard_constraint",
+                "passes_greater_equal_zero": false,
+                "value": -0.012512772867864314
+              }
+            ],
+            "delta_power_W": -0.25,
+            "delta_pressure_mTorr": -0.25,
+            "electron_density_m3": 9.374872271321357e+16,
+            "electron_temperature_eV": 1.55754841432426,
+            "evaluated": true,
+            "normalized_boundary_margin": 0.05381432946263843,
+            "out_of_domain": false,
+            "primary_objective": 0.3104532468968804,
+            "primary_objective_delta": -0.003333333333333355,
+            "scenario_feasible": false
+          },
+          {
+            "candidate_power_W": 38.28399351726603,
+            "candidate_pressure_mTorr": 57.80928352686808,
+            "constraint_values": [
+              {
+                "name": "density_hard_constraint",
+                "passes_greater_equal_zero": false,
+                "value": -0.010146783619393758
+              }
+            ],
+            "delta_power_W": -0.25,
+            "delta_pressure_mTorr": 0.25,
+            "electron_density_m3": 9.398532163806062e+16,
+            "electron_temperature_eV": 1.555592316157985,
+            "evaluated": true,
+            "normalized_boundary_margin": 0.04381432946263843,
+            "out_of_domain": false,
+            "primary_objective": 0.3104532468968804,
+            "primary_objective_delta": -0.003333333333333355,
+            "scenario_feasible": false
+          },
+          {
+            "candidate_power_W": 38.78399351726603,
+            "candidate_pressure_mTorr": 57.30928352686808,
+            "constraint_values": [
+              {
+                "name": "density_hard_constraint",
+                "passes_greater_equal_zero": true,
+                "value": 0.008086989950896642
+              }
+            ],
+            "delta_power_W": 0.25,
+            "delta_pressure_mTorr": -0.25,
+            "electron_density_m3": 9.580869899508966e+16,
+            "electron_temperature_eV": 1.5575484752699886,
+            "evaluated": true,
+            "normalized_boundary_margin": 0.05381432946263843,
+            "out_of_domain": false,
+            "primary_objective": 0.31711991356354713,
+            "primary_objective_delta": 0.003333333333333355,
+            "scenario_feasible": true
+          },
+          {
+            "candidate_power_W": 38.78399351726603,
+            "candidate_pressure_mTorr": 57.80928352686808,
+            "constraint_values": [
+              {
+                "name": "density_hard_constraint",
+                "passes_greater_equal_zero": true,
+                "value": 0.010504967979523043
+              }
+            ],
+            "delta_power_W": 0.25,
+            "delta_pressure_mTorr": 0.25,
+            "electron_density_m3": 9.60504967979523e+16,
+            "electron_temperature_eV": 1.5555922427961393,
+            "evaluated": true,
+            "normalized_boundary_margin": 0.04381432946263843,
+            "out_of_domain": false,
+            "primary_objective": 0.31711991356354713,
+            "primary_objective_delta": 0.003333333333333355,
+            "scenario_feasible": true
+          }
+        ],
+        "scenario_id": "hard_density_1e17_min_power",
+        "source_operating_point": {
+          "nominal_absorbed_power_W": 38.53399351726603,
+          "target_pressure_mTorr": 57.55928352686808
+        },
+        "source_primary_objective": 0.3137865802302138
+      },
+      {
+        "expected_offset_count": 8,
+        "records": [
+          {
+            "candidate_power_W": 14.750000000000064,
+            "candidate_pressure_mTorr": 28.78729534439629,
+            "constraint_values": [],
+            "delta_power_W": -0.25,
+            "delta_pressure_mTorr": 0.0,
+            "electron_density_m3": null,
+            "electron_temperature_eV": null,
+            "evaluated": false,
+            "normalized_boundary_margin": null,
+            "out_of_domain": true,
+            "primary_objective": null,
+            "primary_objective_delta": null,
+            "scenario_feasible": null
+          },
+          {
+            "candidate_power_W": 15.250000000000064,
+            "candidate_pressure_mTorr": 28.78729534439629,
+            "constraint_values": [
+              {
+                "name": "minimum_temperature_constraint",
+                "passes_greater_equal_zero": true,
+                "value": 0.07910576298640137
+              },
+              {
+                "name": "maximum_temperature_constraint",
+                "passes_greater_equal_zero": true,
+                "value": 0.1208942370135988
+              }
+            ],
+            "delta_power_W": 0.25,
+            "delta_pressure_mTorr": 0.0,
+            "electron_density_m3": 2.7888246171724156e+16,
+            "electron_temperature_eV": 1.7291057629864013,
+            "evaluated": true,
+            "normalized_boundary_margin": 0.003333333333334186,
+            "out_of_domain": false,
+            "primary_objective": 0.003333333333334186,
+            "primary_objective_delta": 0.0033333333333333335,
+            "scenario_feasible": true
+          },
+          {
+            "candidate_power_W": 15.000000000000064,
+            "candidate_pressure_mTorr": 28.53729534439629,
+            "constraint_values": [
+              {
+                "name": "minimum_temperature_constraint",
+                "passes_greater_equal_zero": true,
+                "value": 0.08152484248817204
+              },
+              {
+                "name": "maximum_temperature_constraint",
+                "passes_greater_equal_zero": true,
+                "value": 0.11847515751182813
+              }
+            ],
+            "delta_power_W": 0.0,
+            "delta_pressure_mTorr": -0.25,
+            "electron_density_m3": 2.7888246171724156e+16,
+            "electron_temperature_eV": 1.731524842488172,
+            "evaluated": true,
+            "normalized_boundary_margin": 8.526512829121202e-16,
+            "out_of_domain": false,
+            "primary_objective": 8.526512829121202e-16,
+            "primary_objective_delta": 0.0,
+            "scenario_feasible": true
+          },
+          {
+            "candidate_power_W": 15.000000000000064,
+            "candidate_pressure_mTorr": 29.03729534439629,
+            "constraint_values": [
+              {
+                "name": "minimum_temperature_constraint",
+                "passes_greater_equal_zero": true,
+                "value": 0.07675862155736457
+              },
+              {
+                "name": "maximum_temperature_constraint",
+                "passes_greater_equal_zero": true,
+                "value": 0.12324137844263561
+              }
+            ],
+            "delta_power_W": 0.0,
+            "delta_pressure_mTorr": 0.25,
+            "electron_density_m3": 2.85584294034943e+16,
+            "electron_temperature_eV": 1.7267586215573645,
+            "evaluated": true,
+            "normalized_boundary_margin": 8.526512829121202e-16,
+            "out_of_domain": false,
+            "primary_objective": 8.526512829121202e-16,
+            "primary_objective_delta": 0.0,
+            "scenario_feasible": true
+          },
+          {
+            "candidate_power_W": 14.750000000000064,
+            "candidate_pressure_mTorr": 28.53729534439629,
+            "constraint_values": [],
+            "delta_power_W": -0.25,
+            "delta_pressure_mTorr": -0.25,
+            "electron_density_m3": null,
+            "electron_temperature_eV": null,
+            "evaluated": false,
+            "normalized_boundary_margin": null,
+            "out_of_domain": true,
+            "primary_objective": null,
+            "primary_objective_delta": null,
+            "scenario_feasible": null
+          },
+          {
+            "candidate_power_W": 14.750000000000064,
+            "candidate_pressure_mTorr": 29.03729534439629,
+            "constraint_values": [],
+            "delta_power_W": -0.25,
+            "delta_pressure_mTorr": 0.25,
+            "electron_density_m3": null,
+            "electron_temperature_eV": null,
+            "evaluated": false,
+            "normalized_boundary_margin": null,
+            "out_of_domain": true,
+            "primary_objective": null,
+            "primary_objective_delta": null,
+            "scenario_feasible": null
+          },
+          {
+            "candidate_power_W": 15.250000000000064,
+            "candidate_pressure_mTorr": 28.53729534439629,
+            "constraint_values": [
+              {
+                "name": "minimum_temperature_constraint",
+                "passes_greater_equal_zero": true,
+                "value": 0.08152484248817204
+              },
+              {
+                "name": "maximum_temperature_constraint",
+                "passes_greater_equal_zero": true,
+                "value": 0.11847515751182813
+              }
+            ],
+            "delta_power_W": 0.25,
+            "delta_pressure_mTorr": -0.25,
+            "electron_density_m3": 2.7888246171724156e+16,
+            "electron_temperature_eV": 1.731524842488172,
+            "evaluated": true,
+            "normalized_boundary_margin": 0.003333333333334186,
+            "out_of_domain": false,
+            "primary_objective": 0.003333333333334186,
+            "primary_objective_delta": 0.0033333333333333335,
+            "scenario_feasible": true
+          },
+          {
+            "candidate_power_W": 15.250000000000064,
+            "candidate_pressure_mTorr": 29.03729534439629,
+            "constraint_values": [
+              {
+                "name": "minimum_temperature_constraint",
+                "passes_greater_equal_zero": true,
+                "value": 0.07675862155736457
+              },
+              {
+                "name": "maximum_temperature_constraint",
+                "passes_greater_equal_zero": true,
+                "value": 0.12324137844263561
+              }
+            ],
+            "delta_power_W": 0.25,
+            "delta_pressure_mTorr": 0.25,
+            "electron_density_m3": 2.85584294034943e+16,
+            "electron_temperature_eV": 1.7267586215573645,
+            "evaluated": true,
+            "normalized_boundary_margin": 0.003333333333334186,
+            "out_of_domain": false,
+            "primary_objective": 0.003333333333334186,
+            "primary_objective_delta": 0.0033333333333333335,
+            "scenario_feasible": true
+          }
+        ],
+        "scenario_id": "temperature_window_min_power",
+        "source_operating_point": {
+          "nominal_absorbed_power_W": 15.000000000000064,
+          "target_pressure_mTorr": 28.78729534439629
+        },
+        "source_primary_objective": 8.526512829121202e-16
+      },
+      {
+        "expected_offset_count": 8,
+        "records": [
+          {
+            "candidate_power_W": 52.250000000001485,
+            "candidate_pressure_mTorr": 34.99999999999103,
+            "constraint_values": [],
+            "delta_power_W": -0.25,
+            "delta_pressure_mTorr": 0.0,
+            "electron_density_m3": 1.0266222407922438e+17,
+            "electron_temperature_eV": 1.6768620000313357,
+            "evaluated": true,
+            "normalized_boundary_margin": 0.49666666666668646,
+            "out_of_domain": false,
+            "primary_objective": 0.0033333333333135373,
+            "primary_objective_delta": 0.003333333333134181,
+            "scenario_feasible": true
+          },
+          {
+            "candidate_power_W": 52.750000000001485,
+            "candidate_pressure_mTorr": 34.99999999999103,
+            "constraint_values": [],
+            "delta_power_W": 0.25,
+            "delta_pressure_mTorr": 0.0,
+            "electron_density_m3": 1.0452736757797534e+17,
+            "electron_temperature_eV": 1.6768619349783975,
+            "evaluated": true,
+            "normalized_boundary_margin": 0.4966666666666469,
+            "out_of_domain": false,
+            "primary_objective": 0.0033333333333531168,
+            "primary_objective_delta": 0.0033333333331737602,
+            "scenario_feasible": true
+          },
+          {
+            "candidate_power_W": 52.500000000001485,
+            "candidate_pressure_mTorr": 34.74999999999103,
+            "constraint_values": [],
+            "delta_power_W": 0.0,
+            "delta_pressure_mTorr": -0.25,
+            "electron_density_m3": 1.0341045987604034e+17,
+            "electron_temperature_eV": 1.6787158326411231,
+            "evaluated": true,
+            "normalized_boundary_margin": 0.49499999999982064,
+            "out_of_domain": false,
+            "primary_objective": 0.005000000000179361,
+            "primary_objective_delta": 0.0050000000000000044,
+            "scenario_feasible": true
+          },
+          {
+            "candidate_power_W": 52.500000000001485,
+            "candidate_pressure_mTorr": 35.24999999999103,
+            "constraint_values": [],
+            "delta_power_W": 0.0,
+            "delta_pressure_mTorr": 0.25,
+            "electron_density_m3": 1.0352559562571234e+17,
+            "electron_temperature_eV": 1.6750136931622135,
+            "evaluated": true,
+            "normalized_boundary_margin": 0.49500000000017935,
+            "out_of_domain": false,
+            "primary_objective": 0.004999999999820648,
+            "primary_objective_delta": 0.004999999999641291,
+            "scenario_feasible": true
+          },
+          {
+            "candidate_power_W": 52.250000000001485,
+            "candidate_pressure_mTorr": 34.74999999999103,
+            "constraint_values": [],
+            "delta_power_W": -0.25,
+            "delta_pressure_mTorr": -0.25,
+            "electron_density_m3": 1.0266222407922438e+17,
+            "electron_temperature_eV": 1.6787145301857298,
+            "evaluated": true,
+            "normalized_boundary_margin": 0.49499999999982064,
+            "out_of_domain": false,
+            "primary_objective": 0.005000000000179361,
+            "primary_objective_delta": 0.0050000000000000044,
+            "scenario_feasible": true
+          },
+          {
+            "candidate_power_W": 52.250000000001485,
+            "candidate_pressure_mTorr": 35.24999999999103,
+            "constraint_values": [],
+            "delta_power_W": -0.25,
+            "delta_pressure_mTorr": 0.25,
+            "electron_density_m3": 1.0277652675369778e+17,
+            "electron_temperature_eV": 1.6750137407904317,
+            "evaluated": true,
+            "normalized_boundary_margin": 0.49500000000017935,
+            "out_of_domain": false,
+            "primary_objective": 0.004999999999820648,
+            "primary_objective_delta": 0.004999999999641291,
+            "scenario_feasible": true
+          },
+          {
+            "candidate_power_W": 52.750000000001485,
+            "candidate_pressure_mTorr": 34.74999999999103,
+            "constraint_values": [],
+            "delta_power_W": 0.25,
+            "delta_pressure_mTorr": -0.25,
+            "electron_density_m3": 1.0438617439081813e+17,
+            "electron_temperature_eV": 1.6787155660914825,
+            "evaluated": true,
+            "normalized_boundary_margin": 0.49499999999982064,
+            "out_of_domain": false,
+            "primary_objective": 0.005000000000179361,
+            "primary_objective_delta": 0.0050000000000000044,
+            "scenario_feasible": true
+          },
+          {
+            "candidate_power_W": 52.750000000001485,
+            "candidate_pressure_mTorr": 35.24999999999103,
+            "constraint_values": [],
+            "delta_power_W": 0.25,
+            "delta_pressure_mTorr": 0.25,
+            "electron_density_m3": 1.04643746876953e+17,
+            "electron_temperature_eV": 1.675013878646513,
+            "evaluated": true,
+            "normalized_boundary_margin": 0.49500000000017935,
+            "out_of_domain": false,
+            "primary_objective": 0.004999999999820648,
+            "primary_objective_delta": 0.004999999999641291,
+            "scenario_feasible": true
+          }
+        ],
+        "scenario_id": "boundary_margin_reference",
+        "source_operating_point": {
+          "nominal_absorbed_power_W": 52.500000000001485,
+          "target_pressure_mTorr": 34.99999999999103
+        },
+        "source_primary_objective": 1.7935652962819404e-13
+      },
+      {
+        "expected_offset_count": 8,
+        "records": [
+          {
+            "candidate_power_W": 52.249999999996646,
+            "candidate_pressure_mTorr": 35.000000000003894,
+            "constraint_values": [],
+            "delta_power_W": -0.25,
+            "delta_pressure_mTorr": 0.0,
+            "electron_density_m3": 1.0266222407922438e+17,
+            "electron_temperature_eV": 1.6768620000313357,
+            "evaluated": true,
+            "normalized_boundary_margin": 0.49666666666662196,
+            "out_of_domain": false,
+            "primary_objective": 0.00333333333337805,
+            "primary_objective_delta": 0.003333333333288249,
+            "scenario_feasible": true
+          },
+          {
+            "candidate_power_W": 52.749999999996646,
+            "candidate_pressure_mTorr": 35.000000000003894,
+            "constraint_values": [],
+            "delta_power_W": 0.25,
+            "delta_pressure_mTorr": 0.0,
+            "electron_density_m3": 1.0452736757797534e+17,
+            "electron_temperature_eV": 1.6768619349783975,
+            "evaluated": true,
+            "normalized_boundary_margin": 0.4966666666667114,
+            "out_of_domain": false,
+            "primary_objective": 0.0033333333332886167,
+            "primary_objective_delta": 0.0033333333331988157,
+            "scenario_feasible": true
+          },
+          {
+            "candidate_power_W": 52.499999999996646,
+            "candidate_pressure_mTorr": 34.750000000003894,
+            "constraint_values": [],
+            "delta_power_W": 0.0,
+            "delta_pressure_mTorr": -0.25,
+            "electron_density_m3": 1.0341045987604034e+17,
+            "electron_temperature_eV": 1.6787158326411231,
+            "evaluated": true,
+            "normalized_boundary_margin": 0.4950000000000779,
+            "out_of_domain": false,
+            "primary_objective": 0.004999999999922125,
+            "primary_objective_delta": 0.004999999999832324,
+            "scenario_feasible": true
+          },
+          {
+            "candidate_power_W": 52.499999999996646,
+            "candidate_pressure_mTorr": 35.250000000003894,
+            "constraint_values": [],
+            "delta_power_W": 0.0,
+            "delta_pressure_mTorr": 0.25,
+            "electron_density_m3": 1.0352559562571234e+17,
+            "electron_temperature_eV": 1.6750136931622135,
+            "evaluated": true,
+            "normalized_boundary_margin": 0.4949999999999221,
+            "out_of_domain": false,
+            "primary_objective": 0.005000000000077875,
+            "primary_objective_delta": 0.004999999999988075,
+            "scenario_feasible": true
+          },
+          {
+            "candidate_power_W": 52.249999999996646,
+            "candidate_pressure_mTorr": 34.750000000003894,
+            "constraint_values": [],
+            "delta_power_W": -0.25,
+            "delta_pressure_mTorr": -0.25,
+            "electron_density_m3": 1.0266222407922438e+17,
+            "electron_temperature_eV": 1.6787145301857298,
+            "evaluated": true,
+            "normalized_boundary_margin": 0.4950000000000779,
+            "out_of_domain": false,
+            "primary_objective": 0.006009252125733324,
+            "primary_objective_delta": 0.006009252125643523,
+            "scenario_feasible": true
+          },
+          {
+            "candidate_power_W": 52.249999999996646,
+            "candidate_pressure_mTorr": 35.250000000003894,
+            "constraint_values": [],
+            "delta_power_W": -0.25,
+            "delta_pressure_mTorr": 0.25,
+            "electron_density_m3": 1.0277652675369778e+17,
+            "electron_temperature_eV": 1.6750137407904317,
+            "evaluated": true,
+            "normalized_boundary_margin": 0.4949999999999221,
+            "out_of_domain": false,
+            "primary_objective": 0.006009252125862916,
+            "primary_objective_delta": 0.0060092521257731155,
+            "scenario_feasible": true
+          },
+          {
+            "candidate_power_W": 52.749999999996646,
+            "candidate_pressure_mTorr": 34.750000000003894,
+            "constraint_values": [],
+            "delta_power_W": 0.25,
+            "delta_pressure_mTorr": -0.25,
+            "electron_density_m3": 1.0438617439081813e+17,
+            "electron_temperature_eV": 1.6787155660914825,
+            "evaluated": true,
+            "normalized_boundary_margin": 0.4950000000000779,
+            "out_of_domain": false,
+            "primary_objective": 0.006009252125683716,
+            "primary_objective_delta": 0.006009252125593915,
+            "scenario_feasible": true
+          },
+          {
+            "candidate_power_W": 52.749999999996646,
+            "candidate_pressure_mTorr": 35.250000000003894,
+            "constraint_values": [],
+            "delta_power_W": 0.25,
+            "delta_pressure_mTorr": 0.25,
+            "electron_density_m3": 1.04643746876953e+17,
+            "electron_temperature_eV": 1.675013878646513,
+            "evaluated": true,
+            "normalized_boundary_margin": 0.4949999999999221,
+            "out_of_domain": false,
+            "primary_objective": 0.006009252125813307,
+            "primary_objective_delta": 0.006009252125723507,
+            "scenario_feasible": true
+          }
+        ],
+        "scenario_id": "nominal_centre_reference",
+        "source_operating_point": {
+          "nominal_absorbed_power_W": 52.499999999996646,
+          "target_pressure_mTorr": 35.000000000003894
+        },
+        "source_primary_objective": 8.980080861471638e-14
+      }
+    ],
+    "source_count": 5
+  },
+  "phase": "6E3",
+  "provenance": {
+    "continuous_benchmark_result_sha256": "a4c8a55fd2ecfbf666479c6ee054a196c1a093b7640907f071fce0a04e7657d9",
+    "continuous_engine_source_sha256": "61cfb6df04ee813650ddf7bb0161bd20fc0d30b6ea4dfaa05c49654d8c02172e",
+    "density_model_sha256": "2706589929cdbebabda82cc9091ce110d673adc1c380bb49de9590f89da0b6a8",
+    "deterministic_grid_result_sha256": "cb3cbad2345d5a83286e7940fdd7f1960e96b1a3fdd7eea6f0492caa058a7f59",
+    "execution_source_git_commit": "dabe4354e285de549a8276d582fdae2ba30cfdc8",
+    "grid_engine_source_sha256": "84ad1140330706b117c8ffbfbbadbdcfa7b9893f0e0eaa6106dac9c12391db28",
+    "grid_scenario_set_sha256": "6af65defab31691ffbaef1fc91c7a685267d6169af45f277c097488252d0fc1a",
+    "optimizer_selection_sha256": "c4c4963f1f4c0bee2803c4087e514e768a0e95bacd3d58ef1289f887696c3038",
+    "primitives_source_sha256": "9ec486f000359863d000d15303ac05937a900b882a315361b62909ca0ce95911",
+    "robustness_engine_source_sha256": "150dec54ace29b7b63d3d6829728e6cdf066e8b48f20468c0d01e0683522643b",
+    "robustness_protocol_sha256": "5897dd29172a64e1192d0f40c848c36d717c6c044b8792e8d7fbc3de47a4cfda",
+    "surrogate_adapter_source_sha256": "00cdc15351a9b8e027faa749aa3ba2e0ebeea998cff2f4dd3203c51d82fac5cc",
+    "surrogate_manifest_sha256": "0f9b8405a00fa97a07335ec73747381245847c7c6c495050f214ed3a6254102a",
+    "temperature_model_sha256": "891c5f99082ae27f8dd08d610d528460ecae72e4d019c0bc47ba0f993420c7e5"
+  },
+  "qualification_summary": {
+    "infeasibility_handling_pass": true,
+    "optimizer_retuning_authorized": false,
+    "perturbation_diagnostic_pass": true,
+    "phase6e_overall_pass": true,
+    "phase6f_runtime_freeze_unlock_candidate": true,
+    "selected_method_robustness_pass": true,
+    "tradeoff_diagnostic_pass": true
+  },
+  "result_type": "robustness_qualification",
+  "runtime": {
+    "complete_grid_candidate_count": 15251,
+    "complete_grid_surrogate_batch_count": 1,
+    "grid_batch_elapsed_seconds": 1.2151819000137039,
+    "numpy_version": "2.5.3",
+    "production_surrogate_load_count": 1,
+    "python_version": "3.12.5",
+    "scikit_learn_version": "1.9.1",
+    "scipy_version": "1.18.1",
+    "selected_method_elapsed_seconds": 4507.485530700011,
+    "selected_method_run_count": 9
+  },
+  "schema_version": "1.0.0",
+  "scientific_status": {
+    "agentic_orchestration_used": false,
+    "experimental_validation_claimed": false,
+    "global_continuous_optimum_claimed": false,
+    "industrial_validation_claimed": false,
+    "optimizer_retuned": false,
+    "phase4_test_targets_accessed": false,
+    "phase5_test_dataset_accessed": false,
+    "production_phase4g_surrogate_used": true,
+    "real_phase6e_qualification_executed": true,
+    "selected_optimizer": "differential_evolution",
+    "shgo_executed": false,
+    "source_simulator_used": false
+  },
+  "selected_method_qualification": {
+    "challenge_count": 3,
+    "challenges": [
+      {
+        "all_final_phase6_feasible": true,
+        "all_runs_pass": true,
+        "challenge_id": "selected_method_replay",
+        "challenge_qualification_pass": true,
+        "expected_outcome": "feasible",
+        "grid_gap_pass": true,
+        "grid_reference": {
+          "feasible_candidate_count": 1136,
+          "scenario_id": "hard_density_1e17_min_power",
+          "selected_candidate": {
+            "candidate_index": 4940,
+            "electron_density_m3": 9.514427376965109e+16,
+            "electron_temperature_eV": 1.562771873977295,
+            "operating_point": {
+              "nominal_absorbed_power_W": 39.0,
+              "target_pressure_mTorr": 56.0
+            },
+            "primary_objective": 0.32,
+            "scenario_feasible": true
+          }
+        },
+        "grid_reference_gap_tolerance": 1e-06,
+        "objective_spread": 7.528200285378261e-12,
+        "objective_spread_limit": 1e-06,
+        "objective_spread_pass": true,
+        "per_run_continuous_minus_grid_objective": [
+          -0.0062134197697862326,
+          -0.006213419764932726,
+          -0.006213419772460926
+        ],
+        "per_run_grid_gap_pass": [
+          true,
+          true,
+          true
+        ],
+        "runs": [
+          {
+            "constraint_values": [
+              {
+                "name": "density_hard_constraint",
+                "passes_greater_equal_zero": true,
+                "value": 0.010504967979523043
+              }
+            ],
+            "decision_coordinates": {
+              "nominal_absorbed_power_W": 38.53399351726603,
+              "target_pressure_mTorr": 57.55928352686808
+            },
+            "electron_density_m3": 9.60504967979523e+16,
+            "electron_temperature_eV": 1.5565747793002718,
+            "final_phase6_feasible": true,
+            "objective_name": "absorbed_power",
+            "objective_value": 0.3137865802302138,
+            "prediction_cache": {
+              "hits": 1151,
+              "misses": 2541
+            },
+            "run_pass": true,
+            "scipy": {
+              "message": "Optimization terminated successfully.",
+              "nfev": 1126,
+              "nit": 63,
+              "success": true
+            },
+            "seed": 20260914,
+            "wall_elapsed_seconds": 217.06769719999284
+          },
+          {
+            "constraint_values": [
+              {
+                "name": "density_hard_constraint",
+                "passes_greater_equal_zero": true,
+                "value": 0.018065459702676
+              }
+            ],
+            "decision_coordinates": {
+              "nominal_absorbed_power_W": 38.533993517630044,
+              "target_pressure_mTorr": 59.222362219114
+            },
+            "electron_density_m3": 9.68065459702676e+16,
+            "electron_temperature_eV": 1.5501821162354812,
+            "final_phase6_feasible": true,
+            "objective_name": "absorbed_power",
+            "objective_value": 0.3137865802350673,
+            "prediction_cache": {
+              "hits": 1149,
+              "misses": 2511
+            },
+            "run_pass": true,
+            "scipy": {
+              "message": "Optimization terminated successfully.",
+              "nfev": 1134,
+              "nit": 62,
+              "success": true
+            },
+            "seed": 20260915,
+            "wall_elapsed_seconds": 198.8869234000158
+          },
+          {
+            "constraint_values": [
+              {
+                "name": "density_hard_constraint",
+                "passes_greater_equal_zero": true,
+                "value": 0.008086989950896642
+              }
+            ],
+            "decision_coordinates": {
+              "nominal_absorbed_power_W": 38.53399351706543,
+              "target_pressure_mTorr": 57.30255398351578
+            },
+            "electron_density_m3": 9.580869899508966e+16,
+            "electron_temperature_eV": 1.5575744173710306,
+            "final_phase6_feasible": true,
+            "objective_name": "absorbed_power",
+            "objective_value": 0.3137865802275391,
+            "prediction_cache": {
+              "hits": 1292,
+              "misses": 2710
+            },
+            "run_pass": true,
+            "scipy": {
+              "message": "Optimization terminated successfully.",
+              "nfev": 1276,
+              "nit": 67,
+              "success": true
+            },
+            "seed": 20260916,
+            "wall_elapsed_seconds": 190.14241289999336
+          }
+        ],
+        "scenario_id": "hard_density_1e17_min_power"
+      },
+      {
+        "all_final_phase6_feasible": true,
+        "all_runs_pass": true,
+        "challenge_id": "boundary_margin_constraint_edge",
+        "challenge_qualification_pass": true,
+        "expected_outcome": "feasible",
+        "grid_gap_pass": true,
+        "grid_reference": {
+          "feasible_candidate_count": 9801,
+          "scenario_id": "phase6e_boundary_margin_constraint_edge",
+          "selected_candidate": {
+            "candidate_index": 1525,
+            "electron_density_m3": 2.9761099940251732e+16,
+            "electron_temperature_eV": 1.928004832911884,
+            "operating_point": {
+              "nominal_absorbed_power_W": 22.5,
+              "target_pressure_mTorr": 15.0
+            },
+            "primary_objective": 0.1,
+            "scenario_feasible": true
+          }
+        },
+        "grid_reference_gap_tolerance": 1e-06,
+        "objective_spread": 5.297290384120856e-13,
+        "objective_spread_limit": 1e-06,
+        "objective_spread_pass": true,
+        "per_run_continuous_minus_grid_objective": [
+          7.618905506490137e-15,
+          5.373479439185758e-13,
+          1.2789769243681803e-13
+        ],
+        "per_run_grid_gap_pass": [
+          true,
+          true,
+          true
+        ],
+        "runs": [
+          {
+            "constraint_values": [
+              {
+                "name": "minimum_boundary_margin_constraint",
+                "passes_greater_equal_zero": true,
+                "value": 7.618905506490137e-15
+              }
+            ],
+            "decision_coordinates": {
+              "nominal_absorbed_power_W": 22.500000000000572,
+              "target_pressure_mTorr": 30.170555099504625
+            },
+            "electron_density_m3": 4.240538248323612e+16,
+            "electron_temperature_eV": 1.7162837947464293,
+            "final_phase6_feasible": true,
+            "objective_name": "absorbed_power",
+            "objective_value": 0.10000000000000762,
+            "prediction_cache": {
+              "hits": 1506,
+              "misses": 2786
+            },
+            "run_pass": true,
+            "scipy": {
+              "message": "Optimization terminated successfully.",
+              "nfev": 1486,
+              "nit": 69,
+              "success": true
+            },
+            "seed": 20260914,
+            "wall_elapsed_seconds": 190.28305910000927
+          },
+          {
+            "constraint_values": [
+              {
+                "name": "minimum_boundary_margin_constraint",
+                "passes_greater_equal_zero": true,
+                "value": 5.373479439185758e-13
+              }
+            ],
+            "decision_coordinates": {
+              "nominal_absorbed_power_W": 22.500000000040302,
+              "target_pressure_mTorr": 35.87837013977206
+            },
+            "electron_density_m3": 4.520285530868914e+16,
+            "electron_temperature_eV": 1.6704457592294,
+            "final_phase6_feasible": true,
+            "objective_name": "absorbed_power",
+            "objective_value": 0.10000000000053735,
+            "prediction_cache": {
+              "hits": 1280,
+              "misses": 2149
+            },
+            "run_pass": true,
+            "scipy": {
+              "message": "Optimization terminated successfully.",
+              "nfev": 1263,
+              "nit": 53,
+              "success": true
+            },
+            "seed": 20260915,
+            "wall_elapsed_seconds": 147.2305274999817
+          },
+          {
+            "constraint_values": [
+              {
+                "name": "minimum_boundary_margin_constraint",
+                "passes_greater_equal_zero": true,
+                "value": 1.2789769243681803e-13
+              }
+            ],
+            "decision_coordinates": {
+              "nominal_absorbed_power_W": 22.500000000009592,
+              "target_pressure_mTorr": 37.918994937768105
+            },
+            "electron_density_m3": 4.641921770523479e+16,
+            "electron_temperature_eV": 1.656298815416316,
+            "final_phase6_feasible": true,
+            "objective_name": "absorbed_power",
+            "objective_value": 0.1000000000001279,
+            "prediction_cache": {
+              "hits": 1166,
+              "misses": 1948
+            },
+            "run_pass": true,
+            "scipy": {
+              "message": "Optimization terminated successfully.",
+              "nfev": 1148,
+              "nit": 48,
+              "success": true
+            },
+            "seed": 20260916,
+            "wall_elapsed_seconds": 132.12938060000306
+          }
+        ],
+        "scenario_id": "phase6e_boundary_margin_constraint_edge"
+      },
+      {
+        "all_final_phase6_feasible": false,
+        "all_runs_pass": false,
+        "challenge_id": "deliberate_infeasible_high_density",
+        "challenge_qualification_pass": true,
+        "expected_outcome": "no_feasible_point_found_under_search_protocol",
+        "grid_gap_pass": null,
+        "grid_reference": {
+          "feasible_candidate_count": 0,
+          "scenario_id": "phase6e_infeasible_high_density",
+          "selected_candidate": null
+        },
+        "grid_reference_gap_tolerance": null,
+        "objective_spread": 0.00340094165710636,
+        "objective_spread_limit": null,
+        "objective_spread_pass": null,
+        "per_run_continuous_minus_grid_objective": [],
+        "per_run_grid_gap_pass": [],
+        "runs": [
+          {
+            "constraint_values": [
+              {
+                "name": "density_hard_constraint",
+                "passes_greater_equal_zero": false,
+                "value": -0.19
+              }
+            ],
+            "decision_coordinates": {
+              "nominal_absorbed_power_W": 89.96030058775011,
+              "target_pressure_mTorr": 59.99427726750751
+            },
+            "electron_density_m3": 2.2900906167162906e+17,
+            "electron_temperature_eV": 1.5473247638883176,
+            "final_phase6_feasible": false,
+            "objective_name": "absorbed_power",
+            "objective_value": 0.9994706745033348,
+            "prediction_cache": {
+              "hits": 12048,
+              "misses": 11998
+            },
+            "run_pass": false,
+            "scipy": {
+              "message": "The solution does not satisfy the constraints, MAXCV = 0.19",
+              "nfev": 0,
+              "nit": 300,
+              "success": false
+            },
+            "seed": 20260914,
+            "wall_elapsed_seconds": 888.4707423999789
+          },
+          {
+            "constraint_values": [
+              {
+                "name": "density_hard_constraint",
+                "passes_greater_equal_zero": false,
+                "value": -0.19
+              }
+            ],
+            "decision_coordinates": {
+              "nominal_absorbed_power_W": 89.70522996346713,
+              "target_pressure_mTorr": 59.80468987434077
+            },
+            "electron_density_m3": 2.2900906167162906e+17,
+            "electron_temperature_eV": 1.5480016505185457,
+            "final_phase6_feasible": false,
+            "objective_name": "absorbed_power",
+            "objective_value": 0.9960697328462285,
+            "prediction_cache": {
+              "hits": 12045,
+              "misses": 12001
+            },
+            "run_pass": false,
+            "scipy": {
+              "message": "The solution does not satisfy the constraints, MAXCV = 0.19",
+              "nfev": 0,
+              "nit": 300,
+              "success": false
+            },
+            "seed": 20260915,
+            "wall_elapsed_seconds": 963.5069139999978
+          },
+          {
+            "constraint_values": [
+              {
+                "name": "density_hard_constraint",
+                "passes_greater_equal_zero": false,
+                "value": -0.19
+              }
+            ],
+            "decision_coordinates": {
+              "nominal_absorbed_power_W": 89.70754862698138,
+              "target_pressure_mTorr": 59.99965985842366
+            },
+            "electron_density_m3": 2.2900906167162906e+17,
+            "electron_temperature_eV": 1.5473247638883176,
+            "final_phase6_feasible": false,
+            "objective_name": "absorbed_power",
+            "objective_value": 0.9961006483597518,
+            "prediction_cache": {
+              "hits": 12035,
+              "misses": 12011
+            },
+            "run_pass": false,
+            "scipy": {
+              "message": "The solution does not satisfy the constraints, MAXCV = 0.19",
+              "nfev": 0,
+              "nit": 300,
+              "success": false
+            },
+            "seed": 20260916,
+            "wall_elapsed_seconds": 1579.764858199982
+          }
+        ],
+        "scenario_id": "phase6e_infeasible_high_density"
+      }
+    ],
+    "infeasibility_handling_pass": true,
+    "method": "differential_evolution",
+    "run_count": 9,
+    "seeds": [
+      20260914,
+      20260915,
+      20260916
+    ],
+    "selected_method_robustness_pass": true
+  },
+  "shared_grid_prediction_batch": {
+    "candidate_count": 15251,
+    "electron_density_array_sha256": "70e60a5659f9ea5ac4f0c768d056119db7aacccf7c90d85e06996ab092008b90",
+    "electron_density_maximum_m3": 2.2900906167162906e+17,
+    "electron_density_minimum_m3": 1.6197742107743246e+16,
+    "electron_temperature_array_sha256": "4f3d9e087554e378478bec2405d624a061e46ad49facfbcd1058c2b9a7ba7dd0",
+    "electron_temperature_maximum_eV": 2.0744792075315606,
+    "electron_temperature_minimum_eV": 1.5473200462621457,
+    "input_array_sha256": "f77c780d9a7c4e4c6db1dc921317c0b48e6d2e397d14075abbe34d38a2472cfd",
+    "reused_for_all_grid_references": true,
+    "reused_for_all_tradeoff_diagnostics": true
+  },
+  "tradeoff_diagnostics": {
+    "completion_pass": true,
+    "continuous_multiobjective_optimizer_executed": false,
+    "knee_point_selected": false,
+    "production_point_selected": false,
+    "results": [
+      {
+        "electron_density_range_m3": [
+          3.798784288198599e+16,
+          1.0006581723313472e+17
+        ],
+        "electron_temperature_range_eV": [
+          1.5473200462621457,
+          1.6397622663782083
+        ],
+        "feasible_candidate_count": 15251,
+        "lexicographic_selected_candidate_index": 6525,
+        "lexicographic_selected_is_pareto": true,
+        "objective_ranges": [
+          {
+            "maximum": 0.6201215711801401,
+            "minimum": 1.896031376592e-05,
+            "objective_name": "density_target_error"
+          },
+          {
+            "maximum": 0.4266666666666667,
+            "minimum": 0.0,
+            "objective_name": "absorbed_power"
+          }
+        ],
+        "pareto_candidate_count": 53,
+        "power_range_W": [
+          15.0,
+          47.0
+        ],
+        "pressure_range_mTorr": [
+          40.5,
+          60.0
+        ],
+        "scenario_id": "soft_density_1e17_low_power"
+      },
+      {
+        "electron_density_range_m3": [
+          3.798784288198599e+16,
+          2.0044658449046813e+17
+        ],
+        "electron_temperature_range_eV": [
+          1.5473200462621457,
+          1.5668747023690701
+        ],
+        "feasible_candidate_count": 15251,
+        "lexicographic_selected_candidate_index": 13624,
+        "lexicographic_selected_is_pareto": true,
+        "objective_ranges": [
+          {
+            "maximum": 0.8100607855900701,
+            "minimum": 2.0956960104e-06,
+            "objective_name": "density_target_error"
+          },
+          {
+            "maximum": 0.8933333333333333,
+            "minimum": 0.0,
+            "objective_name": "absorbed_power"
+          }
+        ],
+        "pareto_candidate_count": 118,
+        "power_range_W": [
+          15.0,
+          82.0
+        ],
+        "pressure_range_mTorr": [
+          55.0,
+          60.0
+        ],
+        "scenario_id": "soft_density_2e17_low_power"
+      },
+      {
+        "electron_density_range_m3": [
+          1.4252996062581355e+17,
+          1.4360971172400786e+17
+        ],
+        "electron_temperature_range_eV": [
+          1.5567979288758493,
+          1.6397564612008686
+        ],
+        "feasible_candidate_count": 1061,
+        "lexicographic_selected_candidate_index": 10363,
+        "lexicographic_selected_is_pareto": true,
+        "objective_ranges": [
+          {
+            "maximum": 0.4549114687985394,
+            "minimum": 0.21095023109728986,
+            "objective_name": "nominal_distance"
+          },
+          {
+            "maximum": 0.68,
+            "minimum": 0.5666666666666667,
+            "objective_name": "absorbed_power"
+          }
+        ],
+        "pareto_candidate_count": 11,
+        "power_range_W": [
+          57.5,
+          66.0
+        ],
+        "pressure_range_mTorr": [
+          40.5,
+          57.5
+        ],
+        "scenario_id": "hard_density_1p5e17_nominal"
+      },
+      {
+        "electron_density_range_m3": [
+          3.167796209758171e+16,
+          1.500522745428408e+17
+        ],
+        "electron_temperature_range_eV": [
+          1.6524485797602624,
+          1.736773123863089
+        ],
+        "feasible_candidate_count": 5889,
+        "lexicographic_selected_candidate_index": 13469,
+        "lexicographic_selected_is_pareto": true,
+        "objective_ranges": [
+          {
+            "maximum": 0.788813586016122,
+            "minimum": 6.33081033376e-05,
+            "objective_name": "density_target_error"
+          },
+          {
+            "maximum": 0.8866666666666667,
+            "minimum": 0.0,
+            "objective_name": "absorbed_power"
+          }
+        ],
+        "pareto_candidate_count": 120,
+        "power_range_W": [
+          15.0,
+          81.5
+        ],
+        "pressure_range_mTorr": [
+          28.0,
+          38.5
+        ],
+        "scenario_id": "density_1p5e17_temperature_window"
+      },
+      {
+        "electron_density_range_m3": [
+          9.000151388847608e+16,
+          1.0341045987604034e+17
+        ],
+        "electron_temperature_range_eV": [
+          1.5842654344705365,
+          1.700439628590124
+        ],
+        "feasible_candidate_count": 1763,
+        "lexicographic_selected_candidate_index": 7625,
+        "lexicographic_selected_is_pareto": true,
+        "objective_ranges": [
+          {
+            "maximum": 0.32,
+            "minimum": 0.0,
+            "objective_name": "boundary_margin"
+          },
+          {
+            "maximum": 0.5,
+            "minimum": 0.3,
+            "objective_name": "absorbed_power"
+          }
+        ],
+        "pareto_candidate_count": 193,
+        "power_range_W": [
+          37.5,
+          52.5
+        ],
+        "pressure_range_mTorr": [
+          32.0,
+          51.0
+        ],
+        "scenario_id": "hard_density_interior_margin"
+      }
+    ],
+    "scenario_count": 5,
+    "weighted_scalarization_used": false
+  }
+}
