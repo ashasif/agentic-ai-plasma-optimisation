@@ -1,0 +1,221 @@
+{
+  "amendment_id": "phase6a_amendment_001",
+  "amendment_schema_version": "1.0.0",
+  "base_protocol": {
+    "base_protocol_must_remain_unmodified": true,
+    "freeze_commit": "36e0f2a61c05bfece207449a23d2fee2d8e15e52",
+    "path": "configs/phase6/optimisation_protocol.json",
+    "sha256": "57fee45c69c5f42f9e94b786e895a5d89b163d141367326706eac2d3d2ed1cb1"
+  },
+  "boundary_semantics": {
+    "boundary_margin_objective_may_be_used_without_hard_margin": true,
+    "minimum_normalized_boundary_margin_when_present_is_hard": true,
+    "qualified_domain_boundary_remains_legal_when_no_margin_constraint": true
+  },
+  "constraint_precedence": {
+    "final_returned_candidate_requires_explicit_feasibility_recheck": true,
+    "hard_constraints_are_evaluated_before_objective_ranking": true,
+    "infeasible_candidate_may_not_outrank_feasible_candidate": true,
+    "objective_value_may_not_convert_infeasible_to_feasible": true
+  },
+  "density_target_semantics": {
+    "disabled": {
+      "density_relative_tolerance": null,
+      "density_target_error_objective_allowed": false,
+      "target_electron_density_m3": null
+    },
+    "hard_constraint": {
+      "density_relative_tolerance_required": true,
+      "density_target_error_objective_allowed": true,
+      "density_target_is_hard_constraint": true,
+      "hard_constraint_definition": "abs(predicted_density - target_density) / target_density <= density_relative_tolerance",
+      "target_electron_density_m3_required": true
+    },
+    "soft_objective": {
+      "density_relative_tolerance": null,
+      "density_target_error_objective_required": true,
+      "density_target_is_hard_constraint": false,
+      "target_electron_density_m3_required": true
+    }
+  },
+  "governance": {
+    "base_protocol_remains_authoritative_except_for_explicit_clarifications_here": true,
+    "model_deserialisation_allowed_in_this_amendment_gate": false,
+    "optimisation_execution_allowed_in_this_amendment_gate": false,
+    "phase4_test_access_allowed": false,
+    "phase5_test_access_allowed": false,
+    "source_simulator_execution_allowed": false,
+    "surrogate_inference_allowed_in_this_amendment_gate": false
+  },
+  "multiobjective_policy": {
+    "continuous_methods": {
+      "future_continuous_multiobjective_method_requires_separate_freeze": true,
+      "hidden_weighted_scalarisation_allowed": false,
+      "multiobjective_continuous_selection_in_phase6b": false,
+      "multiobjective_weighted_sum_allowed": false,
+      "single_objective_continuous_benchmark_allowed": true
+    },
+    "deterministic_grid": {
+      "lexicographic_selection_allowed": true,
+      "non_dominated_set_required": true,
+      "raw_objective_components_required": true
+    }
+  },
+  "objective_activation_rules": {
+    "absorbed_power": {
+      "additional_input_required": false,
+      "direction": "minimize",
+      "reported_component": "normalized_absorbed_power"
+    },
+    "boundary_margin": {
+      "additional_input_required": false,
+      "direction": "maximize",
+      "minimization_component": "boundary_margin_cost",
+      "raw_margin_must_also_be_reported": true
+    },
+    "density_target_error": {
+      "direction": "minimize",
+      "reported_component": "density_relative_error",
+      "requires_density_target_mode": [
+        "soft_objective",
+        "hard_constraint"
+      ]
+    },
+    "nominal_distance": {
+      "direction": "minimize",
+      "reported_component": "normalized_nominal_distance",
+      "requires_nominal_operating_point": true
+    }
+  },
+  "objective_ordering": {
+    "all_objectives_must_be_declared_in_objective_priority": true,
+    "candidate_tie_policy": "stable deterministic candidate order after all declared objective components compare equal",
+    "hidden_weights_allowed": false,
+    "implicit_objectives_allowed": false,
+    "policy": "lexicographic",
+    "raw_components_must_be_preserved": true,
+    "tie_policy_adds_no_scientific_objective": true
+  },
+  "phase": "6A.1",
+  "phase6b_implementation_boundary": {
+    "phase6b_may_implement": [
+      "effective protocol loader",
+      "scenario validation",
+      "decision-point validation",
+      "objective primitives",
+      "hard-constraint evaluation",
+      "trusted Phase 4G surrogate adapter"
+    ],
+    "phase6b_may_not_implement": [
+      "grid optimisation search",
+      "differential evolution search",
+      "SHGO search",
+      "method selection",
+      "qualification scenario tuning",
+      "agentic orchestration"
+    ]
+  },
+  "reason": {
+    "category": "pre_implementation_semantic_clarification",
+    "optimisation_evidence_used": false,
+    "scientific_performance_evidence_used": false,
+    "summary": "The Phase 6A base protocol distinguishes a density target and a tolerance when that target is hard, but does not serialize the hard-versus-soft target mode explicitly. This amendment freezes the exact scenario representation before implementation.",
+    "surrogate_predictions_used": false,
+    "test_evidence_used": false
+  },
+  "scenario_schema": {
+    "density_relative_tolerance": {
+      "must_be_finite": true,
+      "type": "number_or_null",
+      "valid_open_closed_interval_when_present": [
+        0.0,
+        1.0
+      ]
+    },
+    "density_target_mode": {
+      "allowed_values": [
+        "disabled",
+        "soft_objective",
+        "hard_constraint"
+      ],
+      "type": "enum"
+    },
+    "maximum_electron_temperature_eV": {
+      "must_be_finite": true,
+      "must_be_positive_when_present": true,
+      "type": "number_or_null"
+    },
+    "minimum_electron_temperature_eV": {
+      "must_be_finite": true,
+      "must_be_positive_when_present": true,
+      "type": "number_or_null"
+    },
+    "minimum_normalized_boundary_margin": {
+      "must_be_finite": true,
+      "type": "number_or_null",
+      "valid_closed_interval_when_present": [
+        0.0,
+        0.5
+      ]
+    },
+    "nominal_operating_point": {
+      "fields_when_present": [
+        "nominal_absorbed_power_W",
+        "target_pressure_mTorr"
+      ],
+      "must_be_inside_qualified_domain": true,
+      "type": "object_or_null"
+    },
+    "objective_priority": {
+      "allowed_values": [
+        "density_target_error",
+        "nominal_distance",
+        "absorbed_power",
+        "boundary_margin"
+      ],
+      "minimum_length": 1,
+      "ranking_policy": "lexicographic",
+      "type": "ordered_unique_list"
+    },
+    "required_fields": [
+      "scenario_id",
+      "density_target_mode",
+      "target_electron_density_m3",
+      "density_relative_tolerance",
+      "minimum_electron_temperature_eV",
+      "maximum_electron_temperature_eV",
+      "nominal_operating_point",
+      "minimum_normalized_boundary_margin",
+      "objective_priority"
+    ],
+    "scenario_id": {
+      "non_empty": true,
+      "type": "string",
+      "unique_within_scenario_set": true
+    },
+    "target_electron_density_m3": {
+      "must_be_finite": true,
+      "must_be_positive_when_present": true,
+      "type": "number_or_null"
+    }
+  },
+  "scenario_validation": {
+    "reject_duplicate_objectives": true,
+    "reject_empty_objective_priority": true,
+    "reject_inactive_objective_dependencies": true,
+    "reject_invalid_density_mode_combination": true,
+    "reject_invalid_temperature_range": true,
+    "reject_non_finite_numeric_values": true,
+    "reject_out_of_domain_nominal_operating_point": true,
+    "reject_unknown_fields": true
+  },
+  "temperature_constraint_semantics": {
+    "constraints_are_inclusive": true,
+    "maximum_constraint": "predicted_temperature <= maximum_electron_temperature_eV",
+    "maximum_only_allowed": true,
+    "minimum_constraint": "predicted_temperature >= minimum_electron_temperature_eV",
+    "minimum_only_allowed": true,
+    "two_sided_range_allowed": true,
+    "when_both_present_minimum_must_not_exceed_maximum": true
+  }
+}
