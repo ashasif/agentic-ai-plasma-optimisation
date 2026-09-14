@@ -1,0 +1,235 @@
+{
+  "artifact": "continuous_optimizer_benchmark_protocol",
+  "decision_space": {
+    "automatic_clipping_allowed": false,
+    "bounds": [
+      [
+        15.0,
+        90.0
+      ],
+      [
+        10.0,
+        60.0
+      ]
+    ],
+    "bounds_inclusive": true,
+    "feature_order": [
+      "nominal_absorbed_power_W",
+      "target_pressure_mTorr"
+    ],
+    "out_of_domain_evaluation_allowed": false
+  },
+  "differential_evolution": {
+    "atol": 1e-12,
+    "constraints": "active frozen hard constraints represented as scipy.optimize.NonlinearConstraint(g, 0, +inf)",
+    "integrality": null,
+    "maxiter": 300,
+    "mutation": [
+      0.5,
+      1.0
+    ],
+    "polish": false,
+    "popsize": 20,
+    "recombination": 0.7,
+    "rng_definition": "numpy.random.default_rng(20260914)",
+    "rng_seed": 20260914,
+    "role": "primary_continuous_candidate",
+    "scipy_function": "scipy.optimize.differential_evolution",
+    "strategy": "best1bin",
+    "tol": 1e-09,
+    "updating": "immediate",
+    "vectorized": false,
+    "workers": 1
+  },
+  "evidence_separation": {
+    "agentic_orchestration_allowed": false,
+    "grid_baseline_modification_allowed": false,
+    "phase4_test_access_allowed": false,
+    "phase5_test_access_allowed": false,
+    "scenario_retuning_after_benchmark_allowed": false,
+    "source_simulator_execution_allowed": false
+  },
+  "final_candidate_validation": {
+    "global_physical_infeasibility_claimed_from_solver_failure": false,
+    "grid_feasible_scenario_requirement": "If the frozen deterministic grid contains at least one feasible point, a qualifying continuous run must return a scenario-feasible final candidate.",
+    "phase6_success_requires": [
+      "decision point inside frozen qualified domain",
+      "finite strictly positive surrogate predictions",
+      "explicit Phase 6 final feasibility recheck passes",
+      "finite frozen objective value"
+    ],
+    "scipy_success_flag_alone_defines_phase6_success": false,
+    "scipy_success_flag_recorded": true,
+    "solver_nonconvergence_with_feasible_candidate": "record and diagnose; do not automatically discard the scientifically feasible candidate solely because the SciPy success flag is false"
+  },
+  "grid_comparison": {
+    "compare": [
+      "scenario feasibility",
+      "primary objective value",
+      "selected operating-point coordinates",
+      "predicted electron density",
+      "predicted electron temperature",
+      "normalized boundary margin",
+      "number of surrogate prediction-cache misses",
+      "SciPy function-evaluation count",
+      "SciPy iteration count where available",
+      "SciPy success flag and message"
+    ],
+    "continuous_result_may_claim_discrete_grid_was_not_continuously_optimal": true,
+    "continuous_result_may_claim_global_continuous_optimum": false,
+    "grid_beating_required_for_method_qualification": false,
+    "negative_primary_objective_gap_means": "continuous candidate has a lower frozen objective than the discrete grid candidate",
+    "primary_objective_gap_definition": "continuous_primary_objective - grid_primary_objective",
+    "reference_result": "results/phase6/deterministic_grid_baseline.json",
+    "reference_result_sha256": "cb3cbad2345d5a83286e7940fdd7f1960e96b1a3fdd7eea6f0492caa058a7f59"
+  },
+  "hard_constraint_mapping": {
+    "convention": "Every active constraint function g(x) is feasible when g(x) >= 0.",
+    "density_hard_constraint": "density_relative_tolerance - density_relative_error",
+    "domain_constraints": "implemented exclusively through frozen optimizer bounds",
+    "final_candidate_requires_phase6_feasibility_recheck": true,
+    "maximum_temperature_constraint": "maximum_electron_temperature_eV - predicted_electron_temperature_eV",
+    "minimum_boundary_margin_constraint": "normalized_boundary_margin - minimum_normalized_boundary_margin",
+    "minimum_temperature_constraint": "predicted_electron_temperature_eV - minimum_electron_temperature_eV",
+    "objective_penalty_substitution_allowed": false,
+    "representation": "scipy_nonlinear_inequality_constraints"
+  },
+  "local_minimize": {
+    "executed_in_phase6d_continuous_benchmark": false,
+    "reason": "No local-method implementation details were frozen in Phase 6A, and the production surrogate is tree-based.",
+    "role": "diagnostic_only",
+    "selection_eligible": false
+  },
+  "objective_mapping": {
+    "absorbed_power": {
+      "continuous_scalar": "normalized_absorbed_power",
+      "direction": "minimize"
+    },
+    "boundary_margin": {
+      "continuous_scalar": "boundary_margin_cost",
+      "direction": "minimize",
+      "raw_normalized_boundary_margin_also_recorded": true
+    },
+    "density_target_error": {
+      "continuous_scalar": "density_relative_error",
+      "direction": "minimize"
+    },
+    "extra_scaling_allowed": false,
+    "hidden_weighting_allowed": false,
+    "nominal_distance": {
+      "continuous_scalar": "normalized_nominal_distance",
+      "direction": "minimize"
+    },
+    "penalty_terms_in_objective_allowed": false
+  },
+  "phase": "6D1",
+  "planned_result": {
+    "must_record": [
+      "all frozen protocol hashes",
+      "deterministic grid result hash",
+      "surrogate manifest hash",
+      "execution source commit",
+      "runtime library versions",
+      "method parameters",
+      "all repeat-level outcomes",
+      "final feasibility rechecks",
+      "grid comparison metrics",
+      "reproducibility checks",
+      "prediction cache statistics"
+    ],
+    "path": "results/phase6/continuous_optimizer_benchmark.json"
+  },
+  "prediction_evaluation": {
+    "direct_pickle_access_allowed": false,
+    "interface": "Phase6SurrogateAdapter.predict_point",
+    "prediction_cache": {
+      "cache_scope": "one method run for one scenario",
+      "cached_predictions_may_be_reused_between_objective_and_constraint_calls": true,
+      "coordinate_rounding_allowed": false,
+      "enabled": true,
+      "key_definition": "exact IEEE-754 float64 bit patterns of the two decision coordinates"
+    },
+    "source_simulator_allowed": false,
+    "trusted_phase4g_loader_only": true
+  },
+  "provenance": {
+    "amendment_001_sha256": "9cf31578c6adddb195766fefa38ada89c6678e2df60bea708ddded0383c53912",
+    "base_protocol_sha256": "57fee45c69c5f42f9e94b786e895a5d89b163d141367326706eac2d3d2ed1cb1",
+    "deterministic_grid_result_sha256": "cb3cbad2345d5a83286e7940fdd7f1960e96b1a3fdd7eea6f0492caa058a7f59",
+    "effective_contract_sha256": "91a6915a1773ca96364d555a4b2c9cd62ab8a692b6825f8859dc7331c90cf0b7",
+    "grid_qualification_scenarios_sha256": "6af65defab31691ffbaef1fc91c7a685267d6169af45f277c097488252d0fc1a",
+    "source_commit": "b414dbeaf9952afc8cf5448c1a40f9ed664df215"
+  },
+  "qualification": {
+    "automatic_method_selection_in_execution_gate": false,
+    "method_overall_pass_condition": "method_scenario_pass_conditions hold for all five frozen single-objective qualification scenarios",
+    "method_scenario_pass_conditions": [
+      "both repeat runs satisfy run_pass_conditions",
+      "repeat outputs satisfy exact reproducibility contract"
+    ],
+    "method_selection_requires_separate_review_after_benchmark": true,
+    "run_pass_conditions": [
+      "no domain violation",
+      "no automatic clipping",
+      "valid physical predictions",
+      "final Phase 6 feasibility recheck passes whenever grid baseline is feasible",
+      "finite primary objective"
+    ],
+    "simpler_method_preferred_if_scientifically_adequate": true
+  },
+  "reproducibility": {
+    "differential_evolution_same_seed_each_repeat": true,
+    "exact_repeatability_required": {
+      "final_feasibility": true,
+      "final_objective_value": true,
+      "final_physical_predictions": true,
+      "returned_decision_coordinates": true
+    },
+    "runs_per_method_per_scenario": 2,
+    "shgo_deterministic_repeat": true,
+    "single_threaded_where_supported": true
+  },
+  "scenario_eligibility": {
+    "deferred_multiobjective_scenario_count": 5,
+    "deferred_multiobjective_scenarios": [
+      "soft_density_1e17_low_power",
+      "soft_density_2e17_low_power",
+      "hard_density_1p5e17_nominal",
+      "density_1p5e17_temperature_window",
+      "hard_density_interior_margin"
+    ],
+    "grid_outcome_used_to_choose_scenarios": false,
+    "qualification_scenario_count": 5,
+    "qualification_scenarios": [
+      "soft_density_5e16",
+      "hard_density_1e17_min_power",
+      "temperature_window_min_power",
+      "boundary_margin_reference",
+      "nominal_centre_reference"
+    ],
+    "reason_multiobjective_deferred": "The Phase 6A.1 amendment prohibits inventing a continuous weighted multiobjective scalarisation. Any later continuous multiobjective method requires a separate explicit protocol freeze.",
+    "rule": "A frozen Phase 6C1 scenario is eligible iff len(objective_priority) == 1.",
+    "rule_frozen_before_continuous_method_execution": true
+  },
+  "schema_version": "1.0.0",
+  "scientific_role": {
+    "continuous_optimum_claimed": false,
+    "continuous_result_may_not_replace_grid_reference_automatically": true,
+    "method_selection_performed_in_this_protocol_gate": false,
+    "phase4_test_used": false,
+    "phase5_test_used": false,
+    "purpose": "Benchmark predeclared bounded continuous optimisation methods against the frozen deterministic grid baseline.",
+    "source_simulator_used": false
+  },
+  "shgo": {
+    "constraints": "same active frozen hard constraints used for Differential Evolution",
+    "interpretation_note": "SHGO is a comparator. Its internal local minimisation does not establish smoothness of the frozen tree-based surrogate surface.",
+    "iters": 3,
+    "minimizer_kwargs": null,
+    "n": 256,
+    "role": "deterministic_global_comparator",
+    "sampling_method": "simplicial",
+    "scipy_function": "scipy.optimize.shgo",
+    "workers": 1
+  }
+}
