@@ -13,14 +13,14 @@ Phase 7B did not implement decision policy, fault-to-optimisation mapping, appro
 ## 2. Frozen parent architecture
 
 - Phase 7A protocol commit: 847e81ef259e06fbc418cec9934f897fcad03658.
-- Phase 7A protocol SHA-256: $PHASE7A_PROTOCOL_HASH.
-- Phase 7A document SHA-256: $PHASE7A_DOCUMENT_HASH.
+- Phase 7A protocol SHA-256: b1978e0b77cfe7cff30fa91f0b2d8fba943d99a518a2d9b43e72543026456f31.
+- Phase 7A document SHA-256: 70c12235f423da839e662d6a4bffd21acb0d3797a807b4354eaae5061fdb315d.
 
 ## 3. Phase 7B protocol freeze
 
 - Protocol freeze commit: `f313e0f8a404afd44876d2f3453c70c49b7398b4`.
-- Protocol SHA-256: $PHASE7B_PROTOCOL_HASH.
-- Human-readable protocol SHA-256: $PHASE7B_DOCUMENT_HASH.
+- Protocol SHA-256: 732cc78f9bd0a72eb9d2d61af83baae7da0ff9e5bac58b526f3d079580a6e8a7.
+- Human-readable protocol SHA-256: d764c2f0f67b3e2da7ecf1121fcadf7e5f831dc4560290174b5aefa387cc4e2d.
 
 The protocol was frozen before implementation.
 
