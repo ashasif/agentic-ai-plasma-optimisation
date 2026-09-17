@@ -1,0 +1,22 @@
+﻿cff-version: 1.2.0
+message: "If you use this software or its associated research-engineering materials, please cite this project."
+type: software
+title: "Agentic AI for Reduced-Order ICP Plasma Process Monitoring, Fault Diagnosis and Constrained Operating-Point Optimisation"
+authors:
+  - family-names: "Gazi"
+    given-names: "Md Ashraful Alam"
+version: "0.1.0"
+abstract: >-
+  A reproducible research-engineering project for a synthetic reduced-order
+  argon inductively coupled plasma system, spanning surrogate modelling,
+  process monitoring and fault diagnosis, constrained operating-point
+  optimisation, and deterministic human-approved agentic decision support.
+keywords:
+  - "inductively coupled plasma"
+  - "reduced-order modelling"
+  - "plasma modelling"
+  - "surrogate modelling"
+  - "fault diagnosis"
+  - "constrained optimisation"
+  - "agentic AI"
+  - "reproducible research"
