@@ -1,0 +1,32 @@
+{
+  "artifact": "production_optimisation_runtime_manifest",
+  "continuous_benchmark_amendment_sha256": "e54e2e3a6d947f274171afc4e01bd203ea5e617b2f27730add1109321431d62f",
+  "continuous_benchmark_base_sha256": "0e618bf046a0d3749393003f15d2015ba2b607b79bc7490c24ac861ca03e9ad9",
+  "continuous_benchmark_result_sha256": "a4c8a55fd2ecfbf666479c6ee054a196c1a093b7640907f071fce0a04e7657d9",
+  "density_model_sha256": "2706589929cdbebabda82cc9091ce110d673adc1c380bb49de9590f89da0b6a8",
+  "deterministic_grid_result_sha256": "cb3cbad2345d5a83286e7940fdd7f1960e96b1a3fdd7eea6f0492caa058a7f59",
+  "effective_runtime_protocol_sha256": "7003151b7d8e549c73b76c27685e710df8a69d56e7e08536f3d97ee84a438d83",
+  "fallback_method": "deterministic_grid",
+  "grid_density_array_sha256": "70e60a5659f9ea5ac4f0c768d056119db7aacccf7c90d85e06996ab092008b90",
+  "grid_input_array_sha256": "f77c780d9a7c4e4c6db1dc921317c0b48e6d2e397d14075abbe34d38a2472cfd",
+  "grid_temperature_array_sha256": "4f3d9e087554e378478bec2405d624a061e46ad49facfbcd1058c2b9a7ba7dd0",
+  "mandatory_reference_method": "deterministic_grid",
+  "optimizer_selection_sha256": "c4c4963f1f4c0bee2803c4087e514e768a0e95bacd3d58ef1289f887696c3038",
+  "phase": "6F3",
+  "phase6e_result_sha256": "0b5cfffe64905499bb14a18b4f84824ccc0d071854669941ade4be9d5537a17d",
+  "production_seed": 20260914,
+  "runtime_implementation_source_sha256": "a391b196e0d73fe419d083e61d7bb92b87689e0adc02f3fed418b0a34cb3e082",
+  "runtime_protocol_amendment_sha256": "6294323543b9c4d121e4f4a8dcba34f8aad133924b12d63add1b37494232b87e",
+  "runtime_protocol_sha256": "ab7e7aebe73f57e7bf3801c24a18a42f3d86a3c0f2c4adb157707864d957656a",
+  "schema_version": "1.0.0",
+  "selected_method": "differential_evolution",
+  "supported_status_vocabulary": [
+    "selected_method_accepted",
+    "selected_method_accepted_grid_infeasible",
+    "grid_fallback_selected_method_infeasible",
+    "grid_fallback_selected_method_objective_regression",
+    "no_feasible_point_found_under_search_protocol"
+  ],
+  "surrogate_manifest_sha256": "0f9b8405a00fa97a07335ec73747381245847c7c6c495050f214ed3a6254102a",
+  "temperature_model_sha256": "891c5f99082ae27f8dd08d610d528460ecae72e4d019c0bc47ba0f993420c7e5"
+}

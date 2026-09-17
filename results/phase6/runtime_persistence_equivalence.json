@@ -1,0 +1,448 @@
+{
+  "artifact": "runtime_persistence_equivalence",
+  "environment": {
+    "numpy": "2.5.3",
+    "platform": "Windows-11-10.0.22631-SP0",
+    "python": "3.12.5",
+    "scikit_learn": "1.9.1",
+    "scipy": "1.18.1"
+  },
+  "manifest": {
+    "path": "artifacts/phase6/optimization_runtime_manifest.json",
+    "sha256": "5f4d7446d5c5a504c793d38cecda854b5b36b9dd65eeba6dcfe5a0c64b8d7395"
+  },
+  "phase": "6F3",
+  "probes": [
+    {
+      "challenge_id": null,
+      "equivalence_tolerance": 0.0,
+      "exact_non_timing_payload_equal": true,
+      "exact_non_timing_sha256_equal": true,
+      "instance_a": {
+        "response": {
+          "chosen_operating_point": {
+            "nominal_absorbed_power_W": 23.141220933467,
+            "target_pressure_mTorr": 42.02313390098714
+          },
+          "chosen_predictions": {
+            "electron_density_m3": 5.0007215858788056e+16,
+            "electron_temperature_eV": 1.6306218085058624
+          },
+          "chosen_primary_objective": 0.00014431717576112,
+          "chosen_source": "differential_evolution",
+          "grid_reference_result": {
+            "electron_density_m3": 5.0007215858788056e+16,
+            "electron_temperature_eV": 1.6307537276470216,
+            "feasible_candidate_count": 15251,
+            "operating_point": {
+              "nominal_absorbed_power_W": 23.0,
+              "target_pressure_mTorr": 42.0
+            },
+            "primary_objective": 0.00014431717576112,
+            "scenario_feasible": true,
+            "selected_candidate_index": 1680
+          },
+          "provenance": {
+            "effective_runtime_protocol_sha256": "7003151b7d8e549c73b76c27685e710df8a69d56e7e08536f3d97ee84a438d83",
+            "phase4g_surrogate_manifest_sha256": "0f9b8405a00fa97a07335ec73747381245847c7c6c495050f214ed3a6254102a",
+            "runtime_manifest_sha256": "5f4d7446d5c5a504c793d38cecda854b5b36b9dd65eeba6dcfe5a0c64b8d7395"
+          },
+          "scenario_id": "soft_density_5e16",
+          "selected_method_result": {
+            "constraint_values": [],
+            "decision_coordinates": {
+              "nominal_absorbed_power_W": 23.141220933467,
+              "target_pressure_mTorr": 42.02313390098714
+            },
+            "electron_density_m3": 5.0007215858788056e+16,
+            "electron_temperature_eV": 1.6306218085058624,
+            "final_phase6_feasible": true,
+            "objective_name": "density_target_error",
+            "objective_value": 0.00014431717576112,
+            "run_pass": true,
+            "scipy_message": "Optimization terminated successfully.",
+            "scipy_success": true
+          },
+          "selected_minus_grid_primary_objective": 0.0,
+          "status": "selected_method_accepted"
+        },
+        "response_sha256": "b50a5697cfde3904e7de1f4a2bf0d885fecc4c2bd5f38389a193ec3669736ffd",
+        "wall_elapsed_seconds": 116.2081349
+      },
+      "instance_b": {
+        "response": {
+          "chosen_operating_point": {
+            "nominal_absorbed_power_W": 23.141220933467,
+            "target_pressure_mTorr": 42.02313390098714
+          },
+          "chosen_predictions": {
+            "electron_density_m3": 5.0007215858788056e+16,
+            "electron_temperature_eV": 1.6306218085058624
+          },
+          "chosen_primary_objective": 0.00014431717576112,
+          "chosen_source": "differential_evolution",
+          "grid_reference_result": {
+            "electron_density_m3": 5.0007215858788056e+16,
+            "electron_temperature_eV": 1.6307537276470216,
+            "feasible_candidate_count": 15251,
+            "operating_point": {
+              "nominal_absorbed_power_W": 23.0,
+              "target_pressure_mTorr": 42.0
+            },
+            "primary_objective": 0.00014431717576112,
+            "scenario_feasible": true,
+            "selected_candidate_index": 1680
+          },
+          "provenance": {
+            "effective_runtime_protocol_sha256": "7003151b7d8e549c73b76c27685e710df8a69d56e7e08536f3d97ee84a438d83",
+            "phase4g_surrogate_manifest_sha256": "0f9b8405a00fa97a07335ec73747381245847c7c6c495050f214ed3a6254102a",
+            "runtime_manifest_sha256": "5f4d7446d5c5a504c793d38cecda854b5b36b9dd65eeba6dcfe5a0c64b8d7395"
+          },
+          "scenario_id": "soft_density_5e16",
+          "selected_method_result": {
+            "constraint_values": [],
+            "decision_coordinates": {
+              "nominal_absorbed_power_W": 23.141220933467,
+              "target_pressure_mTorr": 42.02313390098714
+            },
+            "electron_density_m3": 5.0007215858788056e+16,
+            "electron_temperature_eV": 1.6306218085058624,
+            "final_phase6_feasible": true,
+            "objective_name": "density_target_error",
+            "objective_value": 0.00014431717576112,
+            "run_pass": true,
+            "scipy_message": "Optimization terminated successfully.",
+            "scipy_success": true
+          },
+          "selected_minus_grid_primary_objective": 0.0,
+          "status": "selected_method_accepted"
+        },
+        "response_sha256": "b50a5697cfde3904e7de1f4a2bf0d885fecc4c2bd5f38389a193ec3669736ffd",
+        "wall_elapsed_seconds": 111.27799799999957
+      },
+      "probe_id": "soft_density_reference",
+      "scenario_id": "soft_density_5e16",
+      "scenario_source": "grid_qualification_scenarios"
+    },
+    {
+      "challenge_id": null,
+      "equivalence_tolerance": 0.0,
+      "exact_non_timing_payload_equal": true,
+      "exact_non_timing_sha256_equal": true,
+      "instance_a": {
+        "response": {
+          "chosen_operating_point": {
+            "nominal_absorbed_power_W": 38.53399351726603,
+            "target_pressure_mTorr": 57.55928352686808
+          },
+          "chosen_predictions": {
+            "electron_density_m3": 9.60504967979523e+16,
+            "electron_temperature_eV": 1.5565747793002718
+          },
+          "chosen_primary_objective": 0.3137865802302138,
+          "chosen_source": "differential_evolution",
+          "grid_reference_result": {
+            "electron_density_m3": 9.514427376965109e+16,
+            "electron_temperature_eV": 1.562771873977295,
+            "feasible_candidate_count": 1136,
+            "operating_point": {
+              "nominal_absorbed_power_W": 39.0,
+              "target_pressure_mTorr": 56.0
+            },
+            "primary_objective": 0.32,
+            "scenario_feasible": true,
+            "selected_candidate_index": 4940
+          },
+          "provenance": {
+            "effective_runtime_protocol_sha256": "7003151b7d8e549c73b76c27685e710df8a69d56e7e08536f3d97ee84a438d83",
+            "phase4g_surrogate_manifest_sha256": "0f9b8405a00fa97a07335ec73747381245847c7c6c495050f214ed3a6254102a",
+            "runtime_manifest_sha256": "5f4d7446d5c5a504c793d38cecda854b5b36b9dd65eeba6dcfe5a0c64b8d7395"
+          },
+          "scenario_id": "hard_density_1e17_min_power",
+          "selected_method_result": {
+            "constraint_values": [
+              {
+                "name": "density_hard_constraint",
+                "value": 0.010504967979523043
+              }
+            ],
+            "decision_coordinates": {
+              "nominal_absorbed_power_W": 38.53399351726603,
+              "target_pressure_mTorr": 57.55928352686808
+            },
+            "electron_density_m3": 9.60504967979523e+16,
+            "electron_temperature_eV": 1.5565747793002718,
+            "final_phase6_feasible": true,
+            "objective_name": "absorbed_power",
+            "objective_value": 0.3137865802302138,
+            "run_pass": true,
+            "scipy_message": "Optimization terminated successfully.",
+            "scipy_success": true
+          },
+          "selected_minus_grid_primary_objective": -0.0062134197697862326,
+          "status": "selected_method_accepted"
+        },
+        "response_sha256": "b3abe6ad161754b7e78c68592a5191b5d93f0a43c1fbe335a6dfd25863185c3f",
+        "wall_elapsed_seconds": 367.3968264999994
+      },
+      "instance_b": {
+        "response": {
+          "chosen_operating_point": {
+            "nominal_absorbed_power_W": 38.53399351726603,
+            "target_pressure_mTorr": 57.55928352686808
+          },
+          "chosen_predictions": {
+            "electron_density_m3": 9.60504967979523e+16,
+            "electron_temperature_eV": 1.5565747793002718
+          },
+          "chosen_primary_objective": 0.3137865802302138,
+          "chosen_source": "differential_evolution",
+          "grid_reference_result": {
+            "electron_density_m3": 9.514427376965109e+16,
+            "electron_temperature_eV": 1.562771873977295,
+            "feasible_candidate_count": 1136,
+            "operating_point": {
+              "nominal_absorbed_power_W": 39.0,
+              "target_pressure_mTorr": 56.0
+            },
+            "primary_objective": 0.32,
+            "scenario_feasible": true,
+            "selected_candidate_index": 4940
+          },
+          "provenance": {
+            "effective_runtime_protocol_sha256": "7003151b7d8e549c73b76c27685e710df8a69d56e7e08536f3d97ee84a438d83",
+            "phase4g_surrogate_manifest_sha256": "0f9b8405a00fa97a07335ec73747381245847c7c6c495050f214ed3a6254102a",
+            "runtime_manifest_sha256": "5f4d7446d5c5a504c793d38cecda854b5b36b9dd65eeba6dcfe5a0c64b8d7395"
+          },
+          "scenario_id": "hard_density_1e17_min_power",
+          "selected_method_result": {
+            "constraint_values": [
+              {
+                "name": "density_hard_constraint",
+                "value": 0.010504967979523043
+              }
+            ],
+            "decision_coordinates": {
+              "nominal_absorbed_power_W": 38.53399351726603,
+              "target_pressure_mTorr": 57.55928352686808
+            },
+            "electron_density_m3": 9.60504967979523e+16,
+            "electron_temperature_eV": 1.5565747793002718,
+            "final_phase6_feasible": true,
+            "objective_name": "absorbed_power",
+            "objective_value": 0.3137865802302138,
+            "run_pass": true,
+            "scipy_message": "Optimization terminated successfully.",
+            "scipy_success": true
+          },
+          "selected_minus_grid_primary_objective": -0.0062134197697862326,
+          "status": "selected_method_accepted"
+        },
+        "response_sha256": "b3abe6ad161754b7e78c68592a5191b5d93f0a43c1fbe335a6dfd25863185c3f",
+        "wall_elapsed_seconds": 309.66781620000074
+      },
+      "probe_id": "hard_density_min_power",
+      "scenario_id": "hard_density_1e17_min_power",
+      "scenario_source": "grid_qualification_scenarios"
+    },
+    {
+      "challenge_id": "boundary_margin_constraint_edge",
+      "equivalence_tolerance": 0.0,
+      "exact_non_timing_payload_equal": true,
+      "exact_non_timing_sha256_equal": true,
+      "instance_a": {
+        "response": {
+          "chosen_operating_point": {
+            "nominal_absorbed_power_W": 22.500000000000572,
+            "target_pressure_mTorr": 30.170555099504625
+          },
+          "chosen_predictions": {
+            "electron_density_m3": 4.240538248323612e+16,
+            "electron_temperature_eV": 1.7162837947464293
+          },
+          "chosen_primary_objective": 0.10000000000000762,
+          "chosen_source": "differential_evolution",
+          "grid_reference_result": {
+            "electron_density_m3": 2.9761099940251732e+16,
+            "electron_temperature_eV": 1.928004832911884,
+            "feasible_candidate_count": 9801,
+            "operating_point": {
+              "nominal_absorbed_power_W": 22.5,
+              "target_pressure_mTorr": 15.0
+            },
+            "primary_objective": 0.1,
+            "scenario_feasible": true,
+            "selected_candidate_index": 1525
+          },
+          "provenance": {
+            "effective_runtime_protocol_sha256": "7003151b7d8e549c73b76c27685e710df8a69d56e7e08536f3d97ee84a438d83",
+            "phase4g_surrogate_manifest_sha256": "0f9b8405a00fa97a07335ec73747381245847c7c6c495050f214ed3a6254102a",
+            "runtime_manifest_sha256": "5f4d7446d5c5a504c793d38cecda854b5b36b9dd65eeba6dcfe5a0c64b8d7395"
+          },
+          "scenario_id": "phase6e_boundary_margin_constraint_edge",
+          "selected_method_result": {
+            "constraint_values": [
+              {
+                "name": "minimum_boundary_margin_constraint",
+                "value": 7.618905506490137e-15
+              }
+            ],
+            "decision_coordinates": {
+              "nominal_absorbed_power_W": 22.500000000000572,
+              "target_pressure_mTorr": 30.170555099504625
+            },
+            "electron_density_m3": 4.240538248323612e+16,
+            "electron_temperature_eV": 1.7162837947464293,
+            "final_phase6_feasible": true,
+            "objective_name": "absorbed_power",
+            "objective_value": 0.10000000000000762,
+            "run_pass": true,
+            "scipy_message": "Optimization terminated successfully.",
+            "scipy_success": true
+          },
+          "selected_minus_grid_primary_objective": 7.618905506490137e-15,
+          "status": "selected_method_accepted"
+        },
+        "response_sha256": "0ee1fdb53ffc668702d2840ef67d876de77dbb620c15dda7aa8b81edd0ce872b",
+        "wall_elapsed_seconds": 320.3026024999999
+      },
+      "instance_b": {
+        "response": {
+          "chosen_operating_point": {
+            "nominal_absorbed_power_W": 22.500000000000572,
+            "target_pressure_mTorr": 30.170555099504625
+          },
+          "chosen_predictions": {
+            "electron_density_m3": 4.240538248323612e+16,
+            "electron_temperature_eV": 1.7162837947464293
+          },
+          "chosen_primary_objective": 0.10000000000000762,
+          "chosen_source": "differential_evolution",
+          "grid_reference_result": {
+            "electron_density_m3": 2.9761099940251732e+16,
+            "electron_temperature_eV": 1.928004832911884,
+            "feasible_candidate_count": 9801,
+            "operating_point": {
+              "nominal_absorbed_power_W": 22.5,
+              "target_pressure_mTorr": 15.0
+            },
+            "primary_objective": 0.1,
+            "scenario_feasible": true,
+            "selected_candidate_index": 1525
+          },
+          "provenance": {
+            "effective_runtime_protocol_sha256": "7003151b7d8e549c73b76c27685e710df8a69d56e7e08536f3d97ee84a438d83",
+            "phase4g_surrogate_manifest_sha256": "0f9b8405a00fa97a07335ec73747381245847c7c6c495050f214ed3a6254102a",
+            "runtime_manifest_sha256": "5f4d7446d5c5a504c793d38cecda854b5b36b9dd65eeba6dcfe5a0c64b8d7395"
+          },
+          "scenario_id": "phase6e_boundary_margin_constraint_edge",
+          "selected_method_result": {
+            "constraint_values": [
+              {
+                "name": "minimum_boundary_margin_constraint",
+                "value": 7.618905506490137e-15
+              }
+            ],
+            "decision_coordinates": {
+              "nominal_absorbed_power_W": 22.500000000000572,
+              "target_pressure_mTorr": 30.170555099504625
+            },
+            "electron_density_m3": 4.240538248323612e+16,
+            "electron_temperature_eV": 1.7162837947464293,
+            "final_phase6_feasible": true,
+            "objective_name": "absorbed_power",
+            "objective_value": 0.10000000000000762,
+            "run_pass": true,
+            "scipy_message": "Optimization terminated successfully.",
+            "scipy_success": true
+          },
+          "selected_minus_grid_primary_objective": 7.618905506490137e-15,
+          "status": "selected_method_accepted"
+        },
+        "response_sha256": "0ee1fdb53ffc668702d2840ef67d876de77dbb620c15dda7aa8b81edd0ce872b",
+        "wall_elapsed_seconds": 298.7963520000003
+      },
+      "probe_id": "boundary_constraint_edge",
+      "scenario_id": "phase6e_boundary_margin_constraint_edge",
+      "scenario_source": "robustness_qualification_protocol"
+    }
+  ],
+  "provenance": {
+    "entry_commit": "e5eb947380e43aa4bc0309f15ff469f51a6c417c",
+    "phase6e_result_sha256": "0b5cfffe64905499bb14a18b4f84824ccc0d071854669941ade4be9d5537a17d",
+    "robustness_protocol_sha256": "5897dd29172a64e1192d0f40c848c36d717c6c044b8792e8d7fbc3de47a4cfda",
+    "runtime_manifest_sha256": "5f4d7446d5c5a504c793d38cecda854b5b36b9dd65eeba6dcfe5a0c64b8d7395",
+    "runtime_manifest_source_sha256": "80bbac4b1afa4a6357051048da7c0ca67939727f8572de0d87f8af43803aa931",
+    "runtime_protocol_amendment_sha256": "6294323543b9c4d121e4f4a8dcba34f8aad133924b12d63add1b37494232b87e",
+    "runtime_protocol_sha256": "ab7e7aebe73f57e7bf3801c24a18a42f3d86a3c0f2c4adb157707864d957656a",
+    "runtime_source_sha256": "a391b196e0d73fe419d083e61d7bb92b87689e0adc02f3fed418b0a34cb3e082"
+  },
+  "qualification_summary": {
+    "all_grid_array_identities_match": true,
+    "all_independent_instance_non_timing_outputs_exactly_equal": true,
+    "complete_grid_surrogate_batch_count": 2,
+    "equivalence_tolerance": 0.0,
+    "independent_runtime_instance_count": 2,
+    "persistence_probe_count": 3,
+    "phase6f3_overall_pass": true,
+    "phase6f_complete_candidate": true,
+    "phase6g_unlock_candidate": true,
+    "real_optimizer_execution_count": 6,
+    "runtime_manifest_validated": true
+  },
+  "runtime_contract": {
+    "effective_runtime_protocol_sha256": "7003151b7d8e549c73b76c27685e710df8a69d56e7e08536f3d97ee84a438d83",
+    "fallback_method": "deterministic_grid",
+    "mandatory_reference_method": "deterministic_grid",
+    "production_seed": 20260914,
+    "selected_method": "differential_evolution",
+    "status_vocabulary": [
+      "selected_method_accepted",
+      "selected_method_accepted_grid_infeasible",
+      "grid_fallback_selected_method_infeasible",
+      "grid_fallback_selected_method_objective_regression",
+      "no_feasible_point_found_under_search_protocol"
+    ],
+    "timing_excluded_from_equivalence": true
+  },
+  "runtime_instances": {
+    "independent_object_identity_confirmed": true,
+    "instance_a": {
+      "grid_identity": {
+        "candidate_count": 15251,
+        "density_array_sha256": "70e60a5659f9ea5ac4f0c768d056119db7aacccf7c90d85e06996ab092008b90",
+        "input_array_sha256": "f77c780d9a7c4e4c6db1dc921317c0b48e6d2e397d14075abbe34d38a2472cfd",
+        "temperature_array_sha256": "4f3d9e087554e378478bec2405d624a061e46ad49facfbcd1058c2b9a7ba7dd0"
+      },
+      "load_wall_elapsed_seconds": 8.388503399999536
+    },
+    "instance_b": {
+      "grid_identity": {
+        "candidate_count": 15251,
+        "density_array_sha256": "70e60a5659f9ea5ac4f0c768d056119db7aacccf7c90d85e06996ab092008b90",
+        "input_array_sha256": "f77c780d9a7c4e4c6db1dc921317c0b48e6d2e397d14075abbe34d38a2472cfd",
+        "temperature_array_sha256": "4f3d9e087554e378478bec2405d624a061e46ad49facfbcd1058c2b9a7ba7dd0"
+      },
+      "load_wall_elapsed_seconds": 8.435138199999528
+    },
+    "shared_prediction_memory": false
+  },
+  "same_instance_reproducibility_contract": {
+    "phase6f2_same_instance_synthetic_qualification_retained": true,
+    "real_duplicate_probe_execution_added": false,
+    "reason": "The frozen Phase 6F1 persistence protocol specifies three probes across two independent runtime instances for six real optimizer executions. Same-instance exact response serialization was already qualified synthetically in Phase 6F2 and remained covered by the passing Phase 6 regression suite."
+  },
+  "schema_version": "1.0.0",
+  "scientific_status": {
+    "agentic_orchestration_used": false,
+    "experimental_validation_claimed": false,
+    "global_optimum_claimed": false,
+    "global_physical_infeasibility_claimed": false,
+    "industrial_validation_claimed": false,
+    "optimizer_retuned": false,
+    "phase4_test_accessed": false,
+    "phase5_test_accessed": false,
+    "shgo_executed": false,
+    "source_simulator_executed": false
+  }
+}
