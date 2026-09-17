@@ -2,11 +2,11 @@
 
 ## Status
 
-**Closure candidate ? final formal closure pending.**
+**Phase 6 formally closed. Phase 7 unlocked.**
 
 This checklist consolidates the verified Phase 6 evidence after Gate 19A-R2.
 
-Phase 7 remains locked until the final Phase 6 closure gate.
+Phase 7 is formally unlocked by this final Phase 6 closure.
 
 ## Checklist
 
@@ -83,13 +83,13 @@ Phase 7 remains locked until the final Phase 6 closure gate.
 - [x] All required Phase 6 implementation files were present.
 - [x] Official production runtime manifest is tracked in Git.
 - [x] Frozen evidence hashes remained unchanged after the 621-test full regression.
-- [ ] Formal Phase 6 closure state has been applied and committed.
-- [ ] Phase 7 has been formally unlocked by the final Phase 6 closure commit.
+- [x] Formal Phase 6 closure state has been applied and committed.
+- [x] Phase 7 has been formally unlocked by the final Phase 6 closure commit.
 
 ## Checklist state
 
-- Checked items: 73
-- Unchecked items: 2
+- Checked items: 75
+- Unchecked items: 0
 - Total items: 75
 
-The two remaining items are intentionally reserved for the final formal Phase 6 closure gate.
+All 75 Phase 6 closure checklist items are complete.

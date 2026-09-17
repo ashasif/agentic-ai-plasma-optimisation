@@ -4,11 +4,11 @@
 
 Phase 6 has completed its scientific, optimisation, robustness, production-runtime and persistence-qualification work.
 
-This document is the pre-formal-closure consolidation record.
+This document is the final formal Phase 6 closure record.
 
-**Phase 6 formal closure is still pending the final closure gate.**
+**Phase 6 is formally closed.**
 
-**Phase 7 remains locked until that final closure commit.**
+**Phase 7 is formally unlocked.**
 
 ## Phase 6 objective
 
@@ -228,15 +228,12 @@ All substantive Phase 6 scientific and engineering work is complete.
 
 The evidence set is internally consistent, hash-verified and regression-tested.
 
-This Gate 19B record deliberately does not itself formally close Phase 6.
+The final Phase 6G closure gate re-verified repository cleanliness and frozen evidence, confirmed the complete 621-test collection, and completed the final full-project regression successfully.
 
-The final Phase 6G closure gate must:
+All 75 Phase 6 closure checklist items are complete.
 
-1. re-verify repository cleanliness and frozen evidence;
-2. verify this closure documentation;
-3. run the final required regression/check;
-4. mark the remaining checklist items complete;
-5. formally close Phase 6;
-6. unlock Phase 7.
+Phase 6 is formally closed.
 
-Until that final closure commit exists, Phase 7 remains locked.
+Phase 7 is formally unlocked for the next separately governed project phase.
+
+The Phase 6 scientific scope, frozen evidence, production runtime contract and limitations remain unchanged by this documentation-only closure transition.
