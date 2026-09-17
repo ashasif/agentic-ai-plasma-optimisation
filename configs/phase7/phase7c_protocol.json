@@ -1,0 +1,287 @@
+{
+    "protocol_schema_version":  1,
+    "phase":  "7C",
+    "title":  "Deterministic Decision Policy and Orchestration",
+    "state":  "frozen_on_commit",
+    "scientific_scope":  {
+                             "system":  "synthetic reduced-order argon ICP",
+                             "experimental_validation_claim_permitted":  false,
+                             "industrial_validation_claim_permitted":  false,
+                             "fab_or_wafer_scale_validation_claim_permitted":  false,
+                             "reactive_chemistry_claim_permitted":  false,
+                             "autonomous_hardware_control_permitted":  false,
+                             "autonomous_setpoint_change_permitted":  false,
+                             "global_physical_optimality_claim_permitted":  false,
+                             "global_physical_infeasibility_claim_permitted":  false,
+                             "extrapolation_beyond_frozen_domain_permitted":  false
+                         },
+    "frozen_parent_identity":  {
+                                   "phase7a_protocol_sha256":  "b1978e0b77cfe7cff30fa91f0b2d8fba943d99a518a2d9b43e72543026456f31",
+                                   "phase7a_document_sha256":  "70c12235f423da839e662d6a4bffd21acb0d3797a807b4354eaae5061fdb315d",
+                                   "phase7b_protocol_sha256":  "732cc78f9bd0a72eb9d2d61af83baae7da0ff9e5bac58b526f3d079580a6e8a7",
+                                   "phase7b_document_sha256":  "d764c2f0f67b3e2da7ecf1121fcadf7e5f831dc4560290174b5aefa387cc4e2d",
+                                   "phase7b_monitoring_adapter_sha256":  "99198f9701e9b0fc73374de654585ed1e95de924c14f762e00fbfffbf6df4718",
+                                   "phase7b_optimisation_adapter_sha256":  "ead017c8a0abc8b0b0437de51dce59487bf4e9875a83c863d1dd274df115546b",
+                                   "phase7b_errors_sha256":  "b62e35704b83ecc51938257cf4d39f77555b7cd3ca893afa634642eb4d2ada84",
+                                   "phase5_monitoring_manifest_sha256":  "a18afb158aa7c02ac0e345b5f238a91e34f876d10dd43218c574554b874a9259",
+                                   "phase6_runtime_manifest_sha256":  "5f4d7446d5c5a504c793d38cecda854b5b36b9dd65eeba6dcfe5a0c64b8d7395"
+                               },
+    "authority_model":  {
+                            "phase7c_role":  "deterministic decision-support orchestration",
+                            "llm_authority_permitted":  false,
+                            "phase7c_may_invent_scientific_predictions":  false,
+                            "phase7c_may_modify_phase5_prediction":  false,
+                            "phase7c_may_modify_phase6_response":  false,
+                            "phase7c_may_issue_hardware_commands":  false,
+                            "phase7c_may_apply_setpoint_changes":  false,
+                            "recommendation_requires_human_approval":  true
+                        },
+    "decision_modes":  [
+                           "monitoring_driven",
+                           "operator_initiated_optimisation"
+                       ],
+    "decision_outcomes":  [
+                              "no_action",
+                              "request_human_input",
+                              "recommend_change_pending_human_approval",
+                              "escalate_without_recommendation"
+                          ],
+    "decision_unit":  {
+                          "authoritative_monitoring_observations":  1,
+                          "phase5_adapter_calls_maximum":  1,
+                          "phase6_requests_maximum":  1,
+                          "phase6_adapter_calls_maximum":  1,
+                          "human_approval_targets_maximum":  1,
+                          "batch_decision_units_per_call":  1
+                      },
+    "monitoring_evidence_contract":  {
+                                         "source":  "TrustedMonitoringAdapter.evaluate",
+                                         "preserve_exact_evidence":  true,
+                                         "threshold":  0.4,
+                                         "threshold_rule":  "fault_active == (active_probability \u003e= 0.4)",
+                                         "allowed_diagnostic_states":  [
+                                                                           "none",
+                                                                           "flow_delivery",
+                                                                           "power_coupling",
+                                                                           "pressure_path_anomaly"
+                                                                       ],
+                                         "pressure_path_anomaly_specific_mechanism_claim_permitted":  false,
+                                         "current_monitoring_observation_required_in_all_modes":  true
+                                     },
+    "optimisation_evidence_contract":  {
+                                           "source":  "TrustedOptimisationAdapter.evaluate",
+                                           "complete_runtime_response_must_be_preserved":  true,
+                                           "supported_statuses":  [
+                                                                      "selected_method_accepted",
+                                                                      "selected_method_accepted_grid_infeasible",
+                                                                      "grid_fallback_selected_method_infeasible",
+                                                                      "grid_fallback_selected_method_objective_regression",
+                                                                      "no_feasible_point_found_under_search_protocol"
+                                                                  ],
+                                           "status_source_mapping":  {
+                                                                         "selected_method_accepted":  "differential_evolution",
+                                                                         "selected_method_accepted_grid_infeasible":  "differential_evolution",
+                                                                         "grid_fallback_selected_method_infeasible":  "deterministic_grid",
+                                                                         "grid_fallback_selected_method_objective_regression":  "deterministic_grid",
+                                                                         "no_feasible_point_found_under_search_protocol":  null
+                                                                     },
+                                           "status_may_be_recomputed":  false,
+                                           "chosen_source_may_be_overridden":  false,
+                                           "fallback_may_be_overridden":  false,
+                                           "no_feasible_status_is_global_physical_infeasibility":  false
+                                       },
+    "immutable_evidence_serialisation":  {
+                                             "phase7b_mapping_representation":  "types.MappingProxyType",
+                                             "phase7b_sequence_representation":  "tuple",
+                                             "phase7c_authoritative_record_requires_json_native_copy":  true,
+                                             "mapping_conversion":  "Mapping recursively copied to plain dict",
+                                             "tuple_conversion":  "tuple recursively copied to list",
+                                             "scalar_types":  [
+                                                                  "str",
+                                                                  "int",
+                                                                  "float",
+                                                                  "bool",
+                                                                  "NoneType"
+                                                              ],
+                                             "non_finite_float_permitted":  false,
+                                             "phase7b_evidence_mutation_permitted":  false
+                                         },
+    "monitoring_driven_policy":  {
+                                     "explicit_operator_optimisation_request_required":  false,
+                                     "phase6_invocation_when_fault_inactive_permitted":  false,
+                                     "implicit_fault_to_objective_mapping_permitted":  false,
+                                     "implicit_fault_to_constraint_mapping_permitted":  false,
+                                     "implicit_fault_to_target_mapping_permitted":  false,
+                                     "frozen_fault_to_optimisation_template_exists":  false,
+                                     "phase6_invocation_for_active_fault_before_template_freeze_permitted":  false,
+                                     "inactive_fault_outcome":  "no_action",
+                                     "active_fault_without_frozen_template_outcome":  "request_human_input",
+                                     "active_fault_without_template_may_recommend_setpoint":  false,
+                                     "monitoring_boundary_failure_outcome":  "escalate_without_recommendation"
+                                 },
+    "operator_initiated_policy":  {
+                                      "explicit_operator_optimisation_request_required":  true,
+                                      "monitoring_observation_required":  true,
+                                      "phase6_invocation_when_fault_inactive_permitted":  true,
+                                      "phase6_invocation_when_fault_active_permitted":  true,
+                                      "operator_request_remains_operator_initiated_when_fault_active":  true,
+                                      "monitoring_state_may_create_operator_request":  false,
+                                      "phase5_may_rewrite_operator_request":  false,
+                                      "phase7c_may_rewrite_operator_request":  false,
+                                      "phase7c_may_reimplement_phase6_request_parser":  false,
+                                      "supplied_operator_request_validation_authority":  "TrustedOptimisationAdapter",
+                                      "missing_operator_request_outcome":  "request_human_input",
+                                      "supplied_operator_request_rejected_by_trusted_adapter_outcome":  "escalate_without_recommendation",
+                                      "valid_phase6_selected_or_grid_result_outcome":  "recommend_change_pending_human_approval",
+                                      "no_feasible_phase6_status_outcome":  "escalate_without_recommendation",
+                                      "monitoring_boundary_failure_outcome":  "escalate_without_recommendation",
+                                      "optimisation_boundary_failure_outcome":  "escalate_without_recommendation"
+                                  },
+    "recommendation_contract":  {
+                                    "recommendation_must_come_from_phase6_chosen_operating_point":  true,
+                                    "recommendation_may_be_created_without_phase6_chosen_operating_point":  false,
+                                    "recommendation_may_modify_phase6_coordinates":  false,
+                                    "initial_human_approval_state":  "pending",
+                                    "hardware_actuation_authority":  false
+                                },
+    "non_recommendation_approval_states":  {
+                                               "no_action":  "not_applicable",
+                                               "request_human_input":  "not_applicable",
+                                               "escalate_without_recommendation":  "not_applicable"
+                                           },
+    "boundary_failure_policy":  {
+                                    "TrustedBoundaryError_is_decision_evidence":  false,
+                                    "phase7c_orchestrator_may_catch_TrustedBoundaryError":  true,
+                                    "catch_purpose":  "deterministic_fail_closed_policy_translation_not_scientific_recovery",
+                                    "preserve_boundary_stage_cause_type":  true,
+                                    "silent_recovery_permitted":  false,
+                                    "retry_permitted":  false,
+                                    "alternate_scientific_path_permitted":  false,
+                                    "exception_itself_is_decision_outcome":  false,
+                                    "monitoring_failure_outcome":  "escalate_without_recommendation",
+                                    "optimisation_failure_outcome":  "escalate_without_recommendation"
+                                },
+    "authoritative_record":  {
+                                 "immutable":  true,
+                                 "required_sections":  [
+                                                           "record_schema_version",
+                                                           "decision_id",
+                                                           "phase7_protocol_identity",
+                                                           "request_identity",
+                                                           "decision_mode",
+                                                           "input_evidence",
+                                                           "phase5_runtime_identity",
+                                                           "phase5_prediction",
+                                                           "monitoring_policy_result",
+                                                           "optimisation_request_identity",
+                                                           "phase6_runtime_identity",
+                                                           "phase6_response",
+                                                           "safety_checks",
+                                                           "warning_codes",
+                                                           "decision_outcome",
+                                                           "human_approval_state",
+                                                           "reason_codes",
+                                                           "upstream_provenance",
+                                                           "replay_fingerprint"
+                                                       ],
+                                 "complete_phase6_response_preserved":  true,
+                                 "approval_event_embedded_in_authoritative_record":  false
+                             },
+    "canonicalisation":  {
+                             "serializer":  "python_stdlib_json",
+                             "encoding":  "utf-8",
+                             "sort_keys":  true,
+                             "ensure_ascii":  true,
+                             "allow_nan":  false,
+                             "item_separator":  ",",
+                             "key_separator":  ":",
+                             "trailing_newline_in_hash_payload":  false,
+                             "reference_call":  "json.dumps(payload, sort_keys=True, separators=(\",\", \":\"), ensure_ascii=True, allow_nan=False)"
+                         },
+    "decision_id":  {
+                        "algorithm":  "sha256",
+                        "identity_payload_fields":  [
+                                                        "record_schema_version",
+                                                        "decision_mode",
+                                                        "phase7_protocol_sha256",
+                                                        "phase5_manifest_sha256",
+                                                        "phase6_runtime_manifest_sha256",
+                                                        "raw_monitoring_observation",
+                                                        "optimisation_request_or_null"
+                                                    ]
+                    },
+    "replay_fingerprint":  {
+                               "algorithm":  "sha256",
+                               "payload":  "canonical authoritative structured decision record",
+                               "excluded_fields":  [
+                                                       "replay_fingerprint",
+                                                       "wall_clock_timestamp",
+                                                       "timing_metadata",
+                                                       "optional_natural_language_explanation",
+                                                       "approval_events"
+                                                   ]
+                           },
+    "approval_event_model":  {
+                                 "external_to_authoritative_scientific_decision":  true,
+                                 "mutates_original_decision_record":  false,
+                                 "required_fields":  [
+                                                         "decision_id",
+                                                         "approval_state",
+                                                         "approver_reference"
+                                                     ],
+                                 "permitted_states":  [
+                                                          "approved",
+                                                          "rejected"
+                                                      ],
+                                 "approval_event_permits_hardware_actuation":  false
+                             },
+    "planned_implementation":  {
+                                   "package":  "src/plasma_ai/agentic",
+                                   "candidate_files":  [
+                                                           "src/plasma_ai/agentic/decision_policy.py",
+                                                           "src/plasma_ai/agentic/orchestrator.py",
+                                                           "src/plasma_ai/agentic/recording.py"
+                                                       ],
+                                   "candidate_tests":  [
+                                                           "tests/agentic/test_phase7_decision_policy.py",
+                                                           "tests/agentic/test_phase7_orchestrator.py",
+                                                           "tests/agentic/test_phase7_recording.py"
+                                                       ],
+                                   "implementation_permitted_before_protocol_freeze":  false
+                               },
+    "excluded_from_phase7c":  [
+                                  "human approval event persistence implementation",
+                                  "hardware control",
+                                  "setpoint actuation",
+                                  "LLM decision authority",
+                                  "surrogate retraining",
+                                  "monitoring model retraining",
+                                  "optimiser retuning",
+                                  "new scientific inference",
+                                  "fault-to-optimisation template invention",
+                                  "multiobjective scalarisation",
+                                  "Phase 4 modification",
+                                  "Phase 5 modification",
+                                  "Phase 6 modification"
+                              ],
+    "completion_requirements":  [
+                                    "phase7c_protocol_frozen_before_implementation",
+                                    "deterministic_decision_policy_implemented",
+                                    "single_decision_unit_orchestration_implemented",
+                                    "immutable_evidence_to_json_native_conversion_implemented",
+                                    "canonical_decision_id_implemented",
+                                    "canonical_replay_fingerprint_implemented",
+                                    "complete_phase6_response_preserved",
+                                    "human_approval_pending_state_enforced_for_recommendations",
+                                    "no_hardware_actuation_authority",
+                                    "targeted_phase7c_tests_pass",
+                                    "full_project_regression_passes",
+                                    "frozen_phase5_phase6_phase7a_phase7b_hashes_unchanged",
+                                    "working_tree_clean_at_closure",
+                                    "missing_operator_request_requests_human_input",
+                                    "supplied_request_rejected_by_trusted_adapter_escalates",
+                                    "operator_initiated_path_tested_with_inactive_fault",
+                                    "operator_initiated_path_tested_with_active_fault",
+                                    "trusted_boundary_failure_metadata_preserved"
+                                ]
+}
