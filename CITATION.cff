@@ -6,6 +6,7 @@ authors:
   - family-names: "Gazi"
     given-names: "Md Ashraful Alam"
 version: "0.1.0"
+license: MIT
 abstract: >-
   A reproducible research-engineering project for a synthetic reduced-order
   argon inductively coupled plasma system, spanning surrogate modelling,

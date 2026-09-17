@@ -75,6 +75,7 @@ Current package metadata:
 - package name: `plasma-ai`;
 - package version: `0.1.0`;
 - supported Python declaration: `>=3.11`.
+- software licence: MIT License.
 
 Candidate release tag:
 
@@ -188,7 +189,7 @@ Deferred work:
 
 Before public release:
 
-1. select an explicit software licence or consciously publish without one;
+1. MIT License selected and recorded in `LICENSE` and package/citation metadata;
 2. create the Phase 8A packaging commit(s);
 3. create/configure the GitHub repository and remote;
 4. audit the remote repository state;

@@ -119,6 +119,6 @@ At creation of this document:
 - GitHub release: not yet created;
 - public README: deferred to Phase 8B;
 - architecture visualisation: deferred to Phase 8C;
-- licence selection: pending explicit author decision.
+- software licence: MIT License (`LICENSE`).
 
 Phase 8 packaging commits may improve presentation and release metadata, but they must remain clearly downstream of the immutable formal technical closure baseline.
