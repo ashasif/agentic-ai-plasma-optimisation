@@ -1,0 +1,218 @@
+{
+  "artifact": "production_optimisation_runtime_protocol",
+  "fallback_policy": {
+    "fallback_is_explicit": true,
+    "fallback_is_never_silent": true,
+    "global_physical_infeasibility_claimed": false,
+    "selected_method_and_grid_both_infeasible": {
+      "chosen_source": null,
+      "status": "no_feasible_point_found_under_search_protocol"
+    },
+    "selected_method_feasible_and_not_worse_than_grid": {
+      "chosen_source": "differential_evolution",
+      "status": "selected_method_accepted"
+    },
+    "selected_method_feasible_but_objective_regresses_vs_grid": {
+      "chosen_source": "deterministic_grid",
+      "status": "grid_fallback_selected_method_objective_regression"
+    },
+    "selected_method_infeasible_grid_feasible": {
+      "chosen_source": "deterministic_grid",
+      "status": "grid_fallback_selected_method_infeasible"
+    }
+  },
+  "grid_reference_contract": {
+    "continuous_candidate_acceptance_requires": [
+      "final_phase6_feasible",
+      "finite_primary_objective",
+      "primary_objective <= grid_primary_objective + 1e-6"
+    ],
+    "evaluated_for_every_valid_runtime_request": true,
+    "grid_reference_gap_tolerance": 1e-06,
+    "new_complete_grid_surrogate_batch_per_request": false,
+    "same_scenario_constraints_and_objectives_as_selected_method": true,
+    "uses_cached_complete_grid_prediction_batch": true
+  },
+  "negative_runtime_tests": {
+    "negative_tests_use_real_production_surrogate_inference": false,
+    "required": [
+      "out_of_domain_nominal_point_rejected_before inference",
+      "unsupported multiobjective request rejected",
+      "invalid density target rejected",
+      "invalid temperature interval rejected",
+      "invalid boundary margin rejected",
+      "production seed override rejected",
+      "optimizer parameter override rejected",
+      "manifest hash drift rejected",
+      "surrogate artifact hash drift rejected"
+    ]
+  },
+  "persistence_contract": {
+    "loader_must_validate_all_manifest_hashes": true,
+    "manifest_hash_mismatch_policy": "fail_closed",
+    "manifest_must_include": [
+      "runtime protocol hash",
+      "runtime implementation source hash",
+      "Phase 4G surrogate manifest hash",
+      "density model hash",
+      "temperature model hash",
+      "optimizer selection hash",
+      "Phase 6E qualification result hash",
+      "continuous benchmark hashes",
+      "grid evidence hash",
+      "production seed",
+      "grid array hashes",
+      "supported status vocabulary"
+    ],
+    "reason_no_serialized_optimizer_object": "Differential Evolution is stateless between requests; reproducibility is defined by frozen configuration, seed, runtime source and validated upstream artifacts.",
+    "runtime_manifest_path": "artifacts/phase6/optimization_runtime_manifest.json",
+    "runtime_manifest_required": true,
+    "serialized_optimizer_object_required": false
+  },
+  "phase": "6F1",
+  "phase_progression": {
+    "phase6f2_implementation_unlocked": true,
+    "phase6f3_real_persistence_qualification_locked_until_phase6f2_pass": true,
+    "phase6g_final_audit_locked_until_phase6f_complete": true,
+    "phase7_locked_until_phase6_formally_closed": true
+  },
+  "planned_artifacts_and_evidence": {
+    "persistence_equivalence_result": "results/phase6/runtime_persistence_equivalence.json",
+    "persistence_summary": "docs/phase6/phase6f3_summary.md",
+    "runtime_implementation_summary": "docs/phase6/phase6f2_summary.md",
+    "runtime_manifest": "artifacts/phase6/optimization_runtime_manifest.json"
+  },
+  "provenance": {
+    "continuous_benchmark_amendment_sha256": "e54e2e3a6d947f274171afc4e01bd203ea5e617b2f27730add1109321431d62f",
+    "continuous_benchmark_base_sha256": "0e618bf046a0d3749393003f15d2015ba2b607b79bc7490c24ac861ca03e9ad9",
+    "continuous_benchmark_result_sha256": "a4c8a55fd2ecfbf666479c6ee054a196c1a093b7640907f071fce0a04e7657d9",
+    "density_model_sha256": "2706589929cdbebabda82cc9091ce110d673adc1c380bb49de9590f89da0b6a8",
+    "deterministic_grid_result_sha256": "cb3cbad2345d5a83286e7940fdd7f1960e96b1a3fdd7eea6f0492caa058a7f59",
+    "grid_scenario_set_sha256": "6af65defab31691ffbaef1fc91c7a685267d6169af45f277c097488252d0fc1a",
+    "optimizer_selection_sha256": "c4c4963f1f4c0bee2803c4087e514e768a0e95bacd3d58ef1289f887696c3038",
+    "phase6_amendment_001_sha256": "9cf31578c6adddb195766fefa38ada89c6678e2df60bea708ddded0383c53912",
+    "phase6_base_protocol_sha256": "57fee45c69c5f42f9e94b786e895a5d89b163d141367326706eac2d3d2ed1cb1",
+    "phase6e_result_sha256": "0b5cfffe64905499bb14a18b4f84824ccc0d071854669941ade4be9d5537a17d",
+    "robustness_protocol_sha256": "5897dd29172a64e1192d0f40c848c36d717c6c044b8792e8d7fbc3de47a4cfda",
+    "source_commit": "d0d70c7686940b3a557f72df9296f0d3ebac4b94",
+    "surrogate_manifest_sha256": "0f9b8405a00fa97a07335ec73747381245847c7c6c495050f214ed3a6254102a",
+    "temperature_model_sha256": "891c5f99082ae27f8dd08d610d528460ecae72e4d019c0bc47ba0f993420c7e5"
+  },
+  "reproducibility_contract": {
+    "expected_total_real_probe_optimizations": 6,
+    "floating_point_tolerance_for_equivalence": 0.0,
+    "independent_runtime_instances_exact_non_timing_output_required": true,
+    "persistence_equivalence_probe_requests": [
+      {
+        "probe_id": "soft_density_reference",
+        "scenario_id": "soft_density_5e16",
+        "scenario_source": "grid_qualification_scenarios"
+      },
+      {
+        "probe_id": "hard_density_min_power",
+        "scenario_id": "hard_density_1e17_min_power",
+        "scenario_source": "grid_qualification_scenarios"
+      },
+      {
+        "challenge_id": "boundary_margin_constraint_edge",
+        "probe_id": "boundary_constraint_edge",
+        "scenario_source": "robustness_qualification_protocol"
+      }
+    ],
+    "probe_count": 3,
+    "production_seed": 20260914,
+    "production_seed_fixed": true,
+    "same_request_same_runtime_exact_non_timing_output_required": true,
+    "timing_fields_compared": false,
+    "two_independent_runtime_instances_required": true
+  },
+  "response_contract": {
+    "chosen_operating_point_null_when_no_feasible_point": true,
+    "chosen_predictions_null_when_no_feasible_point": true,
+    "chosen_primary_objective_null_when_no_feasible_point": true,
+    "required_fields": [
+      "status",
+      "scenario_id",
+      "chosen_source",
+      "chosen_operating_point",
+      "chosen_predictions",
+      "chosen_primary_objective",
+      "selected_method_result",
+      "grid_reference_result",
+      "selected_minus_grid_primary_objective",
+      "provenance"
+    ],
+    "wall_clock_timing_excluded_from_reproducibility_equality": true
+  },
+  "runtime_identity": {
+    "agentic_orchestration_allowed": false,
+    "fallback_method": "deterministic_grid",
+    "mandatory_reference_method": "deterministic_grid",
+    "name": "phase6_production_optimisation_runtime",
+    "production_seed": 20260914,
+    "runtime_version": "1.0.0",
+    "selected_continuous_optimizer": "differential_evolution",
+    "shgo_runtime_allowed": false,
+    "source_simulator_runtime_allowed": false
+  },
+  "runtime_initialization": {
+    "complete_grid_prediction_batch_cached_read_only": true,
+    "complete_grid_prediction_batch_count_per_runtime_instance": 1,
+    "deterministic_grid_build_count_per_runtime_instance": 1,
+    "expected_grid_density_array_sha256": "70e60a5659f9ea5ac4f0c768d056119db7aacccf7c90d85e06996ab092008b90",
+    "expected_grid_input_array_sha256": "f77c780d9a7c4e4c6db1dc921317c0b48e6d2e397d14075abbe34d38a2472cfd",
+    "expected_grid_temperature_array_sha256": "4f3d9e087554e378478bec2405d624a061e46ad49facfbcd1058c2b9a7ba7dd0",
+    "grid_array_hash_mismatch_policy": "fail_closed_runtime_initialization",
+    "grid_candidate_count": 15251,
+    "surrogate_load_count_per_runtime_instance": 1
+  },
+  "schema_version": "1.0.0",
+  "scientific_boundaries": {
+    "experimental_validation_claimed": false,
+    "global_continuous_optimum_claimed": false,
+    "industrial_validation_claimed": false,
+    "oipt_hardware_performance_claimed": false,
+    "reactive_chemistry_claimed": false,
+    "surrogate_runtime_speedup_interpreted_as_industrial_throughput": false,
+    "wafer_scale_spatial_behavior_claimed": false
+  },
+  "selected_method_execution": {
+    "final_phase6_feasibility_recheck_required": true,
+    "method": "differential_evolution",
+    "parameter_override_allowed_at_production_runtime": false,
+    "parameter_source": "configs/phase6/continuous_optimizer_benchmark.json",
+    "scipy_success_alone_sufficient": false,
+    "seed": 20260914,
+    "seed_override_allowed_at_production_runtime": false,
+    "solver_failure_implies_global_infeasibility": false
+  },
+  "supported_request_contract": {
+    "hard_constraints_remain_hard_constraints": true,
+    "hidden_scalarization_allowed": false,
+    "multiobjective_rejection_reason": "No production continuous scalarization or preference ordering beyond frozen lexicographic grid analysis has been qualified.",
+    "multiobjective_runtime_requests_supported": false,
+    "nominal_operating_point_if_present_must_be_in_domain": true,
+    "request_type": "validated_phase6_optimisation_scenario",
+    "scenario_validation_required_before_surrogate_inference": true,
+    "single_objective_requests_supported": true
+  },
+  "surrogate_contract": {
+    "coordinate_clipping_allowed": false,
+    "feature_order": [
+      "nominal_absorbed_power_W",
+      "target_pressure_mTorr"
+    ],
+    "finite_positive_predictions_required": true,
+    "loader": "plasma_ai.surrogate.phase4g_persistence.load_phase4g_surrogate",
+    "out_of_domain_inference_allowed": false,
+    "phase6_adapter_required": true,
+    "qualified_power_range_W": [
+      15.0,
+      90.0
+    ],
+    "qualified_pressure_range_mTorr": [
+      10.0,
+      60.0
+    ]
+  }
+}
