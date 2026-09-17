@@ -1,0 +1,94 @@
+{
+  "added_runtime_state": {
+    "chosen_operating_point": "selected_method_operating_point",
+    "chosen_predictions": "selected_method_predictions",
+    "chosen_primary_objective": "selected_method_primary_objective",
+    "chosen_source": "differential_evolution",
+    "condition": {
+      "grid_feasible_candidate_count": 0,
+      "grid_selected_candidate": null,
+      "selected_method_final_phase6_feasible": true,
+      "selected_method_primary_objective_finite": true,
+      "selected_method_run_pass": true
+    },
+    "interpretation": "The continuous qualified optimizer found a feasible point that is not represented by the frozen discrete grid resolution. This does not establish global optimality.",
+    "selected_minus_grid_primary_objective": null,
+    "status": "selected_method_accepted_grid_infeasible"
+  },
+  "amendment_id": "runtime_protocol_amendment_001",
+  "artifact": "production_optimisation_runtime_protocol_amendment",
+  "base_runtime_protocol": {
+    "path": "configs/phase6/runtime_protocol.json",
+    "sha256": "ab7e7aebe73f57e7bf3801c24a18a42f3d86a3c0f2c4adb157707864d957656a"
+  },
+  "effective_runtime_state_table": [
+    {
+      "chosen_source": "differential_evolution",
+      "condition": "selected method feasible; grid feasible; selected objective <= grid objective + 1e-6",
+      "status": "selected_method_accepted"
+    },
+    {
+      "chosen_source": "differential_evolution",
+      "condition": "selected method feasible; grid has zero feasible candidates",
+      "status": "selected_method_accepted_grid_infeasible"
+    },
+    {
+      "chosen_source": "deterministic_grid",
+      "condition": "selected method infeasible; grid feasible",
+      "status": "grid_fallback_selected_method_infeasible"
+    },
+    {
+      "chosen_source": "deterministic_grid",
+      "condition": "selected method feasible; grid feasible; selected objective > grid objective + 1e-6",
+      "status": "grid_fallback_selected_method_objective_regression"
+    },
+    {
+      "chosen_source": null,
+      "condition": "selected method infeasible; grid has zero feasible candidates",
+      "status": "no_feasible_point_found_under_search_protocol"
+    }
+  ],
+  "effective_status_vocabulary": [
+    "selected_method_accepted",
+    "selected_method_accepted_grid_infeasible",
+    "grid_fallback_selected_method_infeasible",
+    "grid_fallback_selected_method_objective_regression",
+    "no_feasible_point_found_under_search_protocol"
+  ],
+  "implementation_requirement": {
+    "phase6f2_must_implement_all_five_effective_states": true,
+    "phase6f2_must_test_added_state_synthetically": true,
+    "runtime_manifest_must_record_effective_status_vocabulary": true
+  },
+  "phase": "6F1.1",
+  "schema_version": "1.0.0",
+  "scientific_boundaries": {
+    "experimental_validation_claimed": false,
+    "global_continuous_optimum_claimed": false,
+    "global_physical_infeasibility_claimed": false,
+    "industrial_validation_claimed": false
+  },
+  "trigger": {
+    "grid_contract_changed": false,
+    "issue": "The frozen fallback table did not explicitly define the valid state in which Differential Evolution returns a Phase 6-feasible continuous candidate while the discrete deterministic grid contains zero feasible candidates.",
+    "optimizer_parameters_changed": false,
+    "optimizer_selection_changed": false,
+    "production_seed_changed": false,
+    "qualification_evidence_changed": false,
+    "scientific_scope_changed": false,
+    "stage": "pre_implementation_runtime_completeness_review"
+  },
+  "unchanged_runtime_requirements": {
+    "coordinate_clipping_allowed": false,
+    "final_phase6_feasibility_recheck_required": true,
+    "grid_evaluated_for_every_valid_request": true,
+    "grid_reference_gap_tolerance": 1e-06,
+    "mandatory_reference": "deterministic_grid",
+    "multiobjective_runtime_supported": false,
+    "optimizer_parameter_override_allowed": false,
+    "out_of_domain_inference_allowed": false,
+    "production_seed": 20260914,
+    "production_seed_override_allowed": false,
+    "selected_method": "differential_evolution"
+  }
+}
