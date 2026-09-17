@@ -239,3 +239,200 @@ def test_manifest_runtime_source_hash_drift_fails_closed(
         load_runtime_manifest(
             path
         )
+
+
+def test_manifest_schema_version_drift_fails_closed(
+    tmp_path: Path,
+) -> None:
+    path = tmp_path / "runtime_manifest.json"
+
+    payload = _write_valid_temp_manifest(
+        path
+    )
+
+    payload["schema_version"] = "999.0.0"
+
+    path.write_text(
+        json.dumps(
+            payload,
+            indent=2,
+            sort_keys=True,
+        )
+        + "\n",
+        encoding="utf-8",
+    )
+
+    with pytest.raises(
+        RuntimeManifestError,
+        match="schema version",
+    ):
+        load_runtime_manifest(
+            path
+        )
+
+
+def test_manifest_reference_method_drift_fails_closed(
+    tmp_path: Path,
+) -> None:
+    path = tmp_path / "runtime_manifest.json"
+
+    payload = _write_valid_temp_manifest(
+        path
+    )
+
+    payload[
+        "mandatory_reference_method"
+    ] = "unexpected_reference"
+
+    path.write_text(
+        json.dumps(
+            payload,
+            indent=2,
+            sort_keys=True,
+        )
+        + "\n",
+        encoding="utf-8",
+    )
+
+    with pytest.raises(
+        RuntimeManifestError,
+        match="Mandatory reference method",
+    ):
+        load_runtime_manifest(
+            path
+        )
+
+
+def test_manifest_fallback_method_drift_fails_closed(
+    tmp_path: Path,
+) -> None:
+    path = tmp_path / "runtime_manifest.json"
+
+    payload = _write_valid_temp_manifest(
+        path
+    )
+
+    payload[
+        "fallback_method"
+    ] = "unexpected_fallback"
+
+    path.write_text(
+        json.dumps(
+            payload,
+            indent=2,
+            sort_keys=True,
+        )
+        + "\n",
+        encoding="utf-8",
+    )
+
+    with pytest.raises(
+        RuntimeManifestError,
+        match="Fallback method",
+    ):
+        load_runtime_manifest(
+            path
+        )
+
+
+@pytest.mark.parametrize(
+    "field",
+    [
+        "grid_input_array_sha256",
+        "grid_density_array_sha256",
+        "grid_temperature_array_sha256",
+    ],
+)
+def test_manifest_grid_array_hash_drift_fails_closed(
+    tmp_path: Path,
+    field: str,
+) -> None:
+    path = tmp_path / "runtime_manifest.json"
+
+    payload = _write_valid_temp_manifest(
+        path
+    )
+
+    payload[field] = "0" * 64
+
+    path.write_text(
+        json.dumps(
+            payload,
+            indent=2,
+            sort_keys=True,
+        )
+        + "\n",
+        encoding="utf-8",
+    )
+
+    with pytest.raises(
+        RuntimeManifestError,
+        match="Frozen grid-array hash mismatch",
+    ):
+        load_runtime_manifest(
+            path
+        )
+
+
+def test_manifest_continuous_base_hash_drift_fails_closed(
+    tmp_path: Path,
+) -> None:
+    path = tmp_path / "runtime_manifest.json"
+
+    payload = _write_valid_temp_manifest(
+        path
+    )
+
+    payload[
+        "continuous_benchmark_base_sha256"
+    ] = "0" * 64
+
+    path.write_text(
+        json.dumps(
+            payload,
+            indent=2,
+            sort_keys=True,
+        )
+        + "\n",
+        encoding="utf-8",
+    )
+
+    with pytest.raises(
+        RuntimeManifestError,
+        match="continuous_benchmark_base_sha256",
+    ):
+        load_runtime_manifest(
+            path
+        )
+
+
+def test_manifest_continuous_amendment_hash_drift_fails_closed(
+    tmp_path: Path,
+) -> None:
+    path = tmp_path / "runtime_manifest.json"
+
+    payload = _write_valid_temp_manifest(
+        path
+    )
+
+    payload[
+        "continuous_benchmark_amendment_sha256"
+    ] = "0" * 64
+
+    path.write_text(
+        json.dumps(
+            payload,
+            indent=2,
+            sort_keys=True,
+        )
+        + "\n",
+        encoding="utf-8",
+    )
+
+    with pytest.raises(
+        RuntimeManifestError,
+        match="continuous_benchmark_amendment_sha256",
+    ):
+        load_runtime_manifest(
+            path
+        )

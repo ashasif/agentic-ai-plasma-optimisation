@@ -384,6 +384,11 @@ def load_runtime_manifest(
             "Unexpected runtime-manifest artifact."
         )
 
+    if payload.get("schema_version") != "1.0.0":
+        raise RuntimeManifestError(
+            "Unexpected runtime-manifest schema version."
+        )
+
     if (
         payload.get(
             "runtime_protocol_sha256"
@@ -450,6 +455,48 @@ def load_runtime_manifest(
             "Selected method mismatch in runtime manifest."
         )
 
+    if payload.get(
+        "mandatory_reference_method"
+    ) != "deterministic_grid":
+        raise RuntimeManifestError(
+            "Mandatory reference method mismatch in runtime manifest."
+        )
+
+    if payload.get(
+        "fallback_method"
+    ) != "deterministic_grid":
+        raise RuntimeManifestError(
+            "Fallback method mismatch in runtime manifest."
+        )
+
+    initialization = protocol.base[
+        "runtime_initialization"
+    ]
+
+    expected_grid_hash_fields = {
+        "grid_input_array_sha256": (
+            "expected_grid_input_array_sha256"
+        ),
+        "grid_density_array_sha256": (
+            "expected_grid_density_array_sha256"
+        ),
+        "grid_temperature_array_sha256": (
+            "expected_grid_temperature_array_sha256"
+        ),
+    }
+
+    for manifest_field, protocol_field in (
+        expected_grid_hash_fields.items()
+    ):
+        if payload.get(
+            manifest_field
+        ) != initialization[
+            protocol_field
+        ]:
+            raise RuntimeManifestError(
+                f"Frozen grid-array hash mismatch for {manifest_field!r}."
+            )
+
     _require_hash_match(
         payload,
         "surrogate_manifest_sha256",
@@ -478,6 +525,18 @@ def load_runtime_manifest(
         payload,
         "phase6e_result_sha256",
         "results/phase6/robustness_qualification.json",
+    )
+
+    _require_hash_match(
+        payload,
+        "continuous_benchmark_base_sha256",
+        "configs/phase6/continuous_optimizer_benchmark.json",
+    )
+
+    _require_hash_match(
+        payload,
+        "continuous_benchmark_amendment_sha256",
+        "configs/phase6/continuous_optimizer_benchmark_amendment_001.json",
     )
 
     _require_hash_match(
