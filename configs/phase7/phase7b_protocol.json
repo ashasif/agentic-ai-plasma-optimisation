@@ -1,0 +1,386 @@
+{
+    "schema_version":  "1.0.0",
+    "phase":  "7B",
+    "title":  "Trusted Runtime Integration and Boundary Adapters Protocol",
+    "protocol_state":  "frozen_on_commit",
+    "parent_phase7a":  {
+                           "protocol_path":  "configs/phase7/phase7a_protocol.json",
+                           "protocol_sha256":  "b1978e0b77cfe7cff30fa91f0b2d8fba943d99a518a2d9b43e72543026456f31",
+                           "document_path":  "docs/phase7/phase7a_protocol.md",
+                           "document_sha256":  "70c12235f423da839e662d6a4bffd21acb0d3797a807b4354eaae5061fdb315d",
+                           "freeze_commit":  "847e81ef259e06fbc418cec9934f897fcad03658"
+                       },
+    "purpose":  {
+                    "statement":  "Create narrow deterministic Phase 7-owned adapters around the frozen Phase 5G monitoring runtime and frozen Phase 6 production optimisation runtime.",
+                    "decision_policy_implementation_permitted":  false,
+                    "fault_to_optimisation_mapping_permitted":  false,
+                    "phase6_status_to_phase7_decision_mapping_permitted":  false,
+                    "human_approval_logic_permitted":  false,
+                    "hardware_actuation_permitted":  false
+                },
+    "package_contract":  {
+                             "package":  "plasma_ai.agentic",
+                             "package_path":  "src/plasma_ai/agentic",
+                             "public_modules":  [
+                                                    "plasma_ai.agentic.errors",
+                                                    "plasma_ai.agentic.monitoring_adapter",
+                                                    "plasma_ai.agentic.optimisation_adapter"
+                                                ],
+                             "planned_files":  [
+                                                   "src/plasma_ai/agentic/__init__.py",
+                                                   "src/plasma_ai/agentic/errors.py",
+                                                   "src/plasma_ai/agentic/monitoring_adapter.py",
+                                                   "src/plasma_ai/agentic/optimisation_adapter.py",
+                                                   "tests/agentic/test_phase7_errors.py",
+                                                   "tests/agentic/test_phase7_monitoring_adapter.py",
+                                                   "tests/agentic/test_phase7_optimisation_adapter.py"
+                                               ],
+                             "prohibited_phase7b_modules":  [
+                                                                "orchestrator",
+                                                                "decision_policy",
+                                                                "approval",
+                                                                "actuation",
+                                                                "llm",
+                                                                "controller"
+                                                            ]
+                         },
+    "shared_boundary_error_contract":  {
+                                           "exception_name":  "TrustedBoundaryError",
+                                           "base_class":  "RuntimeError",
+                                           "role":  "Fail-closed Phase 7 integration-layer exception raised when trusted upstream evidence cannot be established.",
+                                           "exception_is_decision_outcome":  false,
+                                           "exception_may_invent_recovery_action":  false,
+                                           "catch_scope":  "Exception",
+                                           "must_not_catch":  [
+                                                                  "KeyboardInterrupt",
+                                                                  "SystemExit",
+                                                                  "GeneratorExit"
+                                                              ],
+                                           "required_attributes":  [
+                                                                       "boundary",
+                                                                       "stage",
+                                                                       "cause_type"
+                                                                   ],
+                                           "permitted_boundaries":  [
+                                                                        "phase5_monitoring",
+                                                                        "phase6_optimisation"
+                                                                    ],
+                                           "phase7b_may_silently_recover":  false,
+                                           "original_exception_must_be_chained":  true,
+                                           "error_message_must_not_claim_scientific_inference":  true,
+                                           "module":  "plasma_ai.agentic.errors",
+                                           "file":  "src/plasma_ai/agentic/errors.py",
+                                           "single_canonical_exception_class":  true
+                                       },
+    "monitoring_adapter":  {
+                               "class_name":  "TrustedMonitoringAdapter",
+                               "evidence_type":  "TrustedMonitoringEvidence",
+                               "constructor_contract":  {
+                                                            "trusted_loader":  "plasma_ai.monitoring.phase5g_persistence.load_phase5g_monitoring",
+                                                            "default_manifest_path":  "artifacts/phase5/monitoring_manifest.json",
+                                                            "alternate_manifest_path_permitted":  false,
+                                                            "direct_model_artifact_loading_permitted":  false,
+                                                            "development_interface_import_permitted":  false,
+                                                            "public_constructor_signature":  "TrustedMonitoringAdapter()",
+                                                            "default_protocol_path":  "configs/phase5/phase5g_protocol.json",
+                                                            "alternate_protocol_path_permitted":  false,
+                                                            "runtime_loaded_eagerly_on_construction":  true,
+                                                            "maximum_loader_calls_per_instance":  1,
+                                                            "public_dependency_injection_permitted":  false
+                                                        },
+                               "input_contract":  {
+                                                      "semantic_unit":  "one current monitoring observation",
+                                                      "input_type":  "Mapping[str, object]",
+                                                      "exact_required_fields":  [
+                                                                                    "nominal_absorbed_power_W",
+                                                                                    "target_pressure_mTorr",
+                                                                                    "nominal_flow_sccm",
+                                                                                    "measured_absorbed_power_W",
+                                                                                    "measured_flow_sccm",
+                                                                                    "measured_pressure_mTorr"
+                                                                                ],
+                                                      "additional_fields_permitted":  false,
+                                                      "missing_fields_permitted":  false,
+                                                      "values_must_be_real_numeric":  true,
+                                                      "bool_values_permitted_as_numeric":  false,
+                                                      "values_must_be_finite":  true,
+                                                      "strictly_positive_fields":  [
+                                                                                       "nominal_absorbed_power_W",
+                                                                                       "target_pressure_mTorr",
+                                                                                       "nominal_flow_sccm"
+                                                                                   ],
+                                                      "phase7_authoritative_rows":  1,
+                                                      "upstream_batch_interface_exposed":  false,
+                                                      "runtime_array_shape":  "[1, 6]",
+                                                      "feature_order":  [
+                                                                            "nominal_absorbed_power_W",
+                                                                            "target_pressure_mTorr",
+                                                                            "nominal_flow_sccm",
+                                                                            "measured_absorbed_power_W",
+                                                                            "measured_flow_sccm",
+                                                                            "measured_pressure_mTorr"
+                                                                        ]
+                                                  },
+                               "upstream_call_contract":  {
+                                                              "only_prediction_method":  "LoadedPhase5GMonitoring.predict",
+                                                              "direct_detector_call_permitted":  false,
+                                                              "direct_diagnoser_call_permitted":  false,
+                                                              "build_phase5g_model_features_direct_call_permitted":  false,
+                                                              "maximum_predict_calls_per_adapter_call":  1
+                                                          },
+                               "output_contract":  {
+                                                       "immutable":  true,
+                                                       "scalarised_from_exact_single_row":  true,
+                                                       "fields":  [
+                                                                      "active_probability",
+                                                                      "fault_active",
+                                                                      "diagnostic_state",
+                                                                      "monitoring_manifest_sha256"
+                                                                  ],
+                                                       "active_probability_type":  "float",
+                                                       "fault_active_type":  "bool",
+                                                       "diagnostic_state_type":  "str",
+                                                       "monitoring_manifest_sha256_type":  "str",
+                                                       "active_probability_minimum":  0,
+                                                       "active_probability_maximum":  1,
+                                                       "detector_threshold":  0.4,
+                                                       "threshold_rule":  "fault_active == (active_probability \u003e= 0.4)",
+                                                       "diagnostic_states":  [
+                                                                                 "none",
+                                                                                 "flow_delivery",
+                                                                                 "power_coupling",
+                                                                                 "pressure_path_anomaly"
+                                                                             ],
+                                                       "inactive_consistency_rule":  "fault_active is false implies diagnostic_state == \u0027none\u0027",
+                                                       "active_consistency_rule":  "fault_active is true implies diagnostic_state in active diagnostic vocabulary",
+                                                       "pressure_path_specific_mechanism_claim_permitted":  false,
+                                                       "implementation_form":  "frozen_dataclass"
+                                                   },
+                               "integrity_contract":  {
+                                                          "frozen_manifest_path":  "artifacts/phase5/monitoring_manifest.json",
+                                                          "frozen_manifest_sha256":  "a18afb158aa7c02ac0e345b5f238a91e34f876d10dd43218c574554b874a9259",
+                                                          "detector_sha256":  "4a00e785d7e7f0a8429020399967cdd82c18da275d58e5b83bc11707eeac8a6a",
+                                                          "diagnoser_sha256":  "2e9dea016137594c707ecd3c32116691cc90d0127133f11c70372c93e6fcca84",
+                                                          "phase5g_protocol_sha256":  "2ca15b486bf15c3c439e19607812358f632151c94de15541ae6d27e04fe1574c",
+                                                          "persistence_equivalence_sha256":  "6f53ac1c9b919172bde8a2030ecbedaabab94f0aa5dbac3e6cd68f534cb1feb9",
+                                                          "hash_mismatch_action":  "raise_TrustedBoundaryError",
+                                                          "loader_failure_action":  "raise_TrustedBoundaryError",
+                                                          "prediction_failure_action":  "raise_TrustedBoundaryError",
+                                                          "invalid_output_action":  "raise_TrustedBoundaryError"
+                                                      }
+                           },
+    "optimisation_adapter":  {
+                                 "class_name":  "TrustedOptimisationAdapter",
+                                 "evidence_type":  "TrustedOptimisationEvidence",
+                                 "constructor_contract":  {
+                                                              "trusted_loader":  "plasma_ai.optimisation.runtime.load_phase6_optimisation_runtime",
+                                                              "default_manifest_path":  "artifacts/phase6/optimization_runtime_manifest.json",
+                                                              "alternate_manifest_path_permitted":  false,
+                                                              "direct_surrogate_import_permitted":  false,
+                                                              "direct_grid_import_permitted":  false,
+                                                              "direct_optimizer_import_permitted":  false,
+                                                              "build_runtime_from_components_import_permitted":  false,
+                                                              "public_constructor_signature":  "TrustedOptimisationAdapter()",
+                                                              "runtime_loaded_eagerly_on_construction":  true,
+                                                              "maximum_loader_calls_per_instance":  1,
+                                                              "public_dependency_injection_permitted":  false
+                                                          },
+                                 "loader_internal_behavior":  {
+                                                                  "internal_frozen_surrogate_use_is_permitted":  true,
+                                                                  "explanation":  "The frozen Phase 6 production loader internally loads the qualified surrogate adapter and predicts the frozen deterministic grid as part of runtime identity validation.",
+                                                                  "phase7_direct_surrogate_access_permitted":  false,
+                                                                  "loader_must_remain_opaque_to_phase7":  true
+                                                              },
+                                 "input_contract":  {
+                                                        "input_type":  "Mapping[str, object]",
+                                                        "semantic_unit":  "one explicit frozen-scope optimisation request",
+                                                        "maximum_scenarios_per_adapter_call":  1,
+                                                        "adapter_may_rewrite_request":  false,
+                                                        "adapter_may_add_objective":  false,
+                                                        "adapter_may_add_constraint":  false,
+                                                        "adapter_may_add_target":  false,
+                                                        "adapter_may_scalarise":  false,
+                                                        "adapter_may_expand_domain":  false
+                                                    },
+                                 "parsing_contract":  {
+                                                          "only_parser":  "plasma_ai.optimisation.runtime.parse_runtime_request",
+                                                          "raw_request_is_copied_before_parse":  true,
+                                                          "upstream_parsed_scenario_is_not_exposed":  true,
+                                                          "parse_failure_action":  "raise_TrustedBoundaryError"
+                                                      },
+                                 "execution_contract":  {
+                                                            "only_execution_method":  "Phase6OptimisationRuntime.run",
+                                                            "maximum_run_calls_per_adapter_call":  1,
+                                                            "status_recomputation_permitted":  false,
+                                                            "chosen_source_override_permitted":  false,
+                                                            "fallback_override_permitted":  false,
+                                                            "retry_with_modified_request_permitted":  false,
+                                                            "retry_with_different_seed_permitted":  false
+                                                        },
+                                 "response_contract":  {
+                                                           "source_serialisation_method":  "RuntimeResponse.to_dict",
+                                                           "preserve_complete_serialised_response":  true,
+                                                           "immutable":  true,
+                                                           "fields":  [
+                                                                          "runtime_response",
+                                                                          "runtime_manifest_sha256"
+                                                                      ],
+                                                           "supported_status_vocabulary":  [
+                                                                                               "selected_method_accepted",
+                                                                                               "selected_method_accepted_grid_infeasible",
+                                                                                               "grid_fallback_selected_method_infeasible",
+                                                                                               "grid_fallback_selected_method_objective_regression",
+                                                                                               "no_feasible_point_found_under_search_protocol"
+                                                                                           ],
+                                                           "status_source_contract":  {
+                                                                                          "selected_method_accepted":  "differential_evolution",
+                                                                                          "selected_method_accepted_grid_infeasible":  "differential_evolution",
+                                                                                          "grid_fallback_selected_method_infeasible":  "deterministic_grid",
+                                                                                          "grid_fallback_selected_method_objective_regression":  "deterministic_grid",
+                                                                                          "no_feasible_point_found_under_search_protocol":  null
+                                                                                      },
+                                                           "no_feasible_status_requires_null_chosen_operating_point":  true,
+                                                           "unknown_status_action":  "raise_TrustedBoundaryError",
+                                                           "incoherent_response_action":  "raise_TrustedBoundaryError",
+                                                           "implementation_form":  "frozen_dataclass",
+                                                           "runtime_response_type":  "Mapping[str, object]",
+                                                           "deep_immutability_required":  true,
+                                                           "deep_freeze_contract":  {
+                                                                                        "mapping_representation":  "types.MappingProxyType",
+                                                                                        "mapping_values_recursively_frozen":  true,
+                                                                                        "list_and_tuple_representation":  "tuple",
+                                                                                        "immutable_json_scalars_preserved":  true,
+                                                                                        "permitted_scalar_types":  [
+                                                                                                                       "str",
+                                                                                                                       "int",
+                                                                                                                       "float",
+                                                                                                                       "bool",
+                                                                                                                       "NoneType"
+                                                                                                                   ],
+                                                                                        "non_finite_float_permitted":  false,
+                                                                                        "mutable_upstream_runtime_objects_exposed":  false,
+                                                                                        "mutable_dict_exposed":  false,
+                                                                                        "mutable_list_exposed":  false
+                                                                                    },
+                                                           "required_provenance_keys":  [
+                                                                                            "runtime_manifest_sha256",
+                                                                                            "effective_runtime_protocol_sha256",
+                                                                                            "phase4g_surrogate_manifest_sha256"
+                                                                                        ],
+                                                           "runtime_manifest_provenance_must_equal_frozen_manifest_sha256":  true,
+                                                           "evidence_manifest_sha256_must_equal_response_provenance_manifest_sha256":  true,
+                                                           "missing_or_incoherent_provenance_action":  "raise_TrustedBoundaryError"
+                                                       },
+                                 "integrity_contract":  {
+                                                            "runtime_manifest_path":  "artifacts/phase6/optimization_runtime_manifest.json",
+                                                            "runtime_manifest_sha256":  "5f4d7446d5c5a504c793d38cecda854b5b36b9dd65eeba6dcfe5a0c64b8d7395",
+                                                            "runtime_implementation_sha256":  "a391b196e0d73fe419d083e61d7bb92b87689e0adc02f3fed418b0a34cb3e082",
+                                                            "runtime_manifest_loader_sha256":  "80bbac4b1afa4a6357051048da7c0ca67939727f8572de0d87f8af43803aa931",
+                                                            "persistence_equivalence_sha256":  "48600b44b196d4da5e1352722c65578770e802004df50158065f8945af62ce99",
+                                                            "runtime_loader_must_validate_frozen_upstream_identity":  true,
+                                                            "phase7b_may_bypass_manifest_loader":  false,
+                                                            "hash_mismatch_action":  "raise_TrustedBoundaryError",
+                                                            "runtime_loader_failure_action":  "raise_TrustedBoundaryError",
+                                                            "parse_failure_action":  "raise_TrustedBoundaryError",
+                                                            "execution_failure_action":  "raise_TrustedBoundaryError",
+                                                            "invalid_response_action":  "raise_TrustedBoundaryError"
+                                                        }
+                             },
+    "provenance_contract":  {
+                                "phase7b_evidence_is_scientific_prediction":  false,
+                                "phase7b_evidence_is_adapter_validated_upstream_evidence":  true,
+                                "monitoring_evidence_must_include_manifest_sha256":  true,
+                                "optimisation_evidence_must_include_runtime_manifest_sha256":  true,
+                                "optimisation_runtime_response_provenance_must_be_preserved":  true,
+                                "provenance_may_be_rewritten":  false
+                            },
+    "import_boundary":  {
+                            "monitoring_adapter_allowed_project_imports":  [
+                                                                               "plasma_ai.monitoring.phase5g_persistence"
+                                                                           ],
+                            "optimisation_adapter_allowed_project_imports":  [
+                                                                                 "plasma_ai.optimisation.runtime"
+                                                                             ],
+                            "optimisation_adapter_runtime_manifest_types_may_be_imported":  false,
+                            "direct_imports_from_phase4_permitted":  false,
+                            "direct_imports_from_phase5_development_modules_permitted":  false,
+                            "direct_imports_from_phase6_grid_permitted":  false,
+                            "direct_imports_from_phase6_robustness_permitted":  false,
+                            "direct_imports_from_phase6_surrogate_adapter_permitted":  false,
+                            "direct_imports_from_phase6_continuous_permitted":  false
+                        },
+    "testing_contract":  {
+                             "test_directory":  "tests/agentic",
+                             "monitoring_test_file":  "tests/agentic/test_phase7_monitoring_adapter.py",
+                             "optimisation_test_file":  "tests/agentic/test_phase7_optimisation_adapter.py",
+                             "upstream_real_runtime_execution_in_unit_tests_permitted":  false,
+                             "default_adapter_unit_tests_use_test_doubles":  true,
+                             "monkeypatch_only_at_trusted_boundary_symbols":  true,
+                             "phase5_locked_test_access_permitted":  false,
+                             "source_simulator_access_permitted":  false,
+                             "production_qualification_evidence_modification_permitted":  false,
+                             "minimum_monitoring_test_classes":  [
+                                                                     "valid_single_observation",
+                                                                     "missing_field",
+                                                                     "extra_field",
+                                                                     "non_numeric_value",
+                                                                     "boolean_numeric_rejected",
+                                                                     "non_finite_value",
+                                                                     "non_positive_required_nominal_input",
+                                                                     "wrong_prediction_cardinality",
+                                                                     "probability_out_of_range",
+                                                                     "threshold_incoherence",
+                                                                     "inactive_state_incoherence",
+                                                                     "active_state_incoherence",
+                                                                     "unknown_diagnostic_state",
+                                                                     "manifest_hash_mismatch",
+                                                                     "loader_failure",
+                                                                     "prediction_failure"
+                                                                 ],
+                             "minimum_optimisation_test_classes":  [
+                                                                       "valid_selected_method_response",
+                                                                       "valid_selected_method_grid_infeasible_response",
+                                                                       "valid_grid_fallback_infeasible_response",
+                                                                       "valid_grid_fallback_regression_response",
+                                                                       "valid_no_feasible_response",
+                                                                       "manifest_hash_mismatch",
+                                                                       "loader_failure",
+                                                                       "parse_failure",
+                                                                       "execution_failure",
+                                                                       "unknown_status",
+                                                                       "status_source_incoherence",
+                                                                       "no_feasible_with_operating_point_incoherence",
+                                                                       "complete_runtime_response_preserved",
+                                                                       "request_not_mutated",
+                                                                       "one_parse_and_one_run_only"
+                                                                   ],
+                             "error_test_file":  "tests/agentic/test_phase7_errors.py",
+                             "minimum_boundary_error_test_classes":  [
+                                                                         "ordinary_exception_wrapped",
+                                                                         "original_exception_chained",
+                                                                         "boundary_stage_and_cause_type_preserved",
+                                                                         "keyboard_interrupt_not_caught",
+                                                                         "system_exit_not_caught"
+                                                                     ]
+                         },
+    "phase7b_completion_requirements":  [
+                                            "protocol_formally_frozen_before_implementation",
+                                            "only_narrow_trusted_upstream_modules_imported",
+                                            "monitoring_adapter_contract_implemented",
+                                            "optimisation_adapter_contract_implemented",
+                                            "typed_boundary_error_contract_implemented",
+                                            "immutable_evidence_contracts_implemented",
+                                            "all_phase7b_targeted_tests_pass",
+                                            "full_project_regression_passes",
+                                            "frozen_phase5_and_phase6_hashes_unchanged",
+                                            "frozen_phase7a_hashes_unchanged",
+                                            "working_tree_clean_at_closure"
+                                        ],
+    "implementation_unlock":  {
+                                  "unlock_condition":  "The dedicated Phase 7B protocol-freeze commit must exist and pass verification before adapter implementation begins.",
+                                  "implementation_permitted_before_formal_freeze":  false,
+                                  "implementation_permitted_after_formal_freeze":  true,
+                                  "freeze_commit_is_unlock_event":  true
+                              },
+    "formal_freeze_requires_git_commit":  true
+}
