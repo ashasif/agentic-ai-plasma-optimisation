@@ -62,6 +62,27 @@ from plasma_ai.optimisation.robustness import (
     run_seeded_differential_evolution,
     summarize_tradeoff_scenario,
 )
+from plasma_ai.optimisation.runtime import (
+    Phase6OptimisationRuntime,
+    ProductionRuntimeError,
+    RuntimeGridReference,
+    RuntimeResponse,
+    RuntimeSelectedMethodResult,
+    array_sha256,
+    build_runtime_from_components,
+    load_phase6_optimisation_runtime,
+    parse_runtime_request,
+)
+from plasma_ai.optimisation.runtime_manifest import (
+    EffectiveRuntimeProtocol,
+    RuntimeManifest,
+    RuntimeManifestError,
+    build_runtime_manifest_payload,
+    effective_runtime_sha256,
+    load_effective_runtime_protocol,
+    load_runtime_manifest,
+    supported_runtime_statuses,
+)
 from plasma_ai.optimisation.scenario import (
     OperatingPoint,
     OptimisationScenario,
@@ -79,6 +100,23 @@ from plasma_ai.optimisation.surrogate_adapter import (
 
 
 __all__ = [
+    "EffectiveRuntimeProtocol",
+    "Phase6OptimisationRuntime",
+    "ProductionRuntimeError",
+    "RuntimeGridReference",
+    "RuntimeManifest",
+    "RuntimeManifestError",
+    "RuntimeResponse",
+    "RuntimeSelectedMethodResult",
+    "array_sha256",
+    "build_runtime_from_components",
+    "build_runtime_manifest_payload",
+    "effective_runtime_sha256",
+    "load_effective_runtime_protocol",
+    "load_phase6_optimisation_runtime",
+    "load_runtime_manifest",
+    "parse_runtime_request",
+    "supported_runtime_statuses",
     "CachedPrediction",
     "CandidateEvaluation",
     "ContinuousBenchmarkError",
