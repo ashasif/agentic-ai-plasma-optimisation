@@ -62,6 +62,22 @@ The implemented workflow is:
 
 Each major capability was developed under an explicit evidence and governance boundary so that later phases could consume frozen upstream interfaces without silently retraining, retuning or rewriting them.
 
+### Architecture visualisations
+
+The post-closure Phase 8C visual set summarises the frozen technical architecture, decision-authority boundaries, and auditable project evidence lifecycle. These diagrams introduce no new scientific claims.
+
+![End-to-end technical architecture](docs/phase8/visuals/end_to_end_architecture.svg)
+
+*Synthetic reduced-order argon ICP workflow from the monitoring foundation through surrogate modelling, fault diagnosis, constrained optimisation, deterministic decision support, and mandatory human approval.*
+
+![Decision authority and safety flow](docs/phase8/visuals/decision_authority_flow.svg)
+
+*Trusted Phase 5, Phase 6 and Phase 7 boundaries, including fail-closed handling, operator initiation, escalation and explicit human approval.*
+
+![Auditable project evidence lifecycle](docs/phase8/visuals/project_evidence_lifecycle.svg)
+
+*Auditable phase-labelled Git lifecycle from Phase 3 through formal technical closure and the post-closure Phase 8 presentation layer.*
+
 ## 5. Auditable implementation lifecycle
 
 | Phase | Main purpose | Formal closure |
