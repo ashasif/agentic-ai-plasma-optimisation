@@ -6,6 +6,7 @@ build-backend = "setuptools.build_meta"
 name = "plasma-ai"
 version = "0.1.0"
 description = "Reduced-order ICP plasma modelling and agentic AI research-engineering project."
+readme = "README.md"
 license = { file = "LICENSE" }
 requires-python = ">=3.11"
 dependencies = [
