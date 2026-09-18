@@ -1,4 +1,4 @@
-﻿# Phase 8A — Release Packaging Manifest
+# Phase 8A — Release Packaging Manifest
 
 ## 1. Purpose
 
@@ -202,3 +202,23 @@ Before public release:
 11. create the GitHub release.
 
 No item in this document authorises modification of frozen scientific evidence.
+
+## 11. Final release decision
+
+The final Phase 8 audit resolves the release target explicitly.
+
+Immutable technical/scientific closure remains `a0d57cf8838e294412f97ac2d898ee5aafe968c2`.
+
+The audited pre-release packaged head is `11199fafc386108320a0bc4610b10b4e2a22956b`.
+
+Because the formal Phase 8 closure evidence and final publication decision must themselves be present in the release archive, the final `v0.1.0` tag is authorised to target the documentation-only formal Phase 8 closure commit created directly on top of that audited packaged head.
+
+This is a post-closure packaging decision only. It does not move, amend, supersede or reinterpret the immutable technical closure.
+
+The final release gate must verify:
+
+1. the formal Phase 8 closure commit is a direct child of the audited packaged head;
+2. `v0.1.0` resolves exactly to that closure commit;
+3. the GitHub Release is public, non-draft and non-prerelease;
+4. the immutable technical closure remains an ancestor of the release target;
+5. the working tree is clean and local, tracking and remote `main` are synchronized.

@@ -1,4 +1,4 @@
-﻿# Release Notes
+# Release Notes
 
 ## v0.1.0 — Formal Technical Closure Release Candidate
 
@@ -122,3 +122,20 @@ At creation of this document:
 - software licence: MIT License (`LICENSE`).
 
 Phase 8 packaging commits may improve presentation and release metadata, but they must remain clearly downstream of the immutable formal technical closure baseline.
+
+## Final Phase 8 publication decision
+
+The earlier release-candidate status above records the pre-publication state established during Phase 8A.
+
+The final Phase 8 audit subsequently completed Phases 8A through 8F and resolved the public release semantics as follows:
+
+- release tag: `v0.1.0`;
+- immutable technical/scientific closure: `a0d57cf8838e294412f97ac2d898ee5aafe968c2`;
+- audited pre-release packaged head: `11199fafc386108320a0bc4610b10b4e2a22956b`;
+- final tag target: the documentation-only formal Phase 8 closure commit containing the final release decision and closure evidence;
+- the release target is downstream of the immutable technical closure and does not redefine that scientific baseline;
+- the release archive includes the completed post-closure README, licence, citation metadata, visualisations, technical report, portfolio case study and professional application pack.
+
+The frozen whole-project technical qualification remains **793 / 793 tests passed**.
+
+The release remains limited to a synthetic reduced-order argon ICP research-engineering study. It does not establish experimental or industrial validation, global physical optimality, global physical infeasibility, autonomous hardware actuation or autonomous setpoint control.
