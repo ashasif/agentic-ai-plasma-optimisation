@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="1600" height="900" role="img" aria-labelledby="title desc">
+  <title id="title">Auditable Project Evidence Lifecycle</title>
+  <desc id="desc">Auditable phase-labelled Git lifecycle from Phase 3 through technical closure and the post-closure Phase 8 presentation layer.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M0,0 L12,6 L0,12 z" fill="#334155"/>
+    </marker>
+    <style>
+      .title { font: 700 36px Arial, Helvetica, sans-serif; fill: #0f172a; }
+      .subtitle { font: 18px Arial, Helvetica, sans-serif; fill: #475569; }
+      .phase { font: 700 20px Arial, Helvetica, sans-serif; fill: #0f172a; }
+      .body { font: 15px Arial, Helvetica, sans-serif; fill: #334155; }
+      .small { font: 13px Arial, Helvetica, sans-serif; fill: #475569; }
+      .box { stroke: #64748b; stroke-width: 2; rx: 16; }
+      .arrow { fill: none; stroke: #334155; stroke-width: 3; marker-end: url(#arrow); }
+    </style>
+  </defs>
+  <rect width="1600" height="900" fill="#f8fafc"/>
+  <text x="70" y="65" class="title">Auditable Project Evidence Lifecycle</text>
+  <text x="70" y="102" class="subtitle">Technical lifecycle is frozen at formal project closure; Phase 8 is post-closure packaging and presentation only</text>
+
+  <rect x="65" y="160" width="1470" height="330" rx="24" fill="#f1f5f9" stroke="#94a3b8" stroke-width="2"/>
+  <text x="90" y="200" class="phase">Auditable technical lifecycle</text>
+
+  <rect x="95" y="245" width="205" height="150" class="box" fill="#dcfce7"/>
+  <text x="120" y="283" class="phase">Phase 3</text>
+  <text x="120" y="315" class="body">Synthetic monitoring</text>
+  <text x="120" y="340" class="body">foundation</text>
+  <text x="120" y="372" class="small">247374cf</text>
+
+  <rect x="340" y="245" width="205" height="150" class="box" fill="#ede9fe"/>
+  <text x="365" y="283" class="phase">Phase 4</text>
+  <text x="365" y="315" class="body">Surrogate modelling</text>
+  <text x="365" y="340" class="body">and locked TEST</text>
+  <text x="365" y="372" class="small">853024fb</text>
+
+  <rect x="585" y="245" width="205" height="150" class="box" fill="#fef3c7"/>
+  <text x="610" y="283" class="phase">Phase 5</text>
+  <text x="610" y="315" class="body">Monitoring &amp; fault</text>
+  <text x="610" y="340" class="body">diagnosis</text>
+  <text x="610" y="372" class="small">7f8f9b32</text>
+
+  <rect x="830" y="245" width="205" height="150" class="box" fill="#ffe4e6"/>
+  <text x="855" y="283" class="phase">Phase 6</text>
+  <text x="855" y="315" class="body">Constrained</text>
+  <text x="855" y="340" class="body">optimisation</text>
+  <text x="855" y="372" class="small">08aa55e2</text>
+
+  <rect x="1075" y="245" width="205" height="150" class="box" fill="#dbeafe"/>
+  <text x="1100" y="283" class="phase">Phase 7</text>
+  <text x="1100" y="315" class="body">Trusted agentic</text>
+  <text x="1100" y="340" class="body">decision support</text>
+  <text x="1100" y="372" class="small">a6046186</text>
+
+  <rect x="1320" y="230" width="185" height="180" class="box" fill="#ccfbf1"/>
+  <text x="1345" y="270" class="phase">Technical closure</text>
+  <text x="1345" y="305" class="body">793 / 793 tests</text>
+  <text x="1345" y="335" class="body">Project closed</text>
+  <text x="1345" y="370" class="small">a0d57cf8</text>
+
+  <path d="M300 320 L340 320" class="arrow"/>
+  <path d="M545 320 L585 320" class="arrow"/>
+  <path d="M790 320 L830 320" class="arrow"/>
+  <path d="M1035 320 L1075 320" class="arrow"/>
+  <path d="M1280 320 L1320 320" class="arrow"/>
+
+  <rect x="65" y="545" width="1470" height="230" rx="24" fill="#fff7ed" stroke="#fb923c" stroke-width="2"/>
+  <text x="90" y="585" class="phase">Phase 8 - post-closure packaging and dissemination</text>
+
+  <rect x="155" y="625" width="300" height="105" class="box" fill="#fef3c7"/>
+  <text x="180" y="665" class="phase">Phase 8A</text>
+  <text x="180" y="698" class="body">Release packaging &amp; metadata</text>
+
+  <rect x="650" y="625" width="300" height="105" class="box" fill="#dbeafe"/>
+  <text x="675" y="665" class="phase">Phase 8B</text>
+  <text x="675" y="698" class="body">README &amp; project presentation</text>
+  <text x="675" y="722" class="small">Closed: c06242b9</text>
+
+  <rect x="1145" y="625" width="300" height="105" class="box" fill="#ede9fe"/>
+  <text x="1170" y="665" class="phase">Phase 8C</text>
+  <text x="1170" y="698" class="body">Architecture &amp; visualisation</text>
+  <text x="1170" y="722" class="small">Current post-closure layer</text>
+
+  <path d="M455 678 L650 678" class="arrow"/>
+  <path d="M950 678 L1145 678" class="arrow"/>
+  <path d="M1410 410 C1410 500 1295 520 1295 625" class="arrow"/>
+
+  <rect x="95" y="810" width="1410" height="55" rx="14" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
+  <text x="120" y="845" class="body">Historical boundary: no formal Phase 1 or Phase 2 labelled Git commits; the auditable phase-labelled lifecycle begins at Phase 3.</text>
+</svg>

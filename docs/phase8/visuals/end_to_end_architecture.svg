@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="1600" height="900" role="img" aria-labelledby="title desc">
+  <title id="title">End-to-End Architecture</title>
+  <desc id="desc">Synthetic reduced-order argon ICP architecture spanning monitoring, surrogate modelling, constrained optimisation and deterministic human-approved decision support.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M0,0 L12,6 L0,12 z" fill="#334155"/>
+    </marker>
+    <style>
+      .title { font: 700 36px Arial, Helvetica, sans-serif; fill: #0f172a; }
+      .subtitle { font: 18px Arial, Helvetica, sans-serif; fill: #475569; }
+      .phase { font: 700 22px Arial, Helvetica, sans-serif; fill: #0f172a; }
+      .body { font: 16px Arial, Helvetica, sans-serif; fill: #334155; }
+      .small { font: 14px Arial, Helvetica, sans-serif; fill: #475569; }
+      .box { stroke: #64748b; stroke-width: 2; rx: 18; }
+      .arrow { fill: none; stroke: #334155; stroke-width: 3; marker-end: url(#arrow); }
+      .dash { fill: none; stroke: #64748b; stroke-width: 3; stroke-dasharray: 10 8; marker-end: url(#arrow); }
+    </style>
+  </defs>
+  <rect width="1600" height="900" fill="#f8fafc"/>
+  <text x="80" y="70" class="title">End-to-End Technical Architecture</text>
+  <text x="80" y="108" class="subtitle">Synthetic reduced-order argon ICP research workflow with deterministic human-approved decision support</text>
+
+  <rect x="70" y="220" width="230" height="170" class="box" fill="#e0f2fe"/>
+  <text x="95" y="260" class="phase">Synthetic ICP system</text>
+  <text x="95" y="295" class="body">Reduced-order argon ICP</text>
+  <text x="95" y="325" class="body">Synthetic operating data</text>
+  <text x="95" y="355" class="small">No experimental or industrial</text>
+  <text x="95" y="378" class="small">validation claim</text>
+
+  <rect x="365" y="220" width="245" height="170" class="box" fill="#dcfce7"/>
+  <text x="390" y="260" class="phase">Phase 3</text>
+  <text x="390" y="295" class="body">Synthetic operating-envelope</text>
+  <text x="390" y="325" class="body">and monitoring foundation</text>
+  <text x="390" y="355" class="small">Reproducible synthetic</text>
+  <text x="390" y="378" class="small">monitoring environment</text>
+
+  <rect x="675" y="120" width="270" height="170" class="box" fill="#ede9fe"/>
+  <text x="700" y="160" class="phase">Phase 4</text>
+  <text x="700" y="195" class="body">Surrogate modelling</text>
+  <text x="700" y="225" class="body">Density + temperature</text>
+  <text x="700" y="255" class="small">Locked-test evaluation and</text>
+  <text x="700" y="278" class="small">persisted inference artifacts</text>
+
+  <rect x="675" y="360" width="270" height="170" class="box" fill="#fef3c7"/>
+  <text x="700" y="400" class="phase">Phase 5</text>
+  <text x="700" y="435" class="body">Monitoring &amp; fault diagnosis</text>
+  <text x="700" y="465" class="body">Trusted monitoring runtime</text>
+  <text x="700" y="495" class="small">Detector + ambiguity-aware</text>
+  <text x="700" y="518" class="small">diagnostic-state contract</text>
+
+  <rect x="1010" y="120" width="300" height="190" class="box" fill="#ffe4e6"/>
+  <text x="1035" y="160" class="phase">Phase 6</text>
+  <text x="1035" y="195" class="body">Constrained optimisation</text>
+  <text x="1035" y="225" class="body">DE primary + grid reference</text>
+  <text x="1035" y="255" class="small">Absorbed power: 15-90 W</text>
+  <text x="1035" y="278" class="small">Pressure: 10-60 mTorr</text>
+  <text x="1035" y="301" class="small">No global optimality claim</text>
+
+  <rect x="1010" y="360" width="300" height="190" class="box" fill="#dbeafe"/>
+  <text x="1035" y="400" class="phase">Phase 7</text>
+  <text x="1035" y="435" class="body">Deterministic agentic</text>
+  <text x="1035" y="463" class="body">decision support</text>
+  <text x="1035" y="495" class="small">Consumes frozen trusted</text>
+  <text x="1035" y="518" class="small">Phase 5 + Phase 6 interfaces</text>
+  <text x="1035" y="541" class="small">Fail-closed authority boundary</text>
+
+  <rect x="1370" y="370" width="180" height="150" class="box" fill="#ccfbf1"/>
+  <text x="1385" y="425" class="phase">Human approval</text>
+  <text x="1395" y="475" class="body">Required before</text>
+  <text x="1395" y="500" class="body">external action</text>
+
+  <rect x="1240" y="660" width="310" height="105" class="box" fill="#f1f5f9"/>
+  <text x="1265" y="700" class="phase">External action layer</text>
+  <text x="1265" y="735" class="small">Outside authoritative scientific record</text>
+
+  <path d="M300 305 L365 305" class="arrow"/>
+  <path d="M300 260 C440 150 545 180 675 205" class="arrow"/>
+  <path d="M610 305 C640 305 650 420 675 445" class="arrow"/>
+  <path d="M945 205 L1010 205" class="arrow"/>
+  <path d="M945 445 L1010 445" class="arrow"/>
+  <path d="M1160 310 L1160 360" class="arrow"/>
+  <path d="M1310 445 L1370 445" class="arrow"/>
+  <path d="M1460 520 L1460 660" class="dash"/>
+
+  <rect x="70" y="650" width="1050" height="130" rx="18" fill="#fff7ed" stroke="#fb923c" stroke-width="2"/>
+  <text x="95" y="690" class="phase">Binding scope and governance</text>
+  <text x="95" y="725" class="body">Synthetic reduced-order argon ICP only; no experimental, industrial, fab-scale, wafer-scale or reactive-chemistry validation.</text>
+  <text x="95" y="755" class="body">No autonomous hardware actuation; no autonomous setpoint control; no global physical optimality or global physical infeasibility claim.</text>
+
+  <text x="80" y="850" class="small">Phase 8C visualisation derived from frozen project evidence; no new scientific claim is introduced.</text>
+</svg>

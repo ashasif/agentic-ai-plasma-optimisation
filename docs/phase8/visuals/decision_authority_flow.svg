@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 980" width="1600" height="980" role="img" aria-labelledby="title desc">
+  <title id="title">Decision Authority and Safety Flow</title>
+  <desc id="desc">Trusted Phase 5, Phase 6 and Phase 7 decision-support flow with fail-closed handling, operator initiation and mandatory human approval.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M0,0 L12,6 L0,12 z" fill="#334155"/>
+    </marker>
+    <style>
+      .title { font: 700 36px Arial, Helvetica, sans-serif; fill: #0f172a; }
+      .subtitle { font: 18px Arial, Helvetica, sans-serif; fill: #475569; }
+      .head { font: 700 21px Arial, Helvetica, sans-serif; fill: #0f172a; }
+      .body { font: 16px Arial, Helvetica, sans-serif; fill: #334155; }
+      .small { font: 14px Arial, Helvetica, sans-serif; fill: #475569; }
+      .box { stroke: #64748b; stroke-width: 2; rx: 16; }
+      .arrow { fill: none; stroke: #334155; stroke-width: 3; marker-end: url(#arrow); }
+      .dash { fill: none; stroke: #64748b; stroke-width: 3; stroke-dasharray: 9 7; marker-end: url(#arrow); }
+    </style>
+  </defs>
+  <rect width="1600" height="980" fill="#f8fafc"/>
+  <text x="70" y="65" class="title">Decision Authority &amp; Safety Flow</text>
+  <text x="70" y="102" class="subtitle">Phase 7 coordinates trusted Phase 5 and Phase 6 interfaces without autonomous scientific or hardware authority</text>
+
+  <text x="80" y="160" class="head">Monitoring-initiated path</text>
+  <rect x="70" y="190" width="230" height="105" class="box" fill="#e0f2fe"/>
+  <text x="95" y="230" class="head">Monitoring observation</text>
+  <text x="95" y="262" class="small">One authoritative observation</text>
+
+  <rect x="355" y="190" width="245" height="105" class="box" fill="#fef3c7"/>
+  <text x="380" y="230" class="head">Trusted Phase 5</text>
+  <text x="380" y="262" class="small">Detection + diagnosis evaluation</text>
+
+  <rect x="655" y="175" width="260" height="135" class="box" fill="#dbeafe"/>
+  <text x="680" y="215" class="head">Phase 7 policy</text>
+  <text x="680" y="247" class="body">Evaluate trusted outcome</text>
+  <text x="680" y="277" class="small">Fault / boundary / mapping state</text>
+
+  <rect x="1030" y="145" width="260" height="100" class="box" fill="#fee2e2"/>
+  <text x="1055" y="185" class="head">Fail-closed escalation</text>
+  <text x="1055" y="215" class="small">Trusted-boundary failure</text>
+
+  <rect x="1030" y="275" width="260" height="100" class="box" fill="#fff7ed"/>
+  <text x="1055" y="315" class="head">Request human input</text>
+  <text x="1055" y="345" class="small">Active fault without frozen mapping</text>
+
+  <text x="80" y="430" class="head">Operator-initiated optimisation path</text>
+  <rect x="70" y="460" width="300" height="110" class="box" fill="#ecfccb"/>
+  <text x="95" y="500" class="head">Explicit operator request</text>
+  <text x="95" y="532" class="small">Required for operator optimisation mode</text>
+
+  <rect x="485" y="445" width="300" height="140" class="box" fill="#ffe4e6"/>
+  <text x="510" y="485" class="head">Trusted Phase 6 evaluation</text>
+  <text x="510" y="517" class="body">Constrained operating-point search</text>
+  <text x="510" y="547" class="small">DE primary; grid reference/fallback</text>
+  <text x="510" y="570" class="small">No global optimality guarantee</text>
+
+  <rect x="910" y="445" width="290" height="140" class="box" fill="#ede9fe"/>
+  <text x="935" y="485" class="head">Phase 7 status handling</text>
+  <text x="935" y="517" class="body">Trusted statuses 1-4</text>
+  <text x="935" y="547" class="small">or no-feasible outcome</text>
+  <text x="935" y="570" class="small">No global infeasibility claim</text>
+
+  <rect x="1320" y="410" width="220" height="120" class="box" fill="#ccfbf1"/>
+  <text x="1345" y="452" class="head">Recommendation</text>
+  <text x="1345" y="483" class="body">Pending explicit</text>
+  <text x="1345" y="510" class="body">human approval</text>
+
+  <rect x="1320" y="585" width="220" height="120" class="box" fill="#fee2e2"/>
+  <text x="1345" y="627" class="head">Escalation</text>
+  <text x="1345" y="658" class="body">No recommendation</text>
+  <text x="1345" y="685" class="small">No-feasible / unsafe path</text>
+
+  <rect x="1010" y="740" width="300" height="120" class="box" fill="#ccfbf1"/>
+  <text x="1035" y="782" class="head">Human approval</text>
+  <text x="1035" y="814" class="body">Mandatory authority boundary</text>
+  <text x="1035" y="842" class="small">Approval external to immutable record</text>
+
+  <rect x="1360" y="755" width="180" height="90" class="box" fill="#f1f5f9"/>
+  <text x="1385" y="795" class="head">External action</text>
+  <text x="1385" y="825" class="small">Not autonomous</text>
+
+  <path d="M300 242 L355 242" class="arrow"/>
+  <path d="M600 242 L655 242" class="arrow"/>
+  <path d="M915 215 L1030 195" class="arrow"/>
+  <path d="M915 270 L1030 325" class="arrow"/>
+  <path d="M785 310 C785 380 635 390 635 445" class="arrow"/>
+  <path d="M370 515 L485 515" class="arrow"/>
+  <path d="M785 515 L910 515" class="arrow"/>
+  <path d="M1200 485 L1320 470" class="arrow"/>
+  <path d="M1200 550 L1320 645" class="arrow"/>
+  <path d="M1430 530 C1430 690 1200 690 1160 740" class="arrow"/>
+  <path d="M1310 800 L1360 800" class="dash"/>
+
+  <rect x="70" y="725" width="820" height="145" rx="18" fill="#fff7ed" stroke="#fb923c" stroke-width="2"/>
+  <text x="95" y="765" class="head">Authority constraints</text>
+  <text x="95" y="798" class="body">No autonomous hardware actuation. No autonomous setpoint change.</text>
+  <text x="95" y="830" class="body">LLM: no scientific prediction, optimisation or actuation authority in the authoritative path.</text>
+  <text x="95" y="858" class="small">Recommendations remain decision support and require explicit human approval.</text>
+
+  <text x="70" y="935" class="small">A monitoring fault cannot trigger Phase 6 without an approved frozen mapping; otherwise Phase 7 requests human input.</text>
+</svg>
