@@ -14,6 +14,10 @@ dependencies = [
     "scikit-learn>=1.5",
 ]
 
+[project.urls]
+Repository = "https://github.com/ashasif/agentic-ai-plasma-optimisation"
+Issues = "https://github.com/ashasif/agentic-ai-plasma-optimisation/issues"
+
 [project.optional-dependencies]
 dev = [
     "pytest>=8.0",

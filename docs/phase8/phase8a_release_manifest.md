@@ -191,9 +191,9 @@ Before public release:
 
 1. MIT License selected and recorded in `LICENSE` and package/citation metadata;
 2. create the Phase 8A packaging commit(s);
-3. create/configure the GitHub repository and remote;
-4. audit the remote repository state;
-5. add repository URLs to relevant metadata where appropriate;
+3. public GitHub repository created and `origin` configured: `https://github.com/ashasif/agentic-ai-plasma-optimisation`;
+4. empty public remote audited before first push;
+5. repository URLs recorded in package and citation metadata;
 6. complete Phase 8B README work;
 7. audit final release contents;
 8. create the release tag only after the audited content is approved;

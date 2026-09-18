@@ -115,7 +115,7 @@ At creation of this document:
 - candidate package version: `0.1.0`;
 - candidate tag: `v0.1.0`;
 - Git tag: not yet created;
-- GitHub remote: not yet configured;
+- public GitHub repository: `https://github.com/ashasif/agentic-ai-plasma-optimisation`;
 - GitHub release: not yet created;
 - public README: deferred to Phase 8B;
 - architecture visualisation: deferred to Phase 8C;
